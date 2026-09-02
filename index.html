@@ -63,7 +63,7 @@
       </div>
       <div class="row">
         <button id="copyConfig">复制配置链接</button>
-        <button id="exportConfig" title="把当前持有/锁定/筛选等全部配置保存为本地 JSON 文件（可备份或发给他人导入）">导出配置</button>
+        <button id="exportConfig" title="弹窗确认文件名后，由本机服务保存到项目根目录 settings/（服务不可用时自动回退浏览器下载）">导出配置</button>
         <button id="importConfig" title="从本地 JSON 文件恢复配置（会覆盖当前设置）">导入配置</button>
         <input type="file" id="importFile" accept=".json,application/json" hidden />
         <button id="resetConfig">重置配置</button>
@@ -136,6 +136,22 @@
   </main>
 
   <footer>数据抓取自 Mooncell（fgo.wiki），仅供个人研究使用。</footer>
+
+  <div id="exportModal" class="modal-mask" hidden>
+    <div class="modal">
+      <h3>导出配置到文件</h3>
+      <p class="meta">保存位置：运行本应用的本机 → 项目根目录 <code>settings/</code> 文件夹</p>
+      <label>文件名
+        <input type="text" id="exportFileName" spellcheck="false" />
+      </label>
+      <p id="exportMsg" class="meta export-msg"></p>
+      <div class="modal-actions">
+        <button id="exportSave">保存</button>
+        <button id="exportCancel">取消</button>
+      </div>
+    </div>
+  </div>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

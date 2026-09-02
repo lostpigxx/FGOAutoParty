@@ -25,6 +25,8 @@ cpSync(path.join(root, "server.mjs"), path.join(bundleDir, "server.mjs"));
 mkdirSync(path.join(bundleDir, "server"), { recursive: true });
 cpSync(path.join(root, "server", "refresh.mjs"), path.join(bundleDir, "server", "refresh.mjs"));
 cpSync(path.join(root, "server", "refresh.d.mts"), path.join(bundleDir, "server", "refresh.d.mts"));
+cpSync(path.join(root, "server", "config-save.mjs"), path.join(bundleDir, "server", "config-save.mjs"));
+cpSync(path.join(root, "server", "config-save.d.mts"), path.join(bundleDir, "server", "config-save.d.mts"));
 cpSync(path.join(root, "scraper"), path.join(bundleDir, "scraper"), { recursive: true });
 
 // 数据快照日期

@@ -10,3 +10,4 @@ data/raw_*.json
 .DS_Store
 *.log
 release/
+settings/

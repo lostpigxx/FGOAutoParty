@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { exec } from "node:child_process";
 import { dataStatus, refreshData } from "./server/refresh.mjs";
+import { saveConfigFile } from "./server/config-save.mjs";
 
 function openBrowser(url) {
   const cmd =
@@ -47,6 +48,23 @@ const server = http.createServer(async (req, res) => {
   }
   if (url.pathname === "/api/status") {
     sendJson(res, await dataStatus(root));
+    return;
+  }
+  if (url.pathname === "/api/config/save" && req.method === "POST") {
+    let raw = "";
+    let tooBig = false;
+    for await (const chunk of req) {
+      raw += chunk;
+      if (raw.length > 2_000_000) {
+        tooBig = true;
+        break;
+      }
+    }
+    if (tooBig) {
+      sendJson(res, { ok: false, error: "配置内容过大" }, 413);
+      return;
+    }
+    sendJson(res, await saveConfigFile(root, raw));
     return;
   }
 
