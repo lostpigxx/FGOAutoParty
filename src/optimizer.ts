@@ -351,9 +351,15 @@ function splitFreeCes(
  * 对固定助战礼装做优化, 返回该助战下的 Top-K 结果。
  * 交替迭代收敛最佳队伍后, 对最终队伍取 Top-K 礼装组合。
  */
-function optimizeWithSupportTopK(
+/**
+ * 交替迭代核心: 从给定「自由从者初始种子」出发, 收敛后返回 Top-K 礼装组合结果。
+ * 交替法对初始队伍敏感 (不同种子可能收敛到不同局部最优),
+ * 多起点优化 = 换多个种子各跑一遍, 取全局最优。
+ */
+function runAlternation(
   input: OptimizeInput,
   supportCe: CeItem | null,
+  initialFree: ServantInfo[],
   k: number,
 ): OptimizeResult[] {
   const n = input.ownSlots;
@@ -369,8 +375,7 @@ function optimizeWithSupportTopK(
 
   const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
 
-  // 初始队伍: 锁定 + 最便宜填充
-  let free = cheapestFillers(pool, freeCount);
+  let free = [...initialFree];
   let bestParty: ServantInfo[] | null = null;
 
   for (let iter = 0; iter < 6; iter++) {
@@ -465,6 +470,31 @@ function optimizeWithSupportTopK(
         )
       : [buildResult(input, supportCe, supportCe2, party, [...freeChosen])];
   return results;
+}
+
+/** 默认单起点: 自由位以「最便宜填充」起步 */
+function optimizeWithSupportTopK(
+  input: OptimizeInput,
+  supportCe: CeItem | null,
+  k: number,
+): OptimizeResult[] {
+  const freeCount = input.ownSlots - input.lockedServants.length;
+  const pool = [...input.freePool];
+  return runAlternation(input, supportCe, cheapestFillers(pool, freeCount), k);
+}
+
+/** 多起点入口: 从指定自由从者种子起步跑完整交替收敛 (种子可来自随机/特性定向采样) */
+export function optimizeFromSeed(
+  input: OptimizeInput,
+  supportCe: CeItem | null,
+  seed: ServantInfo[],
+  k = 1,
+): OptimizeResult[] {
+  const freeCount = input.ownSlots - input.lockedServants.length;
+  if (seed.length !== freeCount) {
+    throw new Error(`多起点种子需恰好 ${freeCount} 名自由从者, 实际 ${seed.length}`);
+  }
+  return runAlternation(input, supportCe, [...seed], k);
 }
 
 function resultSignature(r: OptimizeResult): string {
@@ -607,10 +637,93 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
 /** 智能方案(首选)的自由从者 cost 权重 κ: 加成第一, 同加成尽量上高星 */
 const SMART_K = 1;
 
+// ---------------------------------------------------------------------------
+// 多起点: 交替法对初始队伍敏感, 从多个确定性种子出发收敛取全局最优
+// ---------------------------------------------------------------------------
+
+/** 确定性 PRNG (随机种子固定, 保证结果可复现/可分享) */
+function mulberry32(a: number): () => number {
+  return () => {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** cost 降序 (同 cost 高稀有度优先) */
+function byCostDesc(a: ServantInfo, b: ServantInfo): number {
+  return b.cost - a.cost || b.rarity - a.rarity;
+}
+
+/**
+ * 构建多起点初始种子 (自由从者集合, 每个长度 = freeCount):
+ * - 最便宜: 等价于原单起点 (保证多起点结果不倒退)
+ * - 最高星: cost 降序
+ * - 特性定向: 秩序善/秩序女性/星或恶/灵衣/兽科, 各自 cost 降序
+ * - 职阶定向: 七职阶各自 cost 降序
+ * - 随机: 固定种子抽样 (多样性兜底)
+ * 特性/职阶种子匹配不足 freeCount 人时跳过。
+ */
+function buildSeeds(pool: ServantInfo[], freeCount: number): ServantInfo[][] {
+  const seeds: ServantInfo[][] = [];
+  const push = (arr: ServantInfo[]) => {
+    const uniq = [...new Map(arr.map((s) => [s.name, s])).values()];
+    if (uniq.length >= freeCount) seeds.push(uniq.slice(0, freeCount));
+  };
+  const top = (list: ServantInfo[]) => [...list].sort(byCostDesc);
+  const cheapest = [...pool].sort((a, b) => a.cost - b.cost);
+
+  push(cheapest); // 默认起点 (单起点行为)
+  push(top(pool)); // 最高星
+  for (const ts of [["秩序·善"], ["秩序的女性"], ["星", "恶"], ["持有灵衣之人"], ["兽科从者"]]) {
+    push(top(pool.filter((s) => ts.some((t) => servantMatchesTrait(s, t)))));
+  }
+  for (const cls of ["Saber", "Archer", "Lancer", "Rider", "Caster", "Assassin", "Berserker"]) {
+    push(top(pool.filter((s) => s.className === cls)));
+  }
+  const rng = mulberry32(20240511);
+  for (let i = 0; i < 6; i++) {
+    push([...pool].sort(() => rng() - 0.5));
+  }
+
+  const seen = new Set<string>();
+  const key = (p: ServantInfo[]) => p.map((s) => s.name).sort().join("|");
+  return seeds.filter((p) => (seen.has(key(p)) ? false : (seen.add(key(p)), true)));
+}
+
+/**
+ * 多起点优化: 每个种子 × 每种助战礼装选项做交替收敛, 返回全局最优。
+ * 含默认「最便宜」种子, 因此结果不差于单起点 (optimizeTopN)。
+ * 返回 null 表示无可行解 (由调用方回退到单起点以保留错误信息)。
+ */
+export function optimizeMultiStart(input: OptimizeInput): OptimizeResult | null {
+  const freeCount = input.ownSlots - input.lockedServants.length;
+  const pool = [...input.freePool];
+  if (pool.length < freeCount) return null;
+  const seeds = buildSeeds(pool, freeCount);
+  const options: (CeItem | null)[] = input.includeSupport ? [null, ...input.supportOptions] : [null];
+  let best: OptimizeResult | null = null;
+  for (const seed of seeds) {
+    for (const opt of options) {
+      const r = runAlternation(input, opt, seed, 1)[0];
+      if (!r?.feasible) continue;
+      if (
+        !best ||
+        r.totalPct > best.totalPct ||
+        (r.totalPct === best.totalPct && r.totalCost > best.totalCost)
+      ) {
+        best = r;
+      }
+    }
+  }
+  return best;
+}
+
 /**
  * 方案列表 (全部展示, 由前端折叠后排):
- *   候选1: 加成最优 (κ=0, 纯加成)
- *   候选2: 智能方案 (κ=1, 加成第一 + κ×cost 尽量上高星) —— 通常榜首
+ *   候选1: 加成最优 (κ=0, 纯加成) —— 多起点
+ *   候选2: 智能方案 (κ=1, 加成第一 + κ×cost 尽量上高星) —— 多起点, 通常榜首
  *   候选3: cost最佳 (尽可能用满 cost)
  * 签名去重后按 (加成降序, 同加成 cost 降序) 排序。
  */
@@ -624,8 +737,13 @@ export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
     candidates.push(r);
   };
 
-  pushUnique(optimizeTopN(input, 1)[0]); // 加成最佳 (κ=0)
-  pushUnique(optimizeTopN({ ...input, servantCostWeight: SMART_K }, 1)[0]); // 智能方案 (κ=1)
+  // 多起点 (含默认起点种子, 保证不倒退); 无可行解时回退单起点以保留错误信息
+  const pureBest = optimizeMultiStart({ ...input, servantCostWeight: 0 }) ?? optimizeTopN(input, 1)[0];
+  pushUnique(pureBest); // 加成最佳 (κ=0)
+  const smartBest =
+    optimizeMultiStart({ ...input, servantCostWeight: SMART_K }) ??
+    optimizeTopN({ ...input, servantCostWeight: SMART_K }, 1)[0];
+  pushUnique(smartBest); // 智能方案 (κ=1)
   pushUnique(optimizeCostMax(input), (x) => {
     x.isCostMax = true;
   }); // cost最佳
