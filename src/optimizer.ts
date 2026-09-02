@@ -27,6 +27,8 @@ export interface CeItem {
 export interface OptimizeInput {
   costLimit: number;
   ownSlots: number;
+  /** 最多装备的礼装数 (<= ownSlots; 卡 cost 时可减少) */
+  maxCes: number;
   /** 是否计算助战位 (借用好友, cost 不计入) */
   includeSupport: boolean;
   /** 可选助战礼装 (优化器自动选最优, 含 null=无) */
@@ -332,7 +334,7 @@ function optimizeWithSupportTopK(
       ];
     }
     const usable = items.filter((x) => x.value > 0);
-    const kp = knapsack(usable, budgetCe, n);
+    const kp = knapsack(usable, budgetCe, Math.min(input.maxCes, n));
     const chosen = kp.chosen.map((x) => x.it);
 
     // ---- 自动选从者: 按已选礼装评分 ----
@@ -381,7 +383,7 @@ function optimizeWithSupportTopK(
   const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
   const usable = items.filter((x) => x.value > 0);
 
-  const topSets = usable.length ? knapsackTopK(usable, budgetCe, n, k) : [];
+  const topSets = usable.length ? knapsackTopK(usable, budgetCe, Math.min(input.maxCes, n), k) : [];
   const results =
     topSets.length > 0
       ? topSets.map((ks) => buildResult(input, supportCe, party, ks.chosen.map((x) => x.it)))

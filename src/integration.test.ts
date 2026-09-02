@@ -87,6 +87,7 @@ describe("真实数据管线", () => {
     const r = optimize({
       costLimit: 113,
       ownSlots: 6,
+      maxCes: 6,
       includeSupport: true,
       supportOptions: supportCeOptions(catalog),
       ceItems: toCeItems(ownedCes),

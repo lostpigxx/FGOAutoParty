@@ -13,6 +13,7 @@ function baseInput(): ConfigInput {
     settings: {
       costLimit: 113,
       ownSlots: 6,
+      maxCes: 5,
       includeSupport: true,
       supportMode: "auto",
       autoPickFree: true,
@@ -107,6 +108,7 @@ describe("配置持久化", () => {
     delete cfg.settings.rarityFilter;
     const parsed = parseConfig(JSON.stringify(cfg), new Set(), input.allTitles)!;
     expect(parsed.settings.ceOnly5).toBe(true);
+    expect(parsed.settings.maxCes).toBe(5);
     expect(parsed.settings.classFilter).toEqual([]);
     expect(parsed.settings.traitFilter).toEqual([]);
     expect(parsed.settings.rarityFilter).toEqual([1, 2, 3, 4, 5]);

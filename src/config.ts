@@ -7,6 +7,8 @@ export interface PersistedConfig {
   settings: {
     costLimit: number;
     ownSlots: number;
+    /** 最多装备的礼装数 (卡 cost 时可减少, 让更多高星从者上阵) */
+    maxCes: number;
     includeSupport: boolean;
     supportMode: string;
     autoPickFree: boolean;
@@ -74,8 +76,9 @@ export function parseConfig(
     if (!raw || raw.v !== 2) return null;
 
     const settings = {
-      costLimit: clampInt(raw.settings?.costLimit, 1, 999, 113),
-      ownSlots: clampInt(raw.settings?.ownSlots, 1, 6, 6),
+      costLimit: clampInt(raw.settings?.costLimit, 1, 999, 116),
+      ownSlots: clampInt(raw.settings?.ownSlots, 1, 6, 5),
+      maxCes: clampInt(raw.settings?.maxCes, 0, 6, 5),
       includeSupport: raw.settings?.includeSupport !== false,
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",
       autoPickFree: raw.settings?.autoPickFree !== false,

@@ -33,6 +33,7 @@ function baseInput(over: Partial<OptimizeInput> = {}): OptimizeInput {
   return {
     costLimit: 113,
     ownSlots: 6,
+    maxCes: 6,
     includeSupport: false,
     supportOptions: [],
     ceItems: [],
@@ -235,6 +236,19 @@ describe("优化器基础", () => {
     );
     // 6 人中 2 人符合 → 40
     expect(r.totalPct).toBe(40);
+  });
+
+
+  it("礼装数上限: maxCes 限制装备张数", () => {
+    const pool = Array.from({ length: 6 }, (_, i) => svInfo(`从者${i}`, { cost: 3 }));
+    const ceItems = [
+      ce({ key: "a", name: "A+5%", cost: 9, bonus: 5, scope: "self" }),
+      ce({ key: "b", name: "B+5%", cost: 9, bonus: 5, scope: "self" }),
+      ce({ key: "c", name: "C+5%", cost: 9, bonus: 5, scope: "self" }),
+    ];
+    const r = optimize(baseInput({ costLimit: 60, freePool: pool, ceItems, maxCes: 2 }));
+    expect(r.feasible).toBe(true);
+    expect(r.chosenCe.length).toBe(2); // 预算充足也只装 2 张
   });
 
   it("好友助战不计入 Cost (回归)", () => {

@@ -26,8 +26,9 @@ import { SERVANT_COST } from "./types";
 // ---------------------------------------------------------------------------
 
 const state = {
-  costLimit: 113,
-  ownSlots: 6,
+  costLimit: 116,
+  ownSlots: 5,
+  maxCes: 5,
   includeSupport: true,
   supportMode: "auto" as string,
   autoPickFree: true,
@@ -318,6 +319,7 @@ function currentSettings() {
   return {
     costLimit: state.costLimit,
     ownSlots: state.ownSlots,
+    maxCes: state.maxCes,
     includeSupport: state.includeSupport,
     supportMode: state.supportMode,
     autoPickFree: state.autoPickFree,
@@ -365,6 +367,7 @@ function persist() {
 function applyParsed(p: ParsedConfig) {
   state.costLimit = p.settings.costLimit;
   state.ownSlots = p.settings.ownSlots;
+  state.maxCes = p.settings.maxCes;
   state.includeSupport = p.settings.includeSupport;
   state.supportMode = p.settings.supportMode;
   state.autoPickFree = p.settings.autoPickFree;
@@ -391,6 +394,7 @@ function applyParsed(p: ParsedConfig) {
 function syncSettingsInputs() {
   $<HTMLInputElement>("costLimit").value = String(state.costLimit);
   $<HTMLInputElement>("ownSlots").value = String(state.ownSlots);
+  $<HTMLInputElement>("maxCes").value = String(state.maxCes);
   $<HTMLInputElement>("includeSupport").checked = state.includeSupport;
   $<HTMLSelectElement>("supportCeMode").value = state.supportMode;
   $<HTMLInputElement>("autoPickFree").checked = state.autoPickFree;
@@ -453,8 +457,9 @@ function bindConfigButtons() {
     state.extraTraits = new Map(
       servants.filter((s) => s.hasCostume).map((s) => [s.title, ["持有灵衣之人"]]),
     );
-    state.costLimit = 113;
-    state.ownSlots = 6;
+    state.costLimit = 116;
+    state.ownSlots = 5;
+    state.maxCes = 5;
     state.includeSupport = true;
     state.supportMode = "auto";
     state.autoPickFree = true;
@@ -568,6 +573,7 @@ function recalc() {
   const input = {
     costLimit: state.costLimit,
     ownSlots: state.ownSlots,
+    maxCes: state.maxCes,
     includeSupport: state.includeSupport,
     supportOptions: supportSel,
     ceItems,
@@ -704,8 +710,12 @@ function bindEvents() {
     recalc();
   });
   $<HTMLInputElement>("ownSlots").addEventListener("input", (e) => {
-    state.ownSlots = Math.min(6, Math.max(1, Number((e.target as HTMLInputElement).value) || 6));
+    state.ownSlots = Math.min(6, Math.max(1, Number((e.target as HTMLInputElement).value) || 5));
     renderServantList();
+    recalc();
+  });
+  $<HTMLInputElement>("maxCes").addEventListener("input", (e) => {
+    state.maxCes = Math.min(6, Math.max(0, Number((e.target as HTMLInputElement).value) || 5));
     recalc();
   });
   $<HTMLInputElement>("includeSupport").addEventListener("change", (e) => {
