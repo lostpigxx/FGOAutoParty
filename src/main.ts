@@ -409,7 +409,6 @@ function syncSettingsInputs() {
   $<HTMLInputElement>("costLimit").value = String(state.costLimit);
   $<HTMLInputElement>("ownSlots").value = String(state.ownSlots);
   $<HTMLInputElement>("includeSupport").checked = state.includeSupport;
-  $<HTMLSelectElement>("supportRarity").value = String(state.supportRarity);
   $<HTMLSelectElement>("supportCeMode").value = state.supportMode;
   $<HTMLInputElement>("autoPickFree").checked = state.autoPickFree;
   $<HTMLInputElement>("ceOnly5").checked = state.ceOnly5;
@@ -620,8 +619,7 @@ function renderTeam(r: OptimizeResult): string {
   if (r.support) {
     const ce = r.support.ce;
     teamHtml += `<div class="slot support-slot">
-      <div class="pos">助战位（好友，不计入 Cost）</div>
-      <div class="sv">★cost ${SERVANT_COST[state.supportRarity] ?? 12}<span class="sv-cost">（不计入）</span></div>
+      <div class="pos">助战位（好友，cost 不计入）</div>
       <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "无礼装"}</div>
       <div class="bonus">效果已计入下方各从者加成</div>
     </div>`;
@@ -732,10 +730,6 @@ function bindEvents() {
   });
   $<HTMLInputElement>("includeSupport").addEventListener("change", (e) => {
     state.includeSupport = (e.target as HTMLInputElement).checked;
-    recalc();
-  });
-  $<HTMLSelectElement>("supportRarity").addEventListener("change", (e) => {
-    state.supportRarity = Number((e.target as HTMLSelectElement).value);
     recalc();
   });
   $<HTMLSelectElement>("supportCeMode").addEventListener("change", (e) => {
