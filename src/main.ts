@@ -757,6 +757,20 @@ function bindEvents() {
     state.maxCes = Math.min(6, Math.max(0, Number((e.target as HTMLInputElement).value) || 5));
     recalc();
   });
+  const applyPreset = (own: number, ces: number, sup2: string, msg: string) => {
+    state.ownSlots = own;
+    state.maxCes = ces;
+    state.supportMode2 = sup2;
+    syncSettingsInputs();
+    recalc();
+    hint(msg);
+  };
+  $<HTMLButtonElement>("presetCrown").addEventListener("click", () =>
+    applyPreset(5, 6, "auto", "冠位战模式：上阵 5 / 礼装 6（第 6 张免费）/ 冠位助战自动选最优"),
+  );
+  $<HTMLButtonElement>("presetNormal").addEventListener("click", () =>
+    applyPreset(5, 5, "none", "普通模式：上阵 5 / 礼装 5 / 冠位助战无"),
+  );
   $<HTMLInputElement>("includeSupport").addEventListener("change", (e) => {
     state.includeSupport = (e.target as HTMLInputElement).checked;
     recalc();
