@@ -10,7 +10,7 @@ import {
   type ServantInfo,
   type ServantViewFilters,
 } from "./data";
-import { optimizeTopN, type OptimizeResult } from "./optimizer";
+import { optimizeTopNWithCostMax, type OptimizeResult } from "./optimizer";
 import {
   buildConfig,
   decodeConfig,
@@ -598,7 +598,7 @@ function recalc() {
     autoPickFree: state.autoPickFree,
   };
 
-  const top = optimizeTopN(input, 3);
+  const top = optimizeTopNWithCostMax(input, 3);
   renderResult(top, filterWarnings);
   persist();
 }
@@ -671,11 +671,17 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
     : "";
 
   // 对比表
+  const costMaxIdx = results.findIndex((r) => r.isCostMax);
+  const planLabel = (i: number) => {
+    if (i === 0) return `<span class="best">最佳</span>`;
+    if (i === costMaxIdx) return `<span class="best" style="color:var(--good)">cost最佳</span>`;
+    return `备选 ${i + 1}`;
+  };
   const rows = results
     .map((r, i) => {
       const isBest = i === 0;
       return `<tr class="${isBest ? "best-row" : ""}">
-        <td>${isBest ? '<span class="best">最佳</span>' : `备选 ${i + 1}`}</td>
+        <td>${planLabel(i)}</td>
         <td>${isBest ? '<span class="best">' : ""}+${r.totalPct}%（合计 ${r.grandTotalPct}%）${isBest ? "</span>" : ""}</td>
         <td>${r.totalCost} / ${r.costLimit}</td>
         <td>${r.supportCe ? esc(r.supportCe.name) + "（" + esc(r.supportCe.label) + "）" : "无"}</td>
@@ -686,9 +692,12 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
 
   const details = results
     .map((r, i) => {
+      const isCostMax = i === costMaxIdx;
       const title = i === 0
         ? `<span class="rank-best">🏆 最佳方案</span> · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`
-        : `方案 ${i + 1} · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`;
+        : isCostMax
+          ? `<span style="color:var(--good)">💪 cost最佳</span> · 尽可能用满 Cost · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
+          : `方案 ${i + 1} · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`;
       return `<details class="team-details" ${i === 0 ? "open" : ""}>
         <summary>${title}</summary>
         ${renderTeam(r)}

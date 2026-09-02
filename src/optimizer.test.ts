@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { knapsack, knapsackTopK, optimize, optimizeTopN, type CeItem, type OptimizeInput } from "./optimizer";
+import { knapsack, knapsackTopK, optimize, optimizeCostMax, optimizeTopN, optimizeTopNWithCostMax, type CeItem, type OptimizeInput } from "./optimizer";
 import { servantMatchesTrait, servantPassesFilters, type ServantInfo } from "./data";
 
 function svInfo(name: string, over: Partial<ServantInfo> = {}): ServantInfo {
@@ -239,6 +239,46 @@ describe("优化器基础", () => {
     expect(r.totalPct).toBe(40);
   });
 
+
+
+  it("cost最佳: 尽可能用满 Cost 上限", () => {
+    const pool = [
+      svInfo("高星A", { cost: 16 }),
+      svInfo("高星B", { cost: 16 }),
+      svInfo("高星C", { cost: 16 }),
+      svInfo("低星A", { cost: 3 }),
+      svInfo("低星B", { cost: 3 }),
+      svInfo("低星C", { cost: 3 }),
+    ];
+    const ceItems = [
+      ce({ key: "a", name: "A", cost: 12, bonus: 5, scope: "self" }),
+      ce({ key: "b", name: "B", cost: 12, bonus: 5, scope: "self" }),
+    ];
+    const r = optimizeCostMax(
+      baseInput({ costLimit: 60, ownSlots: 3, freePool: pool, ceItems, maxCes: 5 }),
+    );
+    expect(r.feasible).toBe(true);
+    expect(r.isCostMax).toBe(true);
+    // 3 个自由位: 3 高星(48) + 1 礼装(12) = 60 用满
+    expect(r.totalCost).toBe(60);
+  });
+
+  it("optimizeTopNWithCostMax: 附加 cost最佳 方案", () => {
+    const pool = [
+      svInfo("高星A", { cost: 16 }),
+      svInfo("高星B", { cost: 16 }),
+      svInfo("高星C", { cost: 16 }),
+      svInfo("低星A", { cost: 3 }),
+      svInfo("低星B", { cost: 3 }),
+      svInfo("低星C", { cost: 3 }),
+    ];
+    const top = optimizeTopNWithCostMax(baseInput({ ownSlots: 3, freePool: pool }), 3);
+    expect(top.some((r) => r.isCostMax)).toBe(true);
+    const cm = top.find((r) => r.isCostMax)!;
+    expect(cm.totalCost).toBe(48); // 3 高星, 用满 cost
+    // 最佳(加成)方案与 cost最佳 不同 (低成本队 vs 高成本队)
+    expect(top[0].totalCost).not.toBe(cm.totalCost);
+  });
 
   it("礼装数上限: maxCes 限制装备张数", () => {
     const pool = Array.from({ length: 6 }, (_, i) => svInfo(`从者${i}`, { cost: 3 }));

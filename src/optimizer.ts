@@ -56,6 +56,8 @@ export interface SlotInfo {
 export interface OptimizeResult {
   feasible: boolean;
   error?: string;
+  /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
+  isCostMax?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -464,6 +466,109 @@ export function optimizeTopN(input: OptimizeInput, n = 3): OptimizeResult[] {
     (a, b) => b.grandTotalPct - a.grandTotalPct || b.totalCost - a.totalCost,
   );
   return results.slice(0, n);
+}
+
+/** 子集和表: dp[k][c] = 用恰好 k 个 item 达到花费 c 的可行性 + 一组选择 */
+interface SubsetCell {
+  ok: boolean;
+  chosen: number[];
+}
+function subsetTable(items: number[], maxCount: number, maxCost: number): SubsetCell[][] {
+  const dp: SubsetCell[][] = Array.from({ length: maxCount + 1 }, () =>
+    Array.from({ length: maxCost + 1 }, () => ({ ok: false, chosen: [] as number[] })),
+  );
+  dp[0][0] = { ok: true, chosen: [] };
+  for (let i = 0; i < items.length; i++) {
+    const cost = items[i];
+    for (let k = maxCount; k >= 1; k--) {
+      for (let c = maxCost; c >= cost; c--) {
+        const prev = dp[k - 1][c - cost];
+        if (prev.ok) {
+          dp[k][c] = { ok: true, chosen: [...prev.chosen, i] };
+        }
+      }
+    }
+  }
+  return dp;
+}
+
+/**
+ * 「cost最佳」方案: 在 Cost 上限内尽可能用满 cost (上高星从者 + 装满礼装)。
+ * 从者(恰好自由位数量)与礼装(至多 maxCes 张)共用预算, 用子集和求总 cost 最大组合。
+ * 助战(免费)仍按加成选最优。
+ */
+export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
+  const n = input.ownSlots;
+  const locked = input.lockedServants;
+  if (locked.length > n) {
+    return infeasible(`锁定从者数量 (${locked.length}) 超过上阵位 (${n})`, input);
+  }
+  const freeCount = n - locked.length;
+  const pool = [...input.freePool];
+  if (pool.length < freeCount) {
+    return infeasible(`可用从者不足: 还需要 ${freeCount} 名, 剩余可选 ${pool.length} 名`, input);
+  }
+  const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
+  const limit = input.costLimit - lockedCost;
+  if (limit < 0) {
+    return infeasible(`Cost 不足: 锁定从者已占 ${lockedCost}, 超过上限 ${input.costLimit}`, input);
+  }
+  const maxCe = Math.min(input.maxCes, n);
+
+  const svDp = subsetTable(pool.map((s) => s.cost), freeCount, limit);
+  const ceDp = subsetTable(input.ceItems.map((it) => it.cost), maxCe, limit);
+
+  const svCosts = new Set<number>();
+  for (let c = 0; c <= limit; c++) if (svDp[freeCount][c].ok) svCosts.add(c);
+  const ceCosts = new Set<number>();
+  for (let k = 0; k <= maxCe; k++) {
+    for (let c = 0; c <= limit; c++) if (ceDp[k][c].ok) ceCosts.add(c);
+  }
+
+  let bestS = 0;
+  let bestC = 0;
+  let bestT = -1;
+  for (const s of svCosts) {
+    for (const c of ceCosts) {
+      const t = s + c;
+      if (t <= limit && t > bestT) {
+        bestT = t;
+        bestS = s;
+        bestC = c;
+      }
+    }
+  }
+
+  const svChosen = svDp[freeCount][bestS].chosen;
+  let ceChosen: number[] = [];
+  for (let k = 0; k <= maxCe; k++) {
+    if (ceDp[k][bestC].ok) {
+      ceChosen = ceDp[k][bestC].chosen;
+      break;
+    }
+  }
+
+  const freeServants = svChosen.map((i) => pool[i]);
+  const party = [...locked, ...freeServants];
+  const chosen = ceChosen.map((i) => input.ceItems[i]);
+  const supportCe = bestSupportOption(input.supportOptions, party, null);
+  const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
+  const r = buildResult(input, supportCe, supportCe2, party, chosen);
+  r.isCostMax = true;
+  return r;
+}
+
+/** Top-N 全加成方案 + 「cost最佳」方案 (去重后追加) */
+export function optimizeTopNWithCostMax(input: OptimizeInput, n = 3): OptimizeResult[] {
+  const results = optimizeTopN(input, n);
+  const cm = optimizeCostMax(input);
+  if (cm.feasible) {
+    const sig = resultSignature(cm);
+    if (!results.some((r) => resultSignature(r) === sig)) {
+      results.push(cm);
+    }
+  }
+  return results;
 }
 
 export function optimize(input: OptimizeInput): OptimizeResult {
