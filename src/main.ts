@@ -616,8 +616,7 @@ function renderTeam(r: OptimizeResult): string {
   const slotHtml = (slot: (typeof r.slots)[number], pos: string) => {
     const sv = slot.servant!;
     const badges = traitBadges(sv);
-    const ce = slot.ce;
-    // 该从者的加成构成
+    // 对该从者生效的礼装构成 (佩戴礼装在下方单独列出)
     const parts = taggedCes
       .filter(({ ce: c }) => appliesTo(c, sv))
       .map(({ ce: c, tag }) => `<div class="bd">${tag} · ${esc(c.name)} +${round(c.bonus)}%</div>`)
@@ -626,7 +625,6 @@ function renderTeam(r: OptimizeResult): string {
       <div class="pos">${pos}${slot.locked ? ' <span class="locked-tag">· 锁定</span>' : ""}</div>
       <div class="sv">${esc(sv.name)} <span class="sv-cost">★cost ${sv.cost}</span></div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
-      <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}` : "无礼装"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
       ${parts ? `<div class="bonus-detail">${parts}</div>` : ""}
     </div>`;
@@ -647,7 +645,16 @@ function renderTeam(r: OptimizeResult): string {
   const back = r.slots.slice(3).map((s, i) => slotHtml(s, `后排 ${i + 1}`));
   teamHtml += [...front, ...back].join("");
 
+  // 佩戴礼装 (自己, 单独列出, 可与上阵人数不同)
+  const ownCes = r.chosenCe
+    .map((c, i) => `  <span class="eq-item">${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost}</span>`)
+    .join("");
+  const equippedHtml = ownCes
+    ? `<div class="equipped-ces"><div class="eq-title">佩戴礼装（自己 · ${r.chosenCe.length} 张）</div><div class="eq-list">${ownCes}</div></div>`
+    : "";
+
   return `
+    ${equippedHtml}
     <div class="team">${teamHtml}</div>`;
 }
 

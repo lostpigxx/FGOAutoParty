@@ -373,7 +373,7 @@ function optimizeWithSupportTopK(
       ];
     }
     const usable = items.filter((x) => x.value > 0);
-    const kp = knapsack(usable, budgetCe, Math.min(input.maxCes, n));
+    const kp = knapsack(usable, budgetCe, input.maxCes);
     const chosen = kp.chosen.map((x) => x.it);
 
     // ---- 冠位助战位: 贪心选最优 (不与主助战重复) ----
@@ -427,7 +427,7 @@ function optimizeWithSupportTopK(
   const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
   const usable = items.filter((x) => x.value > 0);
 
-  const topSets = usable.length ? knapsackTopK(usable, budgetCe, Math.min(input.maxCes, n), k) : [];
+  const topSets = usable.length ? knapsackTopK(usable, budgetCe, input.maxCes, k) : [];
   const results =
     topSets.length > 0
       ? topSets.map((ks) =>
@@ -515,7 +515,7 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   if (limit < 0) {
     return infeasible(`Cost 不足: 锁定从者已占 ${lockedCost}, 超过上限 ${input.costLimit}`, input);
   }
-  const maxCe = Math.min(input.maxCes, n);
+  const maxCe = input.maxCes;
 
   const svDp = subsetTable(pool.map((s) => s.cost), freeCount, limit);
   const ceDp = subsetTable(input.ceItems.map((it) => it.cost), maxCe, limit);
