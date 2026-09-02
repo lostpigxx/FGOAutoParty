@@ -228,31 +228,21 @@ export function supportCeOptions(catalog: BondCeCatalog[]): CeItem[] {
   for (const cat of catalog) {
     if (cat.rarity !== 5) continue; // 只看 5★
     if (!cat.mlb) continue; // 只考虑满破
-    if (cat.mlb.scope === "party") {
-      out.push({
-        key: `${cat.id}#mlb`,
-        id: cat.id,
-        name: cat.name,
-        isMlb: true,
-        cost: cat.cost,
-        bonus: cat.mlb.bonus,
-        scope: "party",
-        traits: cat.traits,
-        label: `全体+${cat.mlb.bonus}%(满破)`,
-      });
-    } else if (cat.mlb.scope === "support" && cat.supportMlb != null) {
-      out.push({
-        key: `${cat.id}#mlb`,
-        id: cat.id,
-        name: cat.name,
-        isMlb: true,
-        cost: cat.cost,
-        bonus: cat.supportMlb,
-        scope: "party",
-        traits: [],
-        label: `助战+${cat.supportMlb}%(满破)`,
-      });
-    }
+    const isSup = cat.mlb.scope === "support";
+    const eff =
+      cat.mlb.scope === "party" ? cat.mlb.bonus : isSup && cat.supportMlb != null ? cat.supportMlb : null;
+    if (eff == null || eff < 5) continue; // 剔除 <5% 鸡肋 (与 ownEquipUsable 一致)
+    out.push({
+      key: `${cat.id}#mlb`,
+      id: cat.id,
+      name: cat.name,
+      isMlb: true,
+      cost: cat.cost,
+      bonus: eff,
+      scope: "party",
+      traits: isSup ? [] : cat.traits,
+      label: isSup ? `助战+${eff}%(满破)` : `全体+${eff}%(满破)`,
+    });
   }
   return out;
 }
@@ -260,4 +250,18 @@ export function supportCeOptions(catalog: BondCeCatalog[]): CeItem[] {
 /** 从者稀有度 -> cost */
 export function servantCostByRarity(rarity: number): number {
   return { 1: 3, 2: 6, 3: 9, 4: 12, 5: 16 }[rarity] ?? 0;
+}
+
+/** 该礼装自己佩戴时的最高加成 (普通/满破取大, 与 scope 无关) */
+export function ownEquipBonus(cat: BondCeCatalog): number {
+  return Math.max(cat.normal?.bonus ?? 0, cat.mlb?.bonus ?? 0);
+}
+
+/**
+ * 该礼装自己佩戴是否有价值: 加成 ≥5%。
+ * 剔除 <5% 的鸡肋礼装 (如满破仅 2.5% 的 狼的故事/梦想衣橱/迎向碧空);
+ * 5%/10%/15%/20% 均保留。
+ */
+export function ownEquipUsable(cat: BondCeCatalog): boolean {
+  return ownEquipBonus(cat) >= 5;
 }

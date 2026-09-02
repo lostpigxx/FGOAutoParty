@@ -1,5 +1,6 @@
 import {
   buildBondCatalog,
+  ownEquipUsable,
   servantMatchesTrait,
   servantPassesFilters,
   supportCeOptions,
@@ -103,6 +104,7 @@ function esc(s: string): string {
 function renderCeList() {
   const list = $<HTMLDivElement>("ceList");
   const sorted = catalog
+    .filter((c) => ownEquipUsable(c)) // 剔除 <5% 鸡肋 (2.5% 等)
     .filter((c) => !state.ceOnly5 || c.rarity === 5)
     .sort(
       (a, b) => maxBonus(b) - maxBonus(a) || b.rarity - a.rarity || a.name.localeCompare(b.name),
@@ -390,7 +392,13 @@ function applyParsed(p: ParsedConfig) {
   state.classFilter = new Set(p.settings.classFilter);
   state.traitFilter = new Set(p.settings.traitFilter);
   state.rarityFilter = new Set(p.settings.rarityFilter.map(String));
-  state.ownedCes = p.ownedCeIds;
+  // 剔除 <5% 鸡肋礼装 (目录未就绪时保留, boot 早期)
+  state.ownedCes = new Map(
+    [...p.ownedCeIds].filter(([id]) => {
+      const c = catalogById.get(id);
+      return c ? ownEquipUsable(c) : true;
+    }),
+  );
   state.ownedSv = p.ownedSv;
   state.locked = p.locked;
   // 灵衣: 有灵衣者默认勾上 (视为已解锁), 显式反选的除外
@@ -577,7 +585,7 @@ function recalc() {
   const ownedCes: { catalog: BondCeCatalog; mlb: boolean }[] = [];
   for (const [id, mlb] of state.ownedCes) {
     const c = catalogById.get(id);
-    if (c) ownedCes.push({ catalog: c, mlb });
+    if (c && ownEquipUsable(c)) ownedCes.push({ catalog: c, mlb });
   }
 
   const ceItems = toCeItems(ownedCes);
