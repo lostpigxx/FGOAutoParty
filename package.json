@@ -1,7 +1,7 @@
 {
   "name": "fgo-bond-team-builder",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "description": "FGO 羁绊加成礼装组队计算器：在 Cost 限制内组合羁绊礼装，最大化全队总羁绊获取",
   "scripts": {
