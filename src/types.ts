@@ -74,11 +74,11 @@ export interface Servant {
 /** 御主等级 -> 队伍 Cost 上限 */
 export type MasterCostMap = Record<number, number>;
 
-/** 从者稀有度 -> cost */
+/** 从者稀有度 -> cost (1★3 / 2★4 / 3★7 / 4★12 / 5★16) */
 export const SERVANT_COST: Record<number, number> = {
   1: 3,
-  2: 6,
-  3: 9,
+  2: 4,
+  3: 7,
   4: 12,
   5: 16,
 };

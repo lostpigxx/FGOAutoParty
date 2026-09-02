@@ -317,7 +317,8 @@ export function supportCeOptions(catalog: BondCeCatalog[]): CeItem[] {
 
 /** 从者稀有度 -> cost */
 export function servantCostByRarity(rarity: number): number {
-  return { 1: 3, 2: 6, 3: 9, 4: 12, 5: 16 }[rarity] ?? 0;
+  // FGO 从者 cost: 1★3 / 2★4 / 3★7 / 4★12 / 5★16 (礼装 cost 另见礼装模板字段)
+  return { 1: 3, 2: 4, 3: 7, 4: 12, 5: 16 }[rarity] ?? 0;
 }
 
 /** 该礼装自己佩戴时的最高加成 (普通/满破取大, 与 scope 无关) */
