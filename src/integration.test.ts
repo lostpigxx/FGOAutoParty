@@ -32,6 +32,22 @@ describe("真实数据管线", () => {
     expect(traitText(tea!.traits)).toBe("无条件");
   });
 
+
+  it("所有羁绊加成礼装均为全队生效 (无自身类)", () => {
+    const catalog = buildBondCatalog(ces);
+    const selfOnes = catalog.filter(
+      (c) => c.normal?.scope === "self" || c.mlb?.scope === "self",
+    );
+    expect(selfOnes.length).toBe(0);
+    // 午餐时光 满破 +10% 对全队
+    const lunch = catalog.find((c) => c.name === "迦勒底午餐时光")!;
+    expect(lunch.mlb?.scope).toBe("party");
+    expect(lunch.mlb?.bonus).toBe(10);
+    // 极点系列也是全队
+    const bb = catalog.find((c) => c.name === "英灵极点：BB")!;
+    expect(bb.normal?.scope).toBe("party");
+  });
+
   it("满破不改变 cost: 5★ 礼装恒为 12 (回归)", () => {
     const catalog = buildBondCatalog(ces);
     const chaldean = catalog.find((c) => c.name === "迦勒底之人")!;

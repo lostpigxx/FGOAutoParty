@@ -6109,13 +6109,13 @@
   "bond": [
    {
     "bonus": 1.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 5.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -8338,13 +8338,13 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 10.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -8460,13 +8460,13 @@
   "bond": [
    {
     "bonus": 1.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 5.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -10681,13 +10681,13 @@
   "bond": [
    {
     "bonus": 0.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 2.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -12293,13 +12293,13 @@
   "bond": [
    {
     "bonus": 0.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 2.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -12639,13 +12639,13 @@
   "bond": [
    {
     "bonus": 1.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 5.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -20000,13 +20000,13 @@
   "bond": [
    {
     "bonus": 1.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 5.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }
@@ -23965,7 +23965,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -23984,7 +23984,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24003,7 +24003,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24022,7 +24022,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24041,7 +24041,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24060,7 +24060,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24079,7 +24079,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24098,7 +24098,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24117,7 +24117,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24136,7 +24136,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24155,7 +24155,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24174,7 +24174,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24193,7 +24193,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24212,7 +24212,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24231,7 +24231,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24250,7 +24250,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24269,7 +24269,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24288,7 +24288,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24307,7 +24307,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24326,7 +24326,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -24345,7 +24345,7 @@
   "bond": [
    {
     "bonus": 2.0,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    }
@@ -30906,13 +30906,13 @@
   "bond": [
    {
     "bonus": 0.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": false,
     "supportBonus": null
    },
    {
     "bonus": 2.5,
-    "scope": "self",
+    "scope": "party",
     "mlb": true,
     "supportBonus": null
    }

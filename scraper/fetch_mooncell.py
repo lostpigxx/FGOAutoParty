@@ -208,15 +208,12 @@ def parse_bond_effect(text):
         if not m:
             continue
         bonus = float(next(g for g in m.groups() if g))
-        # 带特性条件({{特攻|...}})的礼装 = 全队中符合特性者共享加成
-        if "{{特攻|" in line:
-            scope = "party"
-        elif "我方全体" in line or "味方全体" in line or "全員" in line or "全员" in line:
-            scope = "party"
-        elif "助战时" in line or "サポート時" in line or "支援时" in line:
+        # 所有羁绊加成礼装均对全队生效 (含特性条件类: 全队中符合特性者共享)
+        # 唯一例外: 助战时(サポート時)有额外数值的礼装 (如午茶时光)
+        if "助战时" in line or "サポート時" in line or "支援时" in line:
             scope = "support"
         else:
-            scope = "self"
+            scope = "party"
         support_bonus = None
         if scope == "support":
             sm = SUPPORT_CLAUSE_RE.search(line)

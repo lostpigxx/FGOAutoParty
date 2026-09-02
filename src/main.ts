@@ -654,7 +654,7 @@ function renderTeam(r: OptimizeResult): string {
       ${coverage || "（无全队共享礼装）"}<br>
       ${r.supportCe ? `助战礼装：${esc(r.supportCe.name)}（${esc(r.supportCe.label)}）` : "助战位无礼装"}
       ${r.supportCe2 ? `冠位助战礼装：${esc(r.supportCe2.name)}（${esc(r.supportCe2.label)}）` : ""}
-      ${r.selfBonus > 0 ? `<br>自身加成礼装合计 +${r.selfBonus}%（只加装备者）` : ""}
+
     </div>`;
 }
 
@@ -685,7 +685,6 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
         <td>${isBest ? '<span class="best">' : ""}+${r.totalPct}%${isBest ? "</span>" : ""}</td>
         <td>${r.totalCost} / ${r.costLimit}</td>
         <td>${r.supportCe ? esc(r.supportCe.name) + "（" + esc(r.supportCe.label) + "）" : "无"}</td>
-        <td>+${r.selfBonus}%</td>
       </tr>`;
     })
     .join("");
@@ -713,11 +712,10 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
       <div class="summary-item"><div class="k">最优方案 · 自己 Cost</div><div class="v ${r0.totalCost > r0.costLimit ? "bad" : ""}">${r0.totalCost} / ${r0.costLimit}</div></div>
       <div class="summary-item"><div class="k">最优方案 · 全队总羁绊加成</div><div class="v good">+${r0.totalPct}%</div></div>
       <div class="summary-item"><div class="k">平均每人加成</div><div class="v">+${round(avg)}%</div></div>
-      <div class="summary-item"><div class="k">自身加成合计</div><div class="v">+${r0.selfBonus}%</div></div>
     </div>
     ${r0.support ? `<div class="notes">助战位（好友）的从者与礼装 Cost <strong>不计入</strong>你的 Cost 上限。</div>` : ""}
     ${results.length > 1 ? `<table class="compare-table">
-      <thead><tr><th>方案</th><th>全队加成</th><th>自己 Cost</th><th>助战礼装</th><th>自身加成</th></tr></thead>
+      <thead><tr><th>方案</th><th>全队加成</th><th>自己 Cost</th><th>助战礼装</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>` : ""}
     ${details}`;

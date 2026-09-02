@@ -201,8 +201,8 @@ export function toCeItems(owned: OwnedCeState[]): CeItem[] {
     const cat = o.catalog;
     const e = o.mlb ? cat.mlb : cat.normal;
     if (!e) continue;
-    // 助战类礼装装在自己槽位上时, 只对装备者生效(普通数值)
-    const scope: BondScope = e.scope === "support" ? "self" : e.scope;
+    // 所有羁绊加成均对全队生效; 助战类礼装(午茶)装在自己槽位时用普通数值(对全队)
+    const scope: BondScope = e.scope === "support" ? "party" : e.scope;
     items.push({
       key: `${cat.id}#${o.mlb ? "mlb" : "n"}`,
       id: cat.id,
@@ -251,19 +251,6 @@ export function supportCeOptions(catalog: BondCeCatalog[]): CeItem[] {
         scope: "party",
         traits: [],
         label: `助战+${cat.supportMlb}%(满破)`,
-      });
-    } else if (cat.name === "迦勒底午餐时光" && cat.mlb.scope === "self") {
-      // 迦勒底午餐时光: 满破 +10% (借用时对我方全体生效)
-      out.push({
-        key: `${cat.id}#mlb`,
-        id: cat.id,
-        name: cat.name,
-        isMlb: true,
-        cost: cat.cost,
-        bonus: cat.mlb.bonus,
-        scope: "party",
-        traits: [],
-        label: `全体+${cat.mlb.bonus}%(满破)`,
       });
     }
   }
