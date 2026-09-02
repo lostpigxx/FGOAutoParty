@@ -604,16 +604,31 @@ function recalc() {
 }
 
 function renderTeam(r: OptimizeResult): string {
+  // 全队共享礼装 (带来源标签): 自己装备 + 助战 + 冠位
+  const taggedCes: { ce: CeItem; tag: string }[] = [
+    ...r.chosenCe.filter((c) => c.scope === "party").map((ce) => ({ ce, tag: "自己" })),
+    ...(r.supportCe ? [{ ce: r.supportCe, tag: "助战" }] : []),
+    ...(r.supportCe2 ? [{ ce: r.supportCe2, tag: "冠位" }] : []),
+  ];
+  const appliesTo = (ce: CeItem, sv: ServantInfo) =>
+    ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(sv, t));
+
   const slotHtml = (slot: (typeof r.slots)[number], pos: string) => {
     const sv = slot.servant!;
     const badges = traitBadges(sv);
     const ce = slot.ce;
+    // 该从者的加成构成
+    const parts = taggedCes
+      .filter(({ ce: c }) => appliesTo(c, sv))
+      .map(({ ce: c, tag }) => `<div class="bd">${tag} · ${esc(c.name)} +${round(c.bonus)}%</div>`)
+      .join("");
     return `<div class="slot">
       <div class="pos">${pos}${slot.locked ? ' <span class="locked-tag">· 锁定</span>' : ""}</div>
       <div class="sv">${esc(sv.name)} <span class="sv-cost">★cost ${sv.cost}</span></div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
       <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}` : "无礼装"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
+      ${parts ? `<div class="bonus-detail">${parts}</div>` : ""}
     </div>`;
   };
 
@@ -632,27 +647,8 @@ function renderTeam(r: OptimizeResult): string {
   const back = r.slots.slice(3).map((s, i) => slotHtml(s, `后排 ${i + 1}`));
   teamHtml += [...front, ...back].join("");
 
-  const coverageLine = (c: CeItem, tag: string) => {
-    const n = r.slots.filter((s) => {
-      if (c.traits.length === 0) return true;
-      return c.traits.some((t) => servantMatchesTrait(s.servant!, t));
-    }).length;
-    const cond = c.traits.length ? `〔${traitText(c.traits)}〕` : "无条件";
-    return `【${tag}】${esc(c.name)}（${esc(c.label)}${cond}）覆盖 ${n}/${r.slots.length} 名`;
-  };
-  const ownLines = r.chosenCe
-    .filter((c) => c.scope === "party")
-    .map((c) => coverageLine(c, "自己"));
-  const supportLines = r.supportCe ? [coverageLine(r.supportCe, "助战")] : [];
-  const support2Lines = r.supportCe2 ? [coverageLine(r.supportCe2, "冠位")] : [];
-  const coverage = [...ownLines, ...supportLines, ...support2Lines].join("<br>");
-
   return `
-    <div class="team">${teamHtml}</div>
-    <div class="notes">
-      <strong>加成明细：</strong><br>
-      ${coverage || "（无全队共享礼装）"}
-    </div>`;
+    <div class="team">${teamHtml}</div>`;
 }
 
 function renderResult(results: OptimizeResult[], warnings: string[] = []) {

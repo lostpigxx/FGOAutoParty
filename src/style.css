@@ -282,6 +282,14 @@ details ul { padding-left: 18px; line-height: 1.7; }
 .slot .ce { margin-top: 8px; border-top: 1px dashed var(--line); padding-top: 6px; font-size: 12px; }
 .slot .ce .ce-name2 { color: var(--accent); }
 .slot .bonus { margin-top: 6px; font-size: 12px; color: var(--good); }
+.slot .bonus-detail {
+  margin-top: 4px;
+  border-top: 1px dashed var(--line);
+  padding-top: 4px;
+  font-size: 11px;
+  color: var(--dim);
+  line-height: 1.6;
+}
 .slot .locked-tag { color: var(--accent); font-size: 11px; }
 
 .error-box {
