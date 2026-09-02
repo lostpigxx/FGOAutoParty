@@ -722,12 +722,13 @@ export function optimizeMultiStart(input: OptimizeInput): OptimizeResult | null 
 
 /**
  * 方案列表 (全部展示, 由前端折叠后排):
- *   候选1: 加成最优 (κ=0, 纯加成) —— 多起点
- *   候选2: 智能方案 (κ=1, 加成第一 + κ×cost 尽量上高星) —— 多起点, 通常榜首
+ *   候选1: 加成最优 (κ=0, 纯加成)
+ *   候选2: 智能方案 (κ=1, 加成第一 + κ×cost 尽量上高星) —— 通常榜首
  *   候选3: cost最佳 (尽可能用满 cost)
+ * useMultiStart=false 时退化为单起点快速模式 (深度搜索开关关闭)。
  * 签名去重后按 (加成降序, 同加成 cost 降序) 排序。
  */
-export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
+export function optimizePlans(input: OptimizeInput, useMultiStart = true): OptimizeResult[] {
   const candidates: OptimizeResult[] = [];
 
   const pushUnique = (r: OptimizeResult | undefined, mark?: (x: OptimizeResult) => void) => {
@@ -737,13 +738,17 @@ export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
     candidates.push(r);
   };
 
-  // 多起点 (含默认起点种子, 保证不倒退); 无可行解时回退单起点以保留错误信息
-  const pureBest = optimizeMultiStart({ ...input, servantCostWeight: 0 }) ?? optimizeTopN(input, 1)[0];
-  pushUnique(pureBest); // 加成最佳 (κ=0)
-  const smartBest =
-    optimizeMultiStart({ ...input, servantCostWeight: SMART_K }) ??
-    optimizeTopN({ ...input, servantCostWeight: SMART_K }, 1)[0];
-  pushUnique(smartBest); // 智能方案 (κ=1)
+  const smart = { ...input, servantCostWeight: SMART_K };
+  if (useMultiStart) {
+    // 多起点 (含默认起点种子, 保证不倒退); 无可行解时回退单起点以保留错误信息
+    pushUnique(
+      optimizeMultiStart({ ...input, servantCostWeight: 0 }) ?? optimizeTopN(input, 1)[0],
+    ); // 加成最佳 (κ=0)
+    pushUnique(optimizeMultiStart(smart) ?? optimizeTopN(smart, 1)[0]); // 智能方案 (κ=1)
+  } else {
+    pushUnique(optimizeTopN(input, 1)[0]); // 加成最佳 (κ=0)
+    pushUnique(optimizeTopN(smart, 1)[0]); // 智能方案 (κ=1)
+  }
   pushUnique(optimizeCostMax(input), (x) => {
     x.isCostMax = true;
   }); // cost最佳

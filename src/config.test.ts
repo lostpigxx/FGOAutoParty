@@ -18,6 +18,7 @@ function baseInput(): ConfigInput {
       supportMode: "auto",
       supportMode2: "none",
       autoPickFree: true,
+      deepSearch: true,
       ceOnly5: true,
       classFilter: ["Berserker"],
       traitFilter: ["混沌且七骑士"],

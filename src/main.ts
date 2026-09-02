@@ -33,6 +33,8 @@ const state = {
   /** 冠位助战礼装 (第二助战位, 默认无) */
   supportMode2: "none" as string,
   autoPickFree: true,
+  /** 深度搜索: 多起点收敛逃逸局部最优 (多职介更优但更慢; false=单起点快速模式) */
+  deepSearch: true,
   /** 礼装id -> 是否满破 (每张至多 1 张) */
   ownedCes: new Map<string, boolean>(),
   ownedSv: new Set<string>(),
@@ -333,6 +335,7 @@ function currentSettings() {
     supportMode: state.supportMode,
     supportMode2: state.supportMode2,
     autoPickFree: state.autoPickFree,
+    deepSearch: state.deepSearch,
     ceOnly5: state.ceOnly5,
     classFilter: [...state.classFilter],
     traitFilter: [...state.traitFilter],
@@ -382,6 +385,7 @@ function applyParsed(p: ParsedConfig) {
   state.supportMode = p.settings.supportMode;
   state.supportMode2 = p.settings.supportMode2;
   state.autoPickFree = p.settings.autoPickFree;
+  state.deepSearch = p.settings.deepSearch;
   state.ceOnly5 = p.settings.ceOnly5;
   state.classFilter = new Set(p.settings.classFilter);
   state.traitFilter = new Set(p.settings.traitFilter);
@@ -410,6 +414,7 @@ function syncSettingsInputs() {
   $<HTMLSelectElement>("supportCeMode").value = state.supportMode;
   $<HTMLSelectElement>("supportCeMode2").value = state.supportMode2;
   $<HTMLInputElement>("autoPickFree").checked = state.autoPickFree;
+  $<HTMLInputElement>("deepSearch").checked = state.deepSearch;
   $<HTMLInputElement>("ceOnly5").checked = state.ceOnly5;
   document.querySelectorAll<HTMLInputElement>(".rarityFilter").forEach((cb) => {
     cb.checked = state.rarityFilter.has(cb.value);
@@ -476,6 +481,7 @@ function bindConfigButtons() {
     state.supportMode = "auto";
     state.supportMode2 = "none";
     state.autoPickFree = true;
+    state.deepSearch = true;
     state.ceOnly5 = true;
     state.classFilter = new Set();
     state.traitFilter = new Set();
@@ -602,7 +608,7 @@ function recalc() {
     autoPickFree: state.autoPickFree,
   };
 
-  const top = optimizePlans(input);
+  const top = optimizePlans(input, state.deepSearch);
   renderResult(top, filterWarnings);
   persist();
 }
@@ -762,6 +768,10 @@ function bindEvents() {
   });
   $<HTMLInputElement>("autoPickFree").addEventListener("change", (e) => {
     state.autoPickFree = (e.target as HTMLInputElement).checked;
+    recalc();
+  });
+  $<HTMLInputElement>("deepSearch").addEventListener("change", (e) => {
+    state.deepSearch = (e.target as HTMLInputElement).checked;
     recalc();
   });
 

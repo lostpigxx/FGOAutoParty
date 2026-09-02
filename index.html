@@ -49,6 +49,11 @@
         </label>
       </div>
       <div class="row">
+        <label title="从多个初始队伍（最高星/特性/职阶等）收敛取全局最优，避免卡在局部最优。多职阶搭配时加成更高（实测约 +15%），但每次计算稍慢（多职阶约 0.5s）；只刷单职阶时可关闭加速">
+          <input type="checkbox" id="deepSearch" checked /> 深度搜索（多起点，更优但稍慢）
+        </label>
+      </div>
+      <div class="row">
         <span id="dataStatus" class="meta">数据状态加载中…</span>
         <button id="refreshData">一键更新数据</button>
       </div>
