@@ -1,7 +1,12 @@
 // 核心优化器: 在 Cost 限制内组合羁绊礼装 + 选择从者, 最大化全队总羁绊加成
 import type { BondScope } from "./types";
 import type { ServantInfo } from "./data";
-import { matchCount, servantMatchesTrait } from "./data";
+import {
+  bestFormForCes,
+  matchCountAnyForm,
+  servantMatchesAnyForm,
+  servantMatchesTrait,
+} from "./data";
 
 /** 一张可装备的礼装副本 */
 export interface CeItem {
@@ -51,8 +56,11 @@ export interface SlotInfo {
   servant: ServantInfo | null;
   locked: boolean;
   ce: CeItem | null;
-  /** 该从者从"全队共享"礼装获得的加成 % (助战礼装也算) */
+  /** 该从者从"全队共享"礼装获得的加成 % (助战礼装也算; 形态从者=其最优形态) */
   partyBonus: number;
+  /** auto 形态下选中的战斗形象 (供前端提示"建议使用形象N"; 无=null) */
+  formKey?: string | null;
+  formLabel?: string | null;
 }
 
 export interface OptimizeResult {
@@ -160,7 +168,7 @@ export function knapsack<T extends { cost: number; value: number }>(
   };
 }
 
-/** 从候选助战礼装中按价值(加成x命中数)贪心选最优 */
+/** 从候选助战礼装中按价值(加成x命中数)贪心选最优 (形态从者按任意形态乐观计, 最终以精确重算为准) */
 function bestSupportOption(
   options: CeItem[],
   party: ServantInfo[],
@@ -170,7 +178,7 @@ function bestSupportOption(
   let bestV = -1;
   for (const o of options) {
     if (o.key === excludeKey) continue;
-    const v = o.bonus * matchCount(party, o.traits);
+    const v = o.bonus * matchCountAnyForm(party, o.traits);
     if (v > bestV) {
       bestV = v;
       best = o;
@@ -179,10 +187,10 @@ function bestSupportOption(
   return best;
 }
 
-/** 给定队伍, 计算每个礼装 item 的价值 */
+/** 给定队伍, 计算每个礼装 item 的价值 (形态从者按任意形态乐观计) */
 function itemValue(it: CeItem, party: ServantInfo[]): number {
   if (it.scope === "party") {
-    return it.bonus * matchCount(party, it.traits);
+    return it.bonus * matchCountAnyForm(party, it.traits);
   }
   // self / 助战礼装普通数值: 只影响装备者
   return it.bonus;
@@ -287,17 +295,14 @@ function buildResult(
     ...(supportCe2 ? [supportCe2] : []),
   ];
   const slots: SlotInfo[] = party.map((s, i) => {
-    let pb = 0;
-    for (const ce of partyCEs) {
-      if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) {
-        pb += ce.bonus;
-      }
-    }
+    // 形态从者 (auto): 每人独立选使自己在当前礼装组下加成最大的形态 (精确)
+    const fb = bestFormForCes(s, partyCEs);
     return {
       servant: s,
       locked: i < locked.length,
       ce: chosen[i] ?? null,
-      partyBonus: pb,
+      partyBonus: fb.bonus,
+      ...(fb.formKey ? { formKey: fb.formKey, formLabel: fb.formLabel } : {}),
     };
   });
 
@@ -417,9 +422,14 @@ function runAlternation(
       const kappa = input.servantCostWeight ?? 0;
       const scored = pool.map((s) => {
         let value = 0;
-        for (const ce of partyCEs) {
-          if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) {
-            value += ce.bonus;
+        if (s.forms?.length) {
+          // 形态从者 (auto): 按其在当前礼装组下的最优形态计
+          value = bestFormForCes(s, partyCEs).bonus;
+        } else {
+          for (const ce of partyCEs) {
+            if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) {
+              value += ce.bonus;
+            }
           }
         }
         return { servant: s, cost: s.cost, value: value + kappa * s.cost };
@@ -446,21 +456,32 @@ function runAlternation(
   const party = bestParty!;
   const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
 
+  const freeCost = party.slice(locked.length).reduce((s, x) => s + x.cost, 0);
+  const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
+  const freeCap = Math.max(0, input.maxCes - n);
+  const paidCap = Math.min(input.maxCes, n);
+
+  let results: OptimizeResult[];
+  if (partyHasAutoForm(party)) {
+    // 形态从者: 精确枚举 CE 子集 (防"不同形态各命中一张 20%"被按张数累加高估)
+    const exactSets = selectCesExact(input, party, budgetCe, paidCap, freeCap, supportCe, supportCe2, k);
+    if (exactSets.length > 0) {
+      results = exactSets.map((chosen) => buildResult(input, supportCe, supportCe2, party, chosen));
+      return results;
+    }
+    // 子集过大回退: 走下方近似路径
+  }
   // ---- Top-K 礼装组合 (对收敛后的队伍) ----
   const items = input.ceItems.map((it) => ({
     it,
     cost: it.cost,
     value: itemValue(it, party),
   }));
-  const freeCost = party.slice(locked.length).reduce((s, x) => s + x.cost, 0);
-  const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
   const usable = items.filter((x) => x.value > 0);
-  const freeCap = Math.max(0, input.maxCes - n);
-  const paidCap = Math.min(input.maxCes, n);
   const { freeChosen, paidItems } = splitFreeCes(usable, freeCap, paidCap);
 
   const topSets = paidItems.length ? knapsackTopK(paidItems, budgetCe, paidCap, k) : [];
-  const results =
+  results =
     topSets.length > 0
       ? topSets.map((ks) =>
           buildResult(input, supportCe, supportCe2, party, [
@@ -470,6 +491,82 @@ function runAlternation(
         )
       : [buildResult(input, supportCe, supportCe2, party, [...freeChosen])];
   return results;
+}
+
+/** 队伍中是否含 auto 形态从者 (需精确 CE 子集枚举) */
+function partyHasAutoForm(party: ServantInfo[]): boolean {
+  return party.some((s) => s.forms && s.forms.length > 0);
+}
+
+/**
+ * 精确 CE 子集搜索: 枚举全部合法子集 (≤ paidCap 付费 + freeCap 免费, 付费 cost ≤ budget),
+ * 按「每人取 argmax 形态」的精确总加成排序, 返回前 k 组。
+ * 仅当子集空间可控 (礼装 ≤ 26 张) 时使用。
+ */
+function selectCesExact(
+  input: OptimizeInput,
+  party: ServantInfo[],
+  budget: number,
+  paidCap: number,
+  freeCap: number,
+  supportCe: CeItem | null,
+  supportCe2: CeItem | null,
+  k: number,
+): CeItem[][] {
+  const items = input.ceItems.filter((it) => it.scope !== "party" || itemValue(it, party) > 0);
+  if (items.length > 26) return [];
+  const exactTotal = (chosen: CeItem[]) => {
+    const partyCEs = [
+      ...chosen.filter((x) => x.scope === "party"),
+      ...(supportCe ? [supportCe] : []),
+      ...(supportCe2 ? [supportCe2] : []),
+    ];
+    let t = 0;
+    for (const s of party) t += bestFormForCes(s, partyCEs).bonus;
+    t += chosen.filter((x) => x.scope !== "party").reduce((a, c) => a + c.bonus, 0);
+    return t;
+  };
+  const totalCost = (chosen: CeItem[]) => chosen.reduce((a, c) => a + c.cost, 0);
+  const maxCount = paidCap + freeCap;
+  interface Cand { set: CeItem[]; total: number; cost: number }
+  const cands: Cand[] = [];
+  const rec = (start: number, chosen: CeItem[]) => {
+    // 付费 = 总数 - 免费位(至多 freeCap, 优先免最贵的); 需 ≤ paidCap 且付费 cost ≤ budget
+    const n = chosen.length;
+    const freeUsed = Math.min(freeCap, n);
+    const paidCount = n - freeUsed;
+    if (paidCount <= paidCap) {
+      const cost = totalCost(chosen);
+      const freeCost = chosen
+        .map((c) => c.cost)
+        .sort((a, b) => b - a)
+        .slice(0, freeUsed)
+        .reduce((a, b) => a + b, 0);
+      if (cost - freeCost <= budget) {
+        cands.push({ set: [...chosen], total: exactTotal(chosen), cost });
+      }
+    }
+    if (n >= maxCount) return;
+    for (let i = start; i < items.length; i++) {
+      chosen.push(items[i]);
+      rec(i + 1, chosen);
+      chosen.pop();
+    }
+  };
+  rec(0, []);
+  cands.sort((a, b) => b.total - a.total || b.cost - a.cost);
+  // 免费位 (至多 freeCap 张最贵的) cost 置 0, 与常规路径一致
+  const freeZero = (arr: CeItem[], cap: number): CeItem[] => {
+    const free = new Set(
+      arr
+        .map((c, i) => ({ i, cost: c.cost }))
+        .sort((a, b) => b.cost - a.cost)
+        .slice(0, Math.min(cap, arr.length))
+        .map((x) => x.i),
+    );
+    return arr.map((c, i) => (free.has(i) ? { ...c, cost: 0 } : c));
+  };
+  return cands.slice(0, Math.max(k, 1)).map((c) => freeZero(c.set, freeCap));
 }
 
 /** 默认单起点: 自由位以「最便宜填充」起步 */
@@ -677,7 +774,7 @@ function buildSeeds(pool: ServantInfo[], freeCount: number): ServantInfo[][] {
   push(cheapest); // 默认起点 (单起点行为)
   push(top(pool)); // 最高星
   for (const ts of [["秩序·善"], ["秩序的女性"], ["星", "恶"], ["持有灵衣之人"], ["兽科从者"]]) {
-    push(top(pool.filter((s) => ts.some((t) => servantMatchesTrait(s, t)))));
+    push(top(pool.filter((s) => ts.some((t) => servantMatchesAnyForm(s, t)))));
   }
   for (const cls of ["Saber", "Archer", "Lancer", "Rider", "Caster", "Assassin", "Berserker"]) {
     push(top(pool.filter((s) => s.className === cls)));

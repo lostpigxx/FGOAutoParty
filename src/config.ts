@@ -31,6 +31,8 @@ export interface PersistedConfig {
   locked: string[];
   /** 显式反选的灵衣从者 (国服未实装灵衣等); 有灵衣者默认勾上, 此列表内的除外 */
   costumesOff: string[];
+  /** 手动锁定的战斗形象: [从者title, 形态key]; 缺省(不在此列表)=自动搜索所有形态 */
+  formSel?: Array<[string, string]>;
 }
 
 export interface ConfigInput {
@@ -40,6 +42,7 @@ export interface ConfigInput {
   allTitles: Set<string>;
   locked: string[];
   costumeOffTitles: string[];
+  formSel?: Map<string, string>;
 }
 
 export function buildConfig(input: ConfigInput): PersistedConfig {
@@ -58,6 +61,7 @@ export function buildConfig(input: ConfigInput): PersistedConfig {
     svList,
     locked: [...input.locked],
     costumesOff: [...input.costumeOffTitles],
+    formSel: [...(input.formSel ?? new Map()).entries()],
   };
 }
 
@@ -67,6 +71,7 @@ export interface ParsedConfig {
   ownedSv: Set<string>;
   locked: string[];
   costumesOff: string[];
+  formSel: Map<string, string>;
 }
 
 /** 解析并校验配置; 对当前数据中不存在的礼装/从者做容错 */
@@ -119,10 +124,14 @@ export function parseConfig(
     const costumesOff = (Array.isArray(raw.costumesOff) ? raw.costumesOff : []).filter((t) =>
       allTitles.has(t),
     );
+    const formSel = new Map<string, string>();
+    for (const [t, k] of Array.isArray(raw.formSel) ? raw.formSel : []) {
+      if (allTitles.has(t) && typeof k === "string") formSel.set(t, k);
+    }
     // 锁定意味着已持有
     for (const t of locked) ownedSv.add(t);
 
-    return { settings, ownedCeIds, ownedSv, locked, costumesOff };
+    return { settings, ownedCeIds, ownedSv, locked, costumesOff, formSel };
   } catch {
     return null;
   }

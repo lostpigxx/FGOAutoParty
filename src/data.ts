@@ -1,5 +1,5 @@
 // 数据整理: 从爬取的 JSON 构建羁绊礼装目录、礼装副本、助战礼装选项、特性匹配
-import type { BondScope, Ce, Servant } from "./types";
+import type { BondScope, Ce, Servant, ServantForm } from "./types";
 import type { CeItem } from "./optimizer";
 
 // ---------------------------------------------------------------------------
@@ -28,20 +28,28 @@ export interface ServantInfo {
   traits: string[];
   /** 用户手动标记的特性 (如 持有灵衣之人) */
   extraTraits: string[];
+  /**
+   * 战斗形象形态 (仅当特性/属性随形象变化, 如 U－奥尔加玛丽)。
+   * 有形态时本快照即「形象1」形态 (基准), 列表含全部可选形态 (形象1/2/3/灵衣N)。
+   */
+  forms?: ServantForm[];
 }
 
 export function toServantInfo(s: Servant): ServantInfo {
+  // 有形态差异时: 基准 = 形态列表首个 (形象1), 不再用抓取的并集特性
+  const f0 = s.forms?.[0];
   return {
     name: s.title,
     cost: servantCostByRarity(s.rarity),
     rarity: s.rarity,
-    attr1: s.attr1,
-    attr2: s.attr2,
-    gender: s.gender,
-    subAttr: s.subAttr,
+    attr1: f0?.attr1 ?? s.attr1,
+    attr2: f0?.attr2 ?? s.attr2,
+    gender: f0?.gender ?? s.gender,
+    subAttr: f0?.subAttr ?? s.subAttr,
     className: s.className,
-    traits: [...s.traits],
+    traits: f0 ? [...f0.traits] : [...s.traits],
     extraTraits: [],
+    forms: s.forms?.length ? [...s.forms] : undefined,
   };
 }
 
@@ -61,7 +69,8 @@ export function servantPassesFilters(info: ServantInfo, f: ServantViewFilters): 
   if (f.rarity.size > 0 && !f.rarity.has(info.rarity)) return false;
   if (f.classes.size > 0 && !f.classes.has(info.className)) return false;
   for (const t of f.traits) {
-    if (!servantMatchesTrait(info, t)) return false;
+    // 形态从者: 任一形态满足即可 (形象切换可命中)
+    if (!servantMatchesAnyForm(info, t)) return false;
   }
   return true;
 }
@@ -107,6 +116,65 @@ export function servantMatchesTrait(s: ServantInfo, trait: string): boolean {
 export function matchCount(party: ServantInfo[], traits: string[]): number {
   if (traits.length === 0) return party.length;
   return party.filter((s) => traits.some((t) => servantMatchesTrait(s, t))).length;
+}
+
+// ---------------------------------------------------------------------------
+// 战斗形象形态 (forms)
+// ---------------------------------------------------------------------------
+
+/** 该从者的全部形态快照; 无形态时 = [自身] */
+export function svSnapshots(info: ServantInfo): ServantInfo[] {
+  if (!info.forms?.length) return [info];
+  return info.forms.map((f) => ({
+    ...info,
+    attr1: f.attr1,
+    attr2: f.attr2,
+    gender: f.gender,
+    subAttr: f.subAttr,
+    traits: [...f.traits],
+    extraTraits: [...info.extraTraits],
+    forms: undefined,
+  }));
+}
+
+/** 特性是否命中该从者的「任意形态」(搜索/筛选/徽标用: 有形象能对上即可) */
+export function servantMatchesAnyForm(info: ServantInfo, trait: string): boolean {
+  return svSnapshots(info).some((s) => servantMatchesTrait(s, trait));
+}
+
+/** 全队中「任一形态命中」该特性的人数 (搜索引导用) */
+export function matchCountAnyForm(party: ServantInfo[], traits: string[]): number {
+  if (traits.length === 0) return party.length;
+  return party.filter((s) => traits.some((t) => servantMatchesAnyForm(s, t))).length;
+}
+
+/** 该从者相对给定礼装组 (party scope) 的最优形态加成 (auto 模式: 每从者独立取最优) */
+export function bestFormForCes(
+  info: ServantInfo,
+  ces: readonly CeItem[],
+): { bonus: number; formKey: string | null; formLabel: string | null } {
+  const snaps = svSnapshots(info);
+  const bonusOf = (s: ServantInfo) => {
+    let b = 0;
+    for (const ce of ces) {
+      if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) b += ce.bonus;
+    }
+    return b;
+  };
+  if (snaps.length === 1) {
+    return { bonus: bonusOf(snaps[0]), formKey: null, formLabel: null };
+  }
+  let best = -1;
+  let bestSnap = snaps[0];
+  for (const s of snaps) {
+    const b = bonusOf(s);
+    if (b > best) {
+      best = b;
+      bestSnap = s;
+    }
+  }
+  const f = info.forms![snaps.indexOf(bestSnap)];
+  return { bonus: best, formKey: f.key, formLabel: f.label };
 }
 
 /** 特性条件的可读描述 */

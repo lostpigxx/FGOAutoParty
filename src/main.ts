@@ -1,9 +1,11 @@
 import {
   buildBondCatalog,
   ownEquipUsable,
+  servantMatchesAnyForm,
   servantMatchesTrait,
   servantPassesFilters,
   supportCeOptions,
+  svSnapshots,
   toCeItems,
   toServantInfo,
   traitText,
@@ -36,6 +38,8 @@ const state = {
   autoPickFree: true,
   /** 深度搜索: 多起点收敛逃逸局部最优 (多职介更优但更慢; false=单起点快速模式) */
   deepSearch: true,
+  /** 战斗形象手动选择: 从者title -> 形态key; 缺省=自动选最优 (搜索所有形态) */
+  formSel: new Map<string, string>(),
   /** 礼装id -> 是否满破 (每张至多 1 张) */
   ownedCes: new Map<string, boolean>(),
   ownedSv: new Set<string>(),
@@ -66,7 +70,15 @@ const $ = <T extends HTMLElement>(id: string): T => {
 function svInfoWithExtra(title: string): ServantInfo {
   const s = servantsByTitle.get(title);
   if (!s) throw new Error(`servant not found: ${title}`);
-  return { ...toServantInfo(s), extraTraits: state.extraTraits.get(title) ?? [] };
+  const base = toServantInfo(s);
+  base.extraTraits = state.extraTraits.get(title) ?? [];
+  // 手动锁定的战斗形象: 直接用该形态快照 (不再自动跨形态搜索)
+  const sel = state.formSel.get(title);
+  if (sel && base.forms?.length) {
+    const i = base.forms.findIndex((f) => f.key === sel);
+    if (i >= 0) return svSnapshots(base)[i];
+  }
+  return base;
 }
 
 const KEY_TRAIT_SHORT: Record<string, string> = {
@@ -84,7 +96,8 @@ const KEY_TRAIT_SHORT: Record<string, string> = {
 const KEY_TRAITS = Object.keys(KEY_TRAIT_SHORT);
 
 function traitBadges(info: ServantInfo): string[] {
-  return KEY_TRAITS.filter((t) => servantMatchesTrait(info, t)).map((t) => KEY_TRAIT_SHORT[t]);
+  // 形态从者: 任一形态命中即显示徽标 (提示该从者"能对上"哪些 20% 礼装)
+  return KEY_TRAITS.filter((t) => servantMatchesAnyForm(info, t)).map((t) => KEY_TRAIT_SHORT[t]);
 }
 
 function starClass(r: number): string {
@@ -168,6 +181,12 @@ function renderServantList() {
       const info = svInfoWithExtra(s.title);
       const badges = traitBadges(info);
       const isLocked = state.locked.includes(s.title);
+      const formSel = s.forms?.length
+        ? `<select class="form-sel" data-title="${esc(s.title)}" title="战斗形象：特性随形象变化的从者（如 U－奥尔加玛丽形象3 为善/活在当下的人类）。自动=搜索所有形态、按全队礼装取最优并提示建议形态；也可手动锁定">
+            <option value="" ${state.formSel.has(s.title) ? "" : "selected"}>形态·自动</option>
+            ${s.forms.map((f) => `<option value="${esc(f.key)}" ${state.formSel.get(s.title) === f.key ? "selected" : ""}>${esc(f.label)}</option>`).join("")}
+          </select>`
+        : "";
       html += `<div class="sv-row ${isLocked ? "locked" : ""}">
         <input type="checkbox" class="sv-owned" data-title="${esc(s.title)}" ${state.ownedSv.has(s.title) ? "checked" : ""} />
         <div class="sv-line1">
@@ -175,6 +194,7 @@ function renderServantList() {
           <span class="sv-class">${esc(s.className)}</span>
         </div>
         ${badges.length ? `<div class="sv-traits">${badges.map(esc).join(" / ")}</div>` : ""}
+        ${formSel}
         <div class="sv-actions">
           ${s.hasCostume
             ? `<label class="sv-costume-label" title="该从者有灵衣，默认视为已解锁（持有灵衣之人特性）；国服未实装的可取消勾选">灵衣
@@ -347,6 +367,11 @@ function currentCostumesOff(): string[] {
     .map((s) => s.title);
 }
 
+/** 手动锁定的战斗形象选择 (缺省=自动) */
+function currentFormSel(): Map<string, string> {
+  return new Map(state.formSel);
+}
+
 /** 当前视图筛选 (稀有度/职阶/特性) —— 同时约束展示列表与优化结果 */
 function currentViewFilters(): ServantViewFilters {
   return {
@@ -366,6 +391,7 @@ function persist() {
       allTitles: allTitles(),
       locked: state.locked,
       costumeOffTitles: currentCostumesOff(),
+      formSel: currentFormSel(),
     });
     localStorage.setItem(LS_KEY, JSON.stringify(cfg));
   } catch {
@@ -396,6 +422,7 @@ function applyParsed(p: ParsedConfig) {
   );
   state.ownedSv = p.ownedSv;
   state.locked = p.locked;
+  state.formSel = new Map(p.formSel);
   // 灵衣: 有灵衣者默认勾上 (视为已解锁), 显式反选的除外
   const off = new Set(p.costumesOff);
   state.extraTraits = new Map();
@@ -445,6 +472,7 @@ function configLink(): string {
     allTitles: allTitles(),
     locked: state.locked,
     costumeOffTitles: currentCostumesOff(),
+    formSel: currentFormSel(),
   });
   const url = new URL(location.href);
   url.searchParams.set("cfg", encodeConfig(JSON.stringify(cfg)));
@@ -474,6 +502,7 @@ function bindConfigButtons() {
     state.ownedCes = new Map();
     state.ownedSv = new Set(servantsByTitle.keys());
     state.locked = [];
+    state.formSel = new Map();
     state.extraTraits = new Map(
       servants.filter((s) => s.hasCostume).map((s) => [s.title, ["持有灵衣之人"]]),
     );
@@ -514,6 +543,7 @@ function bindConfigButtons() {
         allTitles: allTitles(),
         locked: state.locked,
         costumeOffTitles: currentCostumesOff(),
+        formSel: currentFormSel(),
       }),
       null,
       2,
@@ -726,17 +756,28 @@ function renderTeam(r: OptimizeResult): string {
 
   const slotHtml = (slot: (typeof r.slots)[number], pos: string) => {
     const sv = slot.servant!;
-    const badges = traitBadges(sv);
+    // auto 形态: 展示按优化器选中的战斗形象 (buildResult 已按该形态计算加成)
+    let displaySv = sv;
+    if (slot.formLabel && sv.forms?.length) {
+      const i = sv.forms.findIndex((f) => f.label === slot.formLabel);
+      if (i >= 0) displaySv = svSnapshots(sv)[i];
+    }
+    const badges = traitBadges(displaySv);
     // 对该从者生效的礼装构成 (佩戴礼装在下方单独列出)
     const parts = taggedCes
-      .filter(({ ce: c }) => appliesTo(c, sv))
+      .filter(({ ce: c }) => appliesTo(c, displaySv))
       .map(({ ce: c, tag }) => `<div class="bd">${tag} · ${esc(c.name)} +${round(c.bonus)}%</div>`)
       .join("");
+    const formTip =
+      slot.formLabel && sv.forms?.length
+        ? `<div class="form-tip">⚠ 需使用「${esc(slot.formLabel)}」形态（可在此从者卡片手动锁定）</div>`
+        : "";
     return `<div class="slot">
       <div class="pos">${pos}${slot.locked ? ' <span class="locked-tag">· 锁定</span>' : ""}</div>
       <div class="sv">${esc(sv.name)} <span class="sv-cost">★cost ${sv.cost}</span></div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
+      ${formTip}
       ${parts ? `<div class="bonus-detail">${parts}</div>` : ""}
     </div>`;
   };
@@ -957,6 +998,13 @@ function bindEvents() {
       // 灵衣勾选 (有灵衣的从者才显示; 默认勾上, 可反选国服未实装的)
       if ((t as HTMLInputElement).checked) state.extraTraits.set(title, ["持有灵衣之人"]);
       else state.extraTraits.delete(title);
+      renderServantList();
+      recalc();
+    } else if (t.classList.contains("form-sel")) {
+      // 战斗形象选择: 空=自动(搜索所有形态), 否则手动锁定该形态
+      const key = (t as HTMLSelectElement).value;
+      if (key) state.formSel.set(title, key);
+      else state.formSel.delete(title);
       renderServantList();
       recalc();
     }

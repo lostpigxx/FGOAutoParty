@@ -212,6 +212,18 @@ details ul { padding-left: 18px; line-height: 1.7; }
 }
 .locked-chip button { padding: 0 4px; border: none; background: none; color: var(--bad); }
 
+/* 战斗形象形态 */
+select.form-sel {
+  font-size: 12px;
+  padding: 2px 4px;
+  max-width: 170px;
+  background: var(--card2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.form-tip { color: var(--accent2); font-size: 12px; margin-top: 2px; }
+
 /* ---------- 特性筛选 chips ---------- */
 .trait-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
 .trait-chip {
