@@ -675,10 +675,9 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
 
   // 对比表
   const planLabel = (i: number, r: OptimizeResult) => {
-    if (i === 0) return `<span class="best">最佳</span>`;
+    if (i === 0) return `<span class="best">🤖 智能方案</span>`;
     if (r.isCostMax) return `<span class="best" style="color:var(--good)">cost最佳</span>`;
-    if (r.isFullLoad) return `<span style="color:var(--accent2)">满配加成</span>`;
-    return `备选 ${i + 1}`;
+    return `<span style="color:var(--accent2)">加成最佳</span>`;
   };
   const rows = results
     .map((r, i) => {
@@ -695,12 +694,10 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
   const details = results
     .map((r, i) => {
       const title = i === 0
-        ? `<span class="rank-best">🏆 最佳方案</span> · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`
+        ? `<span class="rank-best">🤖 智能方案</span> · 加成第一，同加成尽量上高星 · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
         : r.isCostMax
           ? `<span style="color:var(--good)">💪 cost最佳</span> · 尽可能用满 Cost · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
-          : r.isFullLoad
-            ? `<span style="color:var(--accent2)">🌟 满配加成</span> · 加成不降·尽量上高星 · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
-            : `方案 ${i + 1} · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`;
+          : `<span style="color:var(--accent2)">⚡ 加成最佳</span> · 纯加成最大化 · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`;
       return `<details class="team-details" ${i === 0 ? "open" : ""}>
         <summary>${title}</summary>
         ${renderTeam(r)}

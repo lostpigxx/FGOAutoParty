@@ -60,8 +60,6 @@ export interface OptimizeResult {
   error?: string;
   /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
   isCostMax?: boolean;
-  /** 是否为「满配加成」方案 (加成保持 + κ×cost 加权尽量上高星) */
-  isFullLoad?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -606,22 +604,15 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   return r;
 }
 
-/** 满配加成方案的自由从者 cost 权重 (加成单位 %/点) */
-const FULL_LOAD_K = 1;
-
-function strictlyDominates(a: OptimizeResult, b: OptimizeResult): boolean {
-  // a 在加成与 cost 上都不差, 且至少一维严格更优 (用于帕累托去重)
-  return (
-    a.totalPct >= b.totalPct &&
-    a.totalCost >= b.totalCost &&
-    (a.totalPct > b.totalPct || a.totalCost > b.totalCost)
-  );
-}
+/** 智能方案(首选)的自由从者 cost 权重 κ: 加成第一, 同加成尽量上高星 */
+const SMART_K = 1;
 
 /**
- * 方案列表: 目标 = (加成降序, 同加成 cost 降序)。
- * 候选: 纯加成(κ=0) + 满配加成(κ=1, 同加成更高cost) + cost最佳;
- * 签名去重 + 帕累托去重(严格支配) 后按 (加成, cost) 排序。
+ * 方案列表 (全部展示, 由前端折叠后排):
+ *   候选1: 加成最优 (κ=0, 纯加成)
+ *   候选2: 智能方案 (κ=1, 加成第一 + κ×cost 尽量上高星) —— 通常榜首
+ *   候选3: cost最佳 (尽可能用满 cost)
+ * 签名去重后按 (加成降序, 同加成 cost 降序) 排序。
  */
 export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
   const candidates: OptimizeResult[] = [];
@@ -633,20 +624,14 @@ export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
     candidates.push(r);
   };
 
-  pushUnique(optimizeTopN(input, 1)[0]);
-  pushUnique(optimizeTopN({ ...input, servantCostWeight: FULL_LOAD_K }, 1)[0], (x) => {
-    x.isFullLoad = true;
-  });
+  pushUnique(optimizeTopN(input, 1)[0]); // 加成最佳 (κ=0)
+  pushUnique(optimizeTopN({ ...input, servantCostWeight: SMART_K }, 1)[0]); // 智能方案 (κ=1)
   pushUnique(optimizeCostMax(input), (x) => {
     x.isCostMax = true;
-  });
+  }); // cost最佳
 
-  // 帕累托去重: 被严格支配的剔除
-  const results = candidates.filter(
-    (r, i) => !candidates.some((o, j) => j !== i && strictlyDominates(o, r)),
-  );
-  results.sort((a, b) => b.totalPct - a.totalPct || b.totalCost - a.totalCost);
-  return results;
+  candidates.sort((a, b) => b.totalPct - a.totalPct || b.totalCost - a.totalCost);
+  return candidates;
 }
 
 export function optimize(input: OptimizeInput): OptimizeResult {
