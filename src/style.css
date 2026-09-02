@@ -289,7 +289,19 @@ select.form-sel {
   border-radius: 6px;
   padding: 3px 9px;
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+.eq-thumb {
+  width: 26px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+.slot .ce { display: flex; align-items: center; gap: 8px; }
 
 /* ---------- 结果 ---------- */
 .compare-table {

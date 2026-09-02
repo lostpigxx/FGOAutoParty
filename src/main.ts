@@ -797,8 +797,8 @@ function renderTeam(r: OptimizeResult): string {
     const ce2 = r.support2?.ce ?? null;
     teamHtml += `<div class="slot support-slot">
       <div class="pos">助战位（好友${ce2 ? " ×2" : ""}，cost 不计入）</div>
-      <div class="ce">${ce ? `① <span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "① 无礼装"}</div>
-      ${ce2 ? `<div class="ce">② <span class="ce-name2">${esc(ce2.name)}</span> ${esc(ce2.label)} · cost ${ce2.cost}<span class="sv-cost">（不计入）</span></div>` : ""}
+      <div class="ce">${ce ? `<img class="eq-thumb" src="data/ce-img/${encodeURIComponent(ce.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>① <span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span></span>` : "① 无礼装"}</div>
+      ${ce2 ? `<div class="ce"><img class="eq-thumb" src="data/ce-img/${encodeURIComponent(ce2.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>② <span class="ce-name2">${esc(ce2.name)}</span> ${esc(ce2.label)} · cost ${ce2.cost}<span class="sv-cost">（不计入）</span></span></div>` : ""}
       <div class="bonus">效果已计入下方各从者加成</div>
     </div>`;
   }
@@ -810,7 +810,7 @@ function renderTeam(r: OptimizeResult): string {
   const ownCes = r.chosenCe
     .map(
       (c, i) =>
-        `  <span class="eq-item">${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost === 0 ? "0（免费）" : c.cost}</span>`,
+        `<span class="eq-item"><img class="eq-thumb" src="data/ce-img/${encodeURIComponent(c.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost === 0 ? "0（免费）" : c.cost}</span></span>`,
     )
     .join("");
   const equippedHtml = ownCes
