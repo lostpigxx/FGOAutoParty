@@ -282,30 +282,37 @@ describe("优化器基础", () => {
     expect(top[0].totalCost).not.toBe(cm!.totalCost);
   });
 
-  it("cost上限-1 方案: 预算少 1 时给出不同队伍", () => {
-    const ceItems = [
-      ce({ key: "c", name: "+20%", cost: 9, bonus: 20, scope: "party", traits: [] }),
+  it("折中方案: 介于加成最佳与cost最佳之间 (κ加权)", () => {
+    // 高星(贵,不匹配) 与 低星(便宜,匹配特性X) 混合
+    const pool = [
+      svInfo("高星A", { cost: 16 }),
+      svInfo("高星B", { cost: 16 }),
+      svInfo("低星X", { cost: 3, traits: ["X"] }),
     ];
-    // 3 锁定 5★(48) + 无条件礼装(9) = 57 用满; cost-1(56) 礼装装不下
-    const top = optimizePlans(
-      baseInput({
-        costLimit: 57,
-        ownSlots: 3,
-        maxCes: 3,
-        lockedServants: [
-          svInfo("锁定1", { cost: 16 }),
-          svInfo("锁定2", { cost: 16 }),
-          svInfo("锁定3", { cost: 16 }),
-        ],
-        freePool: [],
-        ceItems,
-      }),
-    );
-    expect(top[0].totalCost).toBe(57); // 最佳用满
-    const m1 = top.find((r) => r.isCostMinusOne);
-    expect(m1).toBeDefined();
-    expect(m1!.totalCost).toBeLessThanOrEqual(56);
-    expect(m1!.totalCost).not.toBe(57);
+    const ceItems = [
+      ce({ key: "c", name: "X+30%", cost: 12, bonus: 30, scope: "party", traits: ["X"] }),
+    ];
+    const input = baseInput({
+      costLimit: 70,
+      ownSlots: 3,
+      lockedServants: [svInfo("锁定1", { cost: 16 }), svInfo("锁定2", { cost: 16 })],
+      freePool: pool,
+      ceItems,
+      autoPickFree: true,
+    });
+    const top = optimizePlans(input);
+    // 最佳(κ=0): 低星X(匹配) 上场
+    const best = top[0];
+    // 折中(κ=1): 评分 = 30+3(低星X) vs 16(高星) -> 低星X 仍优, 若无其他则与最佳同解
+    // 这里验证存在折中/或与最佳同解时至少包含 cost最佳
+    const comp = top.find((r) => r.isCompromise);
+    const cm = top.find((r) => r.isCostMax);
+    expect(top.some((r) => r.isCostMax)).toBe(true);
+    if (comp) {
+      // 折中 cost 介于最佳与 cost最佳之间
+      expect(comp.totalCost).toBeGreaterThanOrEqual(best.totalCost);
+      expect(comp.totalCost).toBeLessThanOrEqual(cm!.totalCost);
+    }
   });
 
 

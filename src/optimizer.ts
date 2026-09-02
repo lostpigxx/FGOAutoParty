@@ -29,6 +29,8 @@ export interface OptimizeInput {
   ownSlots: number;
   /** 最多装备的礼装数 (<= ownSlots; 卡 cost 时可减少) */
   maxCes: number;
+  /** 折中方案权重 κ: 自由从者评分 = 特性加成 + κ×cost (0=纯加成) */
+  servantCostWeight?: number;
   /** 是否计算助战位 (借用好友, cost 不计入) */
   includeSupport: boolean;
   /** 可选助战礼装 (优化器自动选最优, 含 null=无) */
@@ -58,8 +60,8 @@ export interface OptimizeResult {
   error?: string;
   /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
   isCostMax?: boolean;
-  /** 是否为「cost上限-1」方案 (预算少 1) */
-  isCostMinusOne?: boolean;
+  /** 是否为「折中」方案 (加成最优 + cost 利用率 κ 加权) */
+  isCompromise?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -409,6 +411,7 @@ function optimizeWithSupportTopK(
         ...(supportCe ? [supportCe] : []),
         ...(supportCe2 ? [supportCe2] : []),
       ];
+      const kappa = input.servantCostWeight ?? 0;
       const scored = pool.map((s) => {
         let value = 0;
         for (const ce of partyCEs) {
@@ -416,7 +419,7 @@ function optimizeWithSupportTopK(
             value += ce.bonus;
           }
         }
-        return { servant: s, cost: s.cost, value };
+        return { servant: s, cost: s.cost, value: value + kappa * s.cost };
       });
       const budgetSv = input.costLimit - lockedCost - kp.totalCost;
       if (budgetSv >= 0) {
@@ -603,24 +606,26 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   return r;
 }
 
+/** 折中方案的自由从者 cost 权重 (加成单位 %/点) */
+const COMPROMISE_K = 1;
+
 /**
- * 方案列表: 最佳方案 + 「cost上限-1」方案(预算少 1 求最佳) + 「cost最佳」方案(用满预算)。
- * 与已有方案重复的去重。
+ * 方案列表: 最佳方案(满预算纯加成) + 「折中」方案(加成最优 + κ×cost 利用)
+ * + 「cost最佳」方案(用满预算)。与已有方案重复的去重。
  */
 export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
   const results: OptimizeResult[] = [];
   const best = optimizeTopN(input, 1)[0];
   if (best?.feasible) results.push(best);
 
-  if (input.costLimit > 1) {
-    const minus1 = optimizeTopN({ ...input, costLimit: input.costLimit - 1 }, 1)[0];
-    if (
-      minus1?.feasible &&
-      !results.some((r) => resultSignature(r) === resultSignature(minus1))
-    ) {
-      minus1.isCostMinusOne = true;
-      results.push(minus1);
-    }
+  // 折中: 在加成最优与 cost 利用之间取平衡 (κ 加权自由从者评分)
+  const comp = optimizeTopN({ ...input, servantCostWeight: COMPROMISE_K }, 1)[0];
+  if (
+    comp?.feasible &&
+    !results.some((r) => resultSignature(r) === resultSignature(comp))
+  ) {
+    comp.isCompromise = true;
+    results.push(comp);
   }
 
   const cm = optimizeCostMax(input);

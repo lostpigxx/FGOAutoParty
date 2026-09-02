@@ -677,7 +677,7 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
   const planLabel = (i: number, r: OptimizeResult) => {
     if (i === 0) return `<span class="best">最佳</span>`;
     if (r.isCostMax) return `<span class="best" style="color:var(--good)">cost最佳</span>`;
-    if (r.isCostMinusOne) return `<span style="color:var(--accent2)">cost上限-1</span>`;
+    if (r.isCompromise) return `<span style="color:var(--accent2)">折中</span>`;
     return `备选 ${i + 1}`;
   };
   const rows = results
@@ -698,8 +698,8 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
         ? `<span class="rank-best">🏆 最佳方案</span> · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`
         : r.isCostMax
           ? `<span style="color:var(--good)">💪 cost最佳</span> · 尽可能用满 Cost · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
-          : r.isCostMinusOne
-            ? `<span style="color:var(--accent2)">📉 cost上限-1</span> · 预算少 1 · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
+          : r.isCompromise
+            ? `<span style="color:var(--accent2)">⚖️ 折中</span> · 加成优先·尽量用满 Cost · 总Cost ${r.totalCost}/${r.costLimit} · 全队加成 +${r.totalPct}%`
             : `方案 ${i + 1} · 全队加成 +${r.totalPct}% · 总Cost ${r.totalCost}/${r.costLimit}`;
       return `<details class="team-details" ${i === 0 ? "open" : ""}>
         <summary>${title}</summary>
