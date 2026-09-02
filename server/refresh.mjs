@@ -1,5 +1,5 @@
 // 数据刷新与状态查询 (Node 零依赖, 供 vite 插件与独立 server.mjs 共用)
-import { execFile, spawn } from "node:child_process";
+import { execFile, spawn, spawnSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -40,6 +40,21 @@ function releaseLock(projectRoot) {
   }
 }
 
+/** 探测可用的 python 命令 (Windows 为 python, 其余为 python3; 都有则优先 python3) */
+function findPython() {
+  const candidates = ["python3", "python"];
+  for (const cmd of candidates) {
+    try {
+      const r = spawnSync(cmd, ["--version"], { timeout: 5000 });
+      if (r.error) continue;
+      if (r.status === 0) return cmd;
+    } catch {
+      /* 继续尝试下一个 */
+    }
+  }
+  return null;
+}
+
 /**
  * 运行 Mooncell 爬虫并同步到 public/data/ 与 dist/data/。
  * 返回 { ok, log?, error?, running? }
@@ -49,8 +64,15 @@ export async function refreshData(projectRoot) {
     return { ok: false, error: "已有更新任务正在运行，请稍候", running: true };
   }
   try {
+    const py = findPython();
+    if (!py) {
+      return {
+        ok: false,
+        error: "未检测到 Python 3（一键更新数据需要 Python）。当前数据为打包快照，可直接使用；如需最新数据请安装 Python 后重试。",
+      };
+    }
     const stdout = await new Promise((resolve, reject) => {
-      const proc = spawn("python3", ["scraper/fetch_mooncell.py"], {
+      const proc = spawn(py, ["scraper/fetch_mooncell.py"], {
         cwd: projectRoot,
         stdio: ["ignore", "pipe", "pipe"],
       });
@@ -84,15 +106,18 @@ export async function refreshData(projectRoot) {
   }
 }
 
-/** 返回本地数据文件的状态 (大小 / 修改时间) */
+/** 返回本地数据文件的状态 (大小 / 修改时间); data/ 缺失时回退到 dist/data (发布快照) */
 export async function dataStatus(projectRoot) {
   const read = async (f) => {
-    try {
-      const st = await fs.stat(path.join(projectRoot, "data", f));
-      return { size: st.size, mtime: st.mtime.toISOString() };
-    } catch {
-      return null;
+    for (const dir of ["data", path.join("dist", "data")]) {
+      try {
+        const st = await fs.stat(path.join(projectRoot, dir, f));
+        return { size: st.size, mtime: st.mtime.toISOString() };
+      } catch {
+        /* 尝试下一个目录 */
+      }
     }
+    return null;
   };
   return {
     ces: await read("ces.json"),

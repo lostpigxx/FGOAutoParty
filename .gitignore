@@ -9,3 +9,4 @@ data/raw_*.json
 # 系统/杂项
 .DS_Store
 *.log
+release/

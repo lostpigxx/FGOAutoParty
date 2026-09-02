@@ -4,7 +4,18 @@ import http from "node:http";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { exec } from "node:child_process";
 import { dataStatus, refreshData } from "./server/refresh.mjs";
+
+function openBrowser(url) {
+  const cmd =
+    process.platform === "win32"
+      ? `start "" "${url}"`
+      : process.platform === "darwin"
+        ? `open "${url}"`
+        : `xdg-open "${url}"`;
+  exec(cmd, () => {});
+}
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(root, "dist");
@@ -58,5 +69,9 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, "127.0.0.1", () => {
-  console.log(`FGO 羁绊组队计算器: http://127.0.0.1:${PORT}`);
+  const url = `http://127.0.0.1:${PORT}`;
+  console.log(`FGO 羁绊组队计算器: ${url}`);
+  if (process.env.AUTO_OPEN === "1") {
+    setTimeout(() => openBrowser(url), 600);
+  }
 });
