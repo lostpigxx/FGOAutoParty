@@ -19,7 +19,6 @@ import {
   type ParsedConfig,
 } from "./config";
 import type { Ce, Servant } from "./types";
-import { SERVANT_COST } from "./types";
 
 // ---------------------------------------------------------------------------
 // 状态
@@ -77,6 +76,7 @@ const KEY_TRAIT_SHORT: Record<string, string> = {
   "活在当下的人类": "活在当下",
   "兽科从者": "兽科",
   "Fate/stay night从者": "FSN",
+  "持有灵衣之人": "灵衣",
 };
 const KEY_TRAITS = Object.keys(KEY_TRAIT_SHORT);
 
@@ -169,7 +169,7 @@ function renderServantList() {
         <input type="checkbox" class="sv-owned" data-title="${esc(s.title)}" ${state.ownedSv.has(s.title) ? "checked" : ""} />
         <div class="sv-line1">
           <span class="sv-title">${esc(s.title)}</span>
-          <span class="sv-class">${esc(s.className)}·${SERVANT_COST[s.rarity] ?? "?"}cost</span>
+          <span class="sv-class">${esc(s.className)}</span>
         </div>
         ${badges.length ? `<div class="sv-traits">${badges.map(esc).join(" / ")}</div>` : ""}
         <div class="sv-actions">
