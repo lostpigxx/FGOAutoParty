@@ -130,6 +130,7 @@ function renderCeList() {
         : "";
       return `<div class="ce-row">
         <input type="checkbox" class="ce-owned" data-id="${esc(c.id)}" ${state.ownedCes.has(c.id) ? "checked" : ""} />
+        <img class="ce-art" data-id="${esc(c.id)}" src="data/ce-img/${esc(c.id)}.png" alt="${esc(c.name)}" loading="lazy" title="点击查看卡面" />
         <div>
           <div class="ce-name"><span class="${starClass(c.rarity)}">★${c.rarity}</span> ${esc(c.name)}<span class="jp">${esc(c.jpName)}</span></div>
           <div class="ce-effect">${esc(c.summary)}${trait} · cost ${c.cost}</div>
@@ -140,6 +141,10 @@ function renderCeList() {
       </div>`;
     })
     .join("");
+  // 图片缺失(未下载/页面不存在)时隐藏缩略图
+  list.querySelectorAll<HTMLImageElement>("img.ce-art").forEach((img) => {
+    img.addEventListener("error", () => img.remove(), { once: true });
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -566,7 +571,10 @@ function bindConfigButtons() {
     if (e.target === exportModal) closeExportModal();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !exportModal.hidden) closeExportModal();
+    if (e.key !== "Escape") return;
+    if (!exportModal.hidden) closeExportModal();
+    const am = document.getElementById("artModal") as HTMLDivElement | null;
+    if (am && !am.hidden) am.hidden = true;
   });
   $<HTMLButtonElement>("exportSave").addEventListener("click", async () => {
     let name = exportFileName.value.trim();
@@ -984,6 +992,24 @@ function bindEvents() {
       renderCeList();
       recalc();
     }
+  });
+
+  // 礼装卡面弹窗 (点击缩略图看大图)
+  const artModal = $<HTMLDivElement>("artModal");
+  const artImg = $<HTMLImageElement>("artImg");
+  const artName = $<HTMLHeadingElement>("artName");
+  const showArt = (id: string) => {
+    artImg.src = `data/ce-img/${encodeURIComponent(id)}.png`;
+    artName.textContent = catalogById.get(id)?.name ?? `礼装 ${id}`;
+    artModal.hidden = false;
+  };
+  $<HTMLDivElement>("ceList").addEventListener("click", (e) => {
+    const t = (e.target as HTMLElement).closest("img.ce-art");
+    if (t) showArt((t as HTMLElement).dataset.id!);
+  });
+  $<HTMLButtonElement>("artClose").addEventListener("click", () => (artModal.hidden = true));
+  artModal.addEventListener("click", (e) => {
+    if (e.target === artModal) artModal.hidden = true;
   });
 
   // 事件委托: 从者列表

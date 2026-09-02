@@ -1,6 +1,6 @@
 // 数据刷新与状态查询 (Node 零依赖, 供 vite 插件与独立 server.mjs 共用)
 import { execFile, spawn, spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
@@ -92,10 +92,23 @@ export async function refreshData(projectRoot) {
       });
     });
     // 爬虫已把结果写入 data/ 与 public/data/; 若存在 dist/ 则同步
-    for (const f of ["ces.json", "servants.json"]) {
-      const distData = path.join(projectRoot, "dist", "data");
-      if (existsSync(distData)) {
+    const distData = path.join(projectRoot, "dist", "data");
+    if (existsSync(distData)) {
+      for (const f of ["ces.json", "servants.json"]) {
         copyFileSync(path.join(projectRoot, "data", f), path.join(distData, f));
+      }
+      // 礼装卡面图目录 (爬虫下载; 缺失文件静默跳过)
+      const imgSrc = path.join(projectRoot, "data", "ce-img");
+      if (existsSync(imgSrc)) {
+        const imgDst = path.join(distData, "ce-img");
+        mkdirSync(imgDst, { recursive: true });
+        for (const f of readdirSync(imgSrc)) {
+          try {
+            copyFileSync(path.join(imgSrc, f), path.join(imgDst, f));
+          } catch {
+            /* 单个文件失败不影响整体 */
+          }
+        }
       }
     }
     return { ok: true, log: stdout.slice(-2000) };

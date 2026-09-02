@@ -11,3 +11,4 @@ data/raw_*.json
 *.log
 release/
 settings/
+data/ce-img/

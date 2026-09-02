@@ -510,6 +510,117 @@ def parse_servant_forms(wikitext, blocks):
 
 
 # ---------------------------------------------------------------------------
+# 礼装卡面图下载
+#   列表会展示的羁绊礼装 (自己佩戴最高加成 ≥5%) 下载卡面原图 (512px) 到
+#   data/ce-img/{礼装id}.png, 并同步 public/data/ce-img/ 与 dist/data/ce-img/。
+# ---------------------------------------------------------------------------
+
+def _own_max_bonus(ce):
+    """与前端 ownEquipUsable 对齐: 自己佩戴(普通/满破)最高加成 >= 5 才需要图"""
+    vals = []
+    for e in ce.get("bond", []):
+        try:
+            vals.append(float(e.get("bonus", 0)))
+        except (TypeError, ValueError):
+            continue
+    return max(vals) if vals else 0
+
+
+def download_ce_art(ces, raw, out_dir, copy_dirs=()):
+    """下载礼装卡面; 返回 (成功数, 缺失列表)。out_dir 已存在时逐张更新。"""
+    import time
+    want = [c for c in ces if _own_max_bonus(c) >= 5 and c.get("id")]
+    # 候选文件名: 页面 图片名/页面标题 × png/jpg
+    cand_file = {}  # ce id -> 候选文件标题列表
+    page_of = {}  # ce id -> 页面标题
+    for c in want:
+        title = c.get("name", "")
+        rt = None
+        if title in raw:
+            rt = title
+        else:
+            for k in raw:
+                if title and (k.startswith(title) or title in k) and len(k) <= len(title) + 8:
+                    rt = k
+                    break
+        if not rt:
+            continue
+        page_of[c["id"]] = rt
+        names = []
+        m = re.search(r"^\|图片名=([^\n|]+)", raw[rt], re.M)
+        if m:
+            names.append(m.group(1).strip())
+        if rt not in names:
+            names.append(rt)
+        files = []
+        for n in names:
+            for ext in (".png", ".jpg", ".jpeg"):
+                files.append(f"文件:{n}{ext}")
+        cand_file[c["id"]] = files
+    # 批量 imageinfo 探测存在性
+    found_url = {}  # file title -> url
+    pending = sorted({f for files in cand_file.values() for f in files})
+    def _api(params):
+        url = "https://fgo.wiki/api.php?" + urllib.parse.urlencode(params)
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return json.loads(r.read().decode("utf-8"))
+    for i in range(0, len(pending), 40):
+        chunk = pending[i : i + 40]
+        try:
+            d = _api({"action": "query", "titles": "|".join(chunk), "prop": "imageinfo",
+                      "iiprop": "url|size", "format": "json", "formatversion": "2"})
+            for pg in d["query"]["pages"]:
+                if "missing" not in pg and pg.get("imageinfo"):
+                    found_url[pg["title"]] = pg["imageinfo"][0]["url"]
+        except Exception as e:  # noqa: BLE001
+            print(f"  imageinfo 查询失败: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    os.makedirs(out_dir, exist_ok=True)
+    ok, missing = 0, []
+    for c in want:
+        cid = c["id"]
+        rt = page_of.get(cid)
+        url = None
+        if rt:
+            for f in cand_file.get(cid, []):
+                if f in found_url:
+                    url = found_url[f]
+                    break
+            if url is None:
+                # 兜底: 页面直接引用的图片文件
+                try:
+                    d = _api({"action": "query", "titles": rt, "prop": "images",
+                              "format": "json", "formatversion": "2"})
+                    for im in d["query"]["pages"][0].get("images", []):
+                        t = im["title"]
+                        if re.search(r"\.(png|jpe?g|webp)$", t, re.I) and t in found_url:
+                            url = found_url[t]
+                            break
+                except Exception:  # noqa: BLE001
+                    pass
+        if not url:
+            missing.append(c.get("name", cid))
+            continue
+        dest = os.path.join(out_dir, f"{cid}.png")
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            with open(dest, "wb") as f:
+                f.write(data)
+            ok += 1
+        except Exception as e:  # noqa: BLE001
+            missing.append(f"{c.get('name')}: {e}")
+        time.sleep(0.2)
+    import shutil
+    for d in copy_dirs:
+        os.makedirs(d, exist_ok=True)
+        shutil.copytree(out_dir, d, dirs_exist_ok=True)
+    return ok, missing
+
+
+# ---------------------------------------------------------------------------
 # 主流程
 # ---------------------------------------------------------------------------
 
@@ -560,6 +671,17 @@ def main():
     for f in ("ces.json", "servants.json"):
         shutil.copy(os.path.join(DATA_DIR, f), os.path.join(public_dir, f))
     print("  已同步到 public/data/", file=sys.stderr)
+
+    # 3.5 礼装卡面图 (列表展示的 ≥5% 礼装; 需要网络, 失败不影响主流程)
+    try:
+        art_dir = os.path.join(DATA_DIR, "ce-img")
+        dist_art = os.path.join(HERE, "..", "dist", "data", "ce-img")
+        ok, missing = download_ce_art(ces, raw, art_dir, copy_dirs=(os.path.join(public_dir, "ce-img"), dist_art))
+        print(f"  礼装卡面图下载完成: {ok} 张", file=sys.stderr)
+        if missing:
+            print(f"  缺失 {len(missing)} 张: {missing[:10]}", file=sys.stderr)
+    except Exception as e:  # noqa: BLE001
+        print(f"  礼装卡面图下载失败(跳过): {e}", file=sys.stderr)
 
     # 3. 摘要
     bond_ces = [c for c in ces if c["bond"]]
