@@ -606,32 +606,46 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   return r;
 }
 
-/** 折中方案的自由从者 cost 权重 (加成单位 %/点) */
-const COMPROMISE_K = 1;
+/** 满配加成方案的自由从者 cost 权重 (加成单位 %/点) */
+const FULL_LOAD_K = 1;
+
+function strictlyDominates(a: OptimizeResult, b: OptimizeResult): boolean {
+  // a 在加成与 cost 上都不差, 且至少一维严格更优 (用于帕累托去重)
+  return (
+    a.totalPct >= b.totalPct &&
+    a.totalCost >= b.totalCost &&
+    (a.totalPct > b.totalPct || a.totalCost > b.totalCost)
+  );
+}
 
 /**
- * 方案列表: 最佳方案(纯加成) + 「满配加成」方案(加成保持 + κ×cost 尽量上高星)
- * + 「cost最佳」方案(用满预算)。与已有方案重复的去重。
+ * 方案列表: 目标 = (加成降序, 同加成 cost 降序)。
+ * 候选: 纯加成(κ=0) + 满配加成(κ=1, 同加成更高cost) + cost最佳;
+ * 签名去重 + 帕累托去重(严格支配) 后按 (加成, cost) 排序。
  */
 export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
-  const results: OptimizeResult[] = [];
-  const best = optimizeTopN(input, 1)[0];
-  if (best?.feasible) results.push(best);
+  const candidates: OptimizeResult[] = [];
 
-  // 折中: 在加成最优与 cost 利用之间取平衡 (κ 加权自由从者评分)
-  const comp = optimizeTopN({ ...input, servantCostWeight: COMPROMISE_K }, 1)[0];
-  if (
-    comp?.feasible &&
-    !results.some((r) => resultSignature(r) === resultSignature(comp))
-  ) {
-    comp.isFullLoad = true;
-    results.push(comp);
-  }
+  const pushUnique = (r: OptimizeResult | undefined, mark?: (x: OptimizeResult) => void) => {
+    if (!r?.feasible) return;
+    if (candidates.some((x) => resultSignature(x) === resultSignature(r))) return;
+    mark?.(r);
+    candidates.push(r);
+  };
 
-  const cm = optimizeCostMax(input);
-  if (cm.feasible && !results.some((r) => resultSignature(r) === resultSignature(cm))) {
-    results.push(cm);
-  }
+  pushUnique(optimizeTopN(input, 1)[0]);
+  pushUnique(optimizeTopN({ ...input, servantCostWeight: FULL_LOAD_K }, 1)[0], (x) => {
+    x.isFullLoad = true;
+  });
+  pushUnique(optimizeCostMax(input), (x) => {
+    x.isCostMax = true;
+  });
+
+  // 帕累托去重: 被严格支配的剔除
+  const results = candidates.filter(
+    (r, i) => !candidates.some((o, j) => j !== i && strictlyDominates(o, r)),
+  );
+  results.sort((a, b) => b.totalPct - a.totalPct || b.totalCost - a.totalCost);
   return results;
 }
 

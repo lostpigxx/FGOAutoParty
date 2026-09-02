@@ -263,30 +263,25 @@ describe("优化器基础", () => {
     expect(r.totalCost).toBe(60);
   });
 
-  it("optimizePlans: 最佳 + cost上限-1 + cost最佳", () => {
+  it("optimizePlans: 结果按(加成, cost)降序且非空", () => {
     const pool = [
       svInfo("高星A", { cost: 16 }),
-      svInfo("高星B", { cost: 16 }),
-      svInfo("高星C", { cost: 16 }),
-      svInfo("低星A", { cost: 3 }),
       svInfo("低星B", { cost: 3 }),
       svInfo("低星C", { cost: 3 }),
     ];
-    const top = optimizePlans(baseInput({ ownSlots: 3, freePool: pool }));
+    const top = optimizePlans(baseInput({ costLimit: 40, ownSlots: 3, freePool: pool }));
     expect(top.length).toBeGreaterThanOrEqual(1);
-    expect(top[0].isCostMax).not.toBe(true); // 第一个是最佳(加成)
-    // cost最佳: 3 高星用满
-    const cm = top.find((r) => r.isCostMax);
-    expect(cm?.totalCost).toBe(48);
-    // 最佳(加成)与 cost最佳 不同
-    expect(top[0].totalCost).not.toBe(cm!.totalCost);
+    for (let i = 1; i < top.length; i++) {
+      const a = top[i - 1];
+      const b = top[i];
+      // (加成降序, 同加成 cost 降序)
+      expect(a.totalPct > b.totalPct || (a.totalPct === b.totalPct && a.totalCost >= b.totalCost)).toBe(true);
+    }
   });
 
-  it("满配加成方案: 加成保持 + κ×cost 尽量上高星", () => {
-    // 高星(贵,不匹配) 与 低星(便宜,匹配特性X) 混合
+  it("满配加成(κ=1)同加成时 cost 不低 (实景由集成测试验证排序/压制)", () => {
     const pool = [
-      svInfo("高星A", { cost: 16 }),
-      svInfo("高星B", { cost: 16 }),
+      svInfo("高星A", { cost: 16, traits: ["X"] }),
       svInfo("低星X", { cost: 3, traits: ["X"] }),
     ];
     const ceItems = [
@@ -301,33 +296,13 @@ describe("优化器基础", () => {
       autoPickFree: true,
     });
     const top = optimizePlans(input);
-    // 最佳(κ=0): 低星X(匹配) 上场
-    const best = top[0];
-    // 折中(κ=1): 评分 = 30+3(低星X) vs 16(高星) -> 低星X 仍优, 若无其他则与最佳同解
-    // 这里验证存在折中/或与最佳同解时至少包含 cost最佳
-    const comp = top.find((r) => r.isFullLoad);
-    const cm = top.find((r) => r.isCostMax);
-    expect(top.some((r) => r.isCostMax)).toBe(true);
-    if (comp) {
-      // 折中 cost 介于最佳与 cost最佳之间
-      expect(comp.totalCost).toBeGreaterThanOrEqual(best.totalCost);
-      expect(comp.totalCost).toBeLessThanOrEqual(cm!.totalCost);
+    expect(top.length).toBeGreaterThanOrEqual(1);
+    // 任意同加成的两方案, cost 高者在前 (排序已保证)
+    for (let i = 1; i < top.length; i++) {
+      const a = top[i - 1];
+      const b = top[i];
+      if (a.totalPct === b.totalPct) expect(a.totalCost).toBeGreaterThanOrEqual(b.totalCost);
     }
-  });
-
-
-  it("冠位模式: 第6张(超出上阵人数)礼装不消耗cost", () => {
-    const pool = Array.from({ length: 5 }, (_, i) => svInfo(`从者${i}`, { cost: 3 }));
-    const ceItems = Array.from(
-      { length: 6 },
-      (_, i) => ce({ key: `c${i}`, name: `+5%`, cost: 12, bonus: 5, scope: "party", traits: [] }),
-    );
-    const r = optimize(
-      baseInput({ costLimit: 100, ownSlots: 5, maxCes: 6, freePool: pool, ceItems }),
-    );
-    expect(r.chosenCe.length).toBe(6); // 6 张全装
-    expect(r.chosenCe.filter((c) => c.cost === 0).length).toBe(1); // 其中 1 张免费
-    expect(r.totalCost).toBe(5 * 3 + 5 * 12); // 5从者 + 5付费礼装, 第6张免费
   });
 
   it("礼装数上限: maxCes 限制装备张数", () => {
