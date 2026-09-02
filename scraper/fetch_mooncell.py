@@ -282,7 +282,14 @@ def parse_servant(wikitext):
         "traits": traits,
         "hasCostume": has_costume,
     }
-    forms = parse_servant_forms(wikitext, b)
+    # 显式 COST 覆盖 (全游戏仅 玛修: COST=0, 所有形态不占 cost; 普通从者无此字段 -> 由稀有度推导)
+    for blk in blocks:
+        if blk.get("COST") is not None:
+            m = re.search(r"(\d+)", blk["COST"])
+            if m:
+                base["cost"] = int(m.group(1))
+            break
+    forms = parse_servant_forms(wikitext, blocks)
     if forms:
         base["forms"] = forms
     return base
@@ -306,10 +313,12 @@ _COSTUME_HINTS = (
 _LORE_HINTS = ("拟似从者", "亚从者", "职阶技能", "通关LB6", "通关Lostbelt", "幕间", "技能")
 
 
-def parse_servant_forms(wikitext, b):
-    """解析 战斗形象1/2/3 + 灵衣 的形态特性; 无差异时返回 []。"""
+def parse_servant_forms(wikitext, blocks):
+    """解析 战斗形象1/2/3 + 灵衣 + 第二灵基家族 的形态特性; 无差异时返回 []。"""
+    b = blocks[0]
     stage_notes = {1: [], 2: [], 3: []}  # 形象N -> 特性列表
     costume_notes = []  # 只在灵衣形态出现的特性
+    lore_traits = []  # 背景说明类备注的特性 (如 (亚从者) 的 天地从者): 恒常, 所有形态都有
     i = 1
     while f"特性{i}" in b:
         val = b.get(f"特性{i}", "").strip()
@@ -331,7 +340,10 @@ def parse_servant_forms(wikitext, b):
             elif any(h in ns for h in _COSTUME_HINTS) and not any(h in ns for h in _LORE_HINTS):
                 if val not in costume_notes:
                     costume_notes.append(val)
-            # 其余 (拟似从者/亚从者/通关LB6 等背景说明) -> 特性恒常, 不处理
+            else:
+                # (拟似从者/亚从者/通关LB6 等背景说明) -> 特性恒常
+                if val not in lore_traits:
+                    lore_traits.append(val)
         i += 1
 
     # 散文: 战斗形象X时为 [[属性：A|A]]·[[属性：B|B]]属性、[[副属性：S|S]]之力、[[性别：G|G]]
@@ -397,7 +409,7 @@ def parse_servant_forms(wikitext, b):
     attr2_fb = _num_field("属性2")
     sub_fb = _num_field("副属性")
 
-    # 恒常特性 (无备注): 所有形态都有
+    # 恒常特性: 无备注 + 背景说明类备注 (亚从者/拟似从者 等)
     always = []
     i = 1
     while f"特性{i}" in b:
@@ -406,6 +418,9 @@ def parse_servant_forms(wikitext, b):
         if val and not note and val not in always:
             always.append(val)
         i += 1
+    for t in lore_traits:
+        if t not in always:
+            always.append(t)
 
     forms = []
     for s in (1, 2, 3):
@@ -438,6 +453,59 @@ def parse_servant_forms(wikitext, b):
             "subAttr": base_form["subAttr"],
             "traits": traits,
         })
+
+    # ---- 第二灵基家族 (同从者第二块 基础数值; 目前仅 玛修 Paladin 等: 稀有度/副属性/特性不同) ----
+    if len(blocks) > 1:
+        no_re = re.search(r"(\d+)", b.get("序号", ""))
+        main_no = no_re.group(1) if no_re else None
+        main_traits = set()
+        k = 1
+        while f"特性{k}" in b:
+            v = b[f"特性{k}"].strip()
+            if v:
+                main_traits.add(v)
+            k += 1
+        for alt in blocks[1:]:
+            if not alt.get("中文名"):
+                continue
+            ano = re.search(r"(\d+)", alt.get("序号", ""))
+            if main_no and ano and ano.group(1) != main_no:
+                continue
+            alt_traits = []
+            k = 1
+            while f"特性{k}" in alt:
+                v = alt[f"特性{k}"].strip()
+                if v and v not in alt_traits:
+                    alt_traits.append(v)
+                k += 1
+            # 与主家族完全相同则跳过 (避免重复)
+            if (
+                alt.get("稀有度") == b.get("稀有度")
+                and alt.get("属性1") == b.get("属性1")
+                and alt.get("属性2") == b.get("属性2")
+                and alt.get("性别") == b.get("性别")
+                and alt.get("副属性") == b.get("副属性")
+                and set(alt_traits) == main_traits
+            ):
+                continue
+            # 该家族可切换形态 = 其立绘名单 (Paladin / 常夏的泳装Ver.03 / ...)
+            seen = set()
+            k = 1
+            while f"立绘{k}" in alt:
+                label = alt[f"立绘{k}"].strip()
+                k += 1
+                if not label or label in seen:
+                    continue
+                seen.add(label)
+                forms.append({
+                    "key": f"形态:{label}",
+                    "label": label,
+                    "attr1": alt.get("属性1", "").strip(),
+                    "attr2": alt.get("属性2", "").strip(),
+                    "gender": alt.get("性别", "").strip(),
+                    "subAttr": alt.get("副属性", "").strip(),
+                    "traits": list(alt_traits),
+                })
     return forms
 
 
