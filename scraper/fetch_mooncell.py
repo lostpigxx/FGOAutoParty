@@ -269,7 +269,7 @@ def parse_servant(wikitext):
         i += 1
     # 有灵衣开放区块 = 该从者有灵衣 (玩家默认视为已解锁「持有灵衣之人」特性)
     has_costume = "===灵衣开放===" in wikitext or "{{灵衣开放素材" in wikitext
-    return {
+    base = {
         "name": b.get("中文名", "").strip(),
         "jpName": b.get("日文名", "").strip(),
         "collectionNo": int(re.search(r"(\d+)", b.get("序号", "0")).group(1) if b.get("序号") else 0),
@@ -282,6 +282,163 @@ def parse_servant(wikitext):
         "traits": traits,
         "hasCostume": has_costume,
     }
+    forms = parse_servant_forms(wikitext, b)
+    if forms:
+        base["forms"] = forms
+    return base
+
+
+# ---------------------------------------------------------------------------
+# 战斗形象/灵衣 形态解析
+#   少数从者的属性/性别/副属性/特性随「战斗形象」或「灵衣」变化 (如 U-奥尔加玛丽:
+#   形象1、2 为恶/星, 形象3 为善/人)。Mooncell 页面用两种方式描述:
+#     a) 特性N 后的「特性N备注=(战斗形象1 2)」等
+#     b) 基础数值下散文: 「战斗形象1、2时为恶属性…，战斗形象3时为善属性…」
+#   输出 forms: [{key,label,attr1?,attr2?,gender?,subAttr?,traits[]}]
+# ---------------------------------------------------------------------------
+
+# 备注文本中, 表明该特性只在「某件灵衣/特殊战斗形态」下存在的词 (非 战斗形象N 也非纯背景说明)
+_COSTUME_HINTS = (
+    "灵衣", "泳装", "简易", "回忆", "兔女郎", "菩萨", "龙体", "人形", "之孔",
+    "魔性", "兔子", "总统", "泳", "圣诞", "万圣",
+)
+# 纯背景/剧情说明类备注: 特性恒常存在, 不随战斗形象变化
+_LORE_HINTS = ("拟似从者", "亚从者", "职阶技能", "通关LB6", "通关Lostbelt", "幕间", "技能")
+
+
+def parse_servant_forms(wikitext, b):
+    """解析 战斗形象1/2/3 + 灵衣 的形态特性; 无差异时返回 []。"""
+    stage_notes = {1: [], 2: [], 3: []}  # 形象N -> 特性列表
+    costume_notes = []  # 只在灵衣形态出现的特性
+    i = 1
+    while f"特性{i}" in b:
+        val = b.get(f"特性{i}", "").strip()
+        note = b.get(f"特性{i}备注", "").strip()
+        if val and note:
+            ns = note.strip("()（） ")
+            # 备注如 (战斗形象1 2) / (战斗形象3) / (战斗形象3 灵衣) —— 取 战斗形象 后所有数字
+            stages = sorted(
+                {
+                    int(x)
+                    for seg in re.findall(r"战斗形象([0-9、\s]+)", ns)
+                    for x in re.findall(r"\d+", seg)
+                }
+            )
+            if stages:
+                for s in stages:
+                    if 1 <= s <= 3 and val not in stage_notes[s]:
+                        stage_notes[s].append(val)
+            elif any(h in ns for h in _COSTUME_HINTS) and not any(h in ns for h in _LORE_HINTS):
+                if val not in costume_notes:
+                    costume_notes.append(val)
+            # 其余 (拟似从者/亚从者/通关LB6 等背景说明) -> 特性恒常, 不处理
+        i += 1
+
+    # 散文: 战斗形象X时为 [[属性：A|A]]·[[属性：B|B]]属性、[[副属性：S|S]]之力、[[性别：G|G]]
+    # 给出 各形象 的 属性1/属性2/副属性/性别 (比编号字段 属性22/副属性2 更完整)
+    prose_stage_attr = {}  # stage -> {attr1?, attr2?, gender?, subAttr?}
+    for ln in wikitext.splitlines():
+        if "战斗形象" not in ln or "时" not in ln:
+            continue
+        for m in re.finditer(r"战斗形象([0-9、\s]+)时", ln):
+            stages = sorted({int(x) for x in re.findall(r"\d+", m.group(1))})
+            if not stages:
+                continue
+            clause = ln[m.end():]
+            # 截到下一个 战斗形象…时 或句末
+            nxt = re.search(r"战斗形象[0-9、\s]+时", clause)
+            seg = clause[: nxt.start()] if nxt else clause
+            links = re.findall(r"\[\[([^\]|]+)\|([^\]]+)\]\]", seg)
+            rec = {}
+            attr_vals = []
+            for target, shown in links:
+                t = target.strip()
+                if t.startswith("属性："):
+                    attr_vals.append(shown.strip())
+                elif t.startswith("副属性："):
+                    rec["subAttr"] = shown.strip()
+                elif t.startswith("性别："):
+                    rec["gender"] = shown.strip()
+            if len(attr_vals) >= 2:  # 「秩序」·「善」两个属性链接
+                rec["attr1"], rec["attr2"] = attr_vals[0], attr_vals[1]
+            elif len(attr_vals) == 1:
+                rec["attr2"] = attr_vals[0]
+            if rec:
+                for s in stages:
+                    if 1 <= s <= 3:
+                        prose_stage_attr.setdefault(s, {}).update(rec)
+
+    if not (
+        any(stage_notes.values()) or costume_notes or prose_stage_attr
+    ):
+        return []
+
+    # 灵衣形态 (仅当页面列出 灵衣开放素材; 其属性/特性 = 形象1 的 + 专属灵衣备注特性)
+    costumes = []
+    for block in parse_all_templates(wikitext, "灵衣开放素材"):
+        no = re.search(r"(\d+)", block.get("序号", ""))
+        nm = block.get("中文名称", "").strip()
+        if no:
+            costumes.append({"key": f"灵衣{no.group(1)}", "label": nm or f"灵衣{no.group(1)}"})
+
+    base_attr1 = b.get("属性1", "").strip()
+    base_attr2 = b.get("属性2", "").strip()
+    base_gender = b.get("性别", "").strip()
+    base_sub = b.get("副属性", "").strip()
+
+    # 无散文时, 用编号字段兜底: 属性2=形象1, 属性22=形象2, 属性23=形象3 (副属性同理)
+    def _num_field(prefix):
+        vals = {1: b.get(prefix, "").strip()}
+        for n in (2, 3):
+            if b.get(f"{prefix}{n}"):
+                vals[n] = b[f"{prefix}{n}"].strip()
+        return vals
+
+    attr2_fb = _num_field("属性2")
+    sub_fb = _num_field("副属性")
+
+    # 恒常特性 (无备注): 所有形态都有
+    always = []
+    i = 1
+    while f"特性{i}" in b:
+        val = b.get(f"特性{i}", "").strip()
+        note = b.get(f"特性{i}备注", "").strip()
+        if val and not note and val not in always:
+            always.append(val)
+        i += 1
+
+    forms = []
+    for s in (1, 2, 3):
+        pa = prose_stage_attr.get(s, {})
+        traits = list(always)
+        for t in stage_notes[s]:
+            if t not in traits:
+                traits.append(t)
+        forms.append({
+            "key": f"形象{s}",
+            "label": f"战斗形象{s}",
+            "attr1": pa.get("attr1", base_attr1),
+            "attr2": pa.get("attr2", attr2_fb.get(s, base_attr2)),
+            "gender": pa.get("gender", base_gender),
+            "subAttr": pa.get("subAttr", sub_fb.get(s, base_sub)),
+            "traits": traits,
+        })
+    for c in costumes:
+        base_form = forms[0]
+        traits = list(base_form["traits"])
+        for t in costume_notes:
+            if t not in traits:
+                traits.append(t)
+        forms.append({
+            "key": c["key"],
+            "label": c["label"],
+            "attr1": base_form["attr1"],
+            "attr2": base_form["attr2"],
+            "gender": base_form["gender"],
+            "subAttr": base_form["subAttr"],
+            "traits": traits,
+        })
+    return forms
 
 
 # ---------------------------------------------------------------------------
