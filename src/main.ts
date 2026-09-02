@@ -10,7 +10,7 @@ import {
   type ServantInfo,
   type ServantViewFilters,
 } from "./data";
-import { optimizeTopNWithCostMax, type OptimizeResult } from "./optimizer";
+import { optimizeTopNWithCostMax, type CeItem, type OptimizeResult } from "./optimizer";
 import {
   buildConfig,
   decodeConfig,
@@ -632,29 +632,26 @@ function renderTeam(r: OptimizeResult): string {
   const back = r.slots.slice(3).map((s, i) => slotHtml(s, `后排 ${i + 1}`));
   teamHtml += [...front, ...back].join("");
 
-  const allPartyCes = [
-    ...r.chosenCe.filter((c) => c.scope === "party"),
-    ...(r.supportCe ? [r.supportCe] : []),
-  ];
-  const coverage = allPartyCes
-    .map((c) => {
-      const n = r.slots.filter((s) => {
-        if (c.traits.length === 0) return true;
-        return c.traits.some((t) => servantMatchesTrait(s.servant!, t));
-      }).length;
-      const cond = c.traits.length ? `〔${traitText(c.traits)}〕` : "无条件";
-      return `${esc(c.name)}（${esc(c.label)}${cond}）覆盖 ${n}/${r.slots.length} 名`;
-    })
-    .join("<br>");
+  const coverageLine = (c: CeItem, tag: string) => {
+    const n = r.slots.filter((s) => {
+      if (c.traits.length === 0) return true;
+      return c.traits.some((t) => servantMatchesTrait(s.servant!, t));
+    }).length;
+    const cond = c.traits.length ? `〔${traitText(c.traits)}〕` : "无条件";
+    return `【${tag}】${esc(c.name)}（${esc(c.label)}${cond}）覆盖 ${n}/${r.slots.length} 名`;
+  };
+  const ownLines = r.chosenCe
+    .filter((c) => c.scope === "party")
+    .map((c) => coverageLine(c, "自己"));
+  const supportLines = r.supportCe ? [coverageLine(r.supportCe, "助战")] : [];
+  const support2Lines = r.supportCe2 ? [coverageLine(r.supportCe2, "冠位")] : [];
+  const coverage = [...ownLines, ...supportLines, ...support2Lines].join("<br>");
 
   return `
     <div class="team">${teamHtml}</div>
     <div class="notes">
       <strong>加成明细：</strong><br>
-      ${coverage || "（无全队共享礼装）"}<br>
-      ${r.supportCe ? `助战礼装：${esc(r.supportCe.name)}（${esc(r.supportCe.label)}）` : "助战位无礼装"}
-      ${r.supportCe2 ? `冠位助战礼装：${esc(r.supportCe2.name)}（${esc(r.supportCe2.label)}）` : ""}
-
+      ${coverage || "（无全队共享礼装）"}
     </div>`;
 }
 
