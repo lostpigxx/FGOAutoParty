@@ -40,6 +40,21 @@ def api_get(params, retries=4):
     raise RuntimeError("unreachable")
 
 
+def _api_batch(params, retries=4):
+    """通用 MediaWiki GET (批量 titles 用)"""
+    url = API + "?" + urllib.parse.urlencode(params)
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except Exception as e:  # noqa: BLE001
+            if attempt == retries - 1:
+                raise
+            time.sleep(2 * (attempt + 1))
+    raise RuntimeError("unreachable")
+
+
 def all_category_members(category, limit=500):
     titles = []
     cont = {}
@@ -621,12 +636,136 @@ def download_ce_art(ces, raw, out_dir, copy_dirs=()):
 
 
 # ---------------------------------------------------------------------------
+# 从者头像图下载 (64px 缩略, 命名 {页面标题}.png)
+#   来源: 页面「再临阶段图标」模板的 status 图标 (456/481), 兜底 prop=images 头像。
+# ---------------------------------------------------------------------------
+
+def _status_first_icon(wt):
+    """取首个「再临阶段图标」块的 图标 首项 (基础 1 阶段头像)"""
+    for m in re.finditer(r"\{\{再临阶段图标\s*\n?([\s\S]*?)\}\}", wt):
+        mm = re.search(r"^\|图标=([^\n|]+)", m.group(1), re.M)
+        if mm:
+            toks = [x.strip() for x in mm.group(1).split(";;") if x.strip()]
+            if toks:
+                return toks[0]
+    return None
+
+
+def _pick_avatar(files):
+    """从页面引用的文件中挑 头像: 优先 初始/1阶段, 排除 灵衣/2-3阶段/满破/图标"""
+    av = [f for f in files if "头像" in f]
+    if not av:
+        return None
+    def score(f):
+        s = 0
+        if "灵衣" in f or "２" in f or "2阶段" in f or "3阶段" in f or "三破" in f or "二破" in f or "满破" in f:
+            s += 10
+        if "初始" in f or "1阶段" in f or "一破" in f:
+            s -= 2
+        if re.search(r"头像1阶段|头像初始", f):
+            s -= 1
+        return s
+    return min(av, key=score)
+
+
+def download_sv_avatars(raw, out_dir, copy_dirs=(), width=64):
+    """下载从者头像; 返回 (成功, 缺失列表)。"""
+    import time
+    picks = {}  # 页面标题 -> 文件名 (不带 文件: 前缀)
+    for t, wt in raw.items():
+        st = _status_first_icon(wt)
+        if st:
+            picks[t] = st
+    # 兜底: prop=images 头像扫描 (仅未覆盖页)
+    todo = [t for t in raw if t not in picks]
+    for i in range(0, len(todo), 40):
+        chunk = todo[i : i + 40]
+        try:
+            d = _api_batch({"action": "query", "titles": "|".join(chunk), "prop": "images",
+                            "imlimit": 200, "format": "json", "formatversion": "2"})
+            for pg in d["query"]["pages"]:
+                if pg["title"] not in picks:
+                    pick = _pick_avatar([im["title"] for im in pg.get("images", [])])
+                    if pick:
+                        picks[pg["title"]] = pick.replace("文件:", "", 1)
+        except Exception as e:  # noqa: BLE001
+            print(f"  images 查询失败: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    print(f"  发现头像 {len(picks)}/{len(raw)}", file=sys.stderr)
+    # 批量 imageinfo(64px 缩略); MediaWiki 规范化会把 _ 显示为空格, key 统一归一
+    norm = lambda x: x.replace("_", " ")
+    file_to_url = {}
+    pending = sorted(set(norm(f) for f in picks.values()))
+    for i in range(0, len(pending), 40):
+        chunk = pending[i : i + 40]
+        try:
+            d = _api_batch({"action": "query", "titles": "|".join("文件:" + f for f in chunk),
+                            "prop": "imageinfo", "iiprop": "url|size", "iiurlwidth": width,
+                            "format": "json", "formatversion": "2"})
+            for pg in d["query"]["pages"]:
+                if "missing" not in pg and pg.get("imageinfo"):
+                    file_to_url[norm(pg["title"].replace("文件:", "", 1))] = (
+                        pg["imageinfo"][0].get("thumburl") or pg["imageinfo"][0]["url"]
+                    )
+        except Exception as e:  # noqa: BLE001
+            print(f"  imageinfo 失败: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    # 真实缺失(status 文件未收录)的页面: prop=images 头像兜底
+    need_fb = [t for t, f in picks.items() if norm(f) not in file_to_url]
+    for i in range(0, len(need_fb), 40):
+        chunk = need_fb[i : i + 40]
+        try:
+            d = _api_batch({"action": "query", "titles": "|".join(chunk), "prop": "images",
+                            "imlimit": 200, "format": "json", "formatversion": "2"})
+            for pg in d["query"]["pages"]:
+                pick = _pick_avatar([im["title"] for im in pg.get("images", [])])
+                if not pick:
+                    continue
+                ii = _api_batch({"action": "query", "titles": pick, "prop": "imageinfo",
+                                 "iiprop": "url|size", "iiurlwidth": width,
+                                 "format": "json", "formatversion": "2"})
+                for q in ii["query"]["pages"]:
+                    if "missing" not in q and q.get("imageinfo"):
+                        picks[pg["title"]] = q["title"].replace("文件:", "", 1)
+                        file_to_url[norm(picks[pg["title"]])] = (
+                            q["imageinfo"][0].get("thumburl") or q["imageinfo"][0]["url"]
+                        )
+        except Exception as e:  # noqa: BLE001
+            print(f"  头像兜底失败: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    os.makedirs(out_dir, exist_ok=True)
+    # 清理旧文件 (来源策略变化可能遗留)
+    for old in os.listdir(out_dir):
+        os.unlink(os.path.join(out_dir, old))
+    ok, missing = 0, []
+    for t, f in picks.items():
+        url = file_to_url.get(norm(f))
+        if not url:
+            missing.append(t)
+            continue
+        dest = os.path.join(out_dir, f"{t}.png")
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            with open(dest, "wb") as fh:
+                fh.write(data)
+            ok += 1
+        except Exception as e:  # noqa: BLE001
+            missing.append(f"{t}: {e}")
+        time.sleep(0.12)
+    import shutil
+    for d in copy_dirs:
+        os.makedirs(d, exist_ok=True)
+        shutil.copytree(out_dir, d, dirs_exist_ok=True)
+    return ok, missing
+
+
+# ---------------------------------------------------------------------------
 # 主流程
 # ---------------------------------------------------------------------------
 
 def main():
-    # 1. 概念礼装
-    print("== 概念礼装分类成员 ==", file=sys.stderr)
     ce_titles = all_category_members("概念礼装")
     print(f"  共 {len(ce_titles)} 张礼装页", file=sys.stderr)
     raw = fetch_all_wikitext(ce_titles, label="礼装")
@@ -682,6 +821,19 @@ def main():
             print(f"  缺失 {len(missing)} 张: {missing[:10]}", file=sys.stderr)
     except Exception as e:  # noqa: BLE001
         print(f"  礼装卡面图下载失败(跳过): {e}", file=sys.stderr)
+
+    # 3.6 从者头像 (96px; 需要网络, 失败不影响主流程)
+    try:
+        av_dir = os.path.join(DATA_DIR, "sv-avatar")
+        dist_av = os.path.join(HERE, "..", "dist", "data", "sv-avatar")
+        ok2, miss2 = download_sv_avatars(
+            sv_raw, av_dir, copy_dirs=(os.path.join(public_dir, "sv-avatar"), dist_av)
+        )
+        print(f"  从者头像下载完成: {ok2} 张", file=sys.stderr)
+        if miss2:
+            print(f"  缺失 {len(miss2)} 张: {miss2[:10]}", file=sys.stderr)
+    except Exception as e:  # noqa: BLE001
+        print(f"  从者头像下载失败(跳过): {e}", file=sys.stderr)
 
     # 3. 摘要
     bond_ces = [c for c in ces if c["bond"]]

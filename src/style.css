@@ -169,11 +169,11 @@ details ul { padding-left: 18px; line-height: 1.7; }
 }
 .sv-row {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  grid-template-columns: 18px 34px minmax(0, 1fr);
   grid-template-areas:
-    "cb line1"
-    "cb traits"
-    "cb actions";
+    "cb av line1"
+    "cb av traits"
+    "cb av actions";
   gap: 1px 6px;
   align-items: start;
   padding: 5px 8px;
@@ -184,6 +184,25 @@ details ul { padding-left: 18px; line-height: 1.7; }
 .sv-row:hover { background: var(--card2); }
 .sv-row.locked { background: #2a3247; border-color: var(--accent2); }
 .sv-owned { grid-area: cb; margin-top: 1px; }
+.sv-avatar {
+  grid-area: av;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--card2);
+}
+.slot-avatar {
+  grid-area: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border: 1px solid var(--line);
+  background: var(--card2);
+}
 .sv-line1 {
   grid-area: line1;
   display: flex;

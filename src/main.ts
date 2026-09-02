@@ -194,6 +194,7 @@ function renderServantList() {
         : "";
       html += `<div class="sv-row ${isLocked ? "locked" : ""}">
         <input type="checkbox" class="sv-owned" data-title="${esc(s.title)}" ${state.ownedSv.has(s.title) ? "checked" : ""} />
+        <img class="sv-avatar" src="data/sv-avatar/${encodeURIComponent(s.title)}.png" alt="" loading="lazy" onerror="this.style.display='none'" />
         <div class="sv-line1">
           <span class="sv-title">${esc(s.title)}</span>
           <span class="sv-class">${esc(s.className)}</span>
@@ -782,7 +783,7 @@ function renderTeam(r: OptimizeResult): string {
         : "";
     return `<div class="slot">
       <div class="pos">${pos}${slot.locked ? ' <span class="locked-tag">· 锁定</span>' : ""}</div>
-      <div class="sv">${esc(sv.name)} <span class="sv-cost">★cost ${sv.cost}</span></div>
+      <div class="sv"><img class="slot-avatar" src="data/sv-avatar/${encodeURIComponent(sv.name)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${esc(sv.name)}</span> <span class="sv-cost">★cost ${sv.cost}</span></div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
       ${formTip}

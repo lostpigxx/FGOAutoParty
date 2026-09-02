@@ -97,10 +97,11 @@ export async function refreshData(projectRoot) {
       for (const f of ["ces.json", "servants.json"]) {
         copyFileSync(path.join(projectRoot, "data", f), path.join(distData, f));
       }
-      // 礼装卡面图目录 (爬虫下载; 缺失文件静默跳过)
-      const imgSrc = path.join(projectRoot, "data", "ce-img");
-      if (existsSync(imgSrc)) {
-        const imgDst = path.join(distData, "ce-img");
+      // 图片目录 (爬虫下载: 礼装卡面 ce-img / 从者头像 sv-avatar; 缺失文件静默跳过)
+      for (const sub of ["ce-img", "sv-avatar"]) {
+        const imgSrc = path.join(projectRoot, "data", sub);
+        if (!existsSync(imgSrc)) continue;
+        const imgDst = path.join(distData, sub);
         mkdirSync(imgDst, { recursive: true });
         for (const f of readdirSync(imgSrc)) {
           try {
