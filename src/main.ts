@@ -106,9 +106,9 @@ function renderCeList() {
   const sorted = catalog
     .filter((c) => ownEquipUsable(c)) // 剔除 <5% 鸡肋 (2.5% 等)
     .filter((c) => !state.ceOnly5 || c.rarity === 5)
-    .sort(
-      (a, b) => maxBonus(b) - maxBonus(a) || b.rarity - a.rarity || a.name.localeCompare(b.name),
-    );
+    // 按礼装 ID 倒序 (新礼装在前, 与从者"新从者在前"一致;
+    // 国服未实装的一般是最新一批高 ID, 聚在一起方便快速取消勾选)
+    .sort((a, b) => Number(b.id) - Number(a.id) || a.name.localeCompare(b.name));
   list.innerHTML = sorted
     .map((c) => {
       const mlb = state.ownedCes.get(c.id) ?? false;
@@ -127,11 +127,6 @@ function renderCeList() {
       </div>`;
     })
     .join("");
-}
-
-function maxBonus(c: BondCeCatalog): number {
-  const candidates = [c.normal?.bonus ?? 0, c.mlb?.bonus ?? 0, c.supportMlb ?? 0, c.supportNormal ?? 0];
-  return Math.max(...candidates);
 }
 
 // ---------------------------------------------------------------------------
