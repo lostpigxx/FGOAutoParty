@@ -173,6 +173,7 @@ details ul { padding-left: 18px; line-height: 1.7; }
   grid-template-areas:
     "cb av line1"
     "cb av traits"
+    "cb av form"
     "cb av actions";
   gap: 1px 6px;
   align-items: start;
@@ -192,6 +193,11 @@ details ul { padding-left: 18px; line-height: 1.7; }
   object-fit: cover;
   border: 1px solid var(--line);
   background: var(--card2);
+}
+select.form-sel {
+  grid-area: form;
+  justify-self: start;
+  max-width: 100%;
 }
 .slot-avatar {
   grid-area: auto;
