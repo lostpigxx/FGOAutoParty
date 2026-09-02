@@ -501,6 +501,54 @@ function bindConfigButtons() {
     recalc();
     hint("配置已重置为默认");
   });
+  $<HTMLButtonElement>("exportConfig").addEventListener("click", () => {
+    // 与 localStorage / 分享链接同一份配置格式 (PersistedConfig v2 JSON)
+    const cfg = buildConfig({
+      settings: currentSettings(),
+      ownedCes: state.ownedCes,
+      ownedSv: state.ownedSv,
+      allTitles: allTitles(),
+      locked: state.locked,
+      costumeOffTitles: currentCostumesOff(),
+    });
+    const blob = new Blob([JSON.stringify(cfg, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const d = new Date();
+    const stamp = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
+    a.href = url;
+    a.download = `fgo-bond-config-${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    hint("当前配置已导出为本地文件，可保存/备份/发给他人导入");
+  });
+  const importBtn = $<HTMLButtonElement>("importConfig");
+  const fileInput = $<HTMLInputElement>("importFile");
+  importBtn.addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", () => {
+    const f = fileInput.files?.[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const text = String(reader.result ?? "");
+        const p = parseConfig(text, availableCeIds(), allTitles());
+        if (!p) throw new Error("bad");
+        applyParsed(p);
+        renderSupportOptions();
+        renderCeList();
+        renderServantList();
+        recalc(); // recalc 末尾会把导入结果持久化到 localStorage
+        hint(`已从文件导入配置：${f.name}`);
+      } catch {
+        hint("导入失败：文件不是有效的配置 JSON（可先用「导出配置到文件」生成）");
+      }
+      fileInput.value = "";
+    };
+    reader.readAsText(f, "utf-8");
+  });
 }
 
 function bindRefreshButton() {

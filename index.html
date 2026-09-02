@@ -63,6 +63,9 @@
       </div>
       <div class="row">
         <button id="copyConfig">复制配置链接</button>
+        <button id="exportConfig" title="把当前持有/锁定/筛选等全部配置保存为本地 JSON 文件（可备份或发给他人导入）">导出配置</button>
+        <button id="importConfig" title="从本地 JSON 文件恢复配置（会覆盖当前设置）">导入配置</button>
+        <input type="file" id="importFile" accept=".json,application/json" hidden />
         <button id="resetConfig">重置配置</button>
         <span id="configHint" class="meta"></span>
       </div>
