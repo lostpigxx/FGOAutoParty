@@ -178,6 +178,11 @@ function renderServantList() {
         </div>
         ${badges.length ? `<div class="sv-traits">${badges.map(esc).join(" / ")}</div>` : ""}
         <div class="sv-actions">
+          ${s.hasCostume
+            ? `<label class="sv-costume-label" title="该从者有灵衣，默认视为已解锁（持有灵衣之人特性）；国服未实装的可取消勾选">灵衣
+              <input type="checkbox" class="sv-costume" data-title="${esc(s.title)}" ${info.extraTraits.includes("持有灵衣之人") ? "checked" : ""} />
+            </label>`
+            : ""}
           <button class="lock" data-title="${esc(s.title)}">${isLocked ? "已锁定" : "锁定"}</button>
         </div>
       </div>`;
@@ -287,6 +292,10 @@ async function loadData() {
   servants = svs;
   servantsByTitle = new Map(svs.map((s) => [s.title, s]));
   state.ownedSv = new Set(); // 默认全不选
+  // 灵衣默认全勾上 (有灵衣 = 视为已解锁), 之后由保存的配置覆盖
+  state.extraTraits = new Map(
+    svs.filter((s) => s.hasCostume).map((s) => [s.title, ["持有灵衣之人"]]),
+  );
 }
 
 /** 重新加载数据 (数据更新后调用, 会重新套用已保存的配置) */
@@ -334,6 +343,13 @@ function currentCostumeTitles(): string[] {
     .map(([t]) => t);
 }
 
+/** 显式反选的灵衣从者 (有灵衣者默认勾上, 这些除外) */
+function currentCostumesOff(): string[] {
+  return servants
+    .filter((s) => s.hasCostume && !state.extraTraits.has(s.title))
+    .map((s) => s.title);
+}
+
 /** 当前视图筛选 (稀有度/职阶/特性) —— 同时约束展示列表与优化结果 */
 function currentViewFilters(): ServantViewFilters {
   return {
@@ -353,6 +369,7 @@ function persist() {
       allTitles: allTitles(),
       locked: state.locked,
       costumeTitles: currentCostumeTitles(),
+      costumeOffTitles: currentCostumesOff(),
     });
     localStorage.setItem(LS_KEY, JSON.stringify(cfg));
   } catch {
@@ -375,7 +392,14 @@ function applyParsed(p: ParsedConfig) {
   state.ownedCes = p.ownedCeIds;
   state.ownedSv = p.ownedSv;
   state.locked = p.locked;
+  // 灵衣: 有灵衣者默认勾上 (视为已解锁), 显式反选的除外; 旧配置的显式标记保留
+  const off = new Set(p.costumesOff);
   state.extraTraits = new Map(p.costumeTitles.map((t) => [t, ["持有灵衣之人"]]));
+  for (const s of servants) {
+    if (s.hasCostume && !off.has(s.title) && !state.extraTraits.has(s.title)) {
+      state.extraTraits.set(s.title, ["持有灵衣之人"]);
+    }
+  }
   syncSettingsInputs();
   renderClassChips();
   renderTraitChips();
@@ -415,6 +439,7 @@ function configLink(): string {
     allTitles: allTitles(),
     locked: state.locked,
     costumeTitles: currentCostumeTitles(),
+    costumeOffTitles: currentCostumesOff(),
   });
   const url = new URL(location.href);
   url.searchParams.set("cfg", encodeConfig(JSON.stringify(cfg)));
@@ -444,7 +469,9 @@ function bindConfigButtons() {
     state.ownedCes = new Map();
     state.ownedSv = new Set(servantsByTitle.keys());
     state.locked = [];
-    state.extraTraits = new Map();
+    state.extraTraits = new Map(
+      servants.filter((s) => s.hasCostume).map((s) => [s.title, ["持有灵衣之人"]]),
+    );
     state.costLimit = 113;
     state.ownSlots = 6;
     state.includeSupport = true;
@@ -797,6 +824,12 @@ function bindEvents() {
     if (t.classList.contains("sv-owned")) {
       if ((t as HTMLInputElement).checked) state.ownedSv.add(title);
       else state.ownedSv.delete(title);
+      recalc();
+    } else if (t.classList.contains("sv-costume")) {
+      // 灵衣勾选 (有灵衣的从者才显示; 默认勾上, 可反选国服未实装的)
+      if ((t as HTMLInputElement).checked) state.extraTraits.set(title, ["持有灵衣之人"]);
+      else state.extraTraits.delete(title);
+      renderServantList();
       recalc();
     }
   });

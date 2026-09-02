@@ -25,6 +25,8 @@ export interface PersistedConfig {
   locked: string[];
   /** 已解锁灵衣的从者 (持有灵衣之人) */
   costumes: string[];
+  /** 显式反选的灵衣从者 (国服未实装灵衣等); 有灵衣者默认勾上, 此列表内的除外 */
+  costumesOff: string[];
 }
 
 export interface ConfigInput {
@@ -34,6 +36,7 @@ export interface ConfigInput {
   allTitles: Set<string>;
   locked: string[];
   costumeTitles: string[];
+  costumeOffTitles: string[];
 }
 
 export function buildConfig(input: ConfigInput): PersistedConfig {
@@ -57,6 +60,7 @@ export function buildConfig(input: ConfigInput): PersistedConfig {
     svList,
     locked: [...input.locked],
     costumes: [...input.costumeTitles],
+    costumesOff: [...input.costumeOffTitles],
   };
 }
 
@@ -66,6 +70,8 @@ export interface ParsedConfig {
   ownedSv: Set<string>;
   locked: string[];
   costumeTitles: string[];
+  /** 显式反选的灵衣从者 (有灵衣者默认勾上, 这些除外) */
+  costumesOff: string[];
 }
 
 /** 解析并校验配置; 对当前数据中不存在的礼装/从者做容错 */
@@ -123,10 +129,13 @@ export function parseConfig(
     const costumeTitles = (Array.isArray(raw.costumes) ? raw.costumes : []).filter((t) =>
       allTitles.has(t),
     );
+    const costumesOff = (Array.isArray(raw.costumesOff) ? raw.costumesOff : []).filter((t) =>
+      allTitles.has(t),
+    );
     // 锁定/灵衣意味着已持有
     for (const t of [...locked, ...costumeTitles]) ownedSv.add(t);
 
-    return { settings, ownedCeIds, ownedSv, locked, costumeTitles };
+    return { settings, ownedCeIds, ownedSv, locked, costumeTitles, costumesOff };
   } catch {
     return null;
   }

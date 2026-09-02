@@ -120,12 +120,16 @@ describe("真实数据管线", () => {
     expect(needlestitch?.traits).toContain("持有灵衣之人");
   });
 
-  it("有灵衣的从者默认视为已解锁 (持有灵衣之人)", () => {
+  it("有灵衣的从者: 数据标记 + 勾选/反选决定特性", () => {
     const byTitle = new Map(servants.map((s) => [s.title, s]));
-    const art = toServantInfo(byTitle.get("阿尔托莉雅·潘德拉贡")!); // 有灵衣
-    const gil = toServantInfo(byTitle.get("吉尔伽美什")!); // 无灵衣
-    expect(art.traits).toContain("持有灵衣之人");
-    expect(servantMatchesTrait(art, "持有灵衣之人")).toBe(true);
-    expect(servantMatchesTrait(gil, "持有灵衣之人")).toBe(false);
+    const artRaw = byTitle.get("阿尔托莉雅·潘德拉贡")!; // 有灵衣
+    const gilRaw = byTitle.get("吉尔伽美什")!; // 无灵衣
+    expect(artRaw.hasCostume).toBe(true);
+    expect(gilRaw.hasCostume ?? false).toBe(false);
+    // 勾上(默认) → 拥有「持有灵衣之人」特性; 反选 → 没有
+    const artOn = { ...toServantInfo(artRaw), extraTraits: ["持有灵衣之人"] };
+    const artOff = { ...toServantInfo(artRaw), extraTraits: [] };
+    expect(servantMatchesTrait(artOn, "持有灵衣之人")).toBe(true);
+    expect(servantMatchesTrait(artOff, "持有灵衣之人")).toBe(false);
   });
 });

@@ -40,8 +40,7 @@ export function toServantInfo(s: Servant): ServantInfo {
     gender: s.gender,
     subAttr: s.subAttr,
     className: s.className,
-    // 有灵衣的从者默认视为已解锁 → 自带「持有灵衣之人」特性
-    traits: s.hasCostume ? [...s.traits, "持有灵衣之人"] : [...s.traits],
+    traits: [...s.traits],
     extraTraits: [],
   };
 }

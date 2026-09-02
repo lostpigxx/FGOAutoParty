@@ -28,6 +28,7 @@ function baseInput(): ConfigInput {
     allTitles,
     locked: ["玛修"],
     costumeTitles: ["玉藻前"],
+    costumeOffTitles: [],
   };
 }
 
@@ -129,6 +130,25 @@ describe("配置持久化", () => {
     const parsed = parseConfig(JSON.stringify(cfg), new Set(), input.allTitles)!;
     expect(parsed.settings.classFilter).toEqual(["Berserker"]);
     expect(parsed.settings.rarityFilter).toEqual([1, 3]);
+  });
+
+  it("costumesOff (灵衣反选) 往返一致", () => {
+    const input = baseInput();
+    input.costumeTitles = ["玉藻前"];
+    input.costumeOffTitles = ["玛修"];
+    const cfg = buildConfig(input);
+    expect(cfg.costumesOff).toEqual(["玛修"]);
+    const parsed = parseConfig(JSON.stringify(cfg), new Set(), input.allTitles)!;
+    expect(parsed.costumeTitles).toEqual(["玉藻前"]);
+    expect(parsed.costumesOff).toEqual(["玛修"]);
+  });
+
+  it("旧配置无 costumesOff 时默认为空", () => {
+    const input = baseInput();
+    const legacy = JSON.parse(JSON.stringify(buildConfig(input)));
+    delete legacy.costumesOff;
+    const parsed = parseConfig(JSON.stringify(legacy), new Set(), input.allTitles)!;
+    expect(parsed.costumesOff).toEqual([]);
   });
 });
 
