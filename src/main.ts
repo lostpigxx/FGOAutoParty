@@ -682,7 +682,7 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
       const isBest = i === 0;
       return `<tr class="${isBest ? "best-row" : ""}">
         <td>${planLabel(i)}</td>
-        <td>${isBest ? '<span class="best">' : ""}+${r.totalPct}%（合计 ${r.grandTotalPct}%）${isBest ? "</span>" : ""}</td>
+        <td>${isBest ? '<span class="best">' : ""}+${r.totalPct}%${isBest ? "</span>" : ""}</td>
         <td>${r.totalCost} / ${r.costLimit}</td>
         <td>${r.supportCe ? esc(r.supportCe.name) + "（" + esc(r.supportCe.label) + "）" : "无"}</td>
         <td>+${r.selfBonus}%</td>
@@ -712,7 +712,6 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
     <div class="summary-grid">
       <div class="summary-item"><div class="k">最优方案 · 自己 Cost</div><div class="v ${r0.totalCost > r0.costLimit ? "bad" : ""}">${r0.totalCost} / ${r0.costLimit}</div></div>
       <div class="summary-item"><div class="k">最优方案 · 全队总羁绊加成</div><div class="v good">+${r0.totalPct}%</div></div>
-      <div class="summary-item"><div class="k">含基础（${r0.ownSlots}×100%）</div><div class="v">${r0.grandTotalPct}%</div></div>
       <div class="summary-item"><div class="k">平均每人加成</div><div class="v">+${round(avg)}%</div></div>
       <div class="summary-item"><div class="k">自身加成合计</div><div class="v">+${r0.selfBonus}%</div></div>
     </div>
