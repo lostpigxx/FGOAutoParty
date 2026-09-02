@@ -291,6 +291,7 @@ describe("优化器基础", () => {
       baseInput({
         costLimit: 57,
         ownSlots: 3,
+        maxCes: 3,
         lockedServants: [
           svInfo("锁定1", { cost: 16 }),
           svInfo("锁定2", { cost: 16 }),
@@ -305,6 +306,21 @@ describe("优化器基础", () => {
     expect(m1).toBeDefined();
     expect(m1!.totalCost).toBeLessThanOrEqual(56);
     expect(m1!.totalCost).not.toBe(57);
+  });
+
+
+  it("冠位模式: 第6张(超出上阵人数)礼装不消耗cost", () => {
+    const pool = Array.from({ length: 5 }, (_, i) => svInfo(`从者${i}`, { cost: 3 }));
+    const ceItems = Array.from(
+      { length: 6 },
+      (_, i) => ce({ key: `c${i}`, name: `+5%`, cost: 12, bonus: 5, scope: "party", traits: [] }),
+    );
+    const r = optimize(
+      baseInput({ costLimit: 100, ownSlots: 5, maxCes: 6, freePool: pool, ceItems }),
+    );
+    expect(r.chosenCe.length).toBe(6); // 6 张全装
+    expect(r.chosenCe.filter((c) => c.cost === 0).length).toBe(1); // 其中 1 张免费
+    expect(r.totalCost).toBe(5 * 3 + 5 * 12); // 5从者 + 5付费礼装, 第6张免费
   });
 
   it("礼装数上限: maxCes 限制装备张数", () => {

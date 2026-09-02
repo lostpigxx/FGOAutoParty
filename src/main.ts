@@ -647,7 +647,10 @@ function renderTeam(r: OptimizeResult): string {
 
   // 佩戴礼装 (自己, 单独列出, 可与上阵人数不同)
   const ownCes = r.chosenCe
-    .map((c, i) => `  <span class="eq-item">${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost}</span>`)
+    .map(
+      (c, i) =>
+        `  <span class="eq-item">${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost === 0 ? "0（免费）" : c.cost}</span>`,
+    )
     .join("");
   const equippedHtml = ownCes
     ? `<div class="equipped-ces"><div class="eq-title">佩戴礼装（自己 · ${r.chosenCe.length} 张）</div><div class="eq-list">${ownCes}</div></div>`

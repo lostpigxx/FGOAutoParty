@@ -327,6 +327,26 @@ function buildResult(
   };
 }
 
+
+/** 免费礼装位 (冠位模式: 装备数可大于上阵人数, 超出部分 cost 计 0) */
+function splitFreeCes(
+  items: { it: CeItem; cost: number; value: number }[],
+  freeCap: number,
+  paidCap: number,
+): { freeChosen: CeItem[]; paidItems: { it: CeItem; cost: number; value: number }[]; paidCap: number } {
+  if (freeCap <= 0) return { freeChosen: [], paidItems: items, paidCap };
+  const sorted = [...items].sort((a, b) => b.value - a.value);
+  const free = sorted.slice(0, freeCap);
+  const freeKeys = new Set(free.map((x) => x.it.key));
+  const paidItems = sorted.filter((x) => !freeKeys.has(x.it.key));
+  return {
+    // 免费礼装 cost 记 0 (不消耗预算)
+    freeChosen: free.map((x) => ({ ...x.it, cost: 0 })),
+    paidItems,
+    paidCap,
+  };
+}
+
 /**
  * 对固定助战礼装做优化, 返回该助战下的 Top-K 结果。
  * 交替迭代收敛最佳队伍后, 对最终队伍取 Top-K 礼装组合。
@@ -373,8 +393,11 @@ function optimizeWithSupportTopK(
       ];
     }
     const usable = items.filter((x) => x.value > 0);
-    const kp = knapsack(usable, budgetCe, input.maxCes);
-    const chosen = kp.chosen.map((x) => x.it);
+    const freeCap = Math.max(0, input.maxCes - n);
+    const paidCap = Math.min(input.maxCes, n);
+    const { freeChosen, paidItems } = splitFreeCes(usable, freeCap, paidCap);
+    const kp = knapsack(paidItems, budgetCe, paidCap);
+    const chosen = [...kp.chosen.map((x) => x.it), ...freeChosen];
 
     // ---- 冠位助战位: 贪心选最优 (不与主助战重复) ----
     const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
@@ -426,14 +449,20 @@ function optimizeWithSupportTopK(
   const freeCost = party.slice(locked.length).reduce((s, x) => s + x.cost, 0);
   const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
   const usable = items.filter((x) => x.value > 0);
+  const freeCap = Math.max(0, input.maxCes - n);
+  const paidCap = Math.min(input.maxCes, n);
+  const { freeChosen, paidItems } = splitFreeCes(usable, freeCap, paidCap);
 
-  const topSets = usable.length ? knapsackTopK(usable, budgetCe, input.maxCes, k) : [];
+  const topSets = paidItems.length ? knapsackTopK(paidItems, budgetCe, paidCap, k) : [];
   const results =
     topSets.length > 0
       ? topSets.map((ks) =>
-          buildResult(input, supportCe, supportCe2, party, ks.chosen.map((x) => x.it)),
+          buildResult(input, supportCe, supportCe2, party, [
+            ...ks.chosen.map((x) => x.it),
+            ...freeChosen,
+          ]),
         )
-      : [buildResult(input, supportCe, supportCe2, party, [])];
+      : [buildResult(input, supportCe, supportCe2, party, [...freeChosen])];
   return results;
 }
 
@@ -515,15 +544,17 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   if (limit < 0) {
     return infeasible(`Cost 不足: 锁定从者已占 ${lockedCost}, 超过上限 ${input.costLimit}`, input);
   }
-  const maxCe = input.maxCes;
+  // 付费礼装位 = min(maxCes, 上阵人数); 超出部分为免费位 (不消耗 cost)
+  const paidCap = Math.min(input.maxCes, n);
+  const freeCap = Math.max(0, input.maxCes - n);
 
   const svDp = subsetTable(pool.map((s) => s.cost), freeCount, limit);
-  const ceDp = subsetTable(input.ceItems.map((it) => it.cost), maxCe, limit);
+  const ceDp = subsetTable(input.ceItems.map((it) => it.cost), paidCap, limit);
 
   const svCosts = new Set<number>();
   for (let c = 0; c <= limit; c++) if (svDp[freeCount][c].ok) svCosts.add(c);
   const ceCosts = new Set<number>();
-  for (let k = 0; k <= maxCe; k++) {
+  for (let k = 0; k <= paidCap; k++) {
     for (let c = 0; c <= limit; c++) if (ceDp[k][c].ok) ceCosts.add(c);
   }
 
@@ -543,7 +574,7 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
 
   const svChosen = svDp[freeCount][bestS].chosen;
   let ceChosen: number[] = [];
-  for (let k = 0; k <= maxCe; k++) {
+  for (let k = 0; k <= paidCap; k++) {
     if (ceDp[k][bestC].ok) {
       ceChosen = ceDp[k][bestC].chosen;
       break;
@@ -552,7 +583,19 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
 
   const freeServants = svChosen.map((i) => pool[i]);
   const party = [...locked, ...freeServants];
-  const chosen = ceChosen.map((i) => input.ceItems[i]);
+  const paidCes = ceChosen.map((i) => input.ceItems[i]);
+  // 免费位: 剩余礼装按加成价值选 freeCap 张 (cost 0)
+  const paidKeys = new Set(paidCes.map((c) => c.key));
+  const freeCes = freeCap > 0
+    ? input.ceItems
+        .filter((it) => !paidKeys.has(it.key))
+        .map((it) => ({ it, value: itemValue(it, party) }))
+        .filter((x) => x.value > 0)
+        .sort((a, b) => b.value - a.value)
+        .slice(0, freeCap)
+        .map((x) => ({ ...x.it, cost: 0 }))
+    : [];
+  const chosen = [...paidCes, ...freeCes];
   const supportCe = bestSupportOption(input.supportOptions, party, null);
   const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
   const r = buildResult(input, supportCe, supportCe2, party, chosen);
