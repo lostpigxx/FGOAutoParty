@@ -217,6 +217,14 @@ select.form-sel {
   color: var(--dim);
 }
 .sv-kick:hover { color: var(--bad); border-color: var(--bad); }
+.unlock-slot {
+  margin-left: 6px;
+  padding: 1px 8px;
+  font-size: 11px;
+  background: none;
+  color: var(--accent2);
+}
+.unlock-slot:hover { border-color: var(--accent2); }
 .sv-line1 {
   grid-area: line1;
   display: flex;

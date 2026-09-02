@@ -782,7 +782,7 @@ function renderTeam(r: OptimizeResult): string {
         ? `<div class="form-tip">⚠ 需使用「${esc(slot.formLabel)}」形态（可在此从者卡片手动锁定）</div>`
         : "";
     return `<div class="slot">
-      <div class="pos">${pos}${slot.locked ? ' <span class="locked-tag">· 锁定</span>' : ""}</div>
+      <div class="pos">${pos}${slot.locked ? ` <span class="locked-tag">· 锁定</span> <button class="unlock-slot" data-title="${esc(sv.name)}" title="快速取消锁定（该从者将不再强制上阵）">取消锁定</button>` : ""}</div>
       <div class="sv"><img class="slot-avatar" src="data/sv-avatar/${encodeURIComponent(sv.name)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${esc(sv.name)}</span> <span class="sv-cost">★cost ${sv.cost}</span>${slot.locked ? "" : ` <button class="sv-kick" data-title="${esc(sv.name)}" title="快速反选：把该从者移出『持有』，下次组队不再选他（可在从者面板重新勾选）">反选</button>`}</div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
@@ -1062,14 +1062,25 @@ function bindEvents() {
 
   // 方案卡: 快速反选从者 (从持有中移除, 之后组队不再选)
   $<HTMLDivElement>("result").addEventListener("click", (e) => {
-    const b = (e.target as HTMLElement).closest("button.sv-kick");
-    if (!b) return;
-    const title = (b as HTMLElement).dataset.title!;
-    if (!state.ownedSv.has(title)) return;
-    state.ownedSv.delete(title);
-    renderServantList();
-    recalc();
-    hint(`已反选「${title}」：从持有中移除，可到从者面板重新勾选`);
+    const t = e.target as HTMLElement;
+    const kick = t.closest("button.sv-kick");
+    if (kick) {
+      const title = (kick as HTMLElement).dataset.title!;
+      if (!state.ownedSv.has(title)) return;
+      state.ownedSv.delete(title);
+      renderServantList();
+      recalc();
+      hint(`已反选「${title}」：从持有中移除，可到从者面板重新勾选`);
+      return;
+    }
+    const ul = t.closest("button.unlock-slot");
+    if (ul) {
+      const title = (ul as HTMLElement).dataset.title!;
+      state.locked = state.locked.filter((x) => x !== title);
+      renderServantList();
+      recalc();
+      hint(`已取消锁定「${title}」`);
+    }
   });
 
   // 职阶筛选 chips (多选 = 任一符合; 点「全部」清空)
