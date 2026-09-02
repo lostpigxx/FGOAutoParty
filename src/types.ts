@@ -51,6 +51,8 @@ export interface Servant {
   name: string;
   jpName?: string;
   rarity: number;
+  /** 显式 COST 覆盖 (仅 玛修: COST=0, 各战斗形象均不占 cost); 缺省按稀有度推导 */
+  cost?: number;
   /** 属性1: 秩序/中立/混沌 */
   attr1: string;
   /** 属性2: 善/中庸/恶 */

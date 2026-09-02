@@ -40,7 +40,7 @@ export function toServantInfo(s: Servant): ServantInfo {
   const f0 = s.forms?.[0];
   return {
     name: s.title,
-    cost: servantCostByRarity(s.rarity),
+    cost: s.cost ?? servantCostByRarity(s.rarity),
     rarity: s.rarity,
     attr1: f0?.attr1 ?? s.attr1,
     attr2: f0?.attr2 ?? s.attr2,

@@ -117,6 +117,38 @@ describe("优化器: 形态精确计算 (防双 20% 高估)", () => {
   });
 });
 
+describe("马修: COST=0 + Paladin 家族", () => {
+  it("cost 覆盖为 0 (不按稀有度4→12)", () => {
+    const info = toServantInfo(findSv("玛修·基列莱特"));
+    expect(info.cost).toBe(0);
+    expect(info.forms?.some((f) => f.key.startsWith("形态:"))).toBe(true);
+    const pal = svSnapshots(info).find((_, i) => info.forms![i].key === "形态:Paladin")!;
+    expect(pal.subAttr).toBe("人");
+    expect(pal.traits).not.toContain("天地从者"); // Paladin 无 亚从者 特性
+  });
+
+  it("锁定马修 cost 0: 预算足够装高 cost 礼装", () => {
+    const info = toServantInfo(findSv("玛修·基列莱特"));
+    const input: OptimizeInput = {
+      costLimit: 20,
+      ownSlots: 1,
+      maxCes: 1,
+      includeSupport: false,
+      supportOptions: [],
+      supportOptions2: [],
+      ceItems: [mkCe("m1", 20, ["活在当下的人类"], "迦勒底之晨")],
+      lockedServants: [info],
+      freePool: [],
+      autoPickFree: true,
+    };
+    const best = optimizePlans(input, true)[0];
+    expect(best.feasible).toBe(true);
+    // 马修 cost0 → 剩余预算 20 ≥ 礼装12
+    expect(best.totalCost).toBe(12); // 1 张 20% 礼装
+    expect(best.totalPct).toBe(20);
+  });
+});
+
 describe("bestFormForCes 语义", () => {
   it("按礼装组选形态, 组不同选不同", () => {
     const info = toServantInfo(findSv(OLGA));
