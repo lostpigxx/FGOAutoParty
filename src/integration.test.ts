@@ -37,7 +37,7 @@ describe("真实数据管线", () => {
     const chaldean = catalog.find((c) => c.name === "迦勒底之人")!;
     expect(chaldean.cost).toBe(12);
     // 满破与未满破副本 cost 相同
-    const items = toCeItems([{ catalog: chaldean, count: 2, mlbCount: 1 }]);
+    const items = toCeItems([{ catalog: chaldean, mlb: true }, { catalog: chaldean, mlb: false }]);
     expect(items.length).toBe(2);
     const costs = new Set(items.map((i) => i.cost));
     expect(costs.size).toBe(1);
@@ -82,13 +82,12 @@ describe("真实数据管线", () => {
     // 持有: 1 张满破迦勒底之人 + 1 张满破检查报告 + 借满破午茶
     const ownedCes = catalog
       .filter((c) => ["迦勒底之人", "检查报告"].includes(c.name))
-      .map((c) => ({ catalog: c, count: 1, mlbCount: 1 }));
+      .map((c) => ({ catalog: c, mlb: true }));
 
     const r = optimize({
       costLimit: 113,
       ownSlots: 6,
       includeSupport: true,
-      supportServantCost: 12,
       supportOptions: supportCeOptions(catalog),
       ceItems: toCeItems(ownedCes),
       lockedServants: [gil, art, mash],

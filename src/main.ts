@@ -25,19 +25,14 @@ import { SERVANT_COST } from "./types";
 // 状态
 // ---------------------------------------------------------------------------
 
-interface OwnedCeState {
-  count: number;
-  mlbCount: number;
-}
-
 const state = {
   costLimit: 113,
   ownSlots: 6,
   includeSupport: true,
-  supportRarity: 4,
   supportMode: "auto" as string,
   autoPickFree: true,
-  ownedCes: new Map<string, OwnedCeState>(),
+  /** 礼装id -> 是否满破 (每张至多 1 张) */
+  ownedCes: new Map<string, boolean>(),
   ownedSv: new Set<string>(),
   locked: [] as string[],
   extraTraits: new Map<string, string[]>(),
@@ -109,21 +104,18 @@ function renderCeList() {
     );
   list.innerHTML = sorted
     .map((c) => {
-      const owned = state.ownedCes.get(c.id);
-      const count = owned?.count ?? 0;
-      const mlb = owned?.mlbCount ?? 0;
+      const mlb = state.ownedCes.get(c.id) ?? false;
       const trait = c.traits.length
         ? ` <span class="trait">〔${esc(traitText(c.traits))}〕</span>`
         : "";
       return `<div class="ce-row">
-        <input type="checkbox" class="ce-owned" data-id="${esc(c.id)}" ${count > 0 ? "checked" : ""} />
+        <input type="checkbox" class="ce-owned" data-id="${esc(c.id)}" ${state.ownedCes.has(c.id) ? "checked" : ""} />
         <div>
           <div class="ce-name"><span class="${starClass(c.rarity)}">★${c.rarity}</span> ${esc(c.name)}<span class="jp">${esc(c.jpName)}</span></div>
           <div class="ce-effect">${esc(c.summary)}${trait} · cost ${c.cost}</div>
         </div>
         <div class="ce-ctrl" data-ctrl="${esc(c.id)}">
-          ${count > 0 ? `<label>数量 <input type="number" class="ce-count" data-id="${esc(c.id)}" min="0" max="5" value="${count}" /></label>
-          <label>满破 <input type="checkbox" class="ce-mlb" data-id="${esc(c.id)}" ${mlb > 0 ? "checked" : ""} /></label>` : ""}
+          ${state.ownedCes.has(c.id) ? `<label>满破 <input type="checkbox" class="ce-mlb" data-id="${esc(c.id)}" ${mlb ? "checked" : ""} /></label>` : ""}
         </div>
       </div>`;
     })
@@ -313,7 +305,7 @@ async function reloadData() {
 // 配置持久化 (localStorage + URL)
 // ---------------------------------------------------------------------------
 
-const LS_KEY = "fgo-bond-config-v1";
+const LS_KEY = "fgo-bond-config-v2";
 
 function availableCeIds(): Set<string> {
   return new Set(catalogById.keys());
@@ -327,7 +319,6 @@ function currentSettings() {
     costLimit: state.costLimit,
     ownSlots: state.ownSlots,
     includeSupport: state.includeSupport,
-    supportRarity: state.supportRarity,
     supportMode: state.supportMode,
     autoPickFree: state.autoPickFree,
     ceOnly5: state.ceOnly5,
@@ -335,12 +326,6 @@ function currentSettings() {
     traitFilter: [...state.traitFilter],
     rarityFilter: [...state.rarityFilter].map((r) => Number(r)),
   };
-}
-
-function currentCostumeTitles(): string[] {
-  return [...state.extraTraits.entries()]
-    .filter(([, v]) => v.includes("持有灵衣之人"))
-    .map(([t]) => t);
 }
 
 /** 显式反选的灵衣从者 (有灵衣者默认勾上, 这些除外) */
@@ -368,7 +353,6 @@ function persist() {
       ownedSv: state.ownedSv,
       allTitles: allTitles(),
       locked: state.locked,
-      costumeTitles: currentCostumeTitles(),
       costumeOffTitles: currentCostumesOff(),
     });
     localStorage.setItem(LS_KEY, JSON.stringify(cfg));
@@ -382,7 +366,6 @@ function applyParsed(p: ParsedConfig) {
   state.costLimit = p.settings.costLimit;
   state.ownSlots = p.settings.ownSlots;
   state.includeSupport = p.settings.includeSupport;
-  state.supportRarity = p.settings.supportRarity;
   state.supportMode = p.settings.supportMode;
   state.autoPickFree = p.settings.autoPickFree;
   state.ceOnly5 = p.settings.ceOnly5;
@@ -392,11 +375,11 @@ function applyParsed(p: ParsedConfig) {
   state.ownedCes = p.ownedCeIds;
   state.ownedSv = p.ownedSv;
   state.locked = p.locked;
-  // 灵衣: 有灵衣者默认勾上 (视为已解锁), 显式反选的除外; 旧配置的显式标记保留
+  // 灵衣: 有灵衣者默认勾上 (视为已解锁), 显式反选的除外
   const off = new Set(p.costumesOff);
-  state.extraTraits = new Map(p.costumeTitles.map((t) => [t, ["持有灵衣之人"]]));
+  state.extraTraits = new Map();
   for (const s of servants) {
-    if (s.hasCostume && !off.has(s.title) && !state.extraTraits.has(s.title)) {
+    if (s.hasCostume && !off.has(s.title)) {
       state.extraTraits.set(s.title, ["持有灵衣之人"]);
     }
   }
@@ -437,7 +420,6 @@ function configLink(): string {
     ownedSv: state.ownedSv,
     allTitles: allTitles(),
     locked: state.locked,
-    costumeTitles: currentCostumeTitles(),
     costumeOffTitles: currentCostumesOff(),
   });
   const url = new URL(location.href);
@@ -474,7 +456,6 @@ function bindConfigButtons() {
     state.costLimit = 113;
     state.ownSlots = 6;
     state.includeSupport = true;
-    state.supportRarity = 4;
     state.supportMode = "auto";
     state.autoPickFree = true;
     state.ceOnly5 = true;
@@ -569,10 +550,10 @@ function recalc() {
     (info) => `锁定从者「${info.name}」不满足当前职阶/特性/稀有度筛选，已移出本次计算（放宽筛选后会自动恢复）`,
   );
 
-  const ownedCes: { catalog: BondCeCatalog; count: number; mlbCount: number }[] = [];
-  for (const [id, v] of state.ownedCes) {
+  const ownedCes: { catalog: BondCeCatalog; mlb: boolean }[] = [];
+  for (const [id, mlb] of state.ownedCes) {
     const c = catalogById.get(id);
-    if (c && v.count > 0) ownedCes.push({ catalog: c, count: v.count, mlbCount: v.mlbCount });
+    if (c) ownedCes.push({ catalog: c, mlb });
   }
 
   const ceItems = toCeItems(ownedCes);
@@ -588,7 +569,6 @@ function recalc() {
     costLimit: state.costLimit,
     ownSlots: state.ownSlots,
     includeSupport: state.includeSupport,
-    supportServantCost: SERVANT_COST[state.supportRarity] ?? 12,
     supportOptions: supportSel,
     ceItems,
     lockedServants: locked,
@@ -759,9 +739,7 @@ function bindEvents() {
 
   $<HTMLButtonElement>("ceSelectAll").addEventListener("click", () => {
     for (const c of catalog) {
-      const cur = state.ownedCes.get(c.id);
-      // 默认满破 (1 张); 已有记录则保留其满破状态
-      state.ownedCes.set(c.id, { count: cur?.count || 1, mlbCount: cur?.mlbCount ?? 1 });
+      state.ownedCes.set(c.id, true); // 默认满破
     }
     renderCeList();
     recalc();
@@ -784,28 +762,15 @@ function bindEvents() {
     if (t.classList.contains("ce-owned")) {
       const id = t.dataset.id!;
       if ((t as HTMLInputElement).checked) {
-        const cur = state.ownedCes.get(id);
-        // 勾选时默认 1 张且满破
-        state.ownedCes.set(id, { count: cur?.count || 1, mlbCount: cur?.mlbCount ?? 1 });
+        state.ownedCes.set(id, true); // 默认满破
       } else {
         state.ownedCes.delete(id);
       }
       renderCeList();
       recalc();
-    } else if (t.classList.contains("ce-count")) {
-      const id = t.dataset.id!;
-      const v = Math.max(0, Math.min(5, Number((t as HTMLInputElement).value) || 0));
-      const cur = state.ownedCes.get(id);
-      if (cur) {
-        cur.count = v;
-        if (cur.mlbCount > v) cur.mlbCount = v;
-      }
-      renderCeList();
-      recalc();
     } else if (t.classList.contains("ce-mlb")) {
       const id = t.dataset.id!;
-      const cur = state.ownedCes.get(id);
-      if (cur) cur.mlbCount = (t as HTMLInputElement).checked ? 1 : 0;
+      state.ownedCes.set(id, (t as HTMLInputElement).checked);
       renderCeList();
       recalc();
     }

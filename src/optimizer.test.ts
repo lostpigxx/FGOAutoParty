@@ -34,7 +34,6 @@ function baseInput(over: Partial<OptimizeInput> = {}): OptimizeInput {
     costLimit: 113,
     ownSlots: 6,
     includeSupport: false,
-    supportServantCost: 0,
     supportOptions: [],
     ceItems: [],
     lockedServants: [],
@@ -124,7 +123,6 @@ describe("背包算法", () => {
       freePool: pool,
       autoPickFree: true,
       includeSupport: true,
-      supportServantCost: 12,
       supportOptions: [
         ce({ key: "tea", name: "午茶+15%", cost: 9, bonus: 15, scope: "party", traits: [] }),
       ],
@@ -246,7 +244,6 @@ describe("优化器基础", () => {
       baseInput({
         costLimit: 30, // 只够 6 名从者(18) + 少量自己礼装
         includeSupport: true,
-        supportServantCost: 16, // 5★ 助战从者 (不应计入)
         supportOptions: [tea], // 助战礼装 cost 9 (不应计入)
         freePool: pool,
       }),
@@ -273,7 +270,6 @@ describe("优化器基础", () => {
     const r = optimize(
       baseInput({
         includeSupport: true,
-        supportServantCost: 12,
         supportOptions: [teaTime],
         freePool: pool,
       }),

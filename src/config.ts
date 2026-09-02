@@ -1,18 +1,13 @@
 // 配置持久化: 序列化 / 解析 / URL 压缩
-// 持有配置 (礼装数量、从者、锁定、灵衣、设置) 可存 localStorage 或编码进 URL 分享
+// 持有配置 (礼装、从者、锁定、灵衣反选、设置) 可存 localStorage 或编码进 URL 分享
+// 注: v1 未发布, 不兼容旧配置; 有 schema 变化直接升 v
 
 export interface PersistedConfig {
-  v: 1;
-  /**
-   * 配置版本 (2 = 当前)。缺失/小于 2 的旧配置可能是早期/热更新中途写入的,
-   * 其 costumesOff 字段不可信, 读取时忽略 (有灵衣者一律默认勾选)。
-   */
-  cfgVersion?: 2;
+  v: 2;
   settings: {
     costLimit: number;
     ownSlots: number;
     includeSupport: boolean;
-    supportRarity: number;
     supportMode: string;
     autoPickFree: boolean;
     /** 礼装列表默认只看 5★ 加成礼装 */
@@ -22,61 +17,49 @@ export interface PersistedConfig {
     traitFilter: string[];
     rarityFilter: number[];
   };
-  /** [礼装id, {数量, 满破数}] */
-  ownedCes: Array<[string, { count: number; mlbCount: number }]>;
-  /** 从者默认全持有, 因此只存较小的一侧 */
+  /** [礼装id, 是否满破]; 每张礼装至多 1 张 */
+  ownedCes: Array<[string, boolean]>;
+  /** 从者默认全不选, 只存较小的一侧 (持有 / 未持有) */
   svMode: "owned" | "unowned";
   svList: string[];
   locked: string[];
-  /** 已解锁灵衣的从者 (持有灵衣之人) */
-  costumes: string[];
   /** 显式反选的灵衣从者 (国服未实装灵衣等); 有灵衣者默认勾上, 此列表内的除外 */
   costumesOff: string[];
 }
 
 export interface ConfigInput {
   settings: PersistedConfig["settings"];
-  ownedCes: Map<string, { count: number; mlbCount: number }>;
+  ownedCes: Map<string, boolean>;
   ownedSv: Set<string>;
   allTitles: Set<string>;
   locked: string[];
-  costumeTitles: string[];
   costumeOffTitles: string[];
 }
 
 export function buildConfig(input: ConfigInput): PersistedConfig {
-  const ownedCes = [...input.ownedCes.entries()]
-    .filter(([, v]) => v.count > 0)
-    .map(
-      ([id, v]) => [id, { count: v.count, mlbCount: v.mlbCount }] as [
-        string,
-        { count: number; mlbCount: number },
-      ],
-    );
+  const ownedCes = [...input.ownedCes.entries()].map(
+    ([id, mlb]) => [id, mlb] as [string, boolean],
+  );
   const unowned = [...input.allTitles].filter((t) => !input.ownedSv.has(t));
   const svMode: "owned" | "unowned" =
     input.ownedSv.size <= unowned.length ? "owned" : "unowned";
   const svList = svMode === "owned" ? [...input.ownedSv] : unowned;
   return {
-    v: 1,
-    cfgVersion: 2,
+    v: 2,
     settings: { ...input.settings },
     ownedCes,
     svMode,
     svList,
     locked: [...input.locked],
-    costumes: [...input.costumeTitles],
     costumesOff: [...input.costumeOffTitles],
   };
 }
 
 export interface ParsedConfig {
   settings: PersistedConfig["settings"];
-  ownedCeIds: Map<string, { count: number; mlbCount: number }>;
+  ownedCeIds: Map<string, boolean>;
   ownedSv: Set<string>;
   locked: string[];
-  costumeTitles: string[];
-  /** 显式反选的灵衣从者 (有灵衣者默认勾上, 这些除外) */
   costumesOff: string[];
 }
 
@@ -88,15 +71,12 @@ export function parseConfig(
 ): ParsedConfig | null {
   try {
     const raw = JSON.parse(json) as PersistedConfig;
-    if (!raw || raw.v !== 1) return null;
+    if (!raw || raw.v !== 2) return null;
 
     const settings = {
       costLimit: clampInt(raw.settings?.costLimit, 1, 999, 113),
       ownSlots: clampInt(raw.settings?.ownSlots, 1, 6, 6),
       includeSupport: raw.settings?.includeSupport !== false,
-      supportRarity: [1, 2, 3, 4, 5].includes(Number(raw.settings?.supportRarity))
-        ? Number(raw.settings.supportRarity)
-        : 4,
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",
       autoPickFree: raw.settings?.autoPickFree !== false,
       ceOnly5: raw.settings?.ceOnly5 !== false,
@@ -113,14 +93,9 @@ export function parseConfig(
         : [1, 2, 3, 4, 5],
     };
 
-    const ownedCeIds = new Map<string, { count: number; mlbCount: number }>();
-    for (const [id, v] of Array.isArray(raw.ownedCes) ? raw.ownedCes : []) {
-      if (availableCeIds.has(id) && v && Number(v.count) > 0) {
-        ownedCeIds.set(id, {
-          count: Math.min(5, Number(v.count) || 1),
-          mlbCount: Number(v.mlbCount) > 0 ? 1 : 0,
-        });
-      }
+    const ownedCeIds = new Map<string, boolean>();
+    for (const [id, mlb] of Array.isArray(raw.ownedCes) ? raw.ownedCes : []) {
+      if (availableCeIds.has(id)) ownedCeIds.set(id, mlb === true);
     }
 
     const list = (Array.isArray(raw.svList) ? raw.svList : []).filter((t) => allTitles.has(t));
@@ -132,18 +107,13 @@ export function parseConfig(
     const locked = (Array.isArray(raw.locked) ? raw.locked : [])
       .filter((t) => allTitles.has(t))
       .slice(0, 6);
-    const costumeTitles = (Array.isArray(raw.costumes) ? raw.costumes : []).filter((t) =>
+    const costumesOff = (Array.isArray(raw.costumesOff) ? raw.costumesOff : []).filter((t) =>
       allTitles.has(t),
     );
-    // costumesOff 只有 cfgVersion=2 的配置可信 (早期/热更新中途写入的可能被污染)
-    const costumesOff =
-      raw.cfgVersion === 2 && Array.isArray(raw.costumesOff)
-        ? raw.costumesOff.filter((t) => allTitles.has(t))
-        : [];
-    // 锁定/灵衣意味着已持有
-    for (const t of [...locked, ...costumeTitles]) ownedSv.add(t);
+    // 锁定意味着已持有
+    for (const t of locked) ownedSv.add(t);
 
-    return { settings, ownedCeIds, ownedSv, locked, costumeTitles, costumesOff };
+    return { settings, ownedCeIds, ownedSv, locked, costumesOff };
   } catch {
     return null;
   }

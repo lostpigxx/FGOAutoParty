@@ -183,10 +183,8 @@ export function buildBondCatalog(ces: Ce[]): BondCeCatalog[] {
 
 export interface OwnedCeState {
   catalog: BondCeCatalog;
-  /** 持有总张数 */
-  count: number;
-  /** 其中满破张数 */
-  mlbCount: number;
+  /** 是否满破 (每张礼装至多 1 张) */
+  mlb: boolean;
 }
 
 function itemLabel(scope: BondScope, bonus: number, isMlb: boolean): string {
@@ -196,47 +194,26 @@ function itemLabel(scope: BondScope, bonus: number, isMlb: boolean): string {
   return `自身+${bonus}%${tag}`;
 }
 
-/** 把自己持有的羁绊礼装(按副本)展开为优化器可用的礼装 item */
+/** 把持有的羁绊礼装展开为优化器可用的礼装 item (每张 1 个) */
 export function toCeItems(owned: OwnedCeState[]): CeItem[] {
   const items: CeItem[] = [];
   for (const o of owned) {
     const cat = o.catalog;
-    if (o.count <= 0) continue;
-    const mlbCopies = Math.min(o.mlbCount, o.count);
-    const normalCopies = o.count - mlbCopies;
-    for (let i = 0; i < mlbCopies; i++) {
-      const e = cat.mlb;
-      if (!e) continue;
-      // 助战类礼装装在自己槽位上时, 只对装备者生效(普通数值)
-      const scope: BondScope = e.scope === "support" ? "self" : e.scope;
-      items.push({
-        key: `${cat.id}#mlb#${i}`,
-        id: cat.id,
-        name: cat.name,
-        isMlb: true,
-        cost: cat.cost,
-        bonus: e.bonus,
-        scope,
-        traits: cat.traits,
-        label: itemLabel(scope, e.bonus, true),
-      });
-    }
-    for (let i = 0; i < normalCopies; i++) {
-      const e = cat.normal;
-      if (!e) continue;
-      const scope: BondScope = e.scope === "support" ? "self" : e.scope;
-      items.push({
-        key: `${cat.id}#n#${i}`,
-        id: cat.id,
-        name: cat.name,
-        isMlb: false,
-        cost: cat.cost,
-        bonus: e.bonus,
-        scope,
-        traits: cat.traits,
-        label: itemLabel(scope, e.bonus, false),
-      });
-    }
+    const e = o.mlb ? cat.mlb : cat.normal;
+    if (!e) continue;
+    // 助战类礼装装在自己槽位上时, 只对装备者生效(普通数值)
+    const scope: BondScope = e.scope === "support" ? "self" : e.scope;
+    items.push({
+      key: `${cat.id}#${o.mlb ? "mlb" : "n"}`,
+      id: cat.id,
+      name: cat.name,
+      isMlb: o.mlb,
+      cost: cat.cost,
+      bonus: e.bonus,
+      scope,
+      traits: cat.traits,
+      label: itemLabel(scope, e.bonus, o.mlb),
+    });
   }
   return items;
 }

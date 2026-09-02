@@ -27,9 +27,8 @@ export interface CeItem {
 export interface OptimizeInput {
   costLimit: number;
   ownSlots: number;
+  /** 是否计算助战位 (借用好友, cost 不计入) */
   includeSupport: boolean;
-  /** 助战从者的 cost (计入总 cost) */
-  supportServantCost: number;
   /** 可选助战礼装 (优化器自动选最优, 含 null=无) */
   supportOptions: CeItem[];
   /** 自己槽位可用的全部礼装副本 */
@@ -66,8 +65,6 @@ export interface OptimizeResult {
   selfBonus: number;
   servantCost: number;
   ceCost: number;
-  /** 助战位的 cost (仅展示, 不计入自己的 Cost 上限) */
-  supportCost: number;
   /** 自己的总 cost (不含助战) */
   totalCost: number;
   /** 全队总加成百分点 = Σ 每人加成 */
@@ -89,7 +86,6 @@ function infeasible(error: string, input: OptimizeInput): OptimizeResult {
     selfBonus: 0,
     servantCost: 0,
     ceCost: 0,
-    supportCost: 0,
     totalCost: 0,
     totalPct: 0,
     grandTotalPct: input.ownSlots * 100,
@@ -245,9 +241,6 @@ function buildResult(
   const locked = input.lockedServants;
   const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
   const free = party.slice(locked.length);
-  // 助战(好友)的从者与礼装 cost 不计入自己的 Cost 上限, 仅用于展示
-  const supportCost =
-    (input.includeSupport ? input.supportServantCost : 0) + (supportCe ? supportCe.cost : 0);
   const servantCost = lockedCost + free.reduce((s, x) => s + x.cost, 0);
   const ceCost = chosen.reduce((s, x) => s + x.cost, 0);
   const totalCost = servantCost + ceCost; // 自己的 cost (不含助战)
@@ -287,7 +280,6 @@ function buildResult(
     selfBonus,
     servantCost,
     ceCost,
-    supportCost,
     totalCost,
     totalPct,
     grandTotalPct: n * 100 + totalPct,
