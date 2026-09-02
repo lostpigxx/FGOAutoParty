@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { knapsack, knapsackTopK, optimize, optimizeCostMax, optimizeTopN, optimizeTopNWithCostMax, type CeItem, type OptimizeInput } from "./optimizer";
+import { knapsack, knapsackTopK, optimize, optimizeCostMax, optimizePlans, optimizeTopN, type CeItem, type OptimizeInput } from "./optimizer";
 import { servantMatchesTrait, servantPassesFilters, type ServantInfo } from "./data";
 
 function svInfo(name: string, over: Partial<ServantInfo> = {}): ServantInfo {
@@ -263,7 +263,7 @@ describe("优化器基础", () => {
     expect(r.totalCost).toBe(60);
   });
 
-  it("optimizeTopNWithCostMax: 附加 cost最佳 方案", () => {
+  it("optimizePlans: 最佳 + cost上限-1 + cost最佳", () => {
     const pool = [
       svInfo("高星A", { cost: 16 }),
       svInfo("高星B", { cost: 16 }),
@@ -272,12 +272,39 @@ describe("优化器基础", () => {
       svInfo("低星B", { cost: 3 }),
       svInfo("低星C", { cost: 3 }),
     ];
-    const top = optimizeTopNWithCostMax(baseInput({ ownSlots: 3, freePool: pool }), 3);
-    expect(top.some((r) => r.isCostMax)).toBe(true);
-    const cm = top.find((r) => r.isCostMax)!;
-    expect(cm.totalCost).toBe(48); // 3 高星, 用满 cost
-    // 最佳(加成)方案与 cost最佳 不同 (低成本队 vs 高成本队)
-    expect(top[0].totalCost).not.toBe(cm.totalCost);
+    const top = optimizePlans(baseInput({ ownSlots: 3, freePool: pool }));
+    expect(top.length).toBeGreaterThanOrEqual(1);
+    expect(top[0].isCostMax).not.toBe(true); // 第一个是最佳(加成)
+    // cost最佳: 3 高星用满
+    const cm = top.find((r) => r.isCostMax);
+    expect(cm?.totalCost).toBe(48);
+    // 最佳(加成)与 cost最佳 不同
+    expect(top[0].totalCost).not.toBe(cm!.totalCost);
+  });
+
+  it("cost上限-1 方案: 预算少 1 时给出不同队伍", () => {
+    const ceItems = [
+      ce({ key: "c", name: "+20%", cost: 9, bonus: 20, scope: "party", traits: [] }),
+    ];
+    // 3 锁定 5★(48) + 无条件礼装(9) = 57 用满; cost-1(56) 礼装装不下
+    const top = optimizePlans(
+      baseInput({
+        costLimit: 57,
+        ownSlots: 3,
+        lockedServants: [
+          svInfo("锁定1", { cost: 16 }),
+          svInfo("锁定2", { cost: 16 }),
+          svInfo("锁定3", { cost: 16 }),
+        ],
+        freePool: [],
+        ceItems,
+      }),
+    );
+    expect(top[0].totalCost).toBe(57); // 最佳用满
+    const m1 = top.find((r) => r.isCostMinusOne);
+    expect(m1).toBeDefined();
+    expect(m1!.totalCost).toBeLessThanOrEqual(56);
+    expect(m1!.totalCost).not.toBe(57);
   });
 
   it("礼装数上限: maxCes 限制装备张数", () => {

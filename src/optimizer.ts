@@ -58,6 +58,8 @@ export interface OptimizeResult {
   error?: string;
   /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
   isCostMax?: boolean;
+  /** 是否为「cost上限-1」方案 (预算少 1) */
+  isCostMinusOne?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -558,15 +560,29 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   return r;
 }
 
-/** Top-N 全加成方案 + 「cost最佳」方案 (去重后追加) */
-export function optimizeTopNWithCostMax(input: OptimizeInput, n = 3): OptimizeResult[] {
-  const results = optimizeTopN(input, n);
-  const cm = optimizeCostMax(input);
-  if (cm.feasible) {
-    const sig = resultSignature(cm);
-    if (!results.some((r) => resultSignature(r) === sig)) {
-      results.push(cm);
+/**
+ * 方案列表: 最佳方案 + 「cost上限-1」方案(预算少 1 求最佳) + 「cost最佳」方案(用满预算)。
+ * 与已有方案重复的去重。
+ */
+export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
+  const results: OptimizeResult[] = [];
+  const best = optimizeTopN(input, 1)[0];
+  if (best?.feasible) results.push(best);
+
+  if (input.costLimit > 1) {
+    const minus1 = optimizeTopN({ ...input, costLimit: input.costLimit - 1 }, 1)[0];
+    if (
+      minus1?.feasible &&
+      !results.some((r) => resultSignature(r) === resultSignature(minus1))
+    ) {
+      minus1.isCostMinusOne = true;
+      results.push(minus1);
     }
+  }
+
+  const cm = optimizeCostMax(input);
+  if (cm.feasible && !results.some((r) => resultSignature(r) === resultSignature(cm))) {
+    results.push(cm);
   }
   return results;
 }
