@@ -282,7 +282,7 @@ describe("优化器基础", () => {
     expect(top[0].totalCost).not.toBe(cm!.totalCost);
   });
 
-  it("折中方案: 介于加成最佳与cost最佳之间 (κ加权)", () => {
+  it("满配加成方案: 加成保持 + κ×cost 尽量上高星", () => {
     // 高星(贵,不匹配) 与 低星(便宜,匹配特性X) 混合
     const pool = [
       svInfo("高星A", { cost: 16 }),
@@ -305,7 +305,7 @@ describe("优化器基础", () => {
     const best = top[0];
     // 折中(κ=1): 评分 = 30+3(低星X) vs 16(高星) -> 低星X 仍优, 若无其他则与最佳同解
     // 这里验证存在折中/或与最佳同解时至少包含 cost最佳
-    const comp = top.find((r) => r.isCompromise);
+    const comp = top.find((r) => r.isFullLoad);
     const cm = top.find((r) => r.isCostMax);
     expect(top.some((r) => r.isCostMax)).toBe(true);
     if (comp) {

@@ -60,8 +60,8 @@ export interface OptimizeResult {
   error?: string;
   /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
   isCostMax?: boolean;
-  /** 是否为「折中」方案 (加成最优 + cost 利用率 κ 加权) */
-  isCompromise?: boolean;
+  /** 是否为「满配加成」方案 (加成保持 + κ×cost 加权尽量上高星) */
+  isFullLoad?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -610,7 +610,7 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
 const COMPROMISE_K = 1;
 
 /**
- * 方案列表: 最佳方案(满预算纯加成) + 「折中」方案(加成最优 + κ×cost 利用)
+ * 方案列表: 最佳方案(纯加成) + 「满配加成」方案(加成保持 + κ×cost 尽量上高星)
  * + 「cost最佳」方案(用满预算)。与已有方案重复的去重。
  */
 export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
@@ -624,7 +624,7 @@ export function optimizePlans(input: OptimizeInput): OptimizeResult[] {
     comp?.feasible &&
     !results.some((r) => resultSignature(r) === resultSignature(comp))
   ) {
-    comp.isCompromise = true;
+    comp.isFullLoad = true;
     results.push(comp);
   }
 
