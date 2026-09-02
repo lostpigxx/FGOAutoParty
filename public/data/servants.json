@@ -2041,22 +2041,6 @@
   "title": "弗兰肯斯坦"
  },
  {
-  "name": "所罗门",
-  "jpName": "ソロモン",
-  "collectionNo": 83,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "善",
-  "gender": "男性",
-  "subAttr": "兽",
-  "className": "Grand Caster",
-  "traits": [
-   "王"
-  ],
-  "hasCostume": false,
-  "title": "所罗门"
- },
- {
   "name": "阿周那",
   "jpName": "アルジュナ",
   "collectionNo": 84,
@@ -3887,59 +3871,6 @@
   "title": "豹人"
  },
  {
-  "name": "提亚马特",
-  "jpName": "ティアマト",
-  "collectionNo": 149,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "恶",
-  "gender": "女性",
-  "subAttr": "兽",
-  "className": "BeastⅡ",
-  "traits": [
-   "超巨大",
-   "神性",
-   "神灵"
-  ],
-  "hasCostume": false,
-  "forms": [
-   {
-    "key": "形象1",
-    "label": "战斗形象1",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": [
-     "神性"
-    ]
-   },
-   {
-    "key": "形象2",
-    "label": "战斗形象2",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": [
-     "神性"
-    ]
-   },
-   {
-    "key": "形象3",
-    "label": "战斗形象3",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": [
-     "神性"
-    ]
-   }
-  ],
-  "title": "提亚马特"
- },
- {
   "name": "梅林",
   "jpName": "マーリン",
   "collectionNo": 150,
@@ -4017,38 +3948,6 @@
    }
   ],
   "title": "梅林"
- },
- {
-  "name": "盖提亚",
-  "jpName": "ゲーティア",
-  "collectionNo": 151,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "善",
-  "gender": "",
-  "subAttr": "兽",
-  "className": "BeastⅠ",
-  "traits": [
-   "王"
-  ],
-  "hasCostume": false,
-  "title": "盖提亚"
- },
- {
-  "name": "所罗门",
-  "jpName": "ソロモン",
-  "collectionNo": 152,
-  "rarity": 5,
-  "attr1": "秩序",
-  "attr2": "善",
-  "gender": "男性",
-  "subAttr": "地",
-  "className": "Caster",
-  "traits": [
-   "天地从者"
-  ],
-  "hasCostume": false,
-  "title": "所罗门(Caster)"
  },
  {
   "name": "宫本武藏",
@@ -4380,54 +4279,6 @@
   ],
   "hasCostume": false,
   "title": "杀生院祈荒"
- },
- {
-  "name": "BeastⅢ／R",
-  "jpName": "ビーストⅢ／R",
-  "collectionNo": 168,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "恶",
-  "gender": "女性",
-  "subAttr": "兽",
-  "className": "BeastⅢ／R",
-  "traits": [
-   "魔性",
-   "超巨大",
-   "巨人",
-   "人科"
-  ],
-  "hasCostume": false,
-  "forms": [
-   {
-    "key": "形象1",
-    "label": "战斗形象1",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": []
-   },
-   {
-    "key": "形象2",
-    "label": "战斗形象2",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": []
-   },
-   {
-    "key": "形象3",
-    "label": "战斗形象3",
-    "attr1": "混沌",
-    "attr2": "恶",
-    "gender": "女性",
-    "subAttr": "兽",
-    "traits": []
-   }
-  ],
-  "title": "BeastⅢ／R"
  },
  {
   "name": "山鲁佐德",
@@ -6328,24 +6179,6 @@
    }
   ],
   "title": "迦摩"
- },
- {
-  "name": "BeastⅢ／L",
-  "jpName": "ビーストⅢ／L",
-  "collectionNo": 240,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "恶",
-  "gender": "女性",
-  "subAttr": "兽",
-  "className": "BeastⅢ／L",
-  "traits": [
-   "神性",
-   "魔性",
-   "王"
-  ],
-  "hasCostume": false,
-  "title": "BeastⅢ／L"
  },
  {
   "name": "司马懿〔莱妮丝〕",
@@ -9348,26 +9181,6 @@
   "title": "多布雷尼亚·尼基季奇"
  },
  {
-  "name": "BeastⅣ",
-  "jpName": "ビーストⅣ",
-  "collectionNo": 333,
-  "rarity": 5,
-  "attr1": "混沌",
-  "attr2": "恶",
-  "gender": "女性",
-  "subAttr": "兽",
-  "className": "BeastⅣ",
-  "traits": [
-   "神性",
-   "猛兽",
-   "魔性",
-   "超巨大",
-   "金色白面"
-  ],
-  "hasCostume": false,
-  "title": "BeastⅣ"
- },
- {
   "name": "暗之高扬斯卡娅",
   "jpName": "闇のコヤンスカヤ",
   "collectionNo": 334,
@@ -11635,40 +11448,6 @@
   "title": "亚历山德罗·迪·卡利奥斯特罗"
  },
  {
-  "name": "E－火玛丽",
-  "jpName": "Ｅ－フレアマリー",
-  "collectionNo": 411,
-  "rarity": 0,
-  "attr1": "秩序",
-  "attr2": "善",
-  "gender": "女性",
-  "subAttr": "人",
-  "className": "Unknown",
-  "traits": [
-   "从者",
-   "浮游着的"
-  ],
-  "hasCostume": false,
-  "title": "E－火玛丽"
- },
- {
-  "name": "E－水玛丽",
-  "jpName": "Ｅ－アクアマリー",
-  "collectionNo": 412,
-  "rarity": 0,
-  "attr1": "中立",
-  "attr2": "善",
-  "gender": "女性",
-  "subAttr": "人",
-  "className": "Unknown",
-  "traits": [
-   "从者",
-   "浮游着的"
-  ],
-  "hasCostume": false,
-  "title": "E－水玛丽"
- },
- {
   "name": "苍崎青子",
   "jpName": "蒼崎青子",
   "collectionNo": 413,
@@ -12586,25 +12365,6 @@
   "title": "小野小町"
  },
  {
-  "name": "E－宏玛丽",
-  "jpName": "Ｅ－グランマリー",
-  "collectionNo": 436,
-  "rarity": 0,
-  "attr1": "混沌",
-  "attr2": "善",
-  "gender": "女性",
-  "subAttr": "天",
-  "className": "Unknown",
-  "traits": [
-   "从者",
-   "天地从者",
-   "超巨大",
-   "巨人"
-  ],
-  "hasCostume": false,
-  "title": "E－宏玛丽"
- },
- {
   "name": "但丁·阿利吉耶里",
   "jpName": "ダンテ・アリギエーリ",
   "collectionNo": 437,
@@ -12864,24 +12624,6 @@
    }
   ],
   "title": "因陀罗"
- },
- {
-  "name": "E－星玛丽",
-  "jpName": "Ｅ－ステラマリー",
-  "collectionNo": 443,
-  "rarity": 0,
-  "attr1": "秩序",
-  "attr2": "恶",
-  "gender": "女性",
-  "subAttr": "星",
-  "className": "Unknown",
-  "traits": [
-   "从者",
-   "人类的威胁",
-   "浮游着的"
-  ],
-  "hasCostume": false,
-  "title": "E－星玛丽"
  },
  {
   "name": "U－奥尔加玛丽",
@@ -13516,23 +13258,6 @@
   ],
   "hasCostume": false,
   "title": "所罗门(Pretender)"
- },
- {
-  "name": "马里斯·迦勒底亚斯",
-  "jpName": "マリス・カルデアス",
-  "collectionNo": 460,
-  "rarity": 0,
-  "attr1": "中立",
-  "attr2": "善",
-  "gender": "不明",
-  "subAttr": "兽",
-  "className": "BeastⅦ",
-  "traits": [
-   "人类的威胁",
-   "超巨大"
-  ],
-  "hasCostume": false,
-  "title": "马里斯·迦勒底亚斯"
  },
  {
   "name": "领主洛格雷斯",

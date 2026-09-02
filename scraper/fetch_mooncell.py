@@ -275,6 +275,9 @@ def parse_servant(wikitext):
     b = blocks[0]
     if not b.get("中文名"):
         return None
+    # 无法召唤 = 敌役/剧情非实装形态 (Beast BOSS、所罗门、E-系列 等), 不进可组队列表
+    if b.get("获取途径", "").strip() == "无法召唤":
+        return None
     traits = []
     i = 1
     while f"特性{i}" in b:
