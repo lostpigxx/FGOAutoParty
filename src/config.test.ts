@@ -16,6 +16,7 @@ function baseInput(): ConfigInput {
       maxCes: 5,
       includeSupport: true,
       supportMode: "auto",
+      supportMode2: "none",
       autoPickFree: true,
       ceOnly5: true,
       classFilter: ["Berserker"],

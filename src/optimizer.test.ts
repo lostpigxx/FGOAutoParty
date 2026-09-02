@@ -36,6 +36,7 @@ function baseInput(over: Partial<OptimizeInput> = {}): OptimizeInput {
     maxCes: 6,
     includeSupport: false,
     supportOptions: [],
+    supportOptions2: [],
     ceItems: [],
     lockedServants: [],
     freePool: [],
@@ -249,6 +250,25 @@ describe("优化器基础", () => {
     const r = optimize(baseInput({ costLimit: 60, freePool: pool, ceItems, maxCes: 2 }));
     expect(r.feasible).toBe(true);
     expect(r.chosenCe.length).toBe(2); // 预算充足也只装 2 张
+  });
+
+
+  it("冠位助战位: 双助战叠加生效", () => {
+    const pool = Array.from({ length: 6 }, (_, i) => svInfo(`从者${i}`, { cost: 3 }));
+    const tea = ce({ key: "tea", name: "助战+15%", cost: 9, bonus: 15, scope: "party", traits: [] });
+    const lunch = ce({ key: "lunch", name: "助战+10%", cost: 12, bonus: 10, scope: "party", traits: [] });
+    const r = optimize(
+      baseInput({
+        includeSupport: true,
+        supportOptions: [tea],
+        supportOptions2: [lunch],
+        freePool: pool,
+      }),
+    );
+    expect(r.feasible).toBe(true);
+    expect(r.supportCe?.key).toBe("tea");
+    expect(r.supportCe2?.key).toBe("lunch");
+    expect(r.totalPct).toBe(6 * 15 + 6 * 10); // 双助战都计入全队
   });
 
   it("好友助战不计入 Cost (回归)", () => {

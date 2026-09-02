@@ -58,6 +58,8 @@ describe("真实数据管线", () => {
     }
     const tea = opts.find((o) => o.name === "迦勒底午茶时光");
     expect(tea?.bonus).toBe(15);
+    const lunch = opts.find((o) => o.name === "迦勒底午餐时光");
+    expect(lunch?.bonus).toBe(10);
     // 无 4★ (英灵逢魔/英灵极点) 与未满破版本
     expect(opts.some((o) => o.name.includes("英灵逢魔") || o.name.includes("英灵极点"))).toBe(false);
     expect(opts.some((o) => o.key.endsWith("#n"))).toBe(false);
@@ -90,6 +92,7 @@ describe("真实数据管线", () => {
       maxCes: 6,
       includeSupport: true,
       supportOptions: supportCeOptions(catalog),
+      supportOptions2: [],
       ceItems: toCeItems(ownedCes),
       lockedServants: [gil, art, mash],
       freePool: servants

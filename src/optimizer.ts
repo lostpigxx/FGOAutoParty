@@ -33,6 +33,8 @@ export interface OptimizeInput {
   includeSupport: boolean;
   /** 可选助战礼装 (优化器自动选最优, 含 null=无) */
   supportOptions: CeItem[];
+  /** 冠位助战礼装 (第二助战位, 适配冠位战双助战; [] = 无) */
+  supportOptions2: CeItem[];
   /** 自己槽位可用的全部礼装副本 */
   ceItems: CeItem[];
   /** 锁定从者 (按槽位顺序, 必须上阵) */
@@ -61,6 +63,9 @@ export interface OptimizeResult {
   slots: SlotInfo[];
   support: SlotInfo | null;
   supportCe: CeItem | null;
+  /** 冠位助战位 (第二助战) */
+  support2: SlotInfo | null;
+  supportCe2: CeItem | null;
   /** 选中的自己槽位礼装 */
   chosenCe: CeItem[];
   /** 自身加成合计 % (仅装备者) */
@@ -84,6 +89,8 @@ function infeasible(error: string, input: OptimizeInput): OptimizeResult {
     slots: [],
     support: null,
     supportCe: null,
+    support2: null,
+    supportCe2: null,
     chosenCe: [],
     selfBonus: 0,
     servantCost: 0,
@@ -147,6 +154,25 @@ export function knapsack<T extends { cost: number; value: number }>(
     totalCost: bestC,
     totalValue: bestV,
   };
+}
+
+/** 从候选助战礼装中按价值(加成x命中数)贪心选最优 */
+function bestSupportOption(
+  options: CeItem[],
+  party: ServantInfo[],
+  excludeKey: string | null,
+): CeItem | null {
+  let best: CeItem | null = null;
+  let bestV = -1;
+  for (const o of options) {
+    if (o.key === excludeKey) continue;
+    const v = o.bonus * matchCount(party, o.traits);
+    if (v > bestV) {
+      bestV = v;
+      best = o;
+    }
+  }
+  return best;
 }
 
 /** 给定队伍, 计算每个礼装 item 的价值 */
@@ -236,6 +262,7 @@ export function knapsackTopK<T extends { cost: number; value: number }>(
 function buildResult(
   input: OptimizeInput,
   supportCe: CeItem | null,
+  supportCe2: CeItem | null,
   party: ServantInfo[],
   chosen: CeItem[],
 ): OptimizeResult {
@@ -250,7 +277,11 @@ function buildResult(
     return infeasible(`Cost 超出上限 (${totalCost} > ${input.costLimit})`, input);
   }
 
-  const partyCEs = [...chosen.filter((x) => x.scope === "party"), ...(supportCe ? [supportCe] : [])];
+  const partyCEs = [
+    ...chosen.filter((x) => x.scope === "party"),
+    ...(supportCe ? [supportCe] : []),
+    ...(supportCe2 ? [supportCe2] : []),
+  ];
   const slots: SlotInfo[] = party.map((s, i) => {
     let pb = 0;
     for (const ce of partyCEs) {
@@ -278,6 +309,10 @@ function buildResult(
       ? { servant: null, locked: false, ce: supportCe, partyBonus: 0 }
       : null,
     supportCe: input.includeSupport ? supportCe : null,
+    support2: input.includeSupport && supportCe2
+      ? { servant: null, locked: false, ce: supportCe2, partyBonus: 0 }
+      : null,
+    supportCe2: input.includeSupport ? supportCe2 : null,
     chosenCe: chosen,
     selfBonus,
     servantCost,
@@ -337,11 +372,15 @@ function optimizeWithSupportTopK(
     const kp = knapsack(usable, budgetCe, Math.min(input.maxCes, n));
     const chosen = kp.chosen.map((x) => x.it);
 
+    // ---- 冠位助战位: 贪心选最优 (不与主助战重复) ----
+    const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
+
     // ---- 自动选从者: 按已选礼装评分 ----
     if (input.autoPickFree && freeCount > 0) {
       const partyCEs = [
         ...chosen.filter((x) => x.scope === "party"),
         ...(supportCe ? [supportCe] : []),
+        ...(supportCe2 ? [supportCe2] : []),
       ];
       const scored = pool.map((s) => {
         let value = 0;
@@ -372,6 +411,7 @@ function optimizeWithSupportTopK(
   }
 
   const party = bestParty!;
+  const supportCe2 = bestSupportOption(input.supportOptions2, party, supportCe?.key ?? null);
 
   // ---- Top-K 礼装组合 (对收敛后的队伍) ----
   const items = input.ceItems.map((it) => ({
@@ -386,8 +426,10 @@ function optimizeWithSupportTopK(
   const topSets = usable.length ? knapsackTopK(usable, budgetCe, Math.min(input.maxCes, n), k) : [];
   const results =
     topSets.length > 0
-      ? topSets.map((ks) => buildResult(input, supportCe, party, ks.chosen.map((x) => x.it)))
-      : [buildResult(input, supportCe, party, [])];
+      ? topSets.map((ks) =>
+          buildResult(input, supportCe, supportCe2, party, ks.chosen.map((x) => x.it)),
+        )
+      : [buildResult(input, supportCe, supportCe2, party, [])];
   return results;
 }
 
@@ -401,7 +443,7 @@ function resultSignature(r: OptimizeResult): string {
     .map((c) => c.key)
     .sort()
     .join("|");
-  return `${sv}§${ce}§${r.supportCe?.key ?? "none"}`;
+  return `${sv}§${ce}§${r.supportCe?.key ?? "none"}§${r.supportCe2?.key ?? "none"}`;
 }
 
 /** 返回 Top-N 组队方案 (跨助战礼装选项, 去重, 按总加成降序) */

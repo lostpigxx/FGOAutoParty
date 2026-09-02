@@ -11,6 +11,8 @@ export interface PersistedConfig {
     maxCes: number;
     includeSupport: boolean;
     supportMode: string;
+    /** 冠位助战礼装 (第二助战位): none/auto/礼装key */
+    supportMode2: string;
     autoPickFree: boolean;
     /** 礼装列表默认只看 5★ 加成礼装 */
     ceOnly5: boolean;
@@ -81,6 +83,7 @@ export function parseConfig(
       maxCes: clampInt(raw.settings?.maxCes, 0, 6, 5),
       includeSupport: raw.settings?.includeSupport !== false,
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",
+      supportMode2: typeof raw.settings?.supportMode2 === "string" ? raw.settings.supportMode2 : "none",
       autoPickFree: raw.settings?.autoPickFree !== false,
       ceOnly5: raw.settings?.ceOnly5 !== false,
       classFilter: Array.isArray(raw.settings?.classFilter)

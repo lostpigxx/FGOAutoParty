@@ -31,6 +31,8 @@ const state = {
   maxCes: 5,
   includeSupport: true,
   supportMode: "auto" as string,
+  /** 冠位助战礼装 (第二助战位, 默认无) */
+  supportMode2: "none" as string,
   autoPickFree: true,
   /** 礼装id -> 是否满破 (每张至多 1 张) */
   ownedCes: new Map<string, boolean>(),
@@ -199,7 +201,6 @@ function renderServantList() {
 // ---------------------------------------------------------------------------
 
 function renderSupportOptions() {
-  const sel = $<HTMLSelectElement>("supportCeMode");
   const options = supportCeOptions(catalog);
   const optHtml = [
     `<option value="auto">自动选最优</option>`,
@@ -209,8 +210,12 @@ function renderSupportOptions() {
         `<option value="${esc(o.key)}">${esc(o.label)} · ${esc(traitText(o.traits))} · cost ${o.cost}</option>`,
     ),
   ].join("");
+  const sel = $<HTMLSelectElement>("supportCeMode");
   sel.innerHTML = optHtml;
   sel.value = state.supportMode;
+  const sel2 = $<HTMLSelectElement>("supportCeMode2");
+  sel2.innerHTML = optHtml;
+  sel2.value = state.supportMode2;
 }
 
 // ---------------------------------------------------------------------------
@@ -322,6 +327,7 @@ function currentSettings() {
     maxCes: state.maxCes,
     includeSupport: state.includeSupport,
     supportMode: state.supportMode,
+    supportMode2: state.supportMode2,
     autoPickFree: state.autoPickFree,
     ceOnly5: state.ceOnly5,
     classFilter: [...state.classFilter],
@@ -370,6 +376,7 @@ function applyParsed(p: ParsedConfig) {
   state.maxCes = p.settings.maxCes;
   state.includeSupport = p.settings.includeSupport;
   state.supportMode = p.settings.supportMode;
+  state.supportMode2 = p.settings.supportMode2;
   state.autoPickFree = p.settings.autoPickFree;
   state.ceOnly5 = p.settings.ceOnly5;
   state.classFilter = new Set(p.settings.classFilter);
@@ -397,6 +404,7 @@ function syncSettingsInputs() {
   $<HTMLInputElement>("maxCes").value = String(state.maxCes);
   $<HTMLInputElement>("includeSupport").checked = state.includeSupport;
   $<HTMLSelectElement>("supportCeMode").value = state.supportMode;
+  $<HTMLSelectElement>("supportCeMode2").value = state.supportMode2;
   $<HTMLInputElement>("autoPickFree").checked = state.autoPickFree;
   $<HTMLInputElement>("ceOnly5").checked = state.ceOnly5;
   document.querySelectorAll<HTMLInputElement>(".rarityFilter").forEach((cb) => {
@@ -462,6 +470,7 @@ function bindConfigButtons() {
     state.maxCes = 5;
     state.includeSupport = true;
     state.supportMode = "auto";
+    state.supportMode2 = "none";
     state.autoPickFree = true;
     state.ceOnly5 = true;
     state.classFilter = new Set();
@@ -569,6 +578,12 @@ function recalc() {
       : state.supportMode === "auto"
         ? supportOptions
         : supportOptions.filter((o) => o.key === state.supportMode);
+  const supportSel2 =
+    state.supportMode2 === "none"
+      ? []
+      : state.supportMode2 === "auto"
+        ? supportOptions
+        : supportOptions.filter((o) => o.key === state.supportMode2);
 
   const input = {
     costLimit: state.costLimit,
@@ -576,6 +591,7 @@ function recalc() {
     maxCes: state.maxCes,
     includeSupport: state.includeSupport,
     supportOptions: supportSel,
+    supportOptions2: supportSel2,
     ceItems,
     lockedServants: locked,
     freePool,
@@ -610,6 +626,14 @@ function renderTeam(r: OptimizeResult): string {
       <div class="bonus">效果已计入下方各从者加成</div>
     </div>`;
   }
+  if (r.support2) {
+    const ce = r.support2.ce;
+    teamHtml += `<div class="slot support-slot">
+      <div class="pos">冠位助战位（第二助战，cost 不计入）</div>
+      <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "无礼装"}</div>
+      <div class="bonus">效果已计入下方各从者加成</div>
+    </div>`;
+  }
   const front = r.slots.slice(0, 3).map((s, i) => slotHtml(s, `前排 ${i + 1}`));
   const back = r.slots.slice(3).map((s, i) => slotHtml(s, `后排 ${i + 1}`));
   teamHtml += [...front, ...back].join("");
@@ -635,6 +659,7 @@ function renderTeam(r: OptimizeResult): string {
       <strong>加成明细：</strong><br>
       ${coverage || "（无全队共享礼装）"}<br>
       ${r.supportCe ? `助战礼装：${esc(r.supportCe.name)}（${esc(r.supportCe.label)}）` : "助战位无礼装"}
+      ${r.supportCe2 ? `冠位助战礼装：${esc(r.supportCe2.name)}（${esc(r.supportCe2.label)}）` : ""}
       ${r.selfBonus > 0 ? `<br>自身加成礼装合计 +${r.selfBonus}%（只加装备者）` : ""}
     </div>`;
 }
@@ -724,6 +749,10 @@ function bindEvents() {
   });
   $<HTMLSelectElement>("supportCeMode").addEventListener("change", (e) => {
     state.supportMode = (e.target as HTMLSelectElement).value;
+    recalc();
+  });
+  $<HTMLSelectElement>("supportCeMode2").addEventListener("change", (e) => {
+    state.supportMode2 = (e.target as HTMLSelectElement).value;
     recalc();
   });
   $<HTMLInputElement>("autoPickFree").addEventListener("change", (e) => {
