@@ -1,0 +1,439 @@
+// 核心优化器: 在 Cost 限制内组合羁绊礼装 + 选择从者, 最大化全队总羁绊加成
+import type { BondScope } from "./types";
+import type { ServantInfo } from "./data";
+import { matchCount, servantMatchesTrait } from "./data";
+
+/** 一张可装备的礼装副本 */
+export interface CeItem {
+  key: string;
+  id: string;
+  name: string;
+  isMlb: boolean;
+  cost: number;
+  /** 对单个符合条件从者的加成 % */
+  bonus: number;
+  /**
+   * party   - 装备后全队(符合特性者)共享该加成
+   * self    - 仅装备者获得
+   * support - 装备在"助战位"(借用好友)时, 对全队(符合特性者)生效
+   */
+  scope: BondScope;
+  /** 特性条件 (OR 列表, 空 = 无条件) */
+  traits: string[];
+  /** 展示标签 */
+  label: string;
+}
+
+export interface OptimizeInput {
+  costLimit: number;
+  ownSlots: number;
+  includeSupport: boolean;
+  /** 助战从者的 cost (计入总 cost) */
+  supportServantCost: number;
+  /** 可选助战礼装 (优化器自动选最优, 含 null=无) */
+  supportOptions: CeItem[];
+  /** 自己槽位可用的全部礼装副本 */
+  ceItems: CeItem[];
+  /** 锁定从者 (按槽位顺序, 必须上阵) */
+  lockedServants: ServantInfo[];
+  /** 可选从者池 (自动填剩余槽位) */
+  freePool: ServantInfo[];
+  /** 是否自动选择剩余从者以最大化特性覆盖 */
+  autoPickFree: boolean;
+}
+
+export interface SlotInfo {
+  servant: ServantInfo | null;
+  locked: boolean;
+  ce: CeItem | null;
+  /** 该从者从"全队共享"礼装获得的加成 % (助战礼装也算) */
+  partyBonus: number;
+}
+
+export interface OptimizeResult {
+  feasible: boolean;
+  error?: string;
+  /** 上阵人数 */
+  ownSlots: number;
+  /** 队伍 Cost 上限 */
+  costLimit: number;
+  slots: SlotInfo[];
+  support: SlotInfo | null;
+  supportCe: CeItem | null;
+  /** 选中的自己槽位礼装 */
+  chosenCe: CeItem[];
+  /** 自身加成合计 % (仅装备者) */
+  selfBonus: number;
+  servantCost: number;
+  ceCost: number;
+  /** 助战位的 cost (仅展示, 不计入自己的 Cost 上限) */
+  supportCost: number;
+  /** 自己的总 cost (不含助战) */
+  totalCost: number;
+  /** 全队总加成百分点 = Σ 每人加成 */
+  totalPct: number;
+  /** 含基础 100%*ownSlots */
+  grandTotalPct: number;
+}
+
+function infeasible(error: string, input: OptimizeInput): OptimizeResult {
+  return {
+    feasible: false,
+    error,
+    ownSlots: input.ownSlots,
+    costLimit: input.costLimit,
+    slots: [],
+    support: null,
+    supportCe: null,
+    chosenCe: [],
+    selfBonus: 0,
+    servantCost: 0,
+    ceCost: 0,
+    supportCost: 0,
+    totalCost: 0,
+    totalPct: 0,
+    grandTotalPct: input.ownSlots * 100,
+  };
+}
+
+interface KnapState {
+  value: number;
+  chosen: number[]; // 已选 item 下标
+}
+
+/**
+ * 0/1 背包 (cost × 张数), 返回选中的 item 列表。
+ * 注意: 不能只用 choice 指针回溯 (中间状态会被后续 item 覆盖导致重复选取),
+ * 因此在每个状态内直接保存已选集合。
+ */
+export function knapsack<T extends { cost: number; value: number }>(
+  items: T[],
+  budget: number,
+  maxCount: number,
+): { chosen: T[]; totalCost: number; totalValue: number } {
+  const dp: KnapState[][] = [];
+  for (let c = 0; c <= budget; c++) {
+    dp.push(
+      Array.from({ length: maxCount + 1 }, () => ({ value: -1, chosen: [] as number[] })),
+    );
+  }
+  dp[0][0] = { value: 0, chosen: [] };
+
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    for (let c = budget; c >= it.cost; c--) {
+      for (let k = maxCount; k >= 1; k--) {
+        const prev = dp[c - it.cost][k - 1];
+        if (prev.value >= 0 && prev.value + it.value > dp[c][k].value) {
+          dp[c][k] = { value: prev.value + it.value, chosen: [...prev.chosen, i] };
+        }
+      }
+    }
+  }
+
+  let bestC = 0;
+  let bestK = 0;
+  let bestV = -1;
+  for (let c = 0; c <= budget; c++) {
+    for (let k = 0; k <= maxCount; k++) {
+      if (dp[c][k].value > bestV) {
+        bestV = dp[c][k].value;
+        bestC = c;
+        bestK = k;
+      }
+    }
+  }
+
+  return {
+    chosen: dp[bestC][bestK].chosen.map((i) => items[i]),
+    totalCost: bestC,
+    totalValue: bestV,
+  };
+}
+
+/** 给定队伍, 计算每个礼装 item 的价值 */
+function itemValue(it: CeItem, party: ServantInfo[]): number {
+  if (it.scope === "party") {
+    return it.bonus * matchCount(party, it.traits);
+  }
+  // self / 助战礼装普通数值: 只影响装备者
+  return it.bonus;
+}
+
+function cheapestFillers(pool: ServantInfo[], count: number): ServantInfo[] {
+  return [...pool].sort((a, b) => a.cost - b.cost).slice(0, count);
+}
+
+/**
+ * Top-K 背包 (cost × 张数), 返回前 K 个互不相同的组合。
+ * 每个状态内直接保存已选集合 (避免回溯链被覆盖)。
+ */
+export function knapsackTopK<T extends { cost: number; value: number }>(
+  items: T[],
+  budget: number,
+  maxCount: number,
+  k: number,
+): { chosen: T[]; chosenIndices: number[]; totalCost: number; totalValue: number }[] {
+  interface St {
+    value: number;
+    cost: number;
+    chosen: number[];
+  }
+  const sig = (chosen: number[]) => chosen.join(",");
+  const merge = (list: St[], cand: St): St[] => {
+    const m = new Map<string, St>();
+    for (const s of list) m.set(sig(s.chosen), s);
+    m.set(sig(cand.chosen), cand);
+    return [...m.values()].sort((a, b) => b.value - a.value).slice(0, k);
+  };
+
+  const dp: St[][][] = [];
+  for (let c = 0; c <= budget; c++) {
+    dp.push(Array.from({ length: maxCount + 1 }, () => [] as St[]));
+  }
+  dp[0][0] = [{ value: 0, cost: 0, chosen: [] }];
+
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    for (let c = budget; c >= it.cost; c--) {
+      for (let j = maxCount; j >= 1; j--) {
+        for (const prev of dp[c - it.cost][j - 1]) {
+          dp[c][j] = merge(dp[c][j], {
+            value: prev.value + it.value,
+            cost: c,
+            chosen: [...prev.chosen, i],
+          });
+        }
+      }
+    }
+  }
+
+  const all: St[] = [];
+  for (let c = 0; c <= budget; c++) {
+    for (let j = 0; j <= maxCount; j++) {
+      for (const s of dp[c][j]) all.push(s);
+    }
+  }
+  all.sort((a, b) => b.value - a.value);
+
+  const seen = new Set<string>();
+  const uniq: St[] = [];
+  for (const s of all) {
+    const key = sig(s.chosen);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniq.push(s);
+    if (uniq.length >= k) break;
+  }
+
+  return uniq.map((s) => ({
+    chosen: s.chosen.map((i) => items[i]),
+    chosenIndices: s.chosen,
+    totalCost: s.cost,
+    totalValue: s.value,
+  }));
+}
+
+/** 由 (party, chosen, supportCe) 构建结果 */
+function buildResult(
+  input: OptimizeInput,
+  supportCe: CeItem | null,
+  party: ServantInfo[],
+  chosen: CeItem[],
+): OptimizeResult {
+  const n = input.ownSlots;
+  const locked = input.lockedServants;
+  const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
+  const free = party.slice(locked.length);
+  // 助战(好友)的从者与礼装 cost 不计入自己的 Cost 上限, 仅用于展示
+  const supportCost =
+    (input.includeSupport ? input.supportServantCost : 0) + (supportCe ? supportCe.cost : 0);
+  const servantCost = lockedCost + free.reduce((s, x) => s + x.cost, 0);
+  const ceCost = chosen.reduce((s, x) => s + x.cost, 0);
+  const totalCost = servantCost + ceCost; // 自己的 cost (不含助战)
+  if (totalCost > input.costLimit) {
+    return infeasible(`Cost 超出上限 (${totalCost} > ${input.costLimit})`, input);
+  }
+
+  const partyCEs = [...chosen.filter((x) => x.scope === "party"), ...(supportCe ? [supportCe] : [])];
+  const slots: SlotInfo[] = party.map((s, i) => {
+    let pb = 0;
+    for (const ce of partyCEs) {
+      if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) {
+        pb += ce.bonus;
+      }
+    }
+    return {
+      servant: s,
+      locked: i < locked.length,
+      ce: chosen[i] ?? null,
+      partyBonus: pb,
+    };
+  });
+
+  const selfBonus = chosen.filter((x) => x.scope !== "party").reduce((s, x) => s + x.bonus, 0);
+  const totalPct = slots.reduce((s, x) => s + x.partyBonus, 0) + selfBonus;
+
+  return {
+    feasible: true,
+    ownSlots: n,
+    costLimit: input.costLimit,
+    slots,
+    support: input.includeSupport
+      ? { servant: null, locked: false, ce: supportCe, partyBonus: 0 }
+      : null,
+    supportCe: input.includeSupport ? supportCe : null,
+    chosenCe: chosen,
+    selfBonus,
+    servantCost,
+    ceCost,
+    supportCost,
+    totalCost,
+    totalPct,
+    grandTotalPct: n * 100 + totalPct,
+  };
+}
+
+/**
+ * 对固定助战礼装做优化, 返回该助战下的 Top-K 结果。
+ * 交替迭代收敛最佳队伍后, 对最终队伍取 Top-K 礼装组合。
+ */
+function optimizeWithSupportTopK(
+  input: OptimizeInput,
+  supportCe: CeItem | null,
+  k: number,
+): OptimizeResult[] {
+  const n = input.ownSlots;
+  const locked = input.lockedServants;
+  if (locked.length > n) {
+    return [infeasible(`锁定从者数量 (${locked.length}) 超过上阵位 (${n})`, input)];
+  }
+  const freeCount = n - locked.length;
+  const pool = [...input.freePool];
+  if (pool.length < freeCount) {
+    return [infeasible(`可用从者不足: 还需要 ${freeCount} 名, 剩余可选 ${pool.length} 名`, input)];
+  }
+
+  const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
+
+  // 初始队伍: 锁定 + 最便宜填充
+  let free = cheapestFillers(pool, freeCount);
+  let bestParty: ServantInfo[] | null = null;
+
+  for (let iter = 0; iter < 6; iter++) {
+    const party = [...locked, ...free];
+
+    // ---- 礼装 DP (助战 cost 不计入自己的预算) ----
+    const items = input.ceItems.map((it) => ({
+      it,
+      cost: it.cost,
+      value: itemValue(it, party),
+    }));
+    const freeCost = free.reduce((s, x) => s + x.cost, 0);
+    const budgetCe = input.costLimit - lockedCost - freeCost;
+    if (budgetCe < 0) {
+      return [
+        infeasible(
+          `Cost 不足: 自己从者已占 ${lockedCost + freeCost}, 超过上限 ${input.costLimit}`,
+          input,
+        ),
+      ];
+    }
+    const usable = items.filter((x) => x.value > 0);
+    const kp = knapsack(usable, budgetCe, n);
+    const chosen = kp.chosen.map((x) => x.it);
+
+    // ---- 自动选从者: 按已选礼装评分 ----
+    if (input.autoPickFree && freeCount > 0) {
+      const partyCEs = [
+        ...chosen.filter((x) => x.scope === "party"),
+        ...(supportCe ? [supportCe] : []),
+      ];
+      const scored = pool.map((s) => {
+        let value = 0;
+        for (const ce of partyCEs) {
+          if (ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(s, t))) {
+            value += ce.bonus;
+          }
+        }
+        return { servant: s, cost: s.cost, value };
+      });
+      const budgetSv = input.costLimit - lockedCost - kp.totalCost;
+      if (budgetSv >= 0) {
+        const kp2 = knapsack(scored, budgetSv, freeCount);
+        const picked = kp2.chosen.map((x) => x.servant);
+        if (picked.length === freeCount) {
+          free = picked;
+        }
+      }
+    }
+
+    // 收敛判断
+    const newParty = [...locked, ...free];
+    if (bestParty !== null && newParty.every((s, i) => bestParty![i] === s)) {
+      bestParty = newParty;
+      break;
+    }
+    bestParty = newParty;
+  }
+
+  const party = bestParty!;
+
+  // ---- Top-K 礼装组合 (对收敛后的队伍) ----
+  const items = input.ceItems.map((it) => ({
+    it,
+    cost: it.cost,
+    value: itemValue(it, party),
+  }));
+  const freeCost = party.slice(locked.length).reduce((s, x) => s + x.cost, 0);
+  const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
+  const usable = items.filter((x) => x.value > 0);
+
+  const topSets = usable.length ? knapsackTopK(usable, budgetCe, n, k) : [];
+  const results =
+    topSets.length > 0
+      ? topSets.map((ks) => buildResult(input, supportCe, party, ks.chosen.map((x) => x.it)))
+      : [buildResult(input, supportCe, party, [])];
+  return results;
+}
+
+function resultSignature(r: OptimizeResult): string {
+  if (!r.feasible) return "!";
+  const sv = r.slots
+    .map((s) => s.servant!.name)
+    .sort()
+    .join("|");
+  const ce = r.chosenCe
+    .map((c) => c.key)
+    .sort()
+    .join("|");
+  return `${sv}§${ce}§${r.supportCe?.key ?? "none"}`;
+}
+
+/** 返回 Top-N 组队方案 (跨助战礼装选项, 去重, 按总加成降序) */
+export function optimizeTopN(input: OptimizeInput, n = 3): OptimizeResult[] {
+  const options: (CeItem | null)[] = input.includeSupport ? [null, ...input.supportOptions] : [null];
+  const seen = new Set<string>();
+  const results: OptimizeResult[] = [];
+  for (const opt of options) {
+    for (const r of optimizeWithSupportTopK(input, opt, Math.max(n, 1))) {
+      if (!r.feasible) continue;
+      const sig = resultSignature(r);
+      if (seen.has(sig)) continue;
+      seen.add(sig);
+      results.push(r);
+    }
+  }
+  results.sort(
+    (a, b) => b.grandTotalPct - a.grandTotalPct || b.totalCost - a.totalCost,
+  );
+  return results.slice(0, n);
+}
+
+export function optimize(input: OptimizeInput): OptimizeResult {
+  const top = optimizeTopN(input, 1);
+  if (top.length > 0) return top[0];
+  // 全不可行: 返回第一个(无助战)的错误信息
+  const r = optimizeWithSupportTopK(input, null, 1);
+  return r[0] ?? infeasible("无法组队", input);
+}

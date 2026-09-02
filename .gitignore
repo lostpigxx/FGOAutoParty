@@ -1,0 +1,11 @@
+# 依赖与构建产物
+node_modules/
+.npm-cache/
+dist/
+
+# 爬虫原始抓取数据 (体积大, 可再生; data/*.json 解析结果保留)
+data/raw_*.json
+
+# 系统/杂项
+.DS_Store
+*.log

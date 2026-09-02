@@ -1,0 +1,8781 @@
+[
+ {
+  "name": "阿塔兰忒",
+  "jpName": "アタランテ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "阿耳戈船相关人员",
+   "人科",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "阿塔兰忒"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡",
+  "jpName": "アルトリア・ペンドラゴン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "FSN从者"
+  ],
+  "hasCostume": true,
+  "title": "阿尔托莉雅·潘德拉贡"
+ },
+ {
+  "name": "“山中老人”",
+  "jpName": "“山の翁”",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "“山中老人”"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡〔圣诞Alter〕",
+  "jpName": "アルトリア・ペンドラゴン〔サンタオルタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡〔圣诞Alter〕"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
+  "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "FSN从者"
+  ],
+  "hasCostume": true,
+  "title": "阿尔托莉雅·潘德拉贡〔Alter〕"
+ },
+ {
+  "name": "阿比盖尔·威廉姆斯",
+  "jpName": "アビゲイル・ウィリアムズ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人类的威胁",
+   "人科",
+   "孩童从者",
+   "领域外生命",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "阿比盖尔·威廉姆斯"
+ },
+ {
+  "name": "阿蒂拉",
+  "jpName": "アルテラ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "王",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "阿蒂拉"
+ },
+ {
+  "name": "阿拉什",
+  "jpName": "アーラシュ",
+  "rarity": 1,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "阿拉什"
+ },
+ {
+  "name": "阿斯托尔福",
+  "jpName": "アストルフォ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "兔子系从者"
+  ],
+  "hasCostume": true,
+  "title": "阿斯托尔福"
+ },
+ {
+  "name": "阿喀琉斯",
+  "jpName": "アキレウス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "希腊神话系男性",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "阿喀琉斯"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡",
+  "jpName": "アルトリア・ペンドラゴン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡(Archer)"
+ },
+ {
+  "name": "阿维斯布隆",
+  "jpName": "アヴィケブロン",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "阿维斯布隆"
+ },
+ {
+  "name": "埃列什基伽勒",
+  "jpName": "エレシュキガル",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "埃列什基伽勒"
+ },
+ {
+  "name": "阿塔兰忒〔Alter〕",
+  "jpName": "アタランテ〔オルタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "猛兽",
+   "天地从者",
+   "阿耳戈船相关人员",
+   "人科",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "阿塔兰忒〔Alter〕"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡〔Lily〕",
+  "jpName": "アルトリア・ペンドラゴン〔リリィ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "亚瑟",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡〔Lily〕"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
+  "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡〔Alter〕(Rider)"
+ },
+ {
+  "name": "爱德华·蒂奇",
+  "jpName": "エドワード・ティーチ",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "爱德华·蒂奇"
+ },
+ {
+  "name": "阿纳斯塔西娅",
+  "jpName": "アナスタシア",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "阿纳斯塔西娅"
+ },
+ {
+  "name": "阿蒂拉·the·San〔ta〕",
+  "jpName": "アルテラ・ザ・サン〔タ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "阿蒂拉·the·San〔ta〕"
+ },
+ {
+  "name": "阿斯忒里俄斯",
+  "jpName": "アステリオス",
+  "rarity": 1,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "希腊神话系男性",
+   "魔兽型",
+   "巨人",
+   "孩童从者",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "阿斯忒里俄斯"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
+  "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡〔Alter〕(Lancer)"
+ },
+ {
+  "name": "阿周那",
+  "jpName": "アルジュナ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "阿周那"
+ },
+ {
+  "name": "爱丽丝菲尔〔天之衣〕",
+  "jpName": "アイリスフィール〔天の衣〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "爱丽丝菲尔〔天之衣〕"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡",
+  "jpName": "アルトリア・ペンドラゴン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡(Lancer)"
+ },
+ {
+  "name": "阿斯特赖亚",
+  "jpName": "アストライア",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "罗马",
+   "天地从者",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "阿斯特赖亚"
+ },
+ {
+  "name": "阿斯克勒庇俄斯",
+  "jpName": "アスクレピオス",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "夏日模式从者",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "阿斯克勒庇俄斯"
+ },
+ {
+  "name": "阿周那〔Alter〕",
+  "jpName": "アルジュナ〔オルタ〕",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": true,
+  "title": "阿周那〔Alter〕"
+ },
+ {
+  "name": "阿尔托莉雅·潘德拉贡",
+  "jpName": "アルトリア・ペンドラゴン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "天地从者",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "兽科",
+   "夏日模式从者",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·潘德拉贡(Ruler)"
+ },
+ {
+  "name": "阿斯托尔福",
+  "jpName": "アストルフォ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "兽科",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "阿斯托尔福(Saber)"
+ },
+ {
+  "name": "阿尔托莉雅·卡斯特",
+  "jpName": "アルトリア・キャスター",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Caster",
+  "traits": [
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "圆桌骑士",
+   "妖精",
+   "阿尔托莉雅·卡斯特"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·卡斯特"
+ },
+ {
+  "name": "阿比盖尔·威廉姆斯〔夏〕",
+  "jpName": "アビゲイル・ウィリアムズ〔夏〕",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人类的威胁",
+   "人科",
+   "孩童从者",
+   "领域外生命",
+   "夏日模式从者",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "阿比盖尔·威廉姆斯〔夏〕"
+ },
+ {
+  "name": "阿摩耳〔卡莲〕",
+  "jpName": "アムール〔カレン〕",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "罗马",
+   "天地从者",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": true,
+  "title": "阿摩耳〔卡莲〕"
+ },
+ {
+  "name": "阿纳斯塔西娅＆维",
+  "jpName": "アナスタシア＆ヴィイ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "阿纳斯塔西娅＆维"
+ },
+ {
+  "name": "阿瓦隆女士",
+  "jpName": "レディ・アヴァロン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "天地从者",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "阿瓦隆女士"
+ },
+ {
+  "name": "阿尔托莉雅·卡斯特",
+  "jpName": "アルトリア・キャスター",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Berserker",
+  "traits": [
+   "妖精",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "圆桌骑士",
+   "夏日模式从者",
+   "浮游着的",
+   "阿尔托莉雅·卡斯特",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "阿尔托莉雅·卡斯特(Berserker)"
+ },
+ {
+  "name": "埃列什基伽勒",
+  "jpName": "エレシュキガル",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "Beast",
+  "traits": [
+   "神性",
+   "超巨大",
+   "王",
+   "人科",
+   "夏日模式从者",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "埃列什基伽勒(Beast)"
+ },
+ {
+  "name": "岸波白野",
+  "jpName": "岸波白野",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "MoonCancer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "岸波白野"
+ },
+ {
+  "name": "阿比盖尔·威廉姆斯〔圣诞〕",
+  "jpName": "アビゲイル・ウィリアムズ〔サンタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "天地从者",
+   "人类的威胁",
+   "孩童从者",
+   "领域外生命",
+   "童话特性的从者"
+  ],
+  "hasCostume": false,
+  "title": "阿比盖尔·威廉姆斯〔圣诞〕"
+ },
+ {
+  "name": "阿育王",
+  "jpName": "アショカ王",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "王",
+   "人科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "阿育王"
+ },
+ {
+  "name": "阿斯卡拉福斯",
+  "jpName": "アスカラポス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "希腊神话系男性",
+   "孩童从者",
+   "神灵",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "阿斯卡拉福斯"
+ },
+ {
+  "name": "贝德维尔",
+  "jpName": "ベディヴィエール",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": true,
+  "title": "贝德维尔"
+ },
+ {
+  "name": "奥斯曼狄斯",
+  "jpName": "オジマンディアス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "奥斯曼狄斯"
+ },
+ {
+  "name": "BB",
+  "jpName": "ＢＢ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "MoonCancer",
+  "traits": [
+   "人科",
+   "机械",
+   "樱系列系"
+  ],
+  "hasCostume": false,
+  "title": "BB"
+ },
+ {
+  "name": "安哥拉曼纽",
+  "jpName": "アンリマユ",
+  "rarity": 0,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "安哥拉曼纽"
+ },
+ {
+  "name": "安东尼奥·萨列里",
+  "jpName": "アントニオ・サリエリ",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "安东尼奥·萨列里"
+ },
+ {
+  "name": "布狄卡",
+  "jpName": "ブーディカ",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "布狄卡"
+ },
+ {
+  "name": "坂田金时",
+  "jpName": "坂田金時",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "所爱之人",
+   "人科",
+   "源氏",
+   "童话特性的从者"
+  ],
+  "hasCostume": true,
+  "title": "坂田金时"
+ },
+ {
+  "name": "安妮·伯妮＆玛莉·瑞德",
+  "jpName": "アン・ボニー＆メアリー・リード",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "人科",
+   "多人构成一骑的从者",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "安妮·伯妮＆玛莉·瑞德"
+ },
+ {
+  "name": "贝奥武夫",
+  "jpName": "ベオウルフ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "贝奥武夫"
+ },
+ {
+  "name": "比利小子",
+  "jpName": "ビリー・ザ・キッド",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "比利小子"
+ },
+ {
+  "name": "百貌哈桑",
+  "jpName": "百貌のハサン",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "百貌哈桑"
+ },
+ {
+  "name": "坂田金时",
+  "jpName": "坂田金時",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "源氏",
+   "童话特性的从者"
+  ],
+  "hasCostume": false,
+  "title": "坂田金时(Rider)"
+ },
+ {
+  "name": "俵藤太",
+  "jpName": "俵藤太",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "俵藤太"
+ },
+ {
+  "name": "BeastⅢ／R",
+  "jpName": "ビーストⅢ／R",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "BeastⅢ／R",
+  "traits": [
+   "魔性",
+   "超巨大",
+   "巨人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "BeastⅢ／R"
+ },
+ {
+  "name": "保罗·班扬",
+  "jpName": "ポール・バニヤン",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "人科",
+   "巨人",
+   "孩童从者",
+   "童话特性的从者",
+   "兽科",
+   "兔子系从者"
+  ],
+  "hasCostume": true,
+  "title": "保罗·班扬"
+ },
+ {
+  "name": "巴御前",
+  "jpName": "巴御前",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "人科",
+   "鬼",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "Archer Inferno"
+ },
+ {
+  "name": "望月千代女",
+  "jpName": "望月千代女",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "人科",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "Assassin Paraiso"
+ },
+ {
+  "name": "宝藏院胤舜",
+  "jpName": "宝蔵院胤舜",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "宝藏院胤舜"
+ },
+ {
+  "name": "豹人",
+  "jpName": "ジャガーマン",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "猛兽",
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "豹人"
+ },
+ {
+  "name": "安妮·伯妮＆玛莉·瑞德",
+  "jpName": "アン・ボニー＆メアリー・リード",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科",
+   "夏日模式从者",
+   "多人构成一骑的从者",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "安妮·伯妮＆玛莉·瑞德(Archer)"
+ },
+ {
+  "name": "坂本龙马",
+  "jpName": "坂本龍馬",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "多人构成一骑的从者",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "坂本龙马"
+ },
+ {
+  "name": "BB",
+  "jpName": "ＢＢ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "MoonCancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "超巨大",
+   "巨人",
+   "领域外生命",
+   "机械",
+   "神灵",
+   "夏日模式从者",
+   "樱系列系"
+  ],
+  "hasCostume": true,
+  "title": "BB(SSR)"
+ },
+ {
+  "name": "布拉达曼特",
+  "jpName": "ブラダマンテ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "布拉达曼特"
+ },
+ {
+  "name": "BeastⅢ／L",
+  "jpName": "ビーストⅢ／L",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "BeastⅢ／L",
+  "traits": [
+   "神性",
+   "魔性",
+   "王"
+  ],
+  "hasCostume": false,
+  "title": "BeastⅢ／L"
+ },
+ {
+  "name": "奥特琳德",
+  "jpName": "オルトリンデ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵",
+   "夏日模式从者",
+   "瓦尔基里",
+   "浮游着的"
+  ],
+  "hasCostume": true,
+  "title": "奥特琳德"
+ },
+ {
+  "name": "巴沙洛缪·罗伯茨",
+  "jpName": "バーソロミュー・ロバーツ",
+  "rarity": 1,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "巴沙洛缪·罗伯茨"
+ },
+ {
+  "name": "奥德修斯",
+  "jpName": "オデュッセウス",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "希腊神话系男性",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "奥德修斯"
+ },
+ {
+  "name": "巴御前",
+  "jpName": "巴御前",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "人科",
+   "鬼",
+   "源氏",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "巴御前(Saber)"
+ },
+ {
+  "name": "卑弥呼",
+  "jpName": "卑弥呼",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Ruler",
+  "traits": [
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "卑弥呼"
+ },
+ {
+  "name": "奥伯龙",
+  "jpName": "オベロン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "妖精",
+   "龙",
+   "骑乘",
+   "天地从者",
+   "王",
+   "人类的威胁",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "奥伯龙"
+ },
+ {
+  "name": "坂本龙马",
+  "jpName": "坂本龍馬",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "人科",
+   "多人构成一骑的从者",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "坂本龙马(Lancer)"
+ },
+ {
+  "name": "BeastⅣ",
+  "jpName": "ビーストⅣ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "BeastⅣ",
+  "traits": [
+   "神性",
+   "猛兽",
+   "魔性",
+   "超巨大",
+   "金色白面"
+  ],
+  "hasCostume": false,
+  "title": "BeastⅣ"
+ },
+ {
+  "name": "暗之高扬斯卡娅",
+  "jpName": "闇のコヤンスカヤ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "猛兽",
+   "魔性",
+   "魔兽型",
+   "领域外生命",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "暗之高扬斯卡娅"
+ },
+ {
+  "name": "Archetype：Earth",
+  "jpName": "アーキタイプ：アース",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "MoonCancer",
+  "traits": [],
+  "hasCostume": false,
+  "title": "Archetype：Earth"
+ },
+ {
+  "name": "怖军",
+  "jpName": "ビーマ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "怖军"
+ },
+ {
+  "name": "安德洛墨达",
+  "jpName": "アンドロメダ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "安德洛墨达"
+ },
+ {
+  "name": "BB迪拜",
+  "jpName": "ＢＢドバイ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "MoonCancer",
+  "traits": [
+   "神性",
+   "超巨大",
+   "人科",
+   "机械",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的",
+   "兔子系从者",
+   "樱系列系",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "BB迪拜"
+ },
+ {
+  "name": "岸波白野",
+  "jpName": "岸波白野",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "MoonCancer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "岸波白野(女性)"
+ },
+ {
+  "name": "比肖内",
+  "jpName": "ビショーネ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "兽科",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "比肖内"
+ },
+ {
+  "name": "比肖内",
+  "jpName": "ビショーネ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "蛇",
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "比肖内(Caster)"
+ },
+ {
+  "name": "冲田总司",
+  "jpName": "沖田総司",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "阿尔托莉雅脸",
+   "骑乘",
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": true,
+  "title": "冲田总司"
+ },
+ {
+  "name": "茨木童子",
+  "jpName": "茨木童子",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "孩童从者",
+   "鬼"
+  ],
+  "hasCostume": false,
+  "title": "茨木童子"
+ },
+ {
+  "name": "茶茶",
+  "jpName": "茶々",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "茶茶"
+ },
+ {
+  "name": "喀耳刻",
+  "jpName": "キルケー",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "阿耳戈船相关人员",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "俄刻阿诺斯的Caster"
+ },
+ {
+  "name": "大流士三世",
+  "jpName": "ダレイオス三世",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "王",
+   "人科",
+   "巨人"
+  ],
+  "hasCostume": false,
+  "title": "大流士三世"
+ },
+ {
+  "name": "大卫",
+  "jpName": "ダビデ",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "大卫"
+ },
+ {
+  "name": "迪尔姆德·奥迪那",
+  "jpName": "ディルムッド・オディナ",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "迪尔姆德·奥迪那"
+ },
+ {
+  "name": "查尔斯·巴贝奇",
+  "jpName": "チャールズ・バベッジ",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "查尔斯·巴贝奇"
+ },
+ {
+  "name": "布伦希尔德",
+  "jpName": "ブリュンヒルデ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "神灵",
+   "瓦尔基里",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "布伦希尔德"
+ },
+ {
+  "name": "崔斯坦",
+  "jpName": "トリスタン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "崔斯坦"
+ },
+ {
+  "name": "山鲁佐德",
+  "jpName": "シェヘラザード",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "不夜城的Caster"
+ },
+ {
+  "name": "武则天",
+  "jpName": "武則天",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "王",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "不夜城的Assassin"
+ },
+ {
+  "name": "冲田总司〔Alter〕",
+  "jpName": "沖田総司〔オルタ〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Alterego",
+  "traits": [
+   "阿尔托莉雅脸",
+   "所爱之人",
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": true,
+  "title": "冲田总司〔Alter〕"
+ },
+ {
+  "name": "茨木童子",
+  "jpName": "茨木童子",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "孩童从者",
+   "鬼",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "茨木童子(Lancer)"
+ },
+ {
+  "name": "迪尔姆德·奥迪那",
+  "jpName": "ディルムッド・オディナ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "迪尔姆德·奥迪那(Saber)"
+ },
+ {
+  "name": "赤兔马",
+  "jpName": "赤兎馬",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "猛兽",
+   "天地从者",
+   "魔兽型",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "赤兔马"
+ },
+ {
+  "name": "陈宫",
+  "jpName": "陳宮",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "陈宫"
+ },
+ {
+  "name": "冲田·J·总司",
+  "jpName": "オキタ・Ｊ・ソウジ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "领域外生命",
+   "夏日模式从者",
+   "新选组",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "冲田·J·总司"
+ },
+ {
+  "name": "超人俄里翁",
+  "jpName": "超人オリオン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "希腊神话系男性",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "超人俄里翁"
+ },
+ {
+  "name": "狄俄斯库里",
+  "jpName": "ディオスクロイ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "阿耳戈船相关人员",
+   "人科",
+   "神灵",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "狄俄斯库里"
+ },
+ {
+  "name": "布伦希尔德",
+  "jpName": "ブリュンヒルデ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵",
+   "夏日模式从者",
+   "瓦尔基里",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "布伦希尔德(Berserker)"
+ },
+ {
+  "name": "渡边纲",
+  "jpName": "渡辺綱",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "渡边纲"
+ },
+ {
+  "name": "冲田总司〔Alter〕",
+  "jpName": "沖田総司〔オルタ〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "夏日模式从者",
+   "新选组",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "冲田总司〔Alter〕(Saber)"
+ },
+ {
+  "name": "出云阿国",
+  "jpName": "出雲阿国",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "出云阿国"
+ },
+ {
+  "name": "多布雷尼亚·尼基季奇",
+  "jpName": "ドブルイニャ・ニキチッチ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "龙",
+   "猛兽",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "多布雷尼亚·尼基季奇"
+ },
+ {
+  "name": "超级班扬",
+  "jpName": "スーパーバニヤン",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "天地从者",
+   "人科",
+   "巨人",
+   "童话特性的从者",
+   "多人构成一骑的从者",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "超级班扬"
+ },
+ {
+  "name": "大黑天",
+  "jpName": "大黒天",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "猛兽",
+   "天地从者",
+   "魔兽型",
+   "童话特性的从者",
+   "兽科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "大黑天"
+ },
+ {
+  "name": "查理曼",
+  "jpName": "シャルルマーニュ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Saber",
+  "traits": [
+   "罗马",
+   "骑乘",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "查理曼"
+ },
+ {
+  "name": "布里托玛特",
+  "jpName": "ブリトマート",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "妖精",
+   "天地从者",
+   "所爱之人"
+  ],
+  "hasCostume": false,
+  "title": "布里托玛特"
+ },
+ {
+  "name": "杜尔伽",
+  "jpName": "ドゥルガー",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "杜尔伽"
+ },
+ {
+  "name": "大和武尊",
+  "jpName": "ヤマトタケル",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "大和武尊"
+ },
+ {
+  "name": "E－火玛丽",
+  "jpName": "Ｅ－フレアマリー",
+  "rarity": 0,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Unknown",
+  "traits": [
+   "从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "E－火玛丽"
+ },
+ {
+  "name": "E－水玛丽",
+  "jpName": "Ｅ－アクアマリー",
+  "rarity": 0,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Unknown",
+  "traits": [
+   "从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "E－水玛丽"
+ },
+ {
+  "name": "苍崎青子",
+  "jpName": "蒼崎青子",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Foreigner",
+  "traits": [
+   "人科",
+   "活在当下的人类",
+   "领域外生命",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "苍崎青子"
+ },
+ {
+  "name": "多布雷尼亚·尼基季奇",
+  "jpName": "ドブルイニャ・ニキチッチ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "猛兽",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "多布雷尼亚·尼基季奇(Lancer)"
+ },
+ {
+  "name": "E－宏玛丽",
+  "jpName": "Ｅ－グランマリー",
+  "rarity": 0,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Unknown",
+  "traits": [
+   "从者",
+   "天地从者",
+   "超巨大",
+   "巨人"
+  ],
+  "hasCostume": false,
+  "title": "E－宏玛丽"
+ },
+ {
+  "name": "但丁·阿利吉耶里",
+  "jpName": "ダンテ・アリギエーリ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Pretender",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "但丁·阿利吉耶里"
+ },
+ {
+  "name": "堤丰·厄斐墨洛斯",
+  "jpName": "テュフォン・エフェメロス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Pretender",
+  "traits": [
+   "神性",
+   "龙",
+   "天地从者",
+   "超巨大",
+   "魔兽型",
+   "巨人",
+   "机械",
+   "兽科",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "堤丰·厄斐墨洛斯"
+ },
+ {
+  "name": "E－星玛丽",
+  "jpName": "Ｅ－ステラマリー",
+  "rarity": 0,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Unknown",
+  "traits": [
+   "从者",
+   "人类的威胁",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "E－星玛丽"
+ },
+ {
+  "name": "得墨忒耳",
+  "jpName": "デメテル",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "超巨大",
+   "机械",
+   "神灵",
+   "浮游着的",
+   "可宇航的从者"
+  ],
+  "hasCostume": true,
+  "title": "得墨忒耳"
+ },
+ {
+  "name": "弗拉德三世",
+  "jpName": "ヴラド三世",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "弗拉德三世"
+ },
+ {
+  "name": "戈耳工",
+  "jpName": "ゴルゴーン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "戈耳工"
+ },
+ {
+  "name": "宫本武藏",
+  "jpName": "宮本武蔵",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "宫本武藏"
+ },
+ {
+  "name": "恩奇都",
+  "jpName": "エルキドゥ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "天地从者"
+  ],
+  "hasCostume": true,
+  "title": "恩奇都"
+ },
+ {
+  "name": "盖乌斯·尤利乌斯·恺撒",
+  "jpName": "ガイウス・ユリウス・カエサル",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "罗马",
+   "骑乘",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "盖乌斯·尤利乌斯·恺撒"
+ },
+ {
+  "name": "盖提亚",
+  "jpName": "ゲーティア",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "",
+  "subAttr": "兽",
+  "className": "BeastⅠ",
+  "traits": [
+   "王"
+  ],
+  "hasCostume": false,
+  "title": "盖提亚"
+ },
+ {
+  "name": "葛饰北斋",
+  "jpName": "葛飾北斎",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "人类的威胁",
+   "人科",
+   "领域外生命",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "葛饰北斋"
+ },
+ {
+  "name": "高文",
+  "jpName": "ガウェイン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "高文"
+ },
+ {
+  "name": "弗兰肯斯坦",
+  "jpName": "フランケンシュタイン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "弗兰肯斯坦"
+ },
+ {
+  "name": "俄里翁",
+  "jpName": "オリオン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "希腊神话系男性",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "俄里翁"
+ },
+ {
+  "name": "弗朗西斯·德雷克",
+  "jpName": "フランシス・ドレイク",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "弗朗西斯·德雷克"
+ },
+ {
+  "name": "弗格斯·马克·罗伊",
+  "jpName": "フェルグス・マック・ロイ",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "弗格斯·马克·罗伊"
+ },
+ {
+  "name": "冯·霍恩海姆·帕拉塞尔苏斯",
+  "jpName": "ヴァン・ホーエンハイム・パラケルスス",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "冯·霍恩海姆·帕拉塞尔苏斯"
+ },
+ {
+  "name": "芬恩·麦克库尔",
+  "jpName": "フィン・マックール",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "芬恩·麦克库尔"
+ },
+ {
+  "name": "海伦娜·布拉瓦茨基",
+  "jpName": "エレナ・ブラヴァツキー",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "海伦娜·布拉瓦茨基"
+ },
+ {
+  "name": "风魔小太郎",
+  "jpName": "風魔小太郎",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "风魔小太郎"
+ },
+ {
+  "name": "弗拉德三世〔EXTRA〕",
+  "jpName": "ヴラド三世〔EXTRA〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "弗拉德三世〔EXTRA〕"
+ },
+ {
+  "name": "弗兰肯斯坦",
+  "jpName": "フランケンシュタイン",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "机械",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "弗兰肯斯坦(Saber)"
+ },
+ {
+  "name": "克里斯托弗·哥伦布",
+  "jpName": "クリストファー・コロンブス",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "反抗军的Rider"
+ },
+ {
+  "name": "海伦娜·布拉瓦茨基",
+  "jpName": "エレナ・ブラヴァツキー",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "海伦娜·布拉瓦茨基(Archer)"
+ },
+ {
+  "name": "冈田以藏",
+  "jpName": "岡田以蔵",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "冈田以藏"
+ },
+ {
+  "name": "格蕾",
+  "jpName": "グレイ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "活在当下的人类",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "格蕾"
+ },
+ {
+  "name": "葛饰北斋",
+  "jpName": "葛飾北斎",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "人类的威胁",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "葛饰北斋(Saber)"
+ },
+ {
+  "name": "宫本武藏",
+  "jpName": "宮本武蔵",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "宫本武藏(Berserker)"
+ },
+ {
+  "name": "鬼女红叶",
+  "jpName": "鬼女紅葉",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "鬼",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "鬼女红叶"
+ },
+ {
+  "name": "梵高",
+  "jpName": "ヴァン・ゴッホ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人类的威胁",
+   "人科",
+   "孩童从者",
+   "领域外生命",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "梵高"
+ },
+ {
+  "name": "弗栗多",
+  "jpName": "ヴリトラ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "浮游着的",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "弗栗多"
+ },
+ {
+  "name": "鬼一法眼",
+  "jpName": "鬼一法眼",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "魔性"
+  ],
+  "hasCostume": false,
+  "title": "鬼一法眼"
+ },
+ {
+  "name": "哈贝特洛特",
+  "jpName": "ハベトロット",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "妖精",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "童话特性的从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "哈贝特洛特"
+ },
+ {
+  "name": "光之高扬斯卡娅",
+  "jpName": "光のコヤンスカヤ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "骑乘",
+   "魔性",
+   "魔兽型",
+   "兽科",
+   "兔子系从者"
+  ],
+  "hasCostume": true,
+  "title": "光之高扬斯卡娅"
+ },
+ {
+  "name": "格里戈里·拉斯普京",
+  "jpName": "グレゴリー・ラスプーチン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "龙",
+   "天地从者",
+   "人科",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "格里戈里·拉斯普京"
+ },
+ {
+  "name": "高杉晋作",
+  "jpName": "高杉晋作",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "高杉晋作"
+ },
+ {
+  "name": "果心居士",
+  "jpName": "果心居士",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "鬼",
+   "天地从者",
+   "魔性",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "果心居士"
+ },
+ {
+  "name": "宫本伊织",
+  "jpName": "宮本伊織",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "宫本伊织"
+ },
+ {
+  "name": "梵高〔矿工〕",
+  "jpName": "ヴァン・ゴッホ〔マイナー〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "人类的威胁",
+   "人科",
+   "孩童从者",
+   "领域外生命"
+  ],
+  "hasCostume": true,
+  "title": "梵高〔矿工〕"
+ },
+ {
+  "name": "芙萝拉",
+  "jpName": "フローラ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "罗马",
+   "天地从者",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "芙萝拉"
+ },
+ {
+  "name": "格蕾·Lily",
+  "jpName": "グレイ・リリィ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "格蕾·Lily(Lancer)"
+ },
+ {
+  "name": "格蕾·Lily",
+  "jpName": "グレイ・リリィ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "阿尔托莉雅脸",
+   "骑乘",
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "格蕾·Lily"
+ },
+ {
+  "name": "哈桑·萨巴赫",
+  "jpName": "ハサン・サッバーハ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "猪化无效"
+  ],
+  "hasCostume": false,
+  "title": "哈桑·萨巴赫"
+ },
+ {
+  "name": "哈贝特洛特",
+  "jpName": "ハベトロット",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "妖精",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "童话特性从者",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "哈贝特洛特(Pretender)"
+ },
+ {
+  "name": "吉尔伽美什",
+  "jpName": "ギルガメッシュ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "吉尔伽美什"
+ },
+ {
+  "name": "吉尔伽美什",
+  "jpName": "ギルガメッシュ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "所爱之人",
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "吉尔伽美什(Caster)"
+ },
+ {
+  "name": "迦尔纳",
+  "jpName": "カルナ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "迦尔纳"
+ },
+ {
+  "name": "酒吞童子",
+  "jpName": "酒呑童子",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "龙",
+   "天地从者",
+   "魔性",
+   "酒吞童子",
+   "鬼",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "酒吞童子"
+ },
+ {
+  "name": "汉斯·克里斯蒂安·安徒生",
+  "jpName": "ハンス・クリスチャン・アンデルセン",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "汉斯·克里斯蒂安·安徒生"
+ },
+ {
+  "name": "吉尔·德·雷",
+  "jpName": "ジル・ド・レェ",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "吉尔·德·雷"
+ },
+ {
+  "name": "吉尔·德·雷",
+  "jpName": "ジル・ド・レェ",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "吉尔·德·雷(Caster)"
+ },
+ {
+  "name": "机械伊丽亲Ⅱ号机",
+  "jpName": "メカエリチャンⅡ号機",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Alterego",
+  "traits": [
+   "人类的威胁",
+   "机械",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "机械伊丽亲Ⅱ号机"
+ },
+ {
+  "name": "机械伊丽亲",
+  "jpName": "メカエリチャン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Alterego",
+  "traits": [
+   "人类的威胁",
+   "机械",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "机械伊丽亲"
+ },
+ {
+  "name": "荆轲",
+  "jpName": "荊軻",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "荆轲"
+ },
+ {
+  "name": "剧院魅影",
+  "jpName": "ファントム・オブ・ジ・オペラ",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "剧院魅影"
+ },
+ {
+  "name": "赫拉克勒斯",
+  "jpName": "ヘラクレス",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "狂",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "天地从者",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "赫拉克勒斯"
+ },
+ {
+  "name": "卡利古拉",
+  "jpName": "カリギュラ",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "罗马",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "卡利古拉"
+ },
+ {
+  "name": "赫克托耳",
+  "jpName": "ヘクトール",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "希腊神话系男性",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "赫克托耳"
+ },
+ {
+  "name": "亨利·杰基尔＆海德",
+  "jpName": "ヘンリー・ジキル＆ハイド",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "亨利·杰基尔＆海德"
+ },
+ {
+  "name": "杰罗尼莫",
+  "jpName": "ジェロニモ",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "杰罗尼莫"
+ },
+ {
+  "name": "静谧哈桑",
+  "jpName": "静謐のハサン",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "静谧哈桑"
+ },
+ {
+  "name": "彭忒西勒亚",
+  "jpName": "ペンテシレイア",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "黄金国的Berserker"
+ },
+ {
+  "name": "加藤段藏",
+  "jpName": "加藤段蔵",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "加藤段藏"
+ },
+ {
+  "name": "酒吞童子",
+  "jpName": "酒呑童子",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "龙",
+   "天地从者",
+   "魔性",
+   "酒吞童子",
+   "鬼",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "酒吞童子(Caster)"
+ },
+ {
+  "name": "红阎魔",
+  "jpName": "紅閻魔",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "天地从者",
+   "孩童从者",
+   "鬼",
+   "童话特性的从者",
+   "兽科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "红阎魔"
+ },
+ {
+  "name": "红阎魔",
+  "jpName": "紅閻魔",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "鬼",
+   "天地从者",
+   "孩童从者",
+   "童话特性从者",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "红阎魔(Berserker)"
+ },
+ {
+  "name": "迦摩",
+  "jpName": "カーマ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "孩童从者",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "迦摩"
+ },
+ {
+  "name": "加雷斯",
+  "jpName": "ガレス",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "加雷斯"
+ },
+ {
+  "name": "迦尔纳〔圣诞〕",
+  "jpName": "カルナ〔サンタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "迦尔纳〔圣诞〕"
+ },
+ {
+  "name": "伽拉忒亚",
+  "jpName": "ガラテア",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "伽拉忒亚"
+ },
+ {
+  "name": "迦摩",
+  "jpName": "カーマ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Avenger",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "人科",
+   "孩童从者",
+   "夏日模式从者",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "迦摩(Avenger)"
+ },
+ {
+  "name": "赫费斯提翁",
+  "jpName": "ヘファイスティオン",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "赫费斯提翁"
+ },
+ {
+  "name": "君士坦丁十一世",
+  "jpName": "コンスタンティノス11世",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "罗马",
+   "骑乘",
+   "王",
+   "人科",
+   "所爱之人"
+  ],
+  "hasCostume": false,
+  "title": "君士坦丁十一世"
+ },
+ {
+  "name": "加雷斯",
+  "jpName": "ガレス",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "加雷斯(Saber)"
+ },
+ {
+  "name": "呼延灼",
+  "jpName": "呼延灼",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "猛兽",
+   "骑乘",
+   "所爱之人",
+   "魔性",
+   "人科",
+   "兽科",
+   "梁山泊"
+  ],
+  "hasCostume": false,
+  "title": "呼延灼"
+ },
+ {
+  "name": "黄飞虎",
+  "jpName": "黄飛虎",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "黄飞虎"
+ },
+ {
+  "name": "九纹龙伊丽莎",
+  "jpName": "九紋竜エリザ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Pretender",
+  "traits": [
+   "龙",
+   "所爱之人",
+   "人科",
+   "孩童从者",
+   "梁山泊",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "九纹龙伊丽莎"
+ },
+ {
+  "name": "静希草十郎",
+  "jpName": "静希草十郎",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "静希草十郎"
+ },
+ {
+  "name": "久远寺有珠",
+  "jpName": "久遠寺有珠",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "久远寺有珠"
+ },
+ {
+  "name": "黑姬",
+  "jpName": "黒姫",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "黑姬"
+ },
+ {
+  "name": "呼延灼",
+  "jpName": "呼延灼",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "猛兽",
+   "所爱之人",
+   "魔性",
+   "人科",
+   "兽科",
+   "夏日模式从者",
+   "梁山泊"
+  ],
+  "hasCostume": false,
+  "title": "呼延灼(Berserker)"
+ },
+ {
+  "name": "河上彦斋",
+  "jpName": "河上彦斎",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "河上彦斋"
+ },
+ {
+  "name": "近藤勇",
+  "jpName": "近藤勇",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": true,
+  "title": "近藤勇"
+ },
+ {
+  "name": "花咲翁",
+  "jpName": "花咲翁",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "童话特性从者"
+  ],
+  "hasCostume": false,
+  "title": "花咲翁"
+ },
+ {
+  "name": "两仪式",
+  "jpName": "両儀式",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "人科",
+   "兽科",
+   "兔子系从者"
+  ],
+  "hasCostume": true,
+  "title": "两仪式"
+ },
+ {
+  "name": "开膛手杰克",
+  "jpName": "ジャック・ザ・リッパー",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "开膛手杰克"
+ },
+ {
+  "name": "两仪式",
+  "jpName": "両儀式",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "两仪式(Assassin)"
+ },
+ {
+  "name": "库·丘林",
+  "jpName": "クー・フーリン",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "库·丘林"
+ },
+ {
+  "name": "库·丘林",
+  "jpName": "クー・フーリン",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "库·丘林(Caster)"
+ },
+ {
+  "name": "库·丘林〔Alter〕",
+  "jpName": "クー・フーリン〔オルタ〕",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "库·丘林〔Alter〕"
+ },
+ {
+  "name": "库·丘林〔Prototype〕",
+  "jpName": "クー・フーリン〔プロトタイプ〕",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "库·丘林〔Prototype〕"
+ },
+ {
+  "name": "喀戎",
+  "jpName": "ケイローン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "喀戎"
+ },
+ {
+  "name": "列奥尼达一世",
+  "jpName": "レオニダス一世",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "列奥尼达一世"
+ },
+ {
+  "name": "兰斯洛特",
+  "jpName": "ランスロット",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "狂",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "兰斯洛特"
+ },
+ {
+  "name": "卡米拉",
+  "jpName": "カーミラ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "天地从者",
+   "人科",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "卡米拉"
+ },
+ {
+  "name": "李书文",
+  "jpName": "李書文",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "李书文"
+ },
+ {
+  "name": "兰斯洛特",
+  "jpName": "ランスロット",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "兰斯洛特(Saber)"
+ },
+ {
+  "name": "莱昂纳多·达·芬奇",
+  "jpName": "レオナルド・ダ・ヴィンチ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "莱昂纳多·达·芬奇"
+ },
+ {
+  "name": "克洛伊·冯·爱因兹贝伦",
+  "jpName": "クロエ・フォン・アインツベルン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "克洛伊·冯·爱因兹贝伦"
+ },
+ {
+  "name": "克娄巴特拉",
+  "jpName": "クレオパトラ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "王",
+   "人科",
+   "浮游着的",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "克娄巴特拉"
+ },
+ {
+  "name": "魁札尔·科亚特尔",
+  "jpName": "ケツァル・コアトル",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "王",
+   "人科",
+   "神灵",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "魁札尔·科亚特尔"
+ },
+ {
+  "name": "铃鹿御前",
+  "jpName": "鈴鹿御前",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "鬼",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "铃鹿御前"
+ },
+ {
+  "name": "兰陵王",
+  "jpName": "蘭陵王",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "兰陵王"
+ },
+ {
+  "name": "魁札尔·科亚特尔〔桑巴／圣诞〕",
+  "jpName": "ケツァル・コアトル〔サンバ／サンタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "神灵",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "魁札尔·科亚特尔〔桑巴／圣诞〕"
+ },
+ {
+  "name": "李书文",
+  "jpName": "李書文",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "李书文(Assassin)"
+ },
+ {
+  "name": "Kingprotea",
+  "jpName": "キングプロテア",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "超巨大",
+   "巨人",
+   "机械",
+   "兽科",
+   "樱系列系"
+  ],
+  "hasCostume": true,
+  "title": "Kingprotea"
+ },
+ {
+  "name": "莱昂纳多·达·芬奇",
+  "jpName": "レオナルド・ダ・ヴィンチ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": true,
+  "title": "莱昂纳多·达·芬奇(Rider)"
+ },
+ {
+  "name": "拉克什米·芭伊",
+  "jpName": "ラクシュミー・バーイー",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "拉克什米·芭伊"
+ },
+ {
+  "name": "卡米拉",
+  "jpName": "カーミラ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "天地从者",
+   "人科",
+   "夏日模式从者",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "卡米拉(Rider)"
+ },
+ {
+  "name": "凯妮斯",
+  "jpName": "カイニス",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "阿耳戈船相关人员",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "凯妮斯"
+ },
+ {
+  "name": "克莱恩小姐",
+  "jpName": "ミス・クレーン",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "童话特性的从者",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "克莱恩小姐"
+ },
+ {
+  "name": "莱昂纳多·达·芬奇",
+  "jpName": "レオナルド・ダ・ヴィンチ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Ruler",
+  "traits": [
+   "骑乘",
+   "人科",
+   "孩童从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "莱昂纳多·达·芬奇(Ruler)"
+ },
+ {
+  "name": "凯妮斯",
+  "jpName": "カイニス",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "阿耳戈船相关人员",
+   "神灵",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "凯妮斯(Rider)"
+ },
+ {
+  "name": "克里姆希尔德",
+  "jpName": "クリームヒルト",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "克里姆希尔德"
+ },
+ {
+  "name": "库库尔坎",
+  "jpName": "ククルカン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Foreigner",
+  "traits": [
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "库库尔坎"
+ },
+ {
+  "name": "克洛伊·冯·爱因兹贝伦",
+  "jpName": "クロエ・フォン・アインツベルン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "克洛伊·冯·爱因兹贝伦(Avenger)"
+ },
+ {
+  "name": "凯特·库·米可科尔",
+  "jpName": "ケット・クー・ミコケル",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "妖精",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "凯特·库·米可科尔"
+ },
+ {
+  "name": "Kazuradrop",
+  "jpName": "カズラドロップ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "妖精",
+   "天地从者",
+   "孩童从者",
+   "机械",
+   "夏日模式从者",
+   "樱系列系"
+  ],
+  "hasCostume": true,
+  "title": "Kazuradrop"
+ },
+ {
+  "name": "理查一世",
+  "jpName": "リチャードⅠ世",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "理查一世"
+ },
+ {
+  "name": "莉莉丝",
+  "jpName": "リリス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "恶魔",
+   "神性",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "神灵",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "莉莉丝"
+ },
+ {
+  "name": "克里姆希尔德",
+  "jpName": "クリームヒルト",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "克里姆希尔德(Rider)"
+ },
+ {
+  "name": "Kingprotea",
+  "jpName": "キングプロテア",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "MoonCancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "超巨大",
+   "巨人",
+   "机械",
+   "兽科",
+   "夏日模式从者",
+   "樱系列"
+  ],
+  "hasCostume": false,
+  "title": "Kingprotea(MoonCancer)"
+ },
+ {
+  "name": "莉莉丝",
+  "jpName": "リリス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "恶魔",
+   "神性",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "莉莉丝(Rider)"
+ },
+ {
+  "name": "Kingprotea·Alter",
+  "jpName": "キングプロテア・オルタ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "超巨大",
+   "人类的威胁",
+   "巨人",
+   "机械",
+   "兽科",
+   "夏日模式从者",
+   "樱系列"
+  ],
+  "hasCostume": false,
+  "title": "Kingprotea·Alter"
+ },
+ {
+  "name": "玛修·基列莱特",
+  "jpName": "マシュ・キリエライト",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Shielder",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "玛修·基列莱特"
+ },
+ {
+  "name": "柳生但马守宗矩",
+  "jpName": "柳生但馬守宗矩",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "柳生但马守宗矩"
+ },
+ {
+  "name": "玛丽·安托瓦内特",
+  "jpName": "マリー・アントワネット",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛丽·安托瓦内特"
+ },
+ {
+  "name": "梅林",
+  "jpName": "マーリン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "人科",
+   "圆桌骑士",
+   "梅林",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "梅林"
+ },
+ {
+  "name": "美杜莎",
+  "jpName": "メドゥーサ",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "神灵",
+   "FSN从者",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "美杜莎"
+ },
+ {
+  "name": "罗宾汉",
+  "jpName": "ロビンフッド",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "童话特性的从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "罗宾汉"
+ },
+ {
+  "name": "罗摩",
+  "jpName": "ラーマ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "罗摩"
+ },
+ {
+  "name": "玛塔·哈丽",
+  "jpName": "マタ・ハリ",
+  "rarity": 1,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛塔·哈丽"
+ },
+ {
+  "name": "罗穆路斯",
+  "jpName": "ロムルス",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Lancer",
+  "traits": [
+   "罗马",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "罗穆路斯"
+ },
+ {
+  "name": "玛尔达",
+  "jpName": "マルタ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛尔达"
+ },
+ {
+  "name": "美狄亚",
+  "jpName": "メディア",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "阿耳戈船相关人员",
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "美狄亚"
+ },
+ {
+  "name": "梅菲斯托费勒斯",
+  "jpName": "メフィストフェレス",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "梅菲斯托费勒斯"
+ },
+ {
+  "name": "示巴女王",
+  "jpName": "シバの女王",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "米德拉什的Caster"
+ },
+ {
+  "name": "吕布奉先",
+  "jpName": "呂布奉先",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "吕布奉先"
+ },
+ {
+  "name": "美狄亚〔Lily〕",
+  "jpName": "メディア〔リリィ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者",
+   "阿耳戈船相关人员",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "美狄亚〔Lily〕"
+ },
+ {
+  "name": "玛尔达",
+  "jpName": "マルタ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Ruler",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "玛尔达(Ruler)"
+ },
+ {
+  "name": "美杜莎",
+  "jpName": "メドゥーサ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "孩童从者",
+   "神灵",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "美杜莎(Lancer)"
+ },
+ {
+  "name": "Meltryllis",
+  "jpName": "メルトリリス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "机械",
+   "樱系列系"
+  ],
+  "hasCostume": false,
+  "title": "Meltryllis"
+ },
+ {
+  "name": "玛丽·安托瓦内特",
+  "jpName": "マリー・アントワネット",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "玛丽·安托瓦内特(Caster)"
+ },
+ {
+  "name": "美游·艾德费尔特",
+  "jpName": "美遊・エーデルフェルト",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "活在当下的人类",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "美游·艾德费尔特"
+ },
+ {
+  "name": "马嘶",
+  "jpName": "アシュヴァッターマン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "马嘶"
+ },
+ {
+  "name": "谜之Alterego·Λ",
+  "jpName": "謎のアルターエゴ・Λ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "龙",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "机械",
+   "夏日模式从者",
+   "樱系列系",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "谜之Alterego·Λ"
+ },
+ {
+  "name": "曼迪卡尔多",
+  "jpName": "マンドリカルド",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "曼迪卡尔多"
+ },
+ {
+  "name": "罗穆路斯·奎里努斯",
+  "jpName": "ロムルス＝クィリヌス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "罗马",
+   "天地从者",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "罗穆路斯·奎里努斯"
+ },
+ {
+  "name": "旅行者",
+  "jpName": "ボイジャー",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Foreigner",
+  "traits": [
+   "孩童从者",
+   "领域外生命",
+   "童话特性的从者",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "旅行者"
+ },
+ {
+  "name": "芦屋道满",
+  "jpName": "蘆屋道満",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "魔性",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "芦屋道满"
+ },
+ {
+  "name": "玛尔达〔圣诞〕",
+  "jpName": "マルタ〔サンタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛尔达〔圣诞〕"
+ },
+ {
+  "name": "马纳南·麦克·利尔〔巴泽特〕",
+  "jpName": "マナナン・マク・リール〔バゼット〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "王",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "马纳南·麦克·利尔〔巴泽特〕"
+ },
+ {
+  "name": "玛丽·安宁",
+  "jpName": "メアリー・アニング",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛丽·安宁"
+ },
+ {
+  "name": "罗兰",
+  "jpName": "ローラン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "罗兰"
+ },
+ {
+  "name": "洛库斯塔",
+  "jpName": "ロクスタ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "罗马",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "洛库斯塔"
+ },
+ {
+  "name": "美杜莎",
+  "jpName": "メドゥーサ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "神灵",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "美杜莎(Saber)"
+ },
+ {
+  "name": "铃鹿御前〔暑假〕",
+  "jpName": "鈴鹿御前〔サマバケ〕",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "鬼",
+   "神性",
+   "骑乘",
+   "天地从者",
+   "神灵",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "铃鹿御前〔暑假〕"
+ },
+ {
+  "name": "梅柳齐娜",
+  "jpName": "メリュジーヌ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Ruler",
+  "traits": [
+   "妖精",
+   "龙",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "童话特性的从者",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "梅柳齐娜(Ruler)"
+ },
+ {
+  "name": "玛丽·安托瓦内特〔Alter〕",
+  "jpName": "マリー・アントワネット〔オルタ〕",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玛丽·安托瓦内特〔Alter〕"
+ },
+ {
+  "name": "娄希",
+  "jpName": "ロウヒ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "猛兽",
+   "天地从者",
+   "人科",
+   "魔兽型",
+   "兽科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "娄希"
+ },
+ {
+  "name": "梅塔特隆·贞德",
+  "jpName": "メタトロン・ジャンヌ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "超巨大",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "梅塔特隆·贞德"
+ },
+ {
+  "name": "美游·艾德费尔特",
+  "jpName": "美遊・エーデルフェルト",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "美游·艾德费尔特(Lancer)"
+ },
+ {
+  "name": "马里斯·迦勒底亚斯",
+  "jpName": "マリス・カルデアス",
+  "rarity": 0,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "兽",
+  "className": "BeastⅦ",
+  "traits": [
+   "人类的威胁",
+   "超巨大"
+  ],
+  "hasCostume": false,
+  "title": "马里斯·迦勒底亚斯"
+ },
+ {
+  "name": "领主洛格雷斯",
+  "jpName": "ロード・ログレス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Saber",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "亚瑟",
+   "所爱之人",
+   "王",
+   "圆桌骑士",
+   "抵抗者"
+  ],
+  "hasCostume": false,
+  "title": "领主洛格雷斯"
+ },
+ {
+  "name": "女王梅芙",
+  "jpName": "女王メイヴ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "女王梅芙"
+ },
+ {
+  "name": "尼古拉·特斯拉",
+  "jpName": "ニコラ・テスラ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "尼古拉·特斯拉"
+ },
+ {
+  "name": "莫德雷德",
+  "jpName": "モードレッド",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": true,
+  "title": "莫德雷德"
+ },
+ {
+  "name": "谜之女主角X",
+  "jpName": "謎のヒロインX",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Assassin",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "谜之女主角X"
+ },
+ {
+  "name": "南丁格尔",
+  "jpName": "ナイチンゲール",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "南丁格尔"
+ },
+ {
+  "name": "谜之女主角X〔Alter〕",
+  "jpName": "謎のヒロインX〔オルタ〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Berserker",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "圆桌骑士",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "谜之女主角X〔Alter〕"
+ },
+ {
+  "name": "尼托克丽丝",
+  "jpName": "ニトクリス",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "神灵"
+  ],
+  "hasCostume": true,
+  "title": "尼托克丽丝"
+ },
+ {
+  "name": "尼禄·克劳狄乌斯",
+  "jpName": "ネロ・クラウディウス",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "罗马",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "王",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "尼禄·克劳狄乌斯"
+ },
+ {
+  "name": "牛若丸",
+  "jpName": "牛若丸",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "源氏",
+   "童话特性的从者"
+  ],
+  "hasCostume": true,
+  "title": "牛若丸"
+ },
+ {
+  "name": "哪吒",
+  "jpName": "哪吒",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "天地从者",
+   "机械",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "哪吒"
+ },
+ {
+  "name": "尼托克丽丝",
+  "jpName": "ニトクリス",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "神灵",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "尼托克丽丝(Assassin)"
+ },
+ {
+  "name": "尼禄·克劳狄乌斯〔新娘〕",
+  "jpName": "ネロ・クラウディウス〔ブライド〕",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "新娘",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "罗马",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "尼禄·克劳狄乌斯〔新娘〕"
+ },
+ {
+  "name": "尼禄·克劳狄乌斯",
+  "jpName": "ネロ・クラウディウス",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "罗马",
+   "阿尔托莉雅脸",
+   "骑乘",
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "尼禄·克劳狄乌斯(Caster)"
+ },
+ {
+  "name": "Passionlip",
+  "jpName": "パッションリップ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "机械",
+   "樱系列系"
+  ],
+  "hasCostume": true,
+  "title": "Passionlip"
+ },
+ {
+  "name": "帕尔瓦蒂",
+  "jpName": "パールヴァティー",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": true,
+  "title": "帕尔瓦蒂"
+ },
+ {
+  "name": "莫德雷德",
+  "jpName": "モードレッド",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "莫德雷德(Rider)"
+ },
+ {
+  "name": "拿破仑",
+  "jpName": "ナポレオン",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "拿破仑"
+ },
+ {
+  "name": "牛若丸",
+  "jpName": "牛若丸",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科",
+   "源氏",
+   "童话特性的从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "牛若丸(Assassin)"
+ },
+ {
+  "name": "女王梅芙",
+  "jpName": "女王メイヴ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "女王梅芙(Saber)"
+ },
+ {
+  "name": "谜之女主角XX",
+  "jpName": "謎のヒロインXX",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Foreigner",
+  "traits": [
+   "骑乘",
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "所爱之人",
+   "王",
+   "人科",
+   "领域外生命",
+   "夏日模式从者",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "谜之女主角XX"
+ },
+ {
+  "name": "帕里斯",
+  "jpName": "パリス",
+  "rarity": 2,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "帕里斯"
+ },
+ {
+  "name": "南丁格尔〔圣诞〕",
+  "jpName": "ナイチンゲール〔サンタ〕",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "南丁格尔〔圣诞〕"
+ },
+ {
+  "name": "欧罗巴",
+  "jpName": "エウロペ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "欧罗巴"
+ },
+ {
+  "name": "尼莫",
+  "jpName": "ネモ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "神灵"
+  ],
+  "hasCostume": true,
+  "title": "尼莫"
+ },
+ {
+  "name": "平景清",
+  "jpName": "平景清",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "平景清"
+ },
+ {
+  "name": "谜之偶像X〔Alter〕",
+  "jpName": "謎のアイドルX〔オルタ〕",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Foreigner",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "领域外生命",
+   "圆桌骑士",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "谜之偶像X〔Alter〕"
+ },
+ {
+  "name": "摩根",
+  "jpName": "モルガン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "妖精",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "王"
+  ],
+  "hasCostume": true,
+  "title": "摩根"
+ },
+ {
+  "name": "珀西瓦尔",
+  "jpName": "パーシヴァル",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "圆桌骑士",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "珀西瓦尔"
+ },
+ {
+  "name": "谜之兰丸X",
+  "jpName": "謎の蘭丸X",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "星",
+  "className": "Avenger",
+  "traits": [
+   "人科",
+   "领域外生命",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "谜之兰丸X"
+ },
+ {
+  "name": "尼托克丽丝〔Alter〕",
+  "jpName": "ニトクリス〔オルタ〕",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Avenger",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "尼托克丽丝〔Alter〕"
+ },
+ {
+  "name": "女教皇若安",
+  "jpName": "女教皇ヨハンナ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Ruler",
+  "traits": [
+   "罗马",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "女教皇若安"
+ },
+ {
+  "name": "难敌",
+  "jpName": "ドゥリーヨダナ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "难敌"
+ },
+ {
+  "name": "诺克娜蕾·雅兰杜",
+  "jpName": "ノクナレア・ヤラアーンドゥ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Foreigner",
+  "traits": [
+   "妖精",
+   "天地从者",
+   "王",
+   "夏日模式从者",
+   "诺克娜蕾·雅兰杜"
+  ],
+  "hasCostume": false,
+  "title": "诺克娜蕾·雅兰杜"
+ },
+ {
+  "name": "尼莫〔圣诞〕",
+  "jpName": "ネモ〔サンタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "尼莫〔圣诞〕"
+ },
+ {
+  "name": "谜之代行者C.I.E.L",
+  "jpName": "謎の代行者C.I.E.L",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "MoonCancer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "活在当下的人类",
+   "夏日模式从者",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "谜之代行者C.I.E.L"
+ },
+ {
+  "name": "谜之女主角XX〔Alter〕",
+  "jpName": "謎のヒロインXX〔オルタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Foreigner",
+  "traits": [
+   "龙",
+   "阿尔托莉雅脸",
+   "亚瑟",
+   "王",
+   "人科",
+   "领域外生命",
+   "圆桌骑士",
+   "夏日模式从者",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "谜之女主角XX〔Alter〕"
+ },
+ {
+  "name": "Phantasmoon",
+  "jpName": "ファンタズムーン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Pretender",
+  "traits": [
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "Phantasmoon"
+ },
+ {
+  "name": "Passionlip",
+  "jpName": "パッションリップ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "天地从者",
+   "机械",
+   "夏日模式从者",
+   "樱系列系"
+  ],
+  "hasCostume": false,
+  "title": "Passionlip(Saber)"
+ },
+ {
+  "name": "尼莫／诺亚",
+  "jpName": "ネモ／ノア",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "所爱之人",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科",
+   "神灵",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "尼莫／诺亚"
+ },
+ {
+  "name": "普勒拉蒂",
+  "jpName": "プレラーティ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者"
+  ],
+  "hasCostume": true,
+  "title": "普勒拉蒂"
+ },
+ {
+  "name": "所罗门",
+  "jpName": "ソロモン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "兽",
+  "className": "Grand Caster",
+  "traits": [
+   "王"
+  ],
+  "hasCostume": false,
+  "title": "所罗门"
+ },
+ {
+  "name": "清姬",
+  "jpName": "清姫",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "龙",
+   "天地从者",
+   "人科",
+   "孩童从者",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "清姬"
+ },
+ {
+  "name": "浅上藤乃",
+  "jpName": "浅上藤乃",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "浅上藤乃"
+ },
+ {
+  "name": "所罗门",
+  "jpName": "ソロモン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "天地从者"
+  ],
+  "hasCostume": false,
+  "title": "所罗门(Caster)"
+ },
+ {
+  "name": "齐格",
+  "jpName": "ジーク",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "龙",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "齐格"
+ },
+ {
+  "name": "齐格飞",
+  "jpName": "ジークフリート",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "龙",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "齐格飞"
+ },
+ {
+  "name": "骑士迪昂",
+  "jpName": "シュヴァリエ・デオン",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "骑士迪昂"
+ },
+ {
+  "name": "乔尔乔斯",
+  "jpName": "ゲオルギウス",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "乔尔乔斯"
+ },
+ {
+  "name": "塞弥拉弥斯",
+  "jpName": "セミラミス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "塞弥拉弥斯"
+ },
+ {
+  "name": "斯忒诺",
+  "jpName": "ステンノ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "斯忒诺"
+ },
+ {
+  "name": "斯巴达克斯",
+  "jpName": "スパルタクス",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "罗马",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "斯巴达克斯"
+ },
+ {
+  "name": "斯卡哈",
+  "jpName": "スカサハ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Lancer",
+  "traits": [
+   "王",
+   "人科",
+   "兽科",
+   "兔子系从者"
+  ],
+  "hasCostume": true,
+  "title": "斯卡哈"
+ },
+ {
+  "name": "杀生院祈荒",
+  "jpName": "殺生院キアラ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "Alterego",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "杀生院祈荒"
+ },
+ {
+  "name": "斯卡哈",
+  "jpName": "スカサハ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Assassin",
+  "traits": [
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "斯卡哈(Assassin)"
+ },
+ {
+  "name": "清姬",
+  "jpName": "清姫",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "龙",
+   "天地从者",
+   "人科",
+   "孩童从者",
+   "夏日模式从者",
+   "蛇"
+  ],
+  "hasCostume": false,
+  "title": "清姬(Lancer)"
+ },
+ {
+  "name": "齐格鲁德",
+  "jpName": "シグルド",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "龙",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "齐格鲁德"
+ },
+ {
+  "name": "斯卡哈·斯卡蒂",
+  "jpName": "スカサハ＝スカディ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "斯卡哈·斯卡蒂"
+ },
+ {
+  "name": "秦良玉",
+  "jpName": "秦良玉",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "秦良玉"
+ },
+ {
+  "name": "始皇帝",
+  "jpName": "始皇帝",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "人",
+  "className": "Ruler",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "始皇帝"
+ },
+ {
+  "name": "斯露德",
+  "jpName": "スルーズ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵",
+   "夏日模式从者",
+   "瓦尔基里",
+   "浮游着的"
+  ],
+  "hasCostume": true,
+  "title": "斯露德"
+ },
+ {
+  "name": "司马懿〔莱妮丝〕",
+  "jpName": "司馬懿〔ライネス〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "司马懿〔莱妮丝〕"
+ },
+ {
+  "name": "森长可",
+  "jpName": "森長可",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "狂",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "森长可"
+ },
+ {
+  "name": "上杉谦信",
+  "jpName": "上杉謙信",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "上杉谦信"
+ },
+ {
+  "name": "莎乐美",
+  "jpName": "サロメ",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "天地从者",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "莎乐美"
+ },
+ {
+  "name": "太空伊什塔尔",
+  "jpName": "スペース・イシュタル",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Avenger",
+  "traits": [
+   "神性",
+   "神灵",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "太空伊什塔尔"
+ },
+ {
+  "name": "清少纳言",
+  "jpName": "清少納言",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "清少纳言"
+ },
+ {
+  "name": "杀生院祈荒",
+  "jpName": "殺生院キアラ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "MoonCancer",
+  "traits": [
+   "天地从者",
+   "人科",
+   "魔兽型",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "杀生院祈荒(MoonCancer)"
+ },
+ {
+  "name": "千子村正",
+  "jpName": "千子村正",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "千子村正"
+ },
+ {
+  "name": "清少纳言",
+  "jpName": "清少納言",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "清少纳言(Berserker)"
+ },
+ {
+  "name": "太公望",
+  "jpName": "太公望",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "太公望"
+ },
+ {
+  "name": "曲亭马琴",
+  "jpName": "曲亭馬琴",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "曲亭马琴"
+ },
+ {
+  "name": "斯卡哈·斯卡蒂",
+  "jpName": "スカサハ＝スカディ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Ruler",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "神灵",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "斯卡哈·斯卡蒂(Ruler)"
+ },
+ {
+  "name": "千利休",
+  "jpName": "千利休",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "千利休"
+ },
+ {
+  "name": "山南敬助",
+  "jpName": "山南敬助",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": false,
+  "title": "山南敬助"
+ },
+ {
+  "name": "所多玛之兽／德拉科",
+  "jpName": "ソドムズビースト／ドラコー",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "Beast",
+  "traits": [
+   "龙",
+   "罗马",
+   "阿尔托莉雅脸",
+   "王",
+   "孩童从者",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "所多玛之兽／德拉科"
+ },
+ {
+  "name": "瑟坦特",
+  "jpName": "セタンタ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "瑟坦特"
+ },
+ {
+  "name": "杉谷善住坊",
+  "jpName": "杉谷善住坊",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "杉谷善住坊"
+ },
+ {
+  "name": "热内斯·克莱恩",
+  "jpName": "ジュネス・クレーン",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "天地从者",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "热内斯·克莱恩"
+ },
+ {
+  "name": "所罗门",
+  "jpName": "ソロモン",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "天地从者",
+   "王"
+  ],
+  "hasCostume": false,
+  "title": "所罗门(Pretender)"
+ },
+ {
+  "name": "蛇女房",
+  "jpName": "蛇女房",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "蛇",
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "童话特性从者",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "蛇女房"
+ },
+ {
+  "name": "童谣",
+  "jpName": "ナーサリー・ライム",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "孩童从者",
+   "童话特性的从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "童谣"
+ },
+ {
+  "name": "提亚马特",
+  "jpName": "ティアマト",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "兽",
+  "className": "BeastⅡ",
+  "traits": [
+   "超巨大",
+   "神性",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "提亚马特"
+ },
+ {
+  "name": "天草四郎",
+  "jpName": "天草四郎",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Ruler",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "天草四郎"
+ },
+ {
+  "name": "卫宫",
+  "jpName": "エミヤ",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "夏日模式从者",
+   "FSN从者"
+  ],
+  "hasCostume": true,
+  "title": "卫宫"
+ },
+ {
+  "name": "武藏坊弁庆",
+  "jpName": "武蔵坊弁慶",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "源氏",
+   "童话特性的从者"
+  ],
+  "hasCostume": false,
+  "title": "武藏坊弁庆"
+ },
+ {
+  "name": "威廉·莎士比亚",
+  "jpName": "ウィリアム・シェイクスピア",
+  "rarity": 2,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "威廉·莎士比亚"
+ },
+ {
+  "name": "沃尔夫冈·阿马德乌斯·莫扎特",
+  "jpName": "ヴォルフガング・アマデウス・モーツァルト",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Caster",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "沃尔夫冈·阿马德乌斯·莫扎特"
+ },
+ {
+  "name": "夏尔·亨利·桑松",
+  "jpName": "シャルル＝アンリ・サンソン",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "夏尔·亨利·桑松"
+ },
+ {
+  "name": "托马斯·爱迪生",
+  "jpName": "トーマス・エジソン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "托马斯·爱迪生"
+ },
+ {
+  "name": "卫宫〔Assassin〕",
+  "jpName": "エミヤ〔アサシン〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "卫宫〔Assassin〕"
+ },
+ {
+  "name": "詹姆斯·莫里亚蒂",
+  "jpName": "ジェームズ・モリアーティ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "新宿的Archer"
+ },
+ {
+  "name": "卫宫〔Alter〕",
+  "jpName": "エミヤ〔オルタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "卫宫〔Alter〕"
+ },
+ {
+  "name": "土方岁三",
+  "jpName": "土方歳三",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": true,
+  "title": "土方岁三"
+ },
+ {
+  "name": "夏洛克·福尔摩斯",
+  "jpName": "シャーロック・ホームズ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "星",
+  "className": "Ruler",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "夏洛克·福尔摩斯"
+ },
+ {
+  "name": "瓦尔基里",
+  "jpName": "ワルキューレ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵",
+   "瓦尔基里",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "瓦尔基里"
+ },
+ {
+  "name": "项羽",
+  "jpName": "項羽",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "巨人",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "项羽"
+ },
+ {
+  "name": "希露德",
+  "jpName": "ヒルド",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵",
+   "夏日模式从者",
+   "瓦尔基里",
+   "浮游着的"
+  ],
+  "hasCostume": true,
+  "title": "希露德"
+ },
+ {
+  "name": "威廉·退尔",
+  "jpName": "ウィリアム・テル",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "童话特性的从者"
+  ],
+  "hasCostume": false,
+  "title": "威廉·退尔"
+ },
+ {
+  "name": "伟大的石像神",
+  "jpName": "大いなる石像神",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "MoonCancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "伟大的石像神"
+ },
+ {
+  "name": "夏洛特·科黛",
+  "jpName": "シャルロット・コルデー",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "夏洛特·科黛"
+ },
+ {
+  "name": "夏洛特·科黛",
+  "jpName": "シャルロット・コルデー",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "夏洛特·科黛(Caster)"
+ },
+ {
+  "name": "太岁星君",
+  "jpName": "太歳星君",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "魔性",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "太岁星君"
+ },
+ {
+  "name": "堂·吉诃德",
+  "jpName": "ドン・キホーテ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "人科",
+   "兽科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "堂·吉诃德"
+ },
+ {
+  "name": "武则天",
+  "jpName": "武則天",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "王",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "武则天(Caster)"
+ },
+ {
+  "name": "特斯卡特利波卡",
+  "jpName": "テスカトリポカ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "活在当下的人类",
+   "神灵",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "特斯卡特利波卡"
+ },
+ {
+  "name": "特拉洛克",
+  "jpName": "トラロック",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Pretender",
+  "traits": [
+   "神性",
+   "天地从者"
+  ],
+  "hasCostume": false,
+  "title": "特拉洛克"
+ },
+ {
+  "name": "UDK－巴格斯特",
+  "jpName": "ＵＤＫ－バーゲスト",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "妖精",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "UDK－巴格斯特"
+ },
+ {
+  "name": "旺吉娜",
+  "jpName": "ワンジナ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Foreigner",
+  "traits": [
+   "天地从者",
+   "领域外生命",
+   "浮游着的",
+   "旺吉娜",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "旺吉娜"
+ },
+ {
+  "name": "托勒密",
+  "jpName": "プトレマイオス",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "托勒密"
+ },
+ {
+  "name": "忒修斯",
+  "jpName": "テセウス",
+  "rarity": 3,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "忒修斯"
+ },
+ {
+  "name": "武田晴信",
+  "jpName": "武田晴信",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "武田晴信"
+ },
+ {
+  "name": "特诺奇蒂特兰",
+  "jpName": "テノチティトラン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "MoonCancer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "兽科",
+   "夏日模式从者",
+   "兔子系从者"
+  ],
+  "hasCostume": false,
+  "title": "特诺奇蒂特兰"
+ },
+ {
+  "name": "响＆千键",
+  "jpName": "ひびき＆千鍵",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "活在当下的人类",
+   "神灵",
+   "多人构成一骑的从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "响＆千键"
+ },
+ {
+  "name": "U－奥尔加玛丽",
+  "jpName": "Ｕ－オルガマリー",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "UnBeast",
+  "traits": [
+   "神性",
+   "超巨大",
+   "人科",
+   "活在当下的人类",
+   "巨人",
+   "可宇航的",
+   "持有灵衣之人"
+  ],
+  "hasCostume": true,
+  "title": "U－奥尔加玛丽"
+ },
+ {
+  "name": "图坦卡蒙",
+  "jpName": "ツタンカーメン",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "王",
+   "人科",
+   "孩童从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "图坦卡蒙"
+ },
+ {
+  "name": "小野小町",
+  "jpName": "小野小町",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科",
+   "浮游着的",
+   "多人构成一骑的从者",
+   "神灵",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "小野小町"
+ },
+ {
+  "name": "藤堂平助",
+  "jpName": "藤堂平助",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": false,
+  "title": "藤堂平助"
+ },
+ {
+  "name": "希波吕忒",
+  "jpName": "ヒッポリュテ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "希波吕忒"
+ },
+ {
+  "name": "无地王约翰",
+  "jpName": "ジョン・ラックランド",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "无地王约翰"
+ },
+ {
+  "name": "小野小町",
+  "jpName": "小野小町",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "天地从者",
+   "人科",
+   "夏日模式从者",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "小野小町(Archer)"
+ },
+ {
+  "name": "幼吉尔",
+  "jpName": "子ギル",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "王",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "幼吉尔"
+ },
+ {
+  "name": "伊莉雅丝菲尔·冯·爱因兹贝伦",
+  "jpName": "イリヤスフィール・フォン・アインツベルン",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "伊莉雅",
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "浮游着的"
+  ],
+  "hasCostume": true,
+  "title": "伊莉雅丝菲尔·冯·爱因兹贝伦"
+ },
+ {
+  "name": "伊什塔尔",
+  "jpName": "イシュタル",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "浮游着的",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "伊什塔尔"
+ },
+ {
+  "name": "尤瑞艾莉",
+  "jpName": "エウリュアレ",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵"
+  ],
+  "hasCostume": true,
+  "title": "尤瑞艾莉"
+ },
+ {
+  "name": "岩窟王",
+  "jpName": "巌窟王",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "岩窟王"
+ },
+ {
+  "name": "亚瑟·潘德拉贡〔Prototype〕",
+  "jpName": "アーサー・ペンドラゴン〔プロトタイプ〕",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "龙",
+   "天地从者",
+   "亚瑟",
+   "所爱之人",
+   "王",
+   "人科",
+   "圆桌骑士"
+  ],
+  "hasCostume": true,
+  "title": "亚瑟·潘德拉贡〔Prototype〕"
+ },
+ {
+  "name": "伊斯坎达尔",
+  "jpName": "イスカンダル",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "所爱之人",
+   "王",
+   "希腊神话系男性",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "伊斯坎达尔"
+ },
+ {
+  "name": "刑部姬",
+  "jpName": "刑部姫",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "刑部姬"
+ },
+ {
+  "name": "伊丽莎白·巴托里",
+  "jpName": "エリザベート・バートリー",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "龙",
+   "人科",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "伊丽莎白·巴托里"
+ },
+ {
+  "name": "伊凡雷帝",
+  "jpName": "イヴァン雷帝",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "猛兽",
+   "骑乘",
+   "王",
+   "人科",
+   "巨人",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "伊凡雷帝"
+ },
+ {
+  "name": "亚历山大",
+  "jpName": "アレキサンダー",
+  "rarity": 3,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "王",
+   "希腊神话系男性",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "亚历山大"
+ },
+ {
+  "name": "血斧埃里克",
+  "jpName": "エイリーク・ブラッドアクス",
+  "rarity": 2,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "血斧埃里克"
+ },
+ {
+  "name": "伊丽莎白·巴托里〔万圣节〕",
+  "jpName": "エリザベート・バートリー〔ハロウィン〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "龙",
+   "人科",
+   "浮游着的",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "伊丽莎白·巴托里〔万圣节〕"
+ },
+ {
+  "name": "玄奘三藏",
+  "jpName": "玄奘三蔵",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "玄奘三藏"
+ },
+ {
+  "name": "伊丽莎白·巴托里〔勇者〕",
+  "jpName": "エリザベート・バートリー〔ブレイブ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "龙",
+   "天地从者",
+   "人科",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "伊丽莎白·巴托里〔勇者〕"
+ },
+ {
+  "name": "黑森·罗伯",
+  "jpName": "ヘシアン・ロボ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "猛兽",
+   "天地从者",
+   "魔兽型",
+   "童话特性的从者",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "新宿的Avenger"
+ },
+ {
+  "name": "燕青",
+  "jpName": "燕青",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "夏日模式从者",
+   "梁山泊"
+  ],
+  "hasCostume": true,
+  "title": "新宿的Assassin"
+ },
+ {
+  "name": "伊什塔尔",
+  "jpName": "イシュタル",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Rider",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "活在当下的人类",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "伊什塔尔(Rider)"
+ },
+ {
+  "name": "伊阿宋",
+  "jpName": "イアソン",
+  "rarity": 1,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "希腊神话系男性",
+   "阿耳戈船相关人员",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "伊阿宋"
+ },
+ {
+  "name": "刑部姬",
+  "jpName": "刑部姫",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "刑部姬(Archer)"
+ },
+ {
+  "name": "杨贵妃",
+  "jpName": "楊貴妃",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "人类的威胁",
+   "人科",
+   "领域外生命",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "杨贵妃"
+ },
+ {
+  "name": "伊莉雅丝菲尔·冯·爱因兹贝伦",
+  "jpName": "イリヤスフィール・フォン・アインツベルン",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "伊莉雅",
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "伊莉雅丝菲尔·冯·爱因兹贝伦(Archer)"
+ },
+ {
+  "name": "伊吹童子",
+  "jpName": "伊吹童子",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Saber",
+  "traits": [
+   "鬼",
+   "神性",
+   "龙",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "巨人",
+   "神灵",
+   "兽科",
+   "浮游着的",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "伊吹童子"
+ },
+ {
+  "name": "妖精骑士高文",
+  "jpName": "妖精騎士ガウェイン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Saber",
+  "traits": [
+   "妖精",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "圆桌骑士",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "妖精骑士高文"
+ },
+ {
+  "name": "妖精骑士崔斯坦",
+  "jpName": "妖精騎士トリスタン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Archer",
+  "traits": [
+   "妖精",
+   "骑乘",
+   "天地从者",
+   "魔性",
+   "圆桌骑士"
+  ],
+  "hasCostume": false,
+  "title": "妖精骑士崔斯坦"
+ },
+ {
+  "name": "妖精骑士兰斯洛特",
+  "jpName": "妖精騎士ランスロット",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "妖精",
+   "龙",
+   "天地从者",
+   "所爱之人",
+   "魔兽型",
+   "圆桌骑士",
+   "童话特性的从者",
+   "兽科",
+   "可宇航的"
+  ],
+  "hasCostume": true,
+  "title": "妖精骑士兰斯洛特"
+ },
+ {
+  "name": "雅克·德·莫莱",
+  "jpName": "ジャック・ド・モレー",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Foreigner",
+  "traits": [
+   "神性",
+   "天地从者",
+   "人类的威胁",
+   "人科",
+   "领域外生命",
+   "可宇航的"
+  ],
+  "hasCostume": false,
+  "title": "雅克·德·莫莱"
+ },
+ {
+  "name": "伊丽莎白·巴托里〔灰姑娘〕",
+  "jpName": "エリザベート・バートリー〔シンデレラ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "龙",
+   "骑乘",
+   "人科",
+   "童话特性的从者",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "伊丽莎白·巴托里〔灰姑娘〕"
+ },
+ {
+  "name": "徐福",
+  "jpName": "徐福",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Alterego",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "徐福"
+ },
+ {
+  "name": "伊吹童子",
+  "jpName": "伊吹童子",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Berserker",
+  "traits": [
+   "鬼",
+   "神性",
+   "龙",
+   "天地从者",
+   "魔性",
+   "魔兽型",
+   "巨人",
+   "神灵",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的",
+   "蛇"
+  ],
+  "hasCostume": true,
+  "title": "伊吹童子(Berserker)"
+ },
+ {
+  "name": "壹与",
+  "jpName": "壱与",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Ruler",
+  "traits": [
+   "天地从者",
+   "王",
+   "人科",
+   "猛兽"
+  ],
+  "hasCostume": true,
+  "title": "壹与"
+ },
+ {
+  "name": "永仓新八",
+  "jpName": "永倉新八",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": false,
+  "title": "永仓新八"
+ },
+ {
+  "name": "由井正雪",
+  "jpName": "由井正雪",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "由井正雪"
+ },
+ {
+  "name": "耀星哈桑",
+  "jpName": "耀星のハサン",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "耀星哈桑"
+ },
+ {
+  "name": "岩窟王　基督山",
+  "jpName": "巌窟王　モンテ・クリスト",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "岩窟王 基督山"
+ },
+ {
+  "name": "亚历山德罗·迪·卡利奥斯特罗",
+  "jpName": "アレッサンドロ・ディ・カリオストロ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Pretender",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "亚历山德罗·迪·卡利奥斯特罗"
+ },
+ {
+  "name": "徐福",
+  "jpName": "徐福",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "徐福(Avenger)"
+ },
+ {
+  "name": "因陀罗",
+  "jpName": "インドラ",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "所爱之人",
+   "王",
+   "神灵",
+   "浮游着的",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "因陀罗"
+ },
+ {
+  "name": "伊丽莎白·巴托里",
+  "jpName": "エリザベート・バートリー",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Lancer",
+  "traits": [
+   "龙",
+   "人科",
+   "浮游着的",
+   "可宇航的",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "伊丽莎白·巴托里(SSR)"
+ },
+ {
+  "name": "雅克·德·莫莱",
+  "jpName": "ジャック・ド・モレー",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "雅克·德·莫莱(Saber)"
+ },
+ {
+  "name": "玉藻前",
+  "jpName": "玉藻の前",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Caster",
+  "traits": [
+   "神性",
+   "天地从者",
+   "魔兽型",
+   "神灵",
+   "兽科"
+  ],
+  "hasCostume": false,
+  "title": "玉藻前"
+ },
+ {
+  "name": "源赖光",
+  "jpName": "源頼光",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Berserker",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "源氏"
+  ],
+  "hasCostume": false,
+  "title": "源赖光"
+ },
+ {
+  "name": "诸葛孔明〔埃尔梅罗Ⅱ世〕",
+  "jpName": "諸葛孔明〔エルメロイⅡ世〕",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "所爱之人",
+   "人科",
+   "活在当下的人类"
+  ],
+  "hasCostume": false,
+  "title": "诸葛孔明〔埃尔梅罗Ⅱ世〕"
+ },
+ {
+  "name": "玉藻猫",
+  "jpName": "タマモキャット",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Berserker",
+  "traits": [
+   "猛兽",
+   "天地从者",
+   "魔兽型",
+   "兽科"
+  ],
+  "hasCostume": true,
+  "title": "玉藻猫"
+ },
+ {
+  "name": "玉藻前",
+  "jpName": "玉藻の前",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "玉藻前(Lancer)"
+ },
+ {
+  "name": "贞德〔Alter〕",
+  "jpName": "ジャンヌ・ダルク〔オルタ〕",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "贞德〔Alter〕"
+ },
+ {
+  "name": "贞德",
+  "jpName": "ジャンヌ・ダルク",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Ruler",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "贞德"
+ },
+ {
+  "name": "织田信长",
+  "jpName": "織田信長",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "王",
+   "人科",
+   "信长"
+  ],
+  "hasCostume": false,
+  "title": "织田信长"
+ },
+ {
+  "name": "贞德·Alter·Santa·Lily",
+  "jpName": "ジャンヌ・ダルク・オルタ・サンタ・リリィ",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "贞德·Alter·Santa·Lily"
+ },
+ {
+  "name": "咒腕哈桑",
+  "jpName": "呪腕のハサン",
+  "rarity": 2,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "咒腕哈桑"
+ },
+ {
+  "name": "织田信长",
+  "jpName": "織田信長",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "王",
+   "人科",
+   "信长",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "织田信长(Berserker)"
+ },
+ {
+  "name": "源赖光",
+  "jpName": "源頼光",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "天地从者",
+   "人科",
+   "源氏",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "源赖光(Lancer)"
+ },
+ {
+  "name": "贞德〔Alter〕",
+  "jpName": "ジャンヌ・ダルク〔オルタ〕",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Berserker",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "贞德〔Alter〕(Berserker)"
+ },
+ {
+  "name": "贞德",
+  "jpName": "ジャンヌ・ダルク",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "阿尔托莉雅脸",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "贞德(Archer)"
+ },
+ {
+  "name": "志度内",
+  "jpName": "シトナイ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "天地从者",
+   "伊莉雅",
+   "人科",
+   "孩童从者",
+   "童话特性的从者"
+  ],
+  "hasCostume": false,
+  "title": "志度内"
+ },
+ {
+  "name": "虞美人",
+  "jpName": "虞美人",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Assassin",
+  "traits": [
+   "魔性",
+   "天地从者",
+   "虞美人"
+  ],
+  "hasCostume": false,
+  "title": "虞美人"
+ },
+ {
+  "name": "紫式部",
+  "jpName": "紫式部",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "紫式部"
+ },
+ {
+  "name": "织田信长",
+  "jpName": "織田信長",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "不明",
+  "subAttr": "地",
+  "className": "Avenger",
+  "traits": [
+   "天地从者",
+   "王",
+   "人科",
+   "信长"
+  ],
+  "hasCostume": false,
+  "title": "织田信长(Avenger)"
+ },
+ {
+  "name": "长尾景虎",
+  "jpName": "長尾景虎",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "长尾景虎"
+ },
+ {
+  "name": "灾星简",
+  "jpName": "カラミティ・ジェーン",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "灾星简"
+ },
+ {
+  "name": "宇津见绘里濑",
+  "jpName": "宇津見エリセ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科",
+   "活在当下的人类",
+   "孩童从者"
+  ],
+  "hasCostume": false,
+  "title": "宇津见绘里濑"
+ },
+ {
+  "name": "虞美人",
+  "jpName": "虞美人",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Lancer",
+  "traits": [
+   "天地从者",
+   "魔性",
+   "虞美人",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "虞美人(Lancer)"
+ },
+ {
+  "name": "紫式部",
+  "jpName": "紫式部",
+  "rarity": 4,
+  "attr1": "中立",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Rider",
+  "traits": [
+   "骑乘",
+   "人科",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "紫式部(Rider)"
+ },
+ {
+  "name": "斋藤一",
+  "jpName": "斎藤一",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "人科",
+   "新选组",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "斋藤一"
+ },
+ {
+  "name": "织田信胜",
+  "jpName": "織田信勝",
+  "rarity": 1,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "织田信胜"
+ },
+ {
+  "name": "芝诺比阿",
+  "jpName": "ゼノビア",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "骑乘",
+   "所爱之人",
+   "王",
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "芝诺比阿"
+ },
+ {
+  "name": "征氏姐妹",
+  "jpName": "徴姉妹",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Saber",
+  "traits": [
+   "神性",
+   "骑乘",
+   "王",
+   "人科",
+   "多人构成一骑的从者"
+  ],
+  "hasCostume": false,
+  "title": "征氏姐妹"
+ },
+ {
+  "name": "张角",
+  "jpName": "張角",
+  "rarity": 3,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Caster",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "张角"
+ },
+ {
+  "name": "詹姆斯·莫里亚蒂",
+  "jpName": "ジェームズ・モリアーティ",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Ruler",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": true,
+  "title": "詹姆斯·莫里亚蒂(Ruler)"
+ },
+ {
+  "name": "源为朝",
+  "jpName": "源為朝",
+  "rarity": 5,
+  "attr1": "中立",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "所爱之人",
+   "源氏",
+   "机械"
+  ],
+  "hasCostume": false,
+  "title": "源为朝"
+ },
+ {
+  "name": "宇津见绘里濑",
+  "jpName": "宇津見エリセ",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Avenger",
+  "traits": [
+   "神性",
+   "骑乘",
+   "人科",
+   "活在当下的人类",
+   "孩童从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "宇津见绘里濑(Avenger)"
+ },
+ {
+  "name": "幼体／提亚马特",
+  "jpName": "ラーヴァ／ティアマト",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Alterego",
+  "traits": [
+   "神性",
+   "龙",
+   "超巨大",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "幼体／提亚马特"
+ },
+ {
+  "name": "雨之魔女梣",
+  "jpName": "雨の魔女トネリコ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "地",
+  "className": "Caster",
+  "traits": [
+   "妖精",
+   "阿尔托莉雅脸",
+   "天地从者",
+   "王",
+   "夏日模式从者"
+  ],
+  "hasCostume": false,
+  "title": "雨之魔女梣"
+ },
+ {
+  "name": "杂贺孙一",
+  "jpName": "雑賀孫一",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "Archer",
+  "traits": [
+   "人科"
+  ],
+  "hasCostume": false,
+  "title": "杂贺孙一"
+ },
+ {
+  "name": "源赖光／丑御前",
+  "jpName": "源頼光／丑御前",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Avenger",
+  "traits": [
+   "鬼",
+   "神性",
+   "天地从者",
+   "魔性",
+   "源氏",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "源赖光／丑御前"
+ },
+ {
+  "name": "玉兔",
+  "jpName": "玉兎",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "善",
+  "gender": "女性",
+  "subAttr": "人",
+  "className": "MoonCancer",
+  "traits": [
+   "人科",
+   "活在当下的人类",
+   "领域外生命",
+   "童话特性的从者",
+   "兽科",
+   "兔子系从者",
+   "夏日模式从者"
+  ],
+  "hasCostume": true,
+  "title": "玉兔"
+ },
+ {
+  "name": "幼体／提亚马特",
+  "jpName": "ラーヴァ／ティアマト",
+  "rarity": 5,
+  "attr1": "混沌",
+  "attr2": "夏",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "龙",
+   "超巨大",
+   "魔兽型",
+   "神灵",
+   "兽科",
+   "夏日模式从者",
+   "浮游着的"
+  ],
+  "hasCostume": false,
+  "title": "幼体／提亚马特(Archer)"
+ },
+ {
+  "name": "原田左之助",
+  "jpName": "原田左之助",
+  "rarity": 4,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Lancer",
+  "traits": [
+   "人科",
+   "新选组"
+  ],
+  "hasCostume": true,
+  "title": "原田左之助"
+ },
+ {
+  "name": "终结之伊丽莎白",
+  "jpName": "終わりのエリザベート",
+  "rarity": 4,
+  "attr1": "混沌",
+  "attr2": "恶",
+  "gender": "女性",
+  "subAttr": "星",
+  "className": "Avenger",
+  "traits": [
+   "龙",
+   "魔兽型",
+   "兽科",
+   "可宇航的",
+   "伊丽莎白"
+  ],
+  "hasCostume": false,
+  "title": "终结之伊丽莎白"
+ },
+ {
+  "name": "乌尔德",
+  "jpName": "ウルズ",
+  "rarity": 5,
+  "attr1": "秩序",
+  "attr2": "中庸",
+  "gender": "女性",
+  "subAttr": "天",
+  "className": "Archer",
+  "traits": [
+   "神性",
+   "天地从者",
+   "神灵"
+  ],
+  "hasCostume": false,
+  "title": "终末的Archer"
+ },
+ {
+  "name": "佐佐木小次郎",
+  "jpName": "佐々木小次郎",
+  "rarity": 1,
+  "attr1": "中立",
+  "attr2": "恶",
+  "gender": "男性",
+  "subAttr": "人",
+  "className": "Assassin",
+  "traits": [
+   "人科",
+   "FSN从者"
+  ],
+  "hasCostume": false,
+  "title": "佐佐木小次郎"
+ }
+]

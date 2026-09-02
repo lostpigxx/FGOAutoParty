@@ -1,0 +1,21 @@
+{
+  "name": "fgo-bond-team-builder",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "FGO 羁绊加成礼装组队计算器：在 Cost 限制内组合羁绊礼装，最大化全队总羁绊获取",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "serve": "node server.mjs",
+    "scrape": "python3 scraper/fetch_mooncell.py",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}

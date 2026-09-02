@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FGO 羁绊加成组队计算器</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <header>
+    <h1>FGO 羁绊加成组队计算器</h1>
+    <p class="sub">
+      在 Cost 限制内组合羁绊礼装与从者，最大化全队总羁绊获取 · 数据来源 Mooncell ·
+      支持「混沌且七骑士 / 秩序·善 / 星 / 恶 / 职阶」等特性加成礼装
+    </p>
+  </header>
+
+  <main>
+    <section class="config">
+      <div class="card">
+        <h2>队伍设置</h2>
+        <div class="row">
+          <label>Cost 上限
+            <input type="number" id="costLimit" value="113" min="1" step="1" />
+          </label>
+          <label>上阵人数
+            <input type="number" id="ownSlots" value="6" min="1" max="6" step="1" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="includeSupport" checked /> 计算助战位（借用好友）
+          </label>
+          <label>助战从者稀有度
+            <select id="supportRarity">
+              <option value="1">1★（cost 3）</option>
+              <option value="2">2★（cost 6）</option>
+              <option value="3">3★（cost 9）</option>
+              <option value="4" selected>4★（cost 12）</option>
+              <option value="5">5★（cost 16）</option>
+            </select>
+          </label>
+        </div>
+      <div class="row">
+        <span id="dataStatus" class="meta">数据状态加载中…</span>
+        <button id="refreshData">一键更新数据</button>
+      </div>
+      <div class="row">
+        <label>助战礼装
+          <select id="supportCeMode"></select>
+        </label>
+        <label>
+          <input type="checkbox" id="autoPickFree" checked /> 自动选择剩余从者（最大化特性覆盖）
+        </label>
+      </div>
+      <div class="row">
+        <button id="copyConfig">复制配置链接</button>
+        <button id="resetConfig">重置配置</button>
+        <span id="configHint" class="meta"></span>
+      </div>
+      <details>
+        <summary>使用说明</summary>
+        <ul>
+          <li>从者默认<strong>全不选</strong>，请勾选你<strong>拥有</strong>的从者；可用「全选 / 反选」按钮（作用于当前筛选结果），或先按职阶/特性筛选再反选。</li>
+          <li>勾选你<strong>拥有</strong>的羁绊礼装（默认只看 5★ 加成礼装，可取消勾选查看全部；勾选时默认 1 张且满破，可按需调整数量/满破）。</li>
+          <li>「特性」类礼装（如 迦勒底之人）给<strong>全队符合该特性</strong>的从者加羁绊，因此带上更多符合特性的从者收益更高。</li>
+          <li>「助战礼装」指好友放在助战位、你能借到的礼装；下拉仅列出 <strong>5★ 满破</strong> 的加成礼装（含满破午茶 +15% 全队与各特性礼装）。好友助战的从者与礼装 <strong>不计入你的 Cost 上限</strong>。</li>
+          <li>「持有灵衣之人」特性：只要从者有灵衣就默认视为已解锁（自动标记，无需手动勾选）。</li>
+          <li>锁定从者 = 必须上阵（按锁定顺序排位），其余位置自动补最便宜的从者。</li>
+          <li><strong>职阶 / 特性 / 稀有度筛选约束整个队伍</strong>：被筛掉的从者不会出现在推荐队伍中——<strong>锁定的从者同样受约束</strong>，不满足筛选时会被移出计算并在结果中提示（放宽筛选后自动恢复）。</li>
+          <li>「一键更新数据」会重新抓取 Mooncell（约 2~3 分钟），结果保存在本地 <code>data/</code> 与 <code>public/data/</code>，之后无需再爬。</li>
+          <li>你的持有配置会<strong>自动保存在本机浏览器</strong>（localStorage），刷新/重开不丢失；「复制配置链接」可把当前配置打包成链接分享给他人或收藏。</li>
+        </ul>
+      </details>
+      </div>
+
+      <div class="card">
+        <h2>已持有羁绊礼装
+          <label class="meta" title="默认只看 5★ 加成礼装（英灵逢魔/英灵极点等 4★ 可取消勾选后查看）">
+            <input type="checkbox" id="ceOnly5" checked /> 只看5★
+          </label>
+          <button id="ceSelectAll" class="mini">全选</button>
+          <button id="ceSelectNone" class="mini">清空</button>
+        </h2>
+        <div id="ceList"></div>
+      </div>
+    </section>
+
+    <section class="card sv-panel">
+      <h2>从者（默认全不选）
+        <button id="svSelectAll" class="mini">全选</button>
+        <button id="svSelectInvert" class="mini">反选</button>
+        <span class="meta" style="font-weight:400">（作用于当前筛选结果）</span>
+      </h2>
+        <div class="row">
+          <input type="search" id="svSearch" placeholder="搜索名称 / 职阶 / 特性" />
+          <span class="rarity-filters">
+            <label><input type="checkbox" class="rarityFilter" value="5" checked />5★</label>
+            <label><input type="checkbox" class="rarityFilter" value="4" checked />4★</label>
+            <label><input type="checkbox" class="rarityFilter" value="3" checked />3★</label>
+            <label><input type="checkbox" class="rarityFilter" value="2" checked />2★</label>
+            <label><input type="checkbox" class="rarityFilter" value="1" checked />1★</label>
+          </span>
+        </div>
+        <div class="row">
+          <label>职阶</label>
+          <span id="classFilter" class="trait-chips"></span>
+          <span class="meta">（多选 = 任一符合；不选 = 全部；约束组队结果）</span>
+        </div>
+        <div class="row">
+          <span class="meta">特性（多选 = 需同时满足；约束组队结果）</span>
+          <span id="traitFilter" class="trait-chips"></span>
+        </div>
+        <div id="lockedBar" class="locked-bar"></div>
+        <div id="svList"></div>
+    </section>
+
+    <section class="result">
+      <div class="card">
+        <h2>最优组队</h2>
+        <div id="result">加载数据中…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>数据抓取自 Mooncell（fgo.wiki），仅供个人研究使用。</footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
