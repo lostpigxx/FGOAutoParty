@@ -155,9 +155,9 @@ function renderServantList() {
     if (!groups.has(s.rarity)) groups.set(s.rarity, []);
     groups.get(s.rarity)!.push(s);
   }
-  // 同稀有度内按序号 (日服实装顺序) 排列
+  // 同稀有度内按序号倒序 (新从者在前)
   for (const g of groups.values()) {
-    g.sort((a, b) => (a.collectionNo ?? 9999) - (b.collectionNo ?? 9999));
+    g.sort((a, b) => (b.collectionNo ?? 0) - (a.collectionNo ?? 0));
   }
 
   let html = "";
