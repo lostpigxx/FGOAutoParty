@@ -209,6 +209,14 @@ select.form-sel {
   border: 1px solid var(--line);
   background: var(--card2);
 }
+.sv-kick {
+  margin-left: 8px;
+  padding: 1px 8px;
+  font-size: 11px;
+  background: none;
+  color: var(--dim);
+}
+.sv-kick:hover { color: var(--bad); border-color: var(--bad); }
 .sv-line1 {
   grid-area: line1;
   display: flex;
