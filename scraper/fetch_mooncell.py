@@ -272,6 +272,7 @@ def parse_servant(wikitext):
     return {
         "name": b.get("中文名", "").strip(),
         "jpName": b.get("日文名", "").strip(),
+        "collectionNo": int(re.search(r"(\d+)", b.get("序号", "0")).group(1) if b.get("序号") else 0),
         "rarity": int(re.search(r"(\d)", b.get("稀有度", "0")).group(1) if b.get("稀有度") else 0),
         "attr1": b.get("属性1", "").strip(),
         "attr2": b.get("属性2", "").strip(),

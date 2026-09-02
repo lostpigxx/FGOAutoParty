@@ -31,6 +31,8 @@ export interface Ce {
 export interface Servant {
   /** 页面标题 (唯一标识, 如 吉尔伽美什(Caster)) */
   title: string;
+  /** 序号 (日服实装顺序, 游戏图鉴排序) */
+  collectionNo?: number;
   /** 中文名 (可能与其他形态重名) */
   name: string;
   jpName?: string;

@@ -2,6 +2,7 @@
  {
   "name": "阿塔兰忒",
   "jpName": "アタランテ",
+  "collectionNo": 14,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -20,6 +21,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡",
   "jpName": "アルトリア・ペンドラゴン",
+  "collectionNo": 2,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -43,6 +45,7 @@
  {
   "name": "“山中老人”",
   "jpName": "“山の翁”",
+  "collectionNo": 154,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -59,6 +62,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡〔圣诞Alter〕",
   "jpName": "アルトリア・ペンドラゴン〔サンタオルタ〕",
+  "collectionNo": 73,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -80,6 +84,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
   "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "collectionNo": 3,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -101,6 +106,7 @@
  {
   "name": "阿比盖尔·威廉姆斯",
   "jpName": "アビゲイル・ウィリアムズ",
+  "collectionNo": 195,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -122,6 +128,7 @@
  {
   "name": "阿蒂拉",
   "jpName": "アルテラ",
+  "collectionNo": 8,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -140,6 +147,7 @@
  {
   "name": "阿拉什",
   "jpName": "アーラシュ",
+  "collectionNo": 16,
   "rarity": 1,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -157,6 +165,7 @@
  {
   "name": "阿斯托尔福",
   "jpName": "アストルフォ",
+  "collectionNo": 94,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -175,6 +184,7 @@
  {
   "name": "阿喀琉斯",
   "jpName": "アキレウス",
+  "collectionNo": 206,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -196,6 +206,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡",
   "jpName": "アルトリア・ペンドラゴン",
+  "collectionNo": 129,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -218,6 +229,7 @@
  {
   "name": "阿维斯布隆",
   "jpName": "アヴィケブロン",
+  "collectionNo": 203,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -233,6 +245,7 @@
  {
   "name": "埃列什基伽勒",
   "jpName": "エレシュキガル",
+  "collectionNo": 196,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -251,6 +264,7 @@
  {
   "name": "阿塔兰忒〔Alter〕",
   "jpName": "アタランテ〔オルタ〕",
+  "collectionNo": 202,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -270,6 +284,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡〔Lily〕",
   "jpName": "アルトリア・ペンドラゴン〔リリィ〕",
+  "collectionNo": 4,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -291,6 +306,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
   "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "collectionNo": 179,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -313,6 +329,7 @@
  {
   "name": "爱德华·蒂奇",
   "jpName": "エドワード・ティーチ",
+  "collectionNo": 25,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "恶",
@@ -329,6 +346,7 @@
  {
   "name": "阿纳斯塔西娅",
   "jpName": "アナスタシア",
+  "collectionNo": 201,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -344,6 +362,7 @@
  {
   "name": "阿蒂拉·the·San〔ta〕",
   "jpName": "アルテラ・ザ・サン〔タ〕",
+  "collectionNo": 197,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -362,6 +381,7 @@
  {
   "name": "阿斯忒里俄斯",
   "jpName": "アステリオス",
+  "collectionNo": 53,
   "rarity": 1,
   "attr1": "混沌",
   "attr2": "恶",
@@ -382,6 +402,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡〔Alter〕",
   "jpName": "アルトリア・ペンドラゴン〔オルタ〕",
+  "collectionNo": 78,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -404,6 +425,7 @@
  {
   "name": "阿周那",
   "jpName": "アルジュナ",
+  "collectionNo": 84,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -421,6 +443,7 @@
  {
   "name": "爱丽丝菲尔〔天之衣〕",
   "jpName": "アイリスフィール〔天の衣〕",
+  "collectionNo": 111,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -438,6 +461,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡",
   "jpName": "アルトリア・ペンドラゴン",
+  "collectionNo": 119,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -460,6 +484,7 @@
  {
   "name": "阿斯特赖亚",
   "jpName": "アストライア",
+  "collectionNo": 242,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -479,6 +504,7 @@
  {
   "name": "阿斯克勒庇俄斯",
   "jpName": "アスクレピオス",
+  "collectionNo": 249,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -500,6 +526,7 @@
  {
   "name": "阿周那〔Alter〕",
   "jpName": "アルジュナ〔オルタ〕",
+  "collectionNo": 247,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -519,6 +546,7 @@
  {
   "name": "阿尔托莉雅·潘德拉贡",
   "jpName": "アルトリア・ペンドラゴン",
+  "collectionNo": 265,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "夏",
@@ -543,6 +571,7 @@
  {
   "name": "阿斯托尔福",
   "jpName": "アストルフォ",
+  "collectionNo": 270,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -562,6 +591,7 @@
  {
   "name": "阿尔托莉雅·卡斯特",
   "jpName": "アルトリア・キャスター",
+  "collectionNo": 284,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -581,6 +611,7 @@
  {
   "name": "阿比盖尔·威廉姆斯〔夏〕",
   "jpName": "アビゲイル・ウィリアムズ〔夏〕",
+  "collectionNo": 289,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -603,6 +634,7 @@
  {
   "name": "阿摩耳〔卡莲〕",
   "jpName": "アムール〔カレン〕",
+  "collectionNo": 305,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -622,6 +654,7 @@
  {
   "name": "阿纳斯塔西娅＆维",
   "jpName": "アナスタシア＆ヴィイ",
+  "collectionNo": 318,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -638,6 +671,7 @@
  {
   "name": "阿瓦隆女士",
   "jpName": "レディ・アヴァロン",
+  "collectionNo": 353,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -656,6 +690,7 @@
  {
   "name": "阿尔托莉雅·卡斯特",
   "jpName": "アルトリア・キャスター",
+  "collectionNo": 386,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -678,6 +713,7 @@
  {
   "name": "埃列什基伽勒",
   "jpName": "エレシュキガル",
+  "collectionNo": 417,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -699,6 +735,7 @@
  {
   "name": "岸波白野",
   "jpName": "岸波白野",
+  "collectionNo": 424,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -716,6 +753,7 @@
  {
   "name": "阿比盖尔·威廉姆斯〔圣诞〕",
   "jpName": "アビゲイル・ウィリアムズ〔サンタ〕",
+  "collectionNo": 430,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -735,6 +773,7 @@
  {
   "name": "阿育王",
   "jpName": "アショカ王",
+  "collectionNo": 439,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -753,6 +792,7 @@
  {
   "name": "阿斯卡拉福斯",
   "jpName": "アスカラポス",
+  "collectionNo": 471,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -773,6 +813,7 @@
  {
   "name": "贝德维尔",
   "jpName": "ベディヴィエール",
+  "collectionNo": 126,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "善",
@@ -791,6 +832,7 @@
  {
   "name": "奥斯曼狄斯",
   "jpName": "オジマンディアス",
+  "collectionNo": 118,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -811,6 +853,7 @@
  {
   "name": "BB",
   "jpName": "ＢＢ",
+  "collectionNo": 166,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -828,6 +871,7 @@
  {
   "name": "安哥拉曼纽",
   "jpName": "アンリマユ",
+  "collectionNo": 107,
   "rarity": 0,
   "attr1": "混沌",
   "attr2": "恶",
@@ -843,6 +887,7 @@
  {
   "name": "安东尼奥·萨列里",
   "jpName": "アントニオ・サリエリ",
+  "collectionNo": 204,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -861,6 +906,7 @@
  {
   "name": "布狄卡",
   "jpName": "ブーディカ",
+  "collectionNo": 26,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "善",
@@ -878,6 +924,7 @@
  {
   "name": "坂田金时",
   "jpName": "坂田金時",
+  "collectionNo": 51,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -897,6 +944,7 @@
  {
   "name": "安妮·伯妮＆玛莉·瑞德",
   "jpName": "アン・ボニー＆メアリー・リード",
+  "collectionNo": 66,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -914,6 +962,7 @@
  {
   "name": "贝奥武夫",
   "jpName": "ベオウルフ",
+  "collectionNo": 89,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -932,6 +981,7 @@
  {
   "name": "比利小子",
   "jpName": "ビリー・ザ・キッド",
+  "collectionNo": 105,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -948,6 +998,7 @@
  {
   "name": "百貌哈桑",
   "jpName": "百貌のハサン",
+  "collectionNo": 110,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "恶",
@@ -963,6 +1014,7 @@
  {
   "name": "坂田金时",
   "jpName": "坂田金時",
+  "collectionNo": 115,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -983,6 +1035,7 @@
  {
   "name": "俵藤太",
   "jpName": "俵藤太",
+  "collectionNo": 125,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "善",
@@ -999,6 +1052,7 @@
  {
   "name": "BeastⅢ／R",
   "jpName": "ビーストⅢ／R",
+  "collectionNo": 168,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1017,6 +1071,7 @@
  {
   "name": "保罗·班扬",
   "jpName": "ポール・バニヤン",
+  "collectionNo": 174,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1038,6 +1093,7 @@
  {
   "name": "巴御前",
   "jpName": "巴御前",
+  "collectionNo": 184,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1057,6 +1113,7 @@
  {
   "name": "望月千代女",
   "jpName": "望月千代女",
+  "collectionNo": 185,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1074,6 +1131,7 @@
  {
   "name": "宝藏院胤舜",
   "jpName": "宝蔵院胤舜",
+  "collectionNo": 186,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1090,6 +1148,7 @@
  {
   "name": "豹人",
   "jpName": "ジャガーマン",
+  "collectionNo": 148,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1110,6 +1169,7 @@
  {
   "name": "安妮·伯妮＆玛莉·瑞德",
   "jpName": "アン・ボニー＆メアリー・リード",
+  "collectionNo": 131,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1128,6 +1188,7 @@
  {
   "name": "坂本龙马",
   "jpName": "坂本龍馬",
+  "collectionNo": 211,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1148,6 +1209,7 @@
  {
   "name": "BB",
   "jpName": "ＢＢ",
+  "collectionNo": 220,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1171,6 +1233,7 @@
  {
   "name": "布拉达曼特",
   "jpName": "ブラダマンテ",
+  "collectionNo": 232,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -1188,6 +1251,7 @@
  {
   "name": "BeastⅢ／L",
   "jpName": "ビーストⅢ／L",
+  "collectionNo": 240,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1205,6 +1269,7 @@
  {
   "name": "奥特琳德",
   "jpName": "オルトリンデ",
+  "collectionNo": 361,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "夏",
@@ -1225,6 +1290,7 @@
  {
   "name": "巴沙洛缪·罗伯茨",
   "jpName": "バーソロミュー・ロバーツ",
+  "collectionNo": 257,
   "rarity": 1,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1243,6 +1309,7 @@
  {
   "name": "奥德修斯",
   "jpName": "オデュッセウス",
+  "collectionNo": 277,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -1263,6 +1330,7 @@
  {
   "name": "巴御前",
   "jpName": "巴御前",
+  "collectionNo": 290,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -1284,6 +1352,7 @@
  {
   "name": "卑弥呼",
   "jpName": "卑弥呼",
+  "collectionNo": 292,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -1301,6 +1370,7 @@
  {
   "name": "奥伯龙",
   "jpName": "オベロン",
+  "collectionNo": 316,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1322,6 +1392,7 @@
  {
   "name": "坂本龙马",
   "jpName": "坂本龍馬",
+  "collectionNo": 329,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1340,6 +1411,7 @@
  {
   "name": "BeastⅣ",
   "jpName": "ビーストⅣ",
+  "collectionNo": 333,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1359,6 +1431,7 @@
  {
   "name": "暗之高扬斯卡娅",
   "jpName": "闇のコヤンスカヤ",
+  "collectionNo": 334,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1379,6 +1452,7 @@
  {
   "name": "Archetype：Earth",
   "jpName": "アーキタイプ：アース",
+  "collectionNo": 351,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -1392,6 +1466,7 @@
  {
   "name": "怖军",
   "jpName": "ビーマ",
+  "collectionNo": 381,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -1410,6 +1485,7 @@
  {
   "name": "安德洛墨达",
   "jpName": "アンドロメダ",
+  "collectionNo": 406,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -1428,6 +1504,7 @@
  {
   "name": "BB迪拜",
   "jpName": "ＢＢドバイ",
+  "collectionNo": 421,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -1452,6 +1529,7 @@
  {
   "name": "岸波白野",
   "jpName": "岸波白野",
+  "collectionNo": 425,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -1469,6 +1547,7 @@
  {
   "name": "比肖内",
   "jpName": "ビショーネ",
+  "collectionNo": 433,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1489,6 +1568,7 @@
  {
   "name": "比肖内",
   "jpName": "ビショーネ",
+  "collectionNo": 477,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1510,6 +1590,7 @@
  {
   "name": "冲田总司",
   "jpName": "沖田総司",
+  "collectionNo": 68,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1528,6 +1609,7 @@
  {
   "name": "茨木童子",
   "jpName": "茨木童子",
+  "collectionNo": 116,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1546,6 +1628,7 @@
  {
   "name": "茶茶",
   "jpName": "茶々",
+  "collectionNo": 162,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1562,6 +1645,7 @@
  {
   "name": "喀耳刻",
   "jpName": "キルケー",
+  "collectionNo": 192,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1580,6 +1664,7 @@
  {
   "name": "大流士三世",
   "jpName": "ダレイオス三世",
+  "collectionNo": 55,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -1597,6 +1682,7 @@
  {
   "name": "大卫",
   "jpName": "ダビデ",
+  "collectionNo": 63,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -1614,6 +1700,7 @@
  {
   "name": "迪尔姆德·奥迪那",
   "jpName": "ディルムッド・オディナ",
+  "collectionNo": 71,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -1631,6 +1718,7 @@
  {
   "name": "查尔斯·巴贝奇",
   "jpName": "チャールズ・バベッジ",
+  "collectionNo": 80,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1647,6 +1735,7 @@
  {
   "name": "布伦希尔德",
   "jpName": "ブリュンヒルデ",
+  "collectionNo": 88,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -1667,6 +1756,7 @@
  {
   "name": "崔斯坦",
   "jpName": "トリスタン",
+  "collectionNo": 122,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -1685,6 +1775,7 @@
  {
   "name": "山鲁佐德",
   "jpName": "シェヘラザード",
+  "collectionNo": 169,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -1700,6 +1791,7 @@
  {
   "name": "武则天",
   "jpName": "武則天",
+  "collectionNo": 170,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -1717,6 +1809,7 @@
  {
   "name": "冲田总司〔Alter〕",
   "jpName": "沖田総司〔オルタ〕",
+  "collectionNo": 209,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1735,6 +1828,7 @@
  {
   "name": "茨木童子",
   "jpName": "茨木童子",
+  "collectionNo": 217,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -1754,6 +1848,7 @@
  {
   "name": "迪尔姆德·奥迪那",
   "jpName": "ディルムッド・オディナ",
+  "collectionNo": 223,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -1772,6 +1867,7 @@
  {
   "name": "赤兔马",
   "jpName": "赤兎馬",
+  "collectionNo": 231,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1792,6 +1888,7 @@
  {
   "name": "陈宫",
   "jpName": "陳宮",
+  "collectionNo": 258,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "善",
@@ -1807,6 +1904,7 @@
  {
   "name": "冲田·J·总司",
   "jpName": "オキタ・Ｊ・ソウジ",
+  "collectionNo": 267,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -1828,6 +1926,7 @@
  {
   "name": "超人俄里翁",
   "jpName": "超人オリオン",
+  "collectionNo": 272,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1847,6 +1946,7 @@
  {
   "name": "狄俄斯库里",
   "jpName": "ディオスクロイ",
+  "collectionNo": 278,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -1869,6 +1969,7 @@
  {
   "name": "布伦希尔德",
   "jpName": "ブリュンヒルデ",
+  "collectionNo": 287,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -1889,6 +1990,7 @@
  {
   "name": "渡边纲",
   "jpName": "渡辺綱",
+  "collectionNo": 298,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -1907,6 +2009,7 @@
  {
   "name": "冲田总司〔Alter〕",
   "jpName": "沖田総司〔オルタ〕",
+  "collectionNo": 317,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1926,6 +2029,7 @@
  {
   "name": "出云阿国",
   "jpName": "出雲阿国",
+  "collectionNo": 327,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -1942,6 +2046,7 @@
  {
   "name": "多布雷尼亚·尼基季奇",
   "jpName": "ドブルイニャ・ニキチッチ",
+  "collectionNo": 332,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -1963,6 +2068,7 @@
  {
   "name": "超级班扬",
   "jpName": "スーパーバニヤン",
+  "collectionNo": 339,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -1983,6 +2089,7 @@
  {
   "name": "大黑天",
   "jpName": "大黒天",
+  "collectionNo": 340,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -2004,6 +2111,7 @@
  {
   "name": "查理曼",
   "jpName": "シャルルマーニュ",
+  "collectionNo": 343,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -2023,6 +2131,7 @@
  {
   "name": "布里托玛特",
   "jpName": "ブリトマート",
+  "collectionNo": 368,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -2040,6 +2149,7 @@
  {
   "name": "杜尔伽",
   "jpName": "ドゥルガー",
+  "collectionNo": 383,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -2061,6 +2171,7 @@
  {
   "name": "大和武尊",
   "jpName": "ヤマトタケル",
+  "collectionNo": 402,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -2080,6 +2191,7 @@
  {
   "name": "E－火玛丽",
   "jpName": "Ｅ－フレアマリー",
+  "collectionNo": 411,
   "rarity": 0,
   "attr1": "秩序",
   "attr2": "善",
@@ -2096,6 +2208,7 @@
  {
   "name": "E－水玛丽",
   "jpName": "Ｅ－アクアマリー",
+  "collectionNo": 412,
   "rarity": 0,
   "attr1": "中立",
   "attr2": "善",
@@ -2112,6 +2225,7 @@
  {
   "name": "苍崎青子",
   "jpName": "蒼崎青子",
+  "collectionNo": 413,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -2130,6 +2244,7 @@
  {
   "name": "多布雷尼亚·尼基季奇",
   "jpName": "ドブルイニャ・ニキチッチ",
+  "collectionNo": 419,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -2151,6 +2266,7 @@
  {
   "name": "E－宏玛丽",
   "jpName": "Ｅ－グランマリー",
+  "collectionNo": 436,
   "rarity": 0,
   "attr1": "混沌",
   "attr2": "善",
@@ -2169,6 +2285,7 @@
  {
   "name": "但丁·阿利吉耶里",
   "jpName": "ダンテ・アリギエーリ",
+  "collectionNo": 437,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -2184,6 +2301,7 @@
  {
   "name": "堤丰·厄斐墨洛斯",
   "jpName": "テュフォン・エフェメロス",
+  "collectionNo": 441,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2208,6 +2326,7 @@
  {
   "name": "E－星玛丽",
   "jpName": "Ｅ－ステラマリー",
+  "collectionNo": 443,
   "rarity": 0,
   "attr1": "秩序",
   "attr2": "恶",
@@ -2225,6 +2344,7 @@
  {
   "name": "得墨忒耳",
   "jpName": "デメテル",
+  "collectionNo": 465,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -2246,6 +2366,7 @@
  {
   "name": "弗拉德三世",
   "jpName": "ヴラド三世",
+  "collectionNo": 52,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2264,6 +2385,7 @@
  {
   "name": "戈耳工",
   "jpName": "ゴルゴーン",
+  "collectionNo": 147,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2283,6 +2405,7 @@
  {
   "name": "宫本武藏",
   "jpName": "宮本武蔵",
+  "collectionNo": 153,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -2298,6 +2421,7 @@
  {
   "name": "恩奇都",
   "jpName": "エルキドゥ",
+  "collectionNo": 143,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -2313,6 +2437,7 @@
  {
   "name": "盖乌斯·尤利乌斯·恺撒",
   "jpName": "ガイウス・ユリウス・カエサル",
+  "collectionNo": 7,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -2333,6 +2458,7 @@
  {
   "name": "盖提亚",
   "jpName": "ゲーティア",
+  "collectionNo": 151,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -2348,6 +2474,7 @@
  {
   "name": "葛饰北斋",
   "jpName": "葛飾北斎",
+  "collectionNo": 198,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -2367,6 +2494,7 @@
  {
   "name": "高文",
   "jpName": "ガウェイン",
+  "collectionNo": 123,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2387,6 +2515,7 @@
  {
   "name": "弗兰肯斯坦",
   "jpName": "フランケンシュタイン",
+  "collectionNo": 82,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -2404,6 +2533,7 @@
  {
   "name": "俄里翁",
   "jpName": "オリオン",
+  "collectionNo": 60,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -2422,6 +2552,7 @@
  {
   "name": "弗朗西斯·德雷克",
   "jpName": "フランシス・ドレイク",
+  "collectionNo": 65,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2438,6 +2569,7 @@
  {
   "name": "弗格斯·马克·罗伊",
   "jpName": "フェルグス・マック・ロイ",
+  "collectionNo": 72,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -2457,6 +2589,7 @@
  {
   "name": "冯·霍恩海姆·帕拉塞尔苏斯",
   "jpName": "ヴァン・ホーエンハイム・パラケルスス",
+  "collectionNo": 79,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -2473,6 +2606,7 @@
  {
   "name": "芬恩·麦克库尔",
   "jpName": "フィン・マックール",
+  "collectionNo": 87,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -2490,6 +2624,7 @@
  {
   "name": "海伦娜·布拉瓦茨基",
   "jpName": "エレナ・ブラヴァツキー",
+  "collectionNo": 100,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -2505,6 +2640,7 @@
  {
   "name": "风魔小太郎",
   "jpName": "風魔小太郎",
+  "collectionNo": 117,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2521,6 +2657,7 @@
  {
   "name": "弗拉德三世〔EXTRA〕",
   "jpName": "ヴラド三世〔EXTRA〕",
+  "collectionNo": 140,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2537,6 +2674,7 @@
  {
   "name": "弗兰肯斯坦",
   "jpName": "フランケンシュタイン",
+  "collectionNo": 176,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -2556,6 +2694,7 @@
  {
   "name": "克里斯托弗·哥伦布",
   "jpName": "クリストファー・コロンブス",
+  "collectionNo": 172,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "恶",
@@ -2572,6 +2711,7 @@
  {
   "name": "海伦娜·布拉瓦茨基",
   "jpName": "エレナ・ブラヴァツキー",
+  "collectionNo": 180,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -2588,6 +2728,7 @@
  {
   "name": "冈田以藏",
   "jpName": "岡田以蔵",
+  "collectionNo": 210,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "恶",
@@ -2603,6 +2744,7 @@
  {
   "name": "格蕾",
   "jpName": "グレイ",
+  "collectionNo": 243,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2621,6 +2763,7 @@
  {
   "name": "葛饰北斋",
   "jpName": "葛飾北斎",
+  "collectionNo": 264,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -2639,6 +2782,7 @@
  {
   "name": "宫本武藏",
   "jpName": "宮本武蔵",
+  "collectionNo": 261,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -2657,6 +2801,7 @@
  {
   "name": "鬼女红叶",
   "jpName": "鬼女紅葉",
+  "collectionNo": 282,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -2677,6 +2822,7 @@
  {
   "name": "梵高",
   "jpName": "ヴァン・ゴッホ",
+  "collectionNo": 295,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -2699,6 +2845,7 @@
  {
   "name": "弗栗多",
   "jpName": "ヴリトラ",
+  "collectionNo": 300,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -2721,6 +2868,7 @@
  {
   "name": "鬼一法眼",
   "jpName": "鬼一法眼",
+  "collectionNo": 304,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -2737,6 +2885,7 @@
  {
   "name": "哈贝特洛特",
   "jpName": "ハベトロット",
+  "collectionNo": 315,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -2757,6 +2906,7 @@
  {
   "name": "光之高扬斯卡娅",
   "jpName": "光のコヤンスカヤ",
+  "collectionNo": 314,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -2777,6 +2927,7 @@
  {
   "name": "格里戈里·拉斯普京",
   "jpName": "グレゴリー・ラスプーチン",
+  "collectionNo": 369,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -2795,6 +2946,7 @@
  {
   "name": "高杉晋作",
   "jpName": "高杉晋作",
+  "collectionNo": 375,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -2810,6 +2962,7 @@
  {
   "name": "果心居士",
   "jpName": "果心居士",
+  "collectionNo": 380,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -2828,6 +2981,7 @@
  {
   "name": "宫本伊织",
   "jpName": "宮本伊織",
+  "collectionNo": 405,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -2845,6 +2999,7 @@
  {
   "name": "梵高〔矿工〕",
   "jpName": "ヴァン・ゴッホ〔マイナー〕",
+  "collectionNo": 428,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -2863,6 +3018,7 @@
  {
   "name": "芙萝拉",
   "jpName": "フローラ",
+  "collectionNo": 464,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2881,6 +3037,7 @@
  {
   "name": "格蕾·Lily",
   "jpName": "グレイ・リリィ",
+  "collectionNo": 473,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2900,6 +3057,7 @@
  {
   "name": "格蕾·Lily",
   "jpName": "グレイ・リリィ",
+  "collectionNo": 472,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2920,6 +3078,7 @@
  {
   "name": "哈桑·萨巴赫",
   "jpName": "ハサン・サッバーハ",
+  "collectionNo": 474,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -2937,6 +3096,7 @@
  {
   "name": "哈贝特洛特",
   "jpName": "ハベトロット",
+  "collectionNo": 481,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -2958,6 +3118,7 @@
  {
   "name": "吉尔伽美什",
   "jpName": "ギルガメッシュ",
+  "collectionNo": 12,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -2977,6 +3138,7 @@
  {
   "name": "吉尔伽美什",
   "jpName": "ギルガメッシュ",
+  "collectionNo": 145,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -2996,6 +3158,7 @@
  {
   "name": "迦尔纳",
   "jpName": "カルナ",
+  "collectionNo": 85,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -3016,6 +3179,7 @@
  {
   "name": "酒吞童子",
   "jpName": "酒呑童子",
+  "collectionNo": 112,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3037,6 +3201,7 @@
  {
   "name": "汉斯·克里斯蒂安·安徒生",
   "jpName": "ハンス・クリスチャン・アンデルセン",
+  "collectionNo": 33,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3053,6 +3218,7 @@
  {
   "name": "吉尔·德·雷",
   "jpName": "ジル・ド・レェ",
+  "collectionNo": 9,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "善",
@@ -3070,6 +3236,7 @@
  {
   "name": "吉尔·德·雷",
   "jpName": "ジル・ド・レェ",
+  "collectionNo": 32,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3085,6 +3252,7 @@
  {
   "name": "机械伊丽亲Ⅱ号机",
   "jpName": "メカエリチャンⅡ号機",
+  "collectionNo": 191,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3102,6 +3270,7 @@
  {
   "name": "机械伊丽亲",
   "jpName": "メカエリチャン",
+  "collectionNo": 190,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3119,6 +3288,7 @@
  {
   "name": "荆轲",
   "jpName": "荊軻",
+  "collectionNo": 42,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -3134,6 +3304,7 @@
  {
   "name": "剧院魅影",
   "jpName": "ファントム・オブ・ジ・オペラ",
+  "collectionNo": 44,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3150,6 +3321,7 @@
  {
   "name": "赫拉克勒斯",
   "jpName": "ヘラクレス",
+  "collectionNo": 47,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "狂",
@@ -3170,6 +3342,7 @@
  {
   "name": "卡利古拉",
   "jpName": "カリギュラ",
+  "collectionNo": 54,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3187,6 +3360,7 @@
  {
   "name": "赫克托耳",
   "jpName": "ヘクトール",
+  "collectionNo": 64,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3204,6 +3378,7 @@
  {
   "name": "亨利·杰基尔＆海德",
   "jpName": "ヘンリー・ジキル＆ハイド",
+  "collectionNo": 81,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "善",
@@ -3221,6 +3396,7 @@
  {
   "name": "杰罗尼莫",
   "jpName": "ジェロニモ",
+  "collectionNo": 104,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "善",
@@ -3237,6 +3413,7 @@
  {
   "name": "静谧哈桑",
   "jpName": "静謐のハサン",
+  "collectionNo": 124,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "恶",
@@ -3252,6 +3429,7 @@
  {
   "name": "彭忒西勒亚",
   "jpName": "ペンテシレイア",
+  "collectionNo": 171,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3271,6 +3449,7 @@
  {
   "name": "加藤段藏",
   "jpName": "加藤段蔵",
+  "collectionNo": 188,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -3288,6 +3467,7 @@
  {
   "name": "酒吞童子",
   "jpName": "酒呑童子",
+  "collectionNo": 225,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3309,6 +3489,7 @@
  {
   "name": "红阎魔",
   "jpName": "紅閻魔",
+  "collectionNo": 234,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -3329,6 +3510,7 @@
  {
   "name": "红阎魔",
   "jpName": "紅閻魔",
+  "collectionNo": 475,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -3349,6 +3531,7 @@
  {
   "name": "迦摩",
   "jpName": "カーマ",
+  "collectionNo": 239,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3370,6 +3553,7 @@
  {
   "name": "加雷斯",
   "jpName": "ガレス",
+  "collectionNo": 256,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "善",
@@ -3389,6 +3573,7 @@
  {
   "name": "迦尔纳〔圣诞〕",
   "jpName": "カルナ〔サンタ〕",
+  "collectionNo": 301,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3406,6 +3591,7 @@
  {
   "name": "伽拉忒亚",
   "jpName": "ガラテア",
+  "collectionNo": 306,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -3422,6 +3608,7 @@
  {
   "name": "迦摩",
   "jpName": "カーマ",
+  "collectionNo": 321,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -3445,6 +3632,7 @@
  {
   "name": "赫费斯提翁",
   "jpName": "ヘファイスティオン",
+  "collectionNo": 335,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -3462,6 +3650,7 @@
  {
   "name": "君士坦丁十一世",
   "jpName": "コンスタンティノス11世",
+  "collectionNo": 342,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -3481,6 +3670,7 @@
  {
   "name": "加雷斯",
   "jpName": "ガレス",
+  "collectionNo": 354,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "夏",
@@ -3501,6 +3691,7 @@
  {
   "name": "呼延灼",
   "jpName": "呼延灼",
+  "collectionNo": 365,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3522,6 +3713,7 @@
  {
   "name": "黄飞虎",
   "jpName": "黄飛虎",
+  "collectionNo": 366,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -3542,6 +3734,7 @@
  {
   "name": "九纹龙伊丽莎",
   "jpName": "九紋竜エリザ",
+  "collectionNo": 367,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3562,6 +3755,7 @@
  {
   "name": "静希草十郎",
   "jpName": "静希草十郎",
+  "collectionNo": 414,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -3579,6 +3773,7 @@
  {
   "name": "久远寺有珠",
   "jpName": "久遠寺有珠",
+  "collectionNo": 415,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -3597,6 +3792,7 @@
  {
   "name": "黑姬",
   "jpName": "黒姫",
+  "collectionNo": 434,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3614,6 +3810,7 @@
  {
   "name": "呼延灼",
   "jpName": "呼延灼",
+  "collectionNo": 447,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -3635,6 +3832,7 @@
  {
   "name": "河上彦斋",
   "jpName": "河上彦斎",
+  "collectionNo": 453,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3650,6 +3848,7 @@
  {
   "name": "近藤勇",
   "jpName": "近藤勇",
+  "collectionNo": 456,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -3668,6 +3867,7 @@
  {
   "name": "花咲翁",
   "jpName": "花咲翁",
+  "collectionNo": 462,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -3686,6 +3886,7 @@
  {
   "name": "两仪式",
   "jpName": "両儀式",
+  "collectionNo": 91,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -3703,6 +3904,7 @@
  {
   "name": "开膛手杰克",
   "jpName": "ジャック・ザ・リッパー",
+  "collectionNo": 75,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3720,6 +3922,7 @@
  {
   "name": "两仪式",
   "jpName": "両儀式",
+  "collectionNo": 92,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -3736,6 +3939,7 @@
  {
   "name": "库·丘林",
   "jpName": "クー・フーリン",
+  "collectionNo": 17,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3755,6 +3959,7 @@
  {
   "name": "库·丘林",
   "jpName": "クー・フーリン",
+  "collectionNo": 38,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3774,6 +3979,7 @@
  {
   "name": "库·丘林〔Alter〕",
   "jpName": "クー・フーリン〔オルタ〕",
+  "collectionNo": 98,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3792,6 +3998,7 @@
  {
   "name": "库·丘林〔Prototype〕",
   "jpName": "クー・フーリン〔プロトタイプ〕",
+  "collectionNo": 20,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3809,6 +4016,7 @@
  {
   "name": "喀戎",
   "jpName": "ケイローン",
+  "collectionNo": 207,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3828,6 +4036,7 @@
  {
   "name": "列奥尼达一世",
   "jpName": "レオニダス一世",
+  "collectionNo": 21,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3844,6 +4053,7 @@
  {
   "name": "兰斯洛特",
   "jpName": "ランスロット",
+  "collectionNo": 48,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "狂",
@@ -3861,6 +4071,7 @@
  {
   "name": "卡米拉",
   "jpName": "カーミラ",
+  "collectionNo": 46,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -3878,6 +4089,7 @@
  {
   "name": "李书文",
   "jpName": "李書文",
+  "collectionNo": 102,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -3893,6 +4105,7 @@
  {
   "name": "兰斯洛特",
   "jpName": "ランスロット",
+  "collectionNo": 121,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -3913,6 +4126,7 @@
  {
   "name": "莱昂纳多·达·芬奇",
   "jpName": "レオナルド・ダ・ヴィンチ",
+  "collectionNo": 127,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -3928,6 +4142,7 @@
  {
   "name": "克洛伊·冯·爱因兹贝伦",
   "jpName": "クロエ・フォン・アインツベルン",
+  "collectionNo": 137,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -3946,6 +4161,7 @@
  {
   "name": "克娄巴特拉",
   "jpName": "クレオパトラ",
+  "collectionNo": 139,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -3965,6 +4181,7 @@
  {
   "name": "魁札尔·科亚特尔",
   "jpName": "ケツァル・コアトル",
+  "collectionNo": 144,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -3986,6 +4203,7 @@
  {
   "name": "铃鹿御前",
   "jpName": "鈴鹿御前",
+  "collectionNo": 165,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -4005,6 +4223,7 @@
  {
   "name": "兰陵王",
   "jpName": "蘭陵王",
+  "collectionNo": 227,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4023,6 +4242,7 @@
  {
   "name": "魁札尔·科亚特尔〔桑巴／圣诞〕",
   "jpName": "ケツァル・コアトル〔サンバ／サンタ〕",
+  "collectionNo": 233,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4043,6 +4263,7 @@
  {
   "name": "李书文",
   "jpName": "李書文",
+  "collectionNo": 235,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -4058,6 +4279,7 @@
  {
   "name": "Kingprotea",
   "jpName": "キングプロテア",
+  "collectionNo": 238,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4079,6 +4301,7 @@
  {
   "name": "莱昂纳多·达·芬奇",
   "jpName": "レオナルド・ダ・ヴィンチ",
+  "collectionNo": 253,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4096,6 +4319,7 @@
  {
   "name": "拉克什米·芭伊",
   "jpName": "ラクシュミー・バーイー",
+  "collectionNo": 245,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4114,6 +4338,7 @@
  {
   "name": "卡米拉",
   "jpName": "カーミラ",
+  "collectionNo": 263,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -4132,6 +4357,7 @@
  {
   "name": "凯妮斯",
   "jpName": "カイニス",
+  "collectionNo": 279,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "恶",
@@ -4152,6 +4378,7 @@
  {
   "name": "克莱恩小姐",
   "jpName": "ミス・クレーン",
+  "collectionNo": 307,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -4169,6 +4396,7 @@
  {
   "name": "莱昂纳多·达·芬奇",
   "jpName": "レオナルド・ダ・ヴィンチ",
+  "collectionNo": 320,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "夏",
@@ -4187,6 +4415,7 @@
  {
   "name": "凯妮斯",
   "jpName": "カイニス",
+  "collectionNo": 322,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -4209,6 +4438,7 @@
  {
   "name": "克里姆希尔德",
   "jpName": "クリームヒルト",
+  "collectionNo": 345,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4225,6 +4455,7 @@
  {
   "name": "库库尔坎",
   "jpName": "ククルカン",
+  "collectionNo": 373,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4240,6 +4471,7 @@
  {
   "name": "克洛伊·冯·爱因兹贝伦",
   "jpName": "クロエ・フォン・アインツベルン",
+  "collectionNo": 388,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -4259,6 +4491,7 @@
  {
   "name": "凯特·库·米可科尔",
   "jpName": "ケット・クー・ミコケル",
+  "collectionNo": 392,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4279,6 +4512,7 @@
  {
   "name": "Kazuradrop",
   "jpName": "カズラドロップ",
+  "collectionNo": 426,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4299,6 +4533,7 @@
  {
   "name": "理查一世",
   "jpName": "リチャードⅠ世",
+  "collectionNo": 432,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -4317,6 +4552,7 @@
  {
   "name": "莉莉丝",
   "jpName": "リリス",
+  "collectionNo": 440,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4338,6 +4574,7 @@
  {
   "name": "克里姆希尔德",
   "jpName": "クリームヒルト",
+  "collectionNo": 446,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -4356,6 +4593,7 @@
  {
   "name": "Kingprotea",
   "jpName": "キングプロテア",
+  "collectionNo": 476,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4378,6 +4616,7 @@
  {
   "name": "莉莉丝",
   "jpName": "リリス",
+  "collectionNo": 478,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "夏",
@@ -4402,6 +4641,7 @@
  {
   "name": "Kingprotea·Alter",
   "jpName": "キングプロテア・オルタ",
+  "collectionNo": 479,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4425,6 +4665,7 @@
  {
   "name": "玛修·基列莱特",
   "jpName": "マシュ・キリエライト",
+  "collectionNo": 1,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4445,6 +4686,7 @@
  {
   "name": "柳生但马守宗矩",
   "jpName": "柳生但馬守宗矩",
+  "collectionNo": 187,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -4463,6 +4705,7 @@
  {
   "name": "玛丽·安托瓦内特",
   "jpName": "マリー・アントワネット",
+  "collectionNo": 29,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4479,6 +4722,7 @@
  {
   "name": "梅林",
   "jpName": "マーリン",
+  "collectionNo": 150,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4498,6 +4742,7 @@
  {
   "name": "美杜莎",
   "jpName": "メドゥーサ",
+  "collectionNo": 23,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -4518,6 +4763,7 @@
  {
   "name": "罗宾汉",
   "jpName": "ロビンフッド",
+  "collectionNo": 13,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "善",
@@ -4536,6 +4782,7 @@
  {
   "name": "罗摩",
   "jpName": "ラーマ",
+  "collectionNo": 101,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4556,6 +4803,7 @@
  {
   "name": "玛塔·哈丽",
   "jpName": "マタ・ハリ",
+  "collectionNo": 45,
   "rarity": 1,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4571,6 +4819,7 @@
  {
   "name": "罗穆路斯",
   "jpName": "ロムルス",
+  "collectionNo": 22,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4588,6 +4837,7 @@
  {
   "name": "玛尔达",
   "jpName": "マルタ",
+  "collectionNo": 30,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4605,6 +4855,7 @@
  {
   "name": "美狄亚",
   "jpName": "メディア",
+  "collectionNo": 31,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "恶",
@@ -4623,6 +4874,7 @@
  {
   "name": "梅菲斯托费勒斯",
   "jpName": "メフィストフェレス",
+  "collectionNo": 35,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4639,6 +4891,7 @@
  {
   "name": "示巴女王",
   "jpName": "シバの女王",
+  "collectionNo": 194,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -4655,6 +4908,7 @@
  {
   "name": "吕布奉先",
   "jpName": "呂布奉先",
+  "collectionNo": 49,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4671,6 +4925,7 @@
  {
   "name": "美狄亚〔Lily〕",
   "jpName": "メディア〔リリィ〕",
+  "collectionNo": 67,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4688,6 +4943,7 @@
  {
   "name": "玛尔达",
   "jpName": "マルタ",
+  "collectionNo": 135,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4704,6 +4960,7 @@
  {
   "name": "美杜莎",
   "jpName": "メドゥーサ",
+  "collectionNo": 146,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -4723,6 +4980,7 @@
  {
   "name": "Meltryllis",
   "jpName": "メルトリリス",
+  "collectionNo": 163,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -4742,6 +5000,7 @@
  {
   "name": "玛丽·安托瓦内特",
   "jpName": "マリー・アントワネット",
+  "collectionNo": 130,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4758,6 +5017,7 @@
  {
   "name": "美游·艾德费尔特",
   "jpName": "美遊・エーデルフェルト",
+  "collectionNo": 236,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4775,6 +5035,7 @@
  {
   "name": "马嘶",
   "jpName": "アシュヴァッターマン",
+  "collectionNo": 248,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4793,6 +5054,7 @@
  {
   "name": "谜之Alterego·Λ",
   "jpName": "謎のアルターエゴ・Λ",
+  "collectionNo": 266,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4816,6 +5078,7 @@
  {
   "name": "曼迪卡尔多",
   "jpName": "マンドリカルド",
+  "collectionNo": 273,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -4835,6 +5098,7 @@
  {
   "name": "罗穆路斯·奎里努斯",
   "jpName": "ロムルス＝クィリヌス",
+  "collectionNo": 280,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4854,6 +5118,7 @@
  {
   "name": "旅行者",
   "jpName": "ボイジャー",
+  "collectionNo": 281,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -4873,6 +5138,7 @@
  {
   "name": "芦屋道满",
   "jpName": "蘆屋道満",
+  "collectionNo": 297,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -4891,6 +5157,7 @@
  {
   "name": "玛尔达〔圣诞〕",
   "jpName": "マルタ〔サンタ〕",
+  "collectionNo": 330,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4907,6 +5174,7 @@
  {
   "name": "马纳南·麦克·利尔〔巴泽特〕",
   "jpName": "マナナン・マク・リール〔バゼット〕",
+  "collectionNo": 336,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -4927,6 +5195,7 @@
  {
   "name": "玛丽·安宁",
   "jpName": "メアリー・アニング",
+  "collectionNo": 341,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "中庸",
@@ -4942,6 +5211,7 @@
  {
   "name": "罗兰",
   "jpName": "ローラン",
+  "collectionNo": 344,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -4960,6 +5230,7 @@
  {
   "name": "洛库斯塔",
   "jpName": "ロクスタ",
+  "collectionNo": 378,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4976,6 +5247,7 @@
  {
   "name": "美杜莎",
   "jpName": "メドゥーサ",
+  "collectionNo": 384,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -4995,6 +5267,7 @@
  {
   "name": "铃鹿御前〔暑假〕",
   "jpName": "鈴鹿御前〔サマバケ〕",
+  "collectionNo": 387,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -5015,6 +5288,7 @@
  {
   "name": "梅柳齐娜",
   "jpName": "メリュジーヌ",
+  "collectionNo": 390,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -5039,6 +5313,7 @@
  {
   "name": "玛丽·安托瓦内特〔Alter〕",
   "jpName": "マリー・アントワネット〔オルタ〕",
+  "collectionNo": 407,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5055,6 +5330,7 @@
  {
   "name": "娄希",
   "jpName": "ロウヒ",
+  "collectionNo": 429,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -5075,6 +5351,7 @@
  {
   "name": "梅塔特隆·贞德",
   "jpName": "メタトロン・ジャンヌ",
+  "collectionNo": 438,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5095,6 +5372,7 @@
  {
   "name": "美游·艾德费尔特",
   "jpName": "美遊・エーデルフェルト",
+  "collectionNo": 449,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5113,6 +5391,7 @@
  {
   "name": "马里斯·迦勒底亚斯",
   "jpName": "マリス・カルデアス",
+  "collectionNo": 460,
   "rarity": 0,
   "attr1": "中立",
   "attr2": "善",
@@ -5129,6 +5408,7 @@
  {
   "name": "领主洛格雷斯",
   "jpName": "ロード・ログレス",
+  "collectionNo": 461,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5151,6 +5431,7 @@
  {
   "name": "女王梅芙",
   "jpName": "女王メイヴ",
+  "collectionNo": 99,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5169,6 +5450,7 @@
  {
   "name": "尼古拉·特斯拉",
   "jpName": "ニコラ・テスラ",
+  "collectionNo": 77,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -5185,6 +5467,7 @@
  {
   "name": "莫德雷德",
   "jpName": "モードレッド",
+  "collectionNo": 76,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -5205,6 +5488,7 @@
  {
   "name": "谜之女主角X",
   "jpName": "謎のヒロインX",
+  "collectionNo": 86,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -5226,6 +5510,7 @@
  {
   "name": "南丁格尔",
   "jpName": "ナイチンゲール",
+  "collectionNo": 97,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5241,6 +5526,7 @@
  {
   "name": "谜之女主角X〔Alter〕",
   "jpName": "謎のヒロインX〔オルタ〕",
+  "collectionNo": 155,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -5262,6 +5548,7 @@
  {
   "name": "尼托克丽丝",
   "jpName": "ニトクリス",
+  "collectionNo": 120,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5281,6 +5568,7 @@
  {
   "name": "尼禄·克劳狄乌斯",
   "jpName": "ネロ・クラウディウス",
+  "collectionNo": 5,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -5300,6 +5588,7 @@
  {
   "name": "牛若丸",
   "jpName": "牛若丸",
+  "collectionNo": 27,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -5319,6 +5608,7 @@
  {
   "name": "哪吒",
   "jpName": "哪吒",
+  "collectionNo": 193,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -5336,6 +5626,7 @@
  {
   "name": "尼托克丽丝",
   "jpName": "ニトクリス",
+  "collectionNo": 177,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5356,6 +5647,7 @@
  {
   "name": "尼禄·克劳狄乌斯〔新娘〕",
   "jpName": "ネロ・クラウディウス〔ブライド〕",
+  "collectionNo": 90,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "新娘",
@@ -5375,6 +5667,7 @@
  {
   "name": "尼禄·克劳狄乌斯",
   "jpName": "ネロ・クラウディウス",
+  "collectionNo": 175,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "夏",
@@ -5395,6 +5688,7 @@
  {
   "name": "Passionlip",
   "jpName": "パッションリップ",
+  "collectionNo": 164,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -5413,6 +5707,7 @@
  {
   "name": "帕尔瓦蒂",
   "jpName": "パールヴァティー",
+  "collectionNo": 183,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5431,6 +5726,7 @@
  {
   "name": "莫德雷德",
   "jpName": "モードレッド",
+  "collectionNo": 132,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -5451,6 +5747,7 @@
  {
   "name": "拿破仑",
   "jpName": "ナポレオン",
+  "collectionNo": 212,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -5468,6 +5765,7 @@
  {
   "name": "牛若丸",
   "jpName": "牛若丸",
+  "collectionNo": 218,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -5488,6 +5786,7 @@
  {
   "name": "女王梅芙",
   "jpName": "女王メイヴ",
+  "collectionNo": 221,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5507,6 +5806,7 @@
  {
   "name": "谜之女主角XX",
   "jpName": "謎のヒロインXX",
+  "collectionNo": 222,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5531,6 +5831,7 @@
  {
   "name": "帕里斯",
   "jpName": "パリス",
+  "collectionNo": 255,
   "rarity": 2,
   "attr1": "中立",
   "attr2": "中庸",
@@ -5551,6 +5852,7 @@
  {
   "name": "南丁格尔〔圣诞〕",
   "jpName": "ナイチンゲール〔サンタ〕",
+  "collectionNo": 271,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5566,6 +5868,7 @@
  {
   "name": "欧罗巴",
   "jpName": "エウロペ",
+  "collectionNo": 274,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -5585,6 +5888,7 @@
  {
   "name": "尼莫",
   "jpName": "ネモ",
+  "collectionNo": 296,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -5607,6 +5911,7 @@
  {
   "name": "平景清",
   "jpName": "平景清",
+  "collectionNo": 303,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5625,6 +5930,7 @@
  {
   "name": "谜之偶像X〔Alter〕",
   "jpName": "謎のアイドルX〔オルタ〕",
+  "collectionNo": 308,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -5647,6 +5953,7 @@
  {
   "name": "摩根",
   "jpName": "モルガン",
+  "collectionNo": 309,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -5665,6 +5972,7 @@
  {
   "name": "珀西瓦尔",
   "jpName": "パーシヴァル",
+  "collectionNo": 313,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5685,6 +5993,7 @@
  {
   "name": "谜之兰丸X",
   "jpName": "謎の蘭丸X",
+  "collectionNo": 328,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -5703,6 +6012,7 @@
  {
   "name": "尼托克丽丝〔Alter〕",
   "jpName": "ニトクリス〔オルタ〕",
+  "collectionNo": 370,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5723,6 +6033,7 @@
  {
   "name": "女教皇若安",
   "jpName": "女教皇ヨハンナ",
+  "collectionNo": 374,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5740,6 +6051,7 @@
  {
   "name": "难敌",
   "jpName": "ドゥリーヨダナ",
+  "collectionNo": 382,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -5757,6 +6069,7 @@
  {
   "name": "诺克娜蕾·雅兰杜",
   "jpName": "ノクナレア・ヤラアーンドゥ",
+  "collectionNo": 389,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5776,6 +6089,7 @@
  {
   "name": "尼莫〔圣诞〕",
   "jpName": "ネモ〔サンタ〕",
+  "collectionNo": 401,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -5797,6 +6111,7 @@
  {
   "name": "谜之代行者C.I.E.L",
   "jpName": "謎の代行者C.I.E.L",
+  "collectionNo": 418,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5816,6 +6131,7 @@
  {
   "name": "谜之女主角XX〔Alter〕",
   "jpName": "謎のヒロインXX〔オルタ〕",
+  "collectionNo": 423,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5839,6 +6155,7 @@
  {
   "name": "Phantasmoon",
   "jpName": "ファンタズムーン",
+  "collectionNo": 431,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5855,6 +6172,7 @@
  {
   "name": "Passionlip",
   "jpName": "パッションリップ",
+  "collectionNo": 445,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -5874,6 +6192,7 @@
  {
   "name": "尼莫／诺亚",
   "jpName": "ネモ／ノア",
+  "collectionNo": 452,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5896,6 +6215,7 @@
  {
   "name": "普勒拉蒂",
   "jpName": "プレラーティ",
+  "collectionNo": 467,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5912,6 +6232,7 @@
  {
   "name": "所罗门",
   "jpName": "ソロモン",
+  "collectionNo": 83,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -5927,6 +6248,7 @@
  {
   "name": "清姬",
   "jpName": "清姫",
+  "collectionNo": 56,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "恶",
@@ -5946,6 +6268,7 @@
  {
   "name": "浅上藤乃",
   "jpName": "浅上藤乃",
+  "collectionNo": 200,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -5962,6 +6285,7 @@
  {
   "name": "所罗门",
   "jpName": "ソロモン",
+  "collectionNo": 152,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -5977,6 +6301,7 @@
  {
   "name": "齐格",
   "jpName": "ジーク",
+  "collectionNo": 208,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -5993,6 +6318,7 @@
  {
   "name": "齐格飞",
   "jpName": "ジークフリート",
+  "collectionNo": 6,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -6014,6 +6340,7 @@
  {
   "name": "骑士迪昂",
   "jpName": "シュヴァリエ・デオン",
+  "collectionNo": 10,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6030,6 +6357,7 @@
  {
   "name": "乔尔乔斯",
   "jpName": "ゲオルギウス",
+  "collectionNo": 24,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "善",
@@ -6047,6 +6375,7 @@
  {
   "name": "塞弥拉弥斯",
   "jpName": "セミラミス",
+  "collectionNo": 199,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -6065,6 +6394,7 @@
  {
   "name": "斯忒诺",
   "jpName": "ステンノ",
+  "collectionNo": 41,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -6082,6 +6412,7 @@
  {
   "name": "斯巴达克斯",
   "jpName": "スパルタクス",
+  "collectionNo": 50,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6098,6 +6429,7 @@
  {
   "name": "斯卡哈",
   "jpName": "スカサハ",
+  "collectionNo": 70,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -6116,6 +6448,7 @@
  {
   "name": "杀生院祈荒",
   "jpName": "殺生院キアラ",
+  "collectionNo": 167,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6131,6 +6464,7 @@
  {
   "name": "斯卡哈",
   "jpName": "スカサハ",
+  "collectionNo": 133,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -6148,6 +6482,7 @@
  {
   "name": "清姬",
   "jpName": "清姫",
+  "collectionNo": 134,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6168,6 +6503,7 @@
  {
   "name": "齐格鲁德",
   "jpName": "シグルド",
+  "collectionNo": 213,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -6189,6 +6525,7 @@
  {
   "name": "斯卡哈·斯卡蒂",
   "jpName": "スカサハ＝スカディ",
+  "collectionNo": 215,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -6207,6 +6544,7 @@
  {
   "name": "秦良玉",
   "jpName": "秦良玉",
+  "collectionNo": 228,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -6223,6 +6561,7 @@
  {
   "name": "始皇帝",
   "jpName": "始皇帝",
+  "collectionNo": 229,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -6239,6 +6578,7 @@
  {
   "name": "斯露德",
   "jpName": "スルーズ",
+  "collectionNo": 359,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "夏",
@@ -6259,6 +6599,7 @@
  {
   "name": "司马懿〔莱妮丝〕",
   "jpName": "司馬懿〔ライネス〕",
+  "collectionNo": 241,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6276,6 +6617,7 @@
  {
   "name": "森长可",
   "jpName": "森長可",
+  "collectionNo": 251,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "狂",
@@ -6291,6 +6633,7 @@
  {
   "name": "上杉谦信",
   "jpName": "上杉謙信",
+  "collectionNo": 400,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -6310,6 +6653,7 @@
  {
   "name": "莎乐美",
   "jpName": "サロメ",
+  "collectionNo": 260,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6327,6 +6671,7 @@
  {
   "name": "太空伊什塔尔",
   "jpName": "スペース・イシュタル",
+  "collectionNo": 268,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -6345,6 +6690,7 @@
  {
   "name": "清少纳言",
   "jpName": "清少納言",
+  "collectionNo": 276,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -6360,6 +6706,7 @@
  {
   "name": "杀生院祈荒",
   "jpName": "殺生院キアラ",
+  "collectionNo": 285,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -6380,6 +6727,7 @@
  {
   "name": "千子村正",
   "jpName": "千子村正",
+  "collectionNo": 302,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -6396,6 +6744,7 @@
  {
   "name": "清少纳言",
   "jpName": "清少納言",
+  "collectionNo": 323,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -6412,6 +6761,7 @@
  {
   "name": "太公望",
   "jpName": "太公望",
+  "collectionNo": 331,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -6430,6 +6780,7 @@
  {
   "name": "曲亭马琴",
   "jpName": "曲亭馬琴",
+  "collectionNo": 349,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -6447,6 +6798,7 @@
  {
   "name": "斯卡哈·斯卡蒂",
   "jpName": "スカサハ＝スカディ",
+  "collectionNo": 357,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "夏",
@@ -6466,6 +6818,7 @@
  {
   "name": "千利休",
   "jpName": "千利休",
+  "collectionNo": 362,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6482,6 +6835,7 @@
  {
   "name": "山南敬助",
   "jpName": "山南敬助",
+  "collectionNo": 363,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -6499,6 +6853,7 @@
  {
   "name": "所多玛之兽／德拉科",
   "jpName": "ソドムズビースト／ドラコー",
+  "collectionNo": 377,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6519,6 +6874,7 @@
  {
   "name": "瑟坦特",
   "jpName": "セタンタ",
+  "collectionNo": 379,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -6538,6 +6894,7 @@
  {
   "name": "杉谷善住坊",
   "jpName": "杉谷善住坊",
+  "collectionNo": 395,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6553,6 +6910,7 @@
  {
   "name": "热内斯·克莱恩",
   "jpName": "ジュネス・クレーン",
+  "collectionNo": 451,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -6570,6 +6928,7 @@
  {
   "name": "所罗门",
   "jpName": "ソロモン",
+  "collectionNo": 459,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6586,6 +6945,7 @@
  {
   "name": "蛇女房",
   "jpName": "蛇女房",
+  "collectionNo": 463,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -6607,6 +6967,7 @@
  {
   "name": "童谣",
   "jpName": "ナーサリー・ライム",
+  "collectionNo": 74,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6624,6 +6985,7 @@
  {
   "name": "提亚马特",
   "jpName": "ティアマト",
+  "collectionNo": 149,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6641,6 +7003,7 @@
  {
   "name": "天草四郎",
   "jpName": "天草四郎",
+  "collectionNo": 93,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -6656,6 +7019,7 @@
  {
   "name": "卫宫",
   "jpName": "エミヤ",
+  "collectionNo": 11,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6674,6 +7038,7 @@
  {
   "name": "武藏坊弁庆",
   "jpName": "武蔵坊弁慶",
+  "collectionNo": 19,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "善",
@@ -6692,6 +7057,7 @@
  {
   "name": "威廉·莎士比亚",
   "jpName": "ウィリアム・シェイクスピア",
+  "collectionNo": 34,
   "rarity": 2,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6707,6 +7073,7 @@
  {
   "name": "沃尔夫冈·阿马德乌斯·莫扎特",
   "jpName": "ヴォルフガング・アマデウス・モーツァルト",
+  "collectionNo": 36,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "善",
@@ -6723,6 +7090,7 @@
  {
   "name": "夏尔·亨利·桑松",
   "jpName": "シャルル＝アンリ・サンソン",
+  "collectionNo": 43,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "恶",
@@ -6738,6 +7106,7 @@
  {
   "name": "托马斯·爱迪生",
   "jpName": "トーマス・エジソン",
+  "collectionNo": 103,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -6753,6 +7122,7 @@
  {
   "name": "卫宫〔Assassin〕",
   "jpName": "エミヤ〔アサシン〕",
+  "collectionNo": 109,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6769,6 +7139,7 @@
  {
   "name": "詹姆斯·莫里亚蒂",
   "jpName": "ジェームズ・モリアーティ",
+  "collectionNo": 156,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6784,6 +7155,7 @@
  {
   "name": "卫宫〔Alter〕",
   "jpName": "エミヤ〔オルタ〕",
+  "collectionNo": 157,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -6799,6 +7171,7 @@
  {
   "name": "土方岁三",
   "jpName": "土方歳三",
+  "collectionNo": 161,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -6815,6 +7188,7 @@
  {
   "name": "夏洛克·福尔摩斯",
   "jpName": "シャーロック・ホームズ",
+  "collectionNo": 173,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -6830,6 +7204,7 @@
  {
   "name": "瓦尔基里",
   "jpName": "ワルキューレ",
+  "collectionNo": 214,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -6849,6 +7224,7 @@
  {
   "name": "项羽",
   "jpName": "項羽",
+  "collectionNo": 226,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -6866,6 +7242,7 @@
  {
   "name": "希露德",
   "jpName": "ヒルド",
+  "collectionNo": 360,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "夏",
@@ -6886,6 +7263,7 @@
  {
   "name": "威廉·退尔",
   "jpName": "ウィリアム・テル",
+  "collectionNo": 246,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "善",
@@ -6903,6 +7281,7 @@
  {
   "name": "伟大的石像神",
   "jpName": "大いなる石像神",
+  "collectionNo": 244,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -6922,6 +7301,7 @@
  {
   "name": "夏洛特·科黛",
   "jpName": "シャルロット・コルデー",
+  "collectionNo": 259,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "善",
@@ -6937,6 +7317,7 @@
  {
   "name": "夏洛特·科黛",
   "jpName": "シャルロット・コルデー",
+  "collectionNo": 319,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -6953,6 +7334,7 @@
  {
   "name": "太岁星君",
   "jpName": "太歳星君",
+  "collectionNo": 338,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -6971,6 +7353,7 @@
  {
   "name": "堂·吉诃德",
   "jpName": "ドン・キホーテ",
+  "collectionNo": 347,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -6991,6 +7374,7 @@
  {
   "name": "武则天",
   "jpName": "武則天",
+  "collectionNo": 358,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7008,6 +7392,7 @@
  {
   "name": "特斯卡特利波卡",
   "jpName": "テスカトリポカ",
+  "collectionNo": 371,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -7027,6 +7412,7 @@
  {
   "name": "特拉洛克",
   "jpName": "トラロック",
+  "collectionNo": 372,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -7043,6 +7429,7 @@
  {
   "name": "UDK－巴格斯特",
   "jpName": "ＵＤＫ－バーゲスト",
+  "collectionNo": 391,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -7063,6 +7450,7 @@
  {
   "name": "旺吉娜",
   "jpName": "ワンジナ",
+  "collectionNo": 393,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -7082,6 +7470,7 @@
  {
   "name": "托勒密",
   "jpName": "プトレマイオス",
+  "collectionNo": 394,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -7099,6 +7488,7 @@
  {
   "name": "忒修斯",
   "jpName": "テセウス",
+  "collectionNo": 396,
   "rarity": 3,
   "attr1": "秩序",
   "attr2": "善",
@@ -7120,6 +7510,7 @@
  {
   "name": "武田晴信",
   "jpName": "武田晴信",
+  "collectionNo": 397,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7137,6 +7528,7 @@
  {
   "name": "特诺奇蒂特兰",
   "jpName": "テノチティトラン",
+  "collectionNo": 422,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -7156,6 +7548,7 @@
  {
   "name": "响＆千键",
   "jpName": "ひびき＆千鍵",
+  "collectionNo": 416,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -7176,6 +7569,7 @@
  {
   "name": "U－奥尔加玛丽",
   "jpName": "Ｕ－オルガマリー",
+  "collectionNo": 444,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7197,6 +7591,7 @@
  {
   "name": "图坦卡蒙",
   "jpName": "ツタンカーメン",
+  "collectionNo": 427,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -7216,6 +7611,7 @@
  {
   "name": "小野小町",
   "jpName": "小野小町",
+  "collectionNo": 435,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -7237,6 +7633,7 @@
  {
   "name": "藤堂平助",
   "jpName": "藤堂平助",
+  "collectionNo": 454,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -7253,6 +7650,7 @@
  {
   "name": "希波吕忒",
   "jpName": "ヒッポリュテ",
+  "collectionNo": 468,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -7272,6 +7670,7 @@
  {
   "name": "无地王约翰",
   "jpName": "ジョン・ラックランド",
+  "collectionNo": 469,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -7288,6 +7687,7 @@
  {
   "name": "小野小町",
   "jpName": "小野小町",
+  "collectionNo": 480,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "中庸",
@@ -7306,6 +7706,7 @@
  {
   "name": "幼吉尔",
   "jpName": "子ギル",
+  "collectionNo": 95,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -7325,6 +7726,7 @@
  {
   "name": "伊莉雅丝菲尔·冯·爱因兹贝伦",
   "jpName": "イリヤスフィール・フォン・アインツベルン",
+  "collectionNo": 136,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -7344,6 +7746,7 @@
  {
   "name": "伊什塔尔",
   "jpName": "イシュタル",
+  "collectionNo": 142,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -7364,6 +7767,7 @@
  {
   "name": "尤瑞艾莉",
   "jpName": "エウリュアレ",
+  "collectionNo": 15,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -7381,6 +7785,7 @@
  {
   "name": "岩窟王",
   "jpName": "巌窟王",
+  "collectionNo": 96,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7397,6 +7802,7 @@
  {
   "name": "亚瑟·潘德拉贡〔Prototype〕",
   "jpName": "アーサー・ペンドラゴン〔プロトタイプ〕",
+  "collectionNo": 160,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -7419,6 +7825,7 @@
  {
   "name": "伊斯坎达尔",
   "jpName": "イスカンダル",
+  "collectionNo": 108,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -7439,6 +7846,7 @@
  {
   "name": "刑部姬",
   "jpName": "刑部姫",
+  "collectionNo": 189,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7456,6 +7864,7 @@
  {
   "name": "伊丽莎白·巴托里",
   "jpName": "エリザベート・バートリー",
+  "collectionNo": 18,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7473,6 +7882,7 @@
  {
   "name": "伊凡雷帝",
   "jpName": "イヴァン雷帝",
+  "collectionNo": 205,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7493,6 +7903,7 @@
  {
   "name": "亚历山大",
   "jpName": "アレキサンダー",
+  "collectionNo": 28,
   "rarity": 3,
   "attr1": "中立",
   "attr2": "善",
@@ -7513,6 +7924,7 @@
  {
   "name": "血斧埃里克",
   "jpName": "エイリーク・ブラッドアクス",
+  "collectionNo": 57,
   "rarity": 2,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7529,6 +7941,7 @@
  {
   "name": "伊丽莎白·巴托里〔万圣节〕",
   "jpName": "エリザベート・バートリー〔ハロウィン〕",
+  "collectionNo": 61,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7547,6 +7960,7 @@
  {
   "name": "玄奘三藏",
   "jpName": "玄奘三蔵",
+  "collectionNo": 113,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -7563,6 +7977,7 @@
  {
   "name": "伊丽莎白·巴托里〔勇者〕",
   "jpName": "エリザベート・バートリー〔ブレイブ〕",
+  "collectionNo": 138,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -7581,6 +7996,7 @@
  {
   "name": "黑森·罗伯",
   "jpName": "ヘシアン・ロボ",
+  "collectionNo": 158,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7600,6 +8016,7 @@
  {
   "name": "燕青",
   "jpName": "燕青",
+  "collectionNo": 159,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7618,6 +8035,7 @@
  {
   "name": "伊什塔尔",
   "jpName": "イシュタル",
+  "collectionNo": 182,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -7639,6 +8057,7 @@
  {
   "name": "伊阿宋",
   "jpName": "イアソン",
+  "collectionNo": 254,
   "rarity": 1,
   "attr1": "秩序",
   "attr2": "善",
@@ -7659,6 +8078,7 @@
  {
   "name": "刑部姬",
   "jpName": "刑部姫",
+  "collectionNo": 262,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -7677,6 +8097,7 @@
  {
   "name": "杨贵妃",
   "jpName": "楊貴妃",
+  "collectionNo": 275,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -7696,6 +8117,7 @@
  {
   "name": "伊莉雅丝菲尔·冯·爱因兹贝伦",
   "jpName": "イリヤスフィール・フォン・アインツベルン",
+  "collectionNo": 286,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "夏",
@@ -7715,6 +8137,7 @@
  {
   "name": "伊吹童子",
   "jpName": "伊吹童子",
+  "collectionNo": 299,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -7741,6 +8164,7 @@
  {
   "name": "妖精骑士高文",
   "jpName": "妖精騎士ガウェイン",
+  "collectionNo": 310,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -7761,6 +8185,7 @@
  {
   "name": "妖精骑士崔斯坦",
   "jpName": "妖精騎士トリスタン",
+  "collectionNo": 311,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7780,6 +8205,7 @@
  {
   "name": "妖精骑士兰斯洛特",
   "jpName": "妖精騎士ランスロット",
+  "collectionNo": 312,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -7803,6 +8229,7 @@
  {
   "name": "雅克·德·莫莱",
   "jpName": "ジャック・ド・モレー",
+  "collectionNo": 324,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -7823,6 +8250,7 @@
  {
   "name": "伊丽莎白·巴托里〔灰姑娘〕",
   "jpName": "エリザベート・バートリー〔シンデレラ〕",
+  "collectionNo": 326,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7842,6 +8270,7 @@
  {
   "name": "徐福",
   "jpName": "徐福",
+  "collectionNo": 352,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7857,6 +8286,7 @@
  {
   "name": "伊吹童子",
   "jpName": "伊吹童子",
+  "collectionNo": 355,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "夏",
@@ -7883,6 +8313,7 @@
  {
   "name": "壹与",
   "jpName": "壱与",
+  "collectionNo": 364,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7901,6 +8332,7 @@
  {
   "name": "永仓新八",
   "jpName": "永倉新八",
+  "collectionNo": 398,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -7917,6 +8349,7 @@
  {
   "name": "由井正雪",
   "jpName": "由井正雪",
+  "collectionNo": 404,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -7932,6 +8365,7 @@
  {
   "name": "耀星哈桑",
   "jpName": "耀星のハサン",
+  "collectionNo": 408,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -7947,6 +8381,7 @@
  {
   "name": "岩窟王　基督山",
   "jpName": "巌窟王　モンテ・クリスト",
+  "collectionNo": 409,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -7964,6 +8399,7 @@
  {
   "name": "亚历山德罗·迪·卡利奥斯特罗",
   "jpName": "アレッサンドロ・ディ・カリオストロ",
+  "collectionNo": 410,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7979,6 +8415,7 @@
  {
   "name": "徐福",
   "jpName": "徐福",
+  "collectionNo": 420,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -7995,6 +8432,7 @@
  {
   "name": "因陀罗",
   "jpName": "インドラ",
+  "collectionNo": 442,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -8017,6 +8455,7 @@
  {
   "name": "伊丽莎白·巴托里",
   "jpName": "エリザベート・バートリー",
+  "collectionNo": 457,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -8036,6 +8475,7 @@
  {
   "name": "雅克·德·莫莱",
   "jpName": "ジャック・ド・モレー",
+  "collectionNo": 466,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -8052,6 +8492,7 @@
  {
   "name": "玉藻前",
   "jpName": "玉藻の前",
+  "collectionNo": 62,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "恶",
@@ -8071,6 +8512,7 @@
  {
   "name": "源赖光",
   "jpName": "源頼光",
+  "collectionNo": 114,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -8090,6 +8532,7 @@
  {
   "name": "诸葛孔明〔埃尔梅罗Ⅱ世〕",
   "jpName": "諸葛孔明〔エルメロイⅡ世〕",
+  "collectionNo": 37,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -8107,6 +8550,7 @@
  {
   "name": "玉藻猫",
   "jpName": "タマモキャット",
+  "collectionNo": 58,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -8125,6 +8569,7 @@
  {
   "name": "玉藻前",
   "jpName": "玉藻の前",
+  "collectionNo": 128,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "夏",
@@ -8146,6 +8591,7 @@
  {
   "name": "贞德〔Alter〕",
   "jpName": "ジャンヌ・ダルク〔オルタ〕",
+  "collectionNo": 106,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -8162,6 +8608,7 @@
  {
   "name": "贞德",
   "jpName": "ジャンヌ・ダルク",
+  "collectionNo": 59,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -8178,6 +8625,7 @@
  {
   "name": "织田信长",
   "jpName": "織田信長",
+  "collectionNo": 69,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8195,6 +8643,7 @@
  {
   "name": "贞德·Alter·Santa·Lily",
   "jpName": "ジャンヌ・ダルク・オルタ・サンタ・リリィ",
+  "collectionNo": 141,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "善",
@@ -8212,6 +8661,7 @@
  {
   "name": "咒腕哈桑",
   "jpName": "呪腕のハサン",
+  "collectionNo": 40,
   "rarity": 2,
   "attr1": "秩序",
   "attr2": "恶",
@@ -8228,6 +8678,7 @@
  {
   "name": "织田信长",
   "jpName": "織田信長",
+  "collectionNo": 178,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -8246,6 +8697,7 @@
  {
   "name": "源赖光",
   "jpName": "源頼光",
+  "collectionNo": 181,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -8266,6 +8718,7 @@
  {
   "name": "贞德〔Alter〕",
   "jpName": "ジャンヌ・ダルク〔オルタ〕",
+  "collectionNo": 219,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "夏",
@@ -8283,6 +8736,7 @@
  {
   "name": "贞德",
   "jpName": "ジャンヌ・ダルク",
+  "collectionNo": 216,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "夏",
@@ -8300,6 +8754,7 @@
  {
   "name": "志度内",
   "jpName": "シトナイ",
+  "collectionNo": 224,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -8320,6 +8775,7 @@
  {
   "name": "虞美人",
   "jpName": "虞美人",
+  "collectionNo": 230,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -8337,6 +8793,7 @@
  {
   "name": "紫式部",
   "jpName": "紫式部",
+  "collectionNo": 237,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "善",
@@ -8353,6 +8810,7 @@
  {
   "name": "织田信长",
   "jpName": "織田信長",
+  "collectionNo": 250,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -8371,6 +8829,7 @@
  {
   "name": "长尾景虎",
   "jpName": "長尾景虎",
+  "collectionNo": 252,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -8388,6 +8847,7 @@
  {
   "name": "灾星简",
   "jpName": "カラミティ・ジェーン",
+  "collectionNo": 269,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "中庸",
@@ -8405,6 +8865,7 @@
  {
   "name": "宇津见绘里濑",
   "jpName": "宇津見エリセ",
+  "collectionNo": 283,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8424,6 +8885,7 @@
  {
   "name": "虞美人",
   "jpName": "虞美人",
+  "collectionNo": 288,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "恶",
@@ -8442,6 +8904,7 @@
  {
   "name": "紫式部",
   "jpName": "紫式部",
+  "collectionNo": 291,
   "rarity": 4,
   "attr1": "中立",
   "attr2": "善",
@@ -8459,6 +8922,7 @@
  {
   "name": "斋藤一",
   "jpName": "斎藤一",
+  "collectionNo": 293,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8476,6 +8940,7 @@
  {
   "name": "织田信胜",
   "jpName": "織田信勝",
+  "collectionNo": 294,
   "rarity": 1,
   "attr1": "混沌",
   "attr2": "善",
@@ -8491,6 +8956,7 @@
  {
   "name": "芝诺比阿",
   "jpName": "ゼノビア",
+  "collectionNo": 325,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -8509,6 +8975,7 @@
  {
   "name": "征氏姐妹",
   "jpName": "徴姉妹",
+  "collectionNo": 337,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -8528,6 +8995,7 @@
  {
   "name": "张角",
   "jpName": "張角",
+  "collectionNo": 348,
   "rarity": 3,
   "attr1": "混沌",
   "attr2": "善",
@@ -8543,6 +9011,7 @@
  {
   "name": "詹姆斯·莫里亚蒂",
   "jpName": "ジェームズ・モリアーティ",
+  "collectionNo": 346,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -8558,6 +9027,7 @@
  {
   "name": "源为朝",
   "jpName": "源為朝",
+  "collectionNo": 350,
   "rarity": 5,
   "attr1": "中立",
   "attr2": "中庸",
@@ -8575,6 +9045,7 @@
  {
   "name": "宇津见绘里濑",
   "jpName": "宇津見エリセ",
+  "collectionNo": 356,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8595,6 +9066,7 @@
  {
   "name": "幼体／提亚马特",
   "jpName": "ラーヴァ／ティアマト",
+  "collectionNo": 376,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "恶",
@@ -8616,6 +9088,7 @@
  {
   "name": "雨之魔女梣",
   "jpName": "雨の魔女トネリコ",
+  "collectionNo": 385,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "善",
@@ -8635,6 +9108,7 @@
  {
   "name": "杂贺孙一",
   "jpName": "雑賀孫一",
+  "collectionNo": 399,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "善",
@@ -8650,6 +9124,7 @@
  {
   "name": "源赖光／丑御前",
   "jpName": "源頼光／丑御前",
+  "collectionNo": 403,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "恶",
@@ -8670,6 +9145,7 @@
  {
   "name": "玉兔",
   "jpName": "玉兎",
+  "collectionNo": 448,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "善",
@@ -8691,6 +9167,7 @@
  {
   "name": "幼体／提亚马特",
   "jpName": "ラーヴァ／ティアマト",
+  "collectionNo": 450,
   "rarity": 5,
   "attr1": "混沌",
   "attr2": "夏",
@@ -8713,6 +9190,7 @@
  {
   "name": "原田左之助",
   "jpName": "原田左之助",
+  "collectionNo": 455,
   "rarity": 4,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8729,6 +9207,7 @@
  {
   "name": "终结之伊丽莎白",
   "jpName": "終わりのエリザベート",
+  "collectionNo": 458,
   "rarity": 4,
   "attr1": "混沌",
   "attr2": "恶",
@@ -8748,6 +9227,7 @@
  {
   "name": "乌尔德",
   "jpName": "ウルズ",
+  "collectionNo": 470,
   "rarity": 5,
   "attr1": "秩序",
   "attr2": "中庸",
@@ -8765,6 +9245,7 @@
  {
   "name": "佐佐木小次郎",
   "jpName": "佐々木小次郎",
+  "collectionNo": 39,
   "rarity": 1,
   "attr1": "中立",
   "attr2": "恶",

@@ -155,6 +155,10 @@ function renderServantList() {
     if (!groups.has(s.rarity)) groups.set(s.rarity, []);
     groups.get(s.rarity)!.push(s);
   }
+  // 同稀有度内按序号 (日服实装顺序) 排列
+  for (const g of groups.values()) {
+    g.sort((a, b) => (a.collectionNo ?? 9999) - (b.collectionNo ?? 9999));
+  }
 
   let html = "";
   for (const rarity of [5, 4, 3, 2, 1]) {
