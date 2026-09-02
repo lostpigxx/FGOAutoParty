@@ -620,17 +620,11 @@ function renderTeam(r: OptimizeResult): string {
   let teamHtml = "";
   if (r.support) {
     const ce = r.support.ce;
+    const ce2 = r.support2?.ce ?? null;
     teamHtml += `<div class="slot support-slot">
-      <div class="pos">助战位（好友，cost 不计入）</div>
-      <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "无礼装"}</div>
-      <div class="bonus">效果已计入下方各从者加成</div>
-    </div>`;
-  }
-  if (r.support2) {
-    const ce = r.support2.ce;
-    teamHtml += `<div class="slot support-slot">
-      <div class="pos">冠位助战位（第二助战，cost 不计入）</div>
-      <div class="ce">${ce ? `<span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "无礼装"}</div>
+      <div class="pos">助战位（好友${ce2 ? " ×2" : ""}，cost 不计入）</div>
+      <div class="ce">${ce ? `① <span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span>` : "① 无礼装"}</div>
+      ${ce2 ? `<div class="ce">② <span class="ce-name2">${esc(ce2.name)}</span> ${esc(ce2.label)} · cost ${ce2.cost}<span class="sv-cost">（不计入）</span></div>` : ""}
       <div class="bonus">效果已计入下方各从者加成</div>
     </div>`;
   }
