@@ -3,6 +3,11 @@
 
 export interface PersistedConfig {
   v: 1;
+  /**
+   * 配置版本 (2 = 当前)。缺失/小于 2 的旧配置可能是早期/热更新中途写入的,
+   * 其 costumesOff 字段不可信, 读取时忽略 (有灵衣者一律默认勾选)。
+   */
+  cfgVersion?: 2;
   settings: {
     costLimit: number;
     ownSlots: number;
@@ -54,6 +59,7 @@ export function buildConfig(input: ConfigInput): PersistedConfig {
   const svList = svMode === "owned" ? [...input.ownedSv] : unowned;
   return {
     v: 1,
+    cfgVersion: 2,
     settings: { ...input.settings },
     ownedCes,
     svMode,
@@ -129,9 +135,11 @@ export function parseConfig(
     const costumeTitles = (Array.isArray(raw.costumes) ? raw.costumes : []).filter((t) =>
       allTitles.has(t),
     );
-    const costumesOff = (Array.isArray(raw.costumesOff) ? raw.costumesOff : []).filter((t) =>
-      allTitles.has(t),
-    );
+    // costumesOff 只有 cfgVersion=2 的配置可信 (早期/热更新中途写入的可能被污染)
+    const costumesOff =
+      raw.cfgVersion === 2 && Array.isArray(raw.costumesOff)
+        ? raw.costumesOff.filter((t) => allTitles.has(t))
+        : [];
     // 锁定/灵衣意味着已持有
     for (const t of [...locked, ...costumeTitles]) ownedSv.add(t);
 

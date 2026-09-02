@@ -150,6 +150,25 @@ describe("配置持久化", () => {
     const parsed = parseConfig(JSON.stringify(legacy), new Set(), input.allTitles)!;
     expect(parsed.costumesOff).toEqual([]);
   });
+
+  it("无 cfgVersion 的旧配置: costumesOff 被忽略 (防热更新污染)", () => {
+    const input = baseInput();
+    input.costumeOffTitles = ["玛修"];
+    const cfg = JSON.parse(JSON.stringify(buildConfig(input)));
+    delete cfg.cfgVersion;
+    const parsed = parseConfig(JSON.stringify(cfg), new Set(), input.allTitles)!;
+    expect(parsed.costumesOff).toEqual([]); // 忽略
+    expect(parsed.costumeTitles).toEqual(["玉藻前"]); // 其余照常恢复
+  });
+
+  it("cfgVersion=2 的配置: costumesOff 正常生效", () => {
+    const input = baseInput();
+    input.costumeOffTitles = ["玛修"];
+    const cfg = buildConfig(input);
+    expect(cfg.cfgVersion).toBe(2);
+    const parsed = parseConfig(JSON.stringify(cfg), new Set(), input.allTitles)!;
+    expect(parsed.costumesOff).toEqual(["玛修"]);
+  });
 });
 
 describe("URL 压缩", () => {
