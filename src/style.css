@@ -149,7 +149,7 @@ details ul { padding-left: 18px; line-height: 1.7; }
 /* ---------- 礼装列表 ---------- */
 .ce-row {
   display: grid;
-  grid-template-columns: 22px auto 1fr auto;
+  grid-template-columns: 22px auto 1fr;
   gap: 8px;
   align-items: center;
   padding: 7px 6px;

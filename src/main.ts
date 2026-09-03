@@ -126,7 +126,6 @@ function renderCeList() {
     .sort((a, b) => Number(b.id) - Number(a.id) || a.name.localeCompare(b.name));
   list.innerHTML = sorted
     .map((c) => {
-      const mlb = state.ownedCes.get(c.id) ?? false;
       const trait = c.traits.length
         ? ` <span class="trait">〔${esc(traitText(c.traits))}〕</span>`
         : "";
@@ -136,9 +135,6 @@ function renderCeList() {
         <div>
           <div class="ce-name"><span class="${starClass(c.rarity)}">★${c.rarity}</span> ${esc(c.name)}<span class="jp">${esc(c.jpName)}</span></div>
           <div class="ce-effect">${esc(c.summary)}${trait} · cost ${c.cost}</div>
-        </div>
-        <div class="ce-ctrl" data-ctrl="${esc(c.id)}">
-          ${state.ownedCes.has(c.id) ? `<label>满破 <input type="checkbox" class="ce-mlb" data-id="${esc(c.id)}" ${mlb ? "checked" : ""} /></label>` : ""}
         </div>
       </div>`;
     })
@@ -432,11 +428,14 @@ function applyParsed(p: ParsedConfig) {
   state.traitFilter = new Set(p.settings.traitFilter);
   state.rarityFilter = new Set(p.settings.rarityFilter.map(String));
   // 剔除 <5% 鸡肋礼装 (目录未就绪时保留, boot 早期)
+  // 持有即满破: 历史 false 归一为 true
   state.ownedCes = new Map(
-    [...p.ownedCeIds].filter(([id]) => {
-      const c = catalogById.get(id);
-      return c ? ownEquipUsable(c) : true;
-    }),
+    [...p.ownedCeIds]
+      .filter(([id]) => {
+        const c = catalogById.get(id);
+        return c ? ownEquipUsable(c) : true;
+      })
+      .map(([id]) => [id, true]),
   );
   state.ownedSv = p.ownedSv;
   state.locked = p.locked;
@@ -728,10 +727,11 @@ function recalcNow() {
     (info) => `锁定从者「${info.name}」不满足当前职阶/特性/稀有度筛选，已移出本次计算（放宽筛选后会自动恢复）`,
   );
 
+  // 持有礼装一律视为满破 (不再区分满破/未满破)
   const ownedCes: { catalog: BondCeCatalog; mlb: boolean }[] = [];
-  for (const [id, mlb] of state.ownedCes) {
+  for (const id of state.ownedCes.keys()) {
     const c = catalogById.get(id);
-    if (c && ownEquipUsable(c)) ownedCes.push({ catalog: c, mlb });
+    if (c && ownEquipUsable(c)) ownedCes.push({ catalog: c, mlb: true });
   }
 
   const ceItems = toCeItems(ownedCes);
@@ -1036,16 +1036,8 @@ function bindEvents() {
     const t = e.target as HTMLElement;
     if (t.classList.contains("ce-owned")) {
       const id = t.dataset.id!;
-      if ((t as HTMLInputElement).checked) {
-        state.ownedCes.set(id, true); // 默认满破
-      } else {
-        state.ownedCes.delete(id);
-      }
-      renderCeList();
-      recalc();
-    } else if (t.classList.contains("ce-mlb")) {
-      const id = t.dataset.id!;
-      state.ownedCes.set(id, (t as HTMLInputElement).checked);
+      if ((t as HTMLInputElement).checked) state.ownedCes.set(id, true); // 勾选即满破
+      else state.ownedCes.delete(id);
       renderCeList();
       recalc();
     }
