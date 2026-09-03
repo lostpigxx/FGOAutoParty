@@ -295,7 +295,7 @@ select.form-sel {
   border: 1px solid var(--line);
   border-radius: 6px;
 }
-.form-tip { color: var(--accent2); font-size: 12px; margin-top: 2px; }
+.form-tip { color: var(--bad); font-size: 12px; font-weight: 600; margin-top: 2px; }
 
 /* ---------- 特性筛选 chips ---------- */
 .trait-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
