@@ -736,9 +736,9 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
 }
 
 /**
- * 「锁定加成最佳」方案: 目标只最大化【锁定从者】的总加成,
- * 自由位以最便宜填充(最大化礼装预算), 礼装/助战均围绕锁定从者匹配。
- * 无锁定时返回 null (不展示该方案)。
+ * 「锁定加成最佳」方案: 目标只最大化【锁定从者】的总加成;
+ * 自由位在剩余预算内尽量选「能吃到所选礼装加成、且 cost 更高」的从者
+ * (让 总加成/总Cost 尽量高)。无锁定时返回 null。
  */
 export function optimizeLockedBest(input: OptimizeInput): OptimizeResult | null {
   const locked = input.lockedServants;
@@ -747,27 +747,55 @@ export function optimizeLockedBest(input: OptimizeInput): OptimizeResult | null 
   const freeCount = n - locked.length;
   const pool = [...input.freePool];
   if (pool.length < freeCount) return null;
-  const free = cheapestFillers(pool, freeCount);
-  const party = [...locked, ...free];
   const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
-  const freeCost = free.reduce((s, x) => s + x.cost, 0);
-  const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
   const freeCap = Math.max(0, input.maxCes - n);
   const paidCap = Math.min(input.maxCes, n);
+  const cheapest = cheapestFillers(pool, freeCount);
+  const cheapestCost = cheapest.reduce((s, x) => s + x.cost, 0);
+  const enumBudget = Math.max(input.costLimit - lockedCost - cheapestCost, 0);
+  const partyCesOf = (set: CeItem[], sup: CeItem | null, sup2: CeItem | null): CeItem[] => [
+    ...set.filter((x) => x.scope === "party"),
+    ...(sup ? [sup] : []),
+    ...(sup2 ? [sup2] : []),
+  ];
+  const fill = (ces: CeItem[], maxFreeCost: number): ServantInfo[] => {
+    const scored = pool.map((sv) => ({
+      cost: sv.cost,
+      value: bestFormForCes(sv, ces).bonus * 1000 + sv.cost,
+      servant: sv,
+    }));
+    const kp = knapsack(scored, maxFreeCost, freeCount);
+    const picked = kp.chosen.map((x) => x.servant);
+    if (picked.length >= freeCount) return picked;
+    const have = new Set(picked.map((x) => x.name));
+    const rest = pool
+      .filter((x) => !have.has(x.name))
+      .sort((a, b) => a.cost - b.cost)
+      .slice(0, freeCount - picked.length);
+    return [...picked, ...rest];
+  };
   const lockedPctOf = (r: OptimizeResult) =>
     r.slots.slice(0, locked.length).reduce((a, s) => a + s.partyBonus, 0);
   const options: (CeItem | null)[] = input.includeSupport ? [null, ...input.supportOptions] : [null];
   let best: OptimizeResult | null = null;
   for (const sup of options) {
-    // 冠位助战按锁定从者匹配度贪心 (目标只看锁定加成)
     const sup2 = bestSupportOption(input.supportOptions2, locked, sup?.key ?? null);
-    const sets = selectCesExact(input, locked, budgetCe, paidCap, freeCap, sup, sup2, 1, locked);
-    for (const chosen of sets) {
-      const r = buildResult(input, sup, sup2, party, chosen);
+    const sets = selectCesExact(input, locked, enumBudget, paidCap, freeCap, sup, sup2, 1, locked);
+    for (const set of sets) {
+      const paidCost = set.reduce((a, c) => a + c.cost, 0); // 免费位 cost 已置 0
+      const maxFreeCost = input.costLimit - lockedCost - paidCost;
+      if (maxFreeCost < cheapestCost) continue; // 剩余预算装不下整队
+      const party = [...locked, ...fill(partyCesOf(set, sup, sup2), maxFreeCost)];
+      const r = buildResult(input, sup, sup2, party, set);
       if (!r.feasible) continue;
       const lp = lockedPctOf(r);
       const blp = best ? lockedPctOf(best) : -1;
-      if (!best || lp > blp || (lp === blp && r.totalPct > best.totalPct)) best = r;
+      const better =
+        !best ||
+        lp > blp ||
+        (lp === blp && r.totalPct > best.totalPct) ||
+        (lp === blp && r.totalPct === best.totalPct && r.totalCost > best.totalCost);
+      if (better) best = r;
     }
   }
   return best;
@@ -878,22 +906,43 @@ export function optimizePlans(input: OptimizeInput, useMultiStart = true): Optim
   };
 
   const smart = { ...input, servantCostWeight: SMART_K };
-  if (useMultiStart) {
-    // 多起点 (含默认起点种子, 保证不倒退); 无可行解时回退单起点以保留错误信息
-    pushUnique(
-      optimizeMultiStart({ ...input, servantCostWeight: 0 }) ?? optimizeTopN(input, 1)[0],
-    ); // 加成最佳 (κ=0)
-    pushUnique(optimizeMultiStart(smart) ?? optimizeTopN(smart, 1)[0]); // 智能方案 (κ=1)
-  } else {
-    pushUnique(optimizeTopN(input, 1)[0]); // 加成最佳 (κ=0)
-    pushUnique(optimizeTopN(smart, 1)[0]); // 智能方案 (κ=1)
-  }
+  const pureR = useMultiStart
+    ? optimizeMultiStart({ ...input, servantCostWeight: 0 }) ?? optimizeTopN(input, 1)[0]
+    : optimizeTopN(input, 1)[0]; // 加成最佳 (κ=0)
+  const smartR = useMultiStart
+    ? optimizeMultiStart(smart) ?? optimizeTopN(smart, 1)[0]
+    : optimizeTopN(smart, 1)[0]; // 智能方案 (κ=1)
+  pushUnique(pureR);
+  pushUnique(smartR);
   // 锁定加成最佳 (仅当有锁定时出现; 目标=锁定从者加成最高)
+  let lockedR: OptimizeResult | undefined;
   pushUnique(optimizeLockedBest(input) ?? undefined, (x) => {
     x.isLockedMax = true;
+    lockedR = x;
   });
 
   candidates.sort((a, b) => b.totalPct - a.totalPct || b.totalCost - a.totalCost);
+
+  // 加成最佳若加成不超过智能方案则隐藏 (仅当两者都实际存在时才移除;
+  // 签名相同被去重时, 保留的那一个即代表两者, 不删)
+  if (
+    pureR?.feasible &&
+    smartR?.feasible &&
+    pureR.totalPct <= smartR.totalPct &&
+    candidates.includes(pureR) &&
+    candidates.includes(smartR) &&
+    pureR !== smartR
+  ) {
+    candidates.splice(candidates.indexOf(pureR), 1);
+  }
+  // 锁定加成最佳默认排第 2 行 (紧随智能方案)
+  if (lockedR) {
+    const idx = candidates.indexOf(lockedR);
+    if (idx !== -1) {
+      candidates.splice(idx, 1);
+      candidates.splice(1, 0, lockedR);
+    }
+  }
   return candidates;
 }
 
