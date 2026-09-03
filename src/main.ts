@@ -1147,19 +1147,17 @@ function bindEvents() {
     recalc();
   });
 
-  // 从者: 全选 / 反选 (作用于当前筛选结果)
+  // 从者: 全选 / 清空 (作用于当前筛选结果)
   $<HTMLButtonElement>("svSelectAll").addEventListener("click", () => {
     for (const s of visibleServants()) state.ownedSv.add(s.title);
     renderServantList();
     recalc();
   });
   $<HTMLButtonElement>("svSelectInvert").addEventListener("click", () => {
-    for (const s of visibleServants()) {
-      if (state.ownedSv.has(s.title)) state.ownedSv.delete(s.title);
-      else state.ownedSv.add(s.title);
-    }
+    for (const s of visibleServants()) state.ownedSv.delete(s.title);
     renderServantList();
     recalc();
+    hint("已清空当前筛选结果的持有勾选");
   });
 }
 
