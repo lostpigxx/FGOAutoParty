@@ -165,6 +165,7 @@ export function bestFormForCes(
     return { bonus: bonusOf(snaps[0]), formKey: null, formLabel: null };
   }
   let best = -1;
+  let worst = Infinity;
   let bestSnap = snaps[0];
   for (const s of snaps) {
     const b = bonusOf(s);
@@ -172,6 +173,11 @@ export function bestFormForCes(
       best = b;
       bestSnap = s;
     }
+    if (b < worst) worst = b;
+  }
+  // 所有形态加成相同 (差异特性与当前礼装无关) -> 形态不影响结果, 不提示建议形态
+  if (best === worst) {
+    return { bonus: best, formKey: null, formLabel: null };
   }
   const f = info.forms![snaps.indexOf(bestSnap)];
   return { bonus: best, formKey: f.key, formLabel: f.label };

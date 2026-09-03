@@ -87,9 +87,9 @@ describe("优化器: 形态精确计算 (防双 20% 高估)", () => {
       mkCe("b", 20, ["活在当下的人类"], "迦勒底之晨"),
     ]);
     // 形象1 命中异星, 形象3 命中迦勒底之晨 —— 同一位从者只能选一个形象 → 总加成 20
+    // (两形态各自都能到 20, 无唯一最优 → 不产生"需使用某形态"的无意义提示)
     expect(best.totalPct).toBe(20);
     expect(best.slots[0].partyBonus).toBe(20);
-    expect(best.slots[0].formKey).toBeTruthy();
   });
 
   it("检查报告(秩序·善) + 异星之神(星/恶): 同样只能吃一张", () => {
@@ -156,6 +156,17 @@ describe("bestFormForCes 语义", () => {
     expect(r1.formKey).toBe("形象1");
     const r2 = bestFormForCes(info, [mkCe("h", 20, ["活在当下的人类"])]); // 形象3
     expect(r2.formKey).toBe("形象3");
+  });
+
+  it("形态差异与礼装无关(全等)时, 不提示建议形态", () => {
+    // 阿尔托莉雅·卡斯特(Berserker): 形象2=兔子系/形象3=浮游着的, 与星/恶等礼装无关, 星恒有
+    const info = toServantInfo(findSv("阿尔托莉雅·卡斯特(Berserker)"));
+    const r = bestFormForCes(info, [mkCe("k", 20, ["星", "恶"])]);
+    expect(r.bonus).toBe(20);
+    expect(r.formKey).toBeNull(); // 不再出现"需使用形象1"的无意义提示
+    // 对照组: U-奥尔加玛丽 的差异特性确能改变加成时仍正常建议
+    const o = bestFormForCes(toServantInfo(findSv(OLGA)), [mkCe("l", 20, ["活在当下的人类"])]);
+    expect(o.formKey).toBe("形象3");
   });
 });
 
