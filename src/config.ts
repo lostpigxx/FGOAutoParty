@@ -94,7 +94,7 @@ export function parseConfig(
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",
       supportMode2: typeof raw.settings?.supportMode2 === "string" ? raw.settings.supportMode2 : "none",
       autoPickFree: raw.settings?.autoPickFree !== false,
-      autoCalc: raw.settings?.autoCalc !== false,
+      autoCalc: raw.settings?.autoCalc === true,
       deepSearch: raw.settings?.deepSearch !== false,
       ceOnly5: raw.settings?.ceOnly5 !== false,
       classFilter: Array.isArray(raw.settings?.classFilter)

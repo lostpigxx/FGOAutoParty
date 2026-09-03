@@ -37,7 +37,7 @@ const state = {
   supportMode2: "none" as string,
   autoPickFree: true,
   /** 自动计算: 改动后立即重算; false=手动点「计算队伍」 */
-  autoCalc: true,
+  autoCalc: false,
   /** 深度搜索: 多起点收敛逃逸局部最优 (多职介更优但更慢; false=单起点快速模式) */
   deepSearch: true,
   /** 战斗形象手动选择: 从者title -> 形态key; 缺省=自动选最优 (搜索所有形态) */
@@ -537,7 +537,7 @@ function bindConfigButtons() {
     state.supportMode = "auto";
     state.supportMode2 = "none";
     state.autoPickFree = true;
-    state.autoCalc = true;
+    state.autoCalc = false;
     state.deepSearch = true;
     state.ceOnly5 = true;
     state.classFilter = new Set();
