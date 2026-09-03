@@ -20,12 +20,13 @@
       <div class="card">
         <h2>队伍设置</h2>
         <div class="row calc-row">
-          <button id="calcBtn" class="calc-main" title="手动计算当前方案（自动计算关闭时用这个）">⚡ 计算队伍</button>
-          <label title="改动（勾选从者/礼装/筛选/形态等）后是否自动重算；从者选得多时可关闭，减少频繁计算造成的卡顿，改完点「计算队伍」">自动计算
-            <input type="checkbox" id="autoCalc" checked />
+          <button id="calcBtn" class="calc-main">⚡ 计算队伍</button>
+          <label>自动计算
+            <input type="checkbox" id="autoCalc" />
           </label>
           <span id="calcHint" class="meta"></span>
         </div>
+        <div class="row calc-explain"><span class="meta">不勾选自动计算时：勾选从者/礼装/筛选等改动只保存、不重算，改完点「计算队伍」手动更新方案。</span></div>
         <div class="row">
           <label>Cost 上限
             <input type="number" id="costLimit" value="116" min="1" step="1" />
