@@ -14,6 +14,8 @@ export interface PersistedConfig {
     /** 冠位助战礼装 (第二助战位): none/auto/礼装key */
     supportMode2: string;
     autoPickFree: boolean;
+    /** 改动后是否自动计算 (false=手动点「计算队伍」) */
+    autoCalc: boolean;
     /** 深度搜索: 多起点收敛逃逸局部最优 (多职介池更优但更慢; false=单起点快速模式) */
     deepSearch: boolean;
     /** 礼装列表默认只看 5★ 加成礼装 */
@@ -92,6 +94,7 @@ export function parseConfig(
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",
       supportMode2: typeof raw.settings?.supportMode2 === "string" ? raw.settings.supportMode2 : "none",
       autoPickFree: raw.settings?.autoPickFree !== false,
+      autoCalc: raw.settings?.autoCalc !== false,
       deepSearch: raw.settings?.deepSearch !== false,
       ceOnly5: raw.settings?.ceOnly5 !== false,
       classFilter: Array.isArray(raw.settings?.classFilter)

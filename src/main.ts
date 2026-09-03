@@ -36,6 +36,8 @@ const state = {
   /** 冠位助战礼装 (第二助战位, 默认无) */
   supportMode2: "none" as string,
   autoPickFree: true,
+  /** 自动计算: 改动后立即重算; false=手动点「计算队伍」 */
+  autoCalc: true,
   /** 深度搜索: 多起点收敛逃逸局部最优 (多职介更优但更慢; false=单起点快速模式) */
   deepSearch: true,
   /** 战斗形象手动选择: 从者title -> 形态key; 缺省=自动选最优 (搜索所有形态) */
@@ -338,7 +340,7 @@ async function reloadData() {
   renderClassChips();
   renderCeList();
   renderServantList();
-  recalc();
+  recalcNow();
 }
 
 // ---------------------------------------------------------------------------
@@ -363,6 +365,7 @@ function currentSettings() {
     supportMode: state.supportMode,
     supportMode2: state.supportMode2,
     autoPickFree: state.autoPickFree,
+    autoCalc: state.autoCalc,
     deepSearch: state.deepSearch,
     ceOnly5: state.ceOnly5,
     classFilter: [...state.classFilter],
@@ -419,6 +422,7 @@ function applyParsed(p: ParsedConfig) {
   state.supportMode = p.settings.supportMode;
   state.supportMode2 = p.settings.supportMode2;
   state.autoPickFree = p.settings.autoPickFree;
+  state.autoCalc = p.settings.autoCalc;
   state.deepSearch = p.settings.deepSearch;
   state.ceOnly5 = p.settings.ceOnly5;
   state.classFilter = new Set(p.settings.classFilter);
@@ -455,6 +459,7 @@ function syncSettingsInputs() {
   $<HTMLSelectElement>("supportCeMode").value = state.supportMode;
   $<HTMLSelectElement>("supportCeMode2").value = state.supportMode2;
   $<HTMLInputElement>("autoPickFree").checked = state.autoPickFree;
+  $<HTMLInputElement>("autoCalc").checked = state.autoCalc;
   $<HTMLInputElement>("deepSearch").checked = state.deepSearch;
   $<HTMLInputElement>("ceOnly5").checked = state.ceOnly5;
   document.querySelectorAll<HTMLInputElement>(".rarityFilter").forEach((cb) => {
@@ -524,6 +529,7 @@ function bindConfigButtons() {
     state.supportMode = "auto";
     state.supportMode2 = "none";
     state.autoPickFree = true;
+    state.autoCalc = true;
     state.deepSearch = true;
     state.ceOnly5 = true;
     state.classFilter = new Set();
@@ -538,7 +544,7 @@ function bindConfigButtons() {
     renderSupportOptions();
     renderCeList();
     renderServantList();
-    recalc();
+    recalcNow();
     hint("配置已重置为默认");
   });
   // ---- 导出配置: 弹窗确认文件名 -> 本机服务写入 settings/ (失败回退浏览器下载) ----
@@ -634,7 +640,7 @@ function bindConfigButtons() {
         renderSupportOptions();
         renderCeList();
         renderServantList();
-        recalc(); // recalc 末尾会把导入结果持久化到 localStorage
+        recalcNow(); // 导入后强制计算
         hint(`已从文件导入配置：${f.name}`);
       } catch {
         hint("导入失败：文件不是有效的配置 JSON（可先用「导出配置到文件」生成）");
@@ -676,7 +682,7 @@ function bindRefreshButton() {
 // 计算
 // ---------------------------------------------------------------------------
 
-function recalc() {
+function recalcNow() {
   const resultEl = $<HTMLDivElement>("result");
   const filters = currentViewFilters();
 
@@ -756,6 +762,30 @@ function recalc() {
   const top = optimizePlans(input, state.deepSearch);
   renderResult(top, filterWarnings);
   persist();
+  staleCalc = false;
+  paintCalcState();
+}
+
+// ---- 自动/手动计算 ----
+let staleCalc = false;
+function paintCalcState() {
+  const b = document.getElementById("calcBtn") as HTMLButtonElement | null;
+  if (b) b.classList.toggle("dirty", !!state && staleCalc && !state.autoCalc);
+  const h = document.getElementById("calcHint");
+  if (h) h.textContent = !state.autoCalc && staleCalc ? "有改动 · 点「计算队伍」更新" : "";
+}
+function markStale() {
+  staleCalc = true;
+  paintCalcState();
+}
+/** 交互入口: 自动计算开启时改动即重算; 关闭时仅保存改动并标记待更新, 由「计算队伍」按钮手动重算 */
+function recalc() {
+  if (state.autoCalc) {
+    recalcNow();
+  } else {
+    persist();
+    markStale();
+  }
 }
 
 function renderTeam(r: OptimizeResult): string {
@@ -943,6 +973,20 @@ function bindEvents() {
   $<HTMLInputElement>("autoPickFree").addEventListener("change", (e) => {
     state.autoPickFree = (e.target as HTMLInputElement).checked;
     recalc();
+  });
+  $<HTMLInputElement>("autoCalc").addEventListener("change", (e) => {
+    state.autoCalc = (e.target as HTMLInputElement).checked;
+    if (state.autoCalc) {
+      staleCalc = false;
+      recalcNow(); // 重新开启自动时按最新改动立即算一次
+    } else {
+      persist();
+      paintCalcState();
+    }
+  });
+  $<HTMLButtonElement>("calcBtn").addEventListener("click", () => {
+    recalcNow();
+    hint("方案已更新");
   });
   $<HTMLInputElement>("deepSearch").addEventListener("change", (e) => {
     state.deepSearch = (e.target as HTMLInputElement).checked;
@@ -1170,7 +1214,7 @@ async function main() {
     bindRefreshButton();
     bindConfigButtons();
     void loadDataStatus();
-    recalc();
+    recalcNow();
   } catch (e) {
     $<HTMLDivElement>("result").innerHTML =
       `<div class="error-box">数据加载失败：${esc((e as Error).message)}<br>请确认 public/data/ 下存在 ces.json 与 servants.json，或点击「一键更新数据」重新拉取</div>`;
