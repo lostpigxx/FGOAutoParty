@@ -88,7 +88,7 @@ export function parseConfig(
 
     const settings = {
       costLimit: clampInt(raw.settings?.costLimit, 1, 999, 116),
-      ownSlots: clampInt(raw.settings?.ownSlots, 1, 6, 5),
+      ownSlots: clampInt(raw.settings?.ownSlots, 1, 5, 5),
       maxCes: clampInt(raw.settings?.maxCes, 0, 6, 5),
       includeSupport: raw.settings?.includeSupport !== false,
       supportMode: typeof raw.settings?.supportMode === "string" ? raw.settings.supportMode : "auto",

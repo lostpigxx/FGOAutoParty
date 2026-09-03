@@ -939,7 +939,7 @@ function bindEvents() {
     recalc();
   });
   $<HTMLInputElement>("ownSlots").addEventListener("input", (e) => {
-    state.ownSlots = Math.min(6, Math.max(1, Number((e.target as HTMLInputElement).value) || 5));
+    state.ownSlots = Math.min(5, Math.max(1, Number((e.target as HTMLInputElement).value) || 5));
     renderServantList();
     recalc();
   });
