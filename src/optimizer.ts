@@ -68,6 +68,8 @@ export interface OptimizeResult {
   error?: string;
   /** 是否为「cost最佳」方案 (尽可能用满 Cost 上限) */
   isCostMax?: boolean;
+  /** 是否为「锁定加成最佳」方案 (目标=锁定从者加成最高) */
+  isLockedMax?: boolean;
   /** 上阵人数 */
   ownSlots: number;
   /** 队伍 Cost 上限 */
@@ -512,8 +514,10 @@ function selectCesExact(
   supportCe: CeItem | null,
   supportCe2: CeItem | null,
   k: number,
+  filterParty: ServantInfo[] = party,
 ): CeItem[][] {
-  const items = input.ceItems.filter((it) => it.scope !== "party" || itemValue(it, party) > 0);
+  // filterParty: 决定哪些礼装"有价值"(如只看锁定从者); party: 精确总分计数的成员
+  const items = input.ceItems.filter((it) => it.scope !== "party" || itemValue(it, filterParty) > 0);
   if (items.length > 26) return [];
   const exactTotal = (chosen: CeItem[]) => {
     const partyCEs = [
@@ -731,6 +735,44 @@ export function optimizeCostMax(input: OptimizeInput): OptimizeResult {
   return r;
 }
 
+/**
+ * 「锁定加成最佳」方案: 目标只最大化【锁定从者】的总加成,
+ * 自由位以最便宜填充(最大化礼装预算), 礼装/助战均围绕锁定从者匹配。
+ * 无锁定时返回 null (不展示该方案)。
+ */
+export function optimizeLockedBest(input: OptimizeInput): OptimizeResult | null {
+  const locked = input.lockedServants;
+  const n = input.ownSlots;
+  if (locked.length === 0 || locked.length > n) return null;
+  const freeCount = n - locked.length;
+  const pool = [...input.freePool];
+  if (pool.length < freeCount) return null;
+  const free = cheapestFillers(pool, freeCount);
+  const party = [...locked, ...free];
+  const lockedCost = locked.reduce((s, x) => s + x.cost, 0);
+  const freeCost = free.reduce((s, x) => s + x.cost, 0);
+  const budgetCe = Math.max(input.costLimit - lockedCost - freeCost, 0);
+  const freeCap = Math.max(0, input.maxCes - n);
+  const paidCap = Math.min(input.maxCes, n);
+  const lockedPctOf = (r: OptimizeResult) =>
+    r.slots.slice(0, locked.length).reduce((a, s) => a + s.partyBonus, 0);
+  const options: (CeItem | null)[] = input.includeSupport ? [null, ...input.supportOptions] : [null];
+  let best: OptimizeResult | null = null;
+  for (const sup of options) {
+    // 冠位助战按锁定从者匹配度贪心 (目标只看锁定加成)
+    const sup2 = bestSupportOption(input.supportOptions2, locked, sup?.key ?? null);
+    const sets = selectCesExact(input, locked, budgetCe, paidCap, freeCap, sup, sup2, 1, locked);
+    for (const chosen of sets) {
+      const r = buildResult(input, sup, sup2, party, chosen);
+      if (!r.feasible) continue;
+      const lp = lockedPctOf(r);
+      const blp = best ? lockedPctOf(best) : -1;
+      if (!best || lp > blp || (lp === blp && r.totalPct > best.totalPct)) best = r;
+    }
+  }
+  return best;
+}
+
 /** 智能方案(首选)的自由从者 cost 权重 κ: 加成第一, 同加成尽量上高星 */
 const SMART_K = 1;
 
@@ -846,9 +888,10 @@ export function optimizePlans(input: OptimizeInput, useMultiStart = true): Optim
     pushUnique(optimizeTopN(input, 1)[0]); // 加成最佳 (κ=0)
     pushUnique(optimizeTopN(smart, 1)[0]); // 智能方案 (κ=1)
   }
-  pushUnique(optimizeCostMax(input), (x) => {
-    x.isCostMax = true;
-  }); // cost最佳
+  // 锁定加成最佳 (仅当有锁定时出现; 目标=锁定从者加成最高)
+  pushUnique(optimizeLockedBest(input) ?? undefined, (x) => {
+    x.isLockedMax = true;
+  });
 
   candidates.sort((a, b) => b.totalPct - a.totalPct || b.totalCost - a.totalCost);
   return candidates;
