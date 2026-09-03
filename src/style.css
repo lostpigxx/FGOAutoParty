@@ -198,9 +198,12 @@ details ul { padding-left: 18px; line-height: 1.7; }
   border: 1px solid var(--line);
   border-radius: 6px;
   font-size: 12px;
+  cursor: pointer; /* 整卡可点切换持有 */
+  user-select: none;
 }
 .sv-row:hover { background: var(--card2); }
 .sv-row.locked { background: #2a3247; border-color: var(--accent2); }
+.sv-row .sv-owned, .sv-row select.form-sel, .sv-row .sv-actions, .sv-row .sv-costume-label { cursor: default; }
 .sv-owned { grid-area: cb; margin-top: 1px; }
 .sv-avatar {
   grid-area: av;

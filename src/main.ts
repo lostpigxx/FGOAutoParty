@@ -196,7 +196,7 @@ function renderServantList() {
             ${s.forms.map((f) => `<option value="${esc(f.key)}" ${state.formSel.get(s.title) === f.key ? "selected" : ""}>${esc(f.label)}</option>`).join("")}
           </select>`
         : "";
-      html += `<div class="sv-row ${isLocked ? "locked" : ""}">
+      html += `<div class="sv-row ${isLocked ? "locked" : ""}" data-title="${esc(s.title)}" data-locked="${isLocked ? "1" : ""}">
         <input type="checkbox" class="sv-owned" data-title="${esc(s.title)}" ${state.ownedSv.has(s.title) ? "checked" : ""} />
         <img class="sv-avatar" src="${svAvatarSrc(s.title)}" alt="" loading="lazy" onerror="this.style.display='none'" />
         <div class="sv-line1">
@@ -1050,15 +1050,36 @@ function bindEvents() {
   });
 
   $<HTMLDivElement>("svList").addEventListener("click", (e) => {
-    const t = (e.target as HTMLElement).closest("button.lock");
-    if (!t) return;
-    const title = (t as HTMLElement).dataset.title!;
-    if (state.locked.includes(title)) {
-      state.locked = state.locked.filter((x) => x !== title);
-    } else {
-      if (state.locked.length >= state.ownSlots) return;
-      state.locked.push(title);
+    const target = e.target as HTMLElement;
+    // 锁定按钮
+    const lock = target.closest("button.lock") as HTMLElement | null;
+    if (lock) {
+      const title = lock.dataset.title!;
+      if (state.locked.includes(title)) {
+        state.locked = state.locked.filter((x) => x !== title);
+      } else {
+        if (state.locked.length >= state.ownSlots) return;
+        state.locked.push(title);
+      }
+      renderServantList();
+      recalc();
+      return;
     }
+    // 其他控件(勾选框/形态下拉/灵衣)各自处理, 排除整卡切换
+    if (
+      target.closest(".sv-owned") ||
+      target.closest(".form-sel") ||
+      target.closest(".sv-costume-label") ||
+      target.closest(".sv-actions")
+    ) {
+      return;
+    }
+    // 点卡片任意其它位置 = 勾选/反选持有
+    const row = target.closest(".sv-row") as HTMLElement | null;
+    if (!row) return;
+    const title = row.dataset.title!;
+    if (state.ownedSv.has(title)) state.ownedSv.delete(title);
+    else state.ownedSv.add(title);
     renderServantList();
     recalc();
   });
