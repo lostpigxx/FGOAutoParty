@@ -555,10 +555,7 @@ function bindConfigButtons() {
     recalcNow();
     hint("配置已重置为默认");
   });
-  // ---- 导出配置: 弹窗确认文件名 -> 本机服务写入 settings/ (失败回退浏览器下载) ----
-  const exportModal = $<HTMLDivElement>("exportModal");
-  const exportFileName = $<HTMLInputElement>("exportFileName");
-  const exportMsg = $<HTMLParagraphElement>("exportMsg");
+  // ---- 导出配置: 直接浏览器下载本地 JSON 文件 (下载目录由浏览器决定) ----
   const cfgContent = () =>
     JSON.stringify(
       buildConfig({
@@ -578,59 +575,17 @@ function bindConfigButtons() {
     const p = (n: number) => String(n).padStart(2, "0");
     return `fgo-bond-config-${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}.json`;
   };
-  const closeExportModal = () => {
-    exportModal.hidden = true;
-  };
   $<HTMLButtonElement>("exportConfig").addEventListener("click", () => {
-    exportFileName.value = defaultCfgName();
-    exportMsg.textContent = "";
-    exportModal.hidden = false;
-  });
-  $<HTMLButtonElement>("exportCancel").addEventListener("click", closeExportModal);
-  exportModal.addEventListener("click", (e) => {
-    if (e.target === exportModal) closeExportModal();
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    if (!exportModal.hidden) closeExportModal();
-    const am = document.getElementById("artModal") as HTMLDivElement | null;
-    if (am && !am.hidden) am.hidden = true;
-  });
-  $<HTMLButtonElement>("exportSave").addEventListener("click", async () => {
-    let name = exportFileName.value.trim();
-    if (!name) {
-      exportMsg.textContent = "请输入文件名";
-      return;
-    }
-    if (!/\.json$/i.test(name)) name += ".json";
-    const content = cfgContent();
-    exportMsg.textContent = "保存中…";
-    try {
-      const res = await fetch("/api/config/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filename: name, content }),
-      });
-      const data = (await res.json().catch(() => null)) as
-        | { ok?: boolean; path?: string; error?: string }
-        | null;
-      if (!res.ok || !data?.ok) throw new Error(data?.error ?? `HTTP ${res.status}`);
-      hint(`配置已保存: ${data.path}`);
-      closeExportModal();
-    } catch {
-      // 本机服务不可用 (如直接以 file:// 打开等) -> 退回浏览器下载
-      const blob = new Blob([content], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = name;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      hint("未找到本机服务，已改为浏览器下载");
-      closeExportModal();
-    }
+    const blob = new Blob([cfgContent()], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = defaultCfgName();
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    hint("配置已导出（浏览器下载），可在「导入配置」恢复");
   });
   const importBtn = $<HTMLButtonElement>("importConfig");
   const fileInput = $<HTMLInputElement>("importFile");
@@ -1065,6 +1020,9 @@ function bindEvents() {
   $<HTMLButtonElement>("artClose").addEventListener("click", () => (artModal.hidden = true));
   artModal.addEventListener("click", (e) => {
     if (e.target === artModal) artModal.hidden = true;
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !artModal.hidden) artModal.hidden = true;
   });
 
   // 事件委托: 从者列表
