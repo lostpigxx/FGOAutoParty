@@ -548,15 +548,22 @@ def download_ce_art(ces, raw, out_dir, copy_dirs=()):
     """下载礼装卡面; 返回 (成功数, 缺失列表)。out_dir 已存在时逐张更新。"""
     import time
     want = [c for c in ces if _own_max_bonus(c) >= 5 and c.get("id")]
+    # 页面 -> 礼装id 映射 (标题可能与中文名不同, 如 流转的剑圣 页为 流转の剣聖)
+    id_page = {}
+    for rt2, wt2 in raw.items():
+        m2 = re.search(r"^\|礼装id=(\d+)", wt2, re.M)
+        if m2:
+            id_page.setdefault(m2.group(1), rt2)
     # 候选文件名: 页面 图片名/页面标题 × png/jpg
     cand_file = {}  # ce id -> 候选文件标题列表
     page_of = {}  # ce id -> 页面标题
     for c in want:
+        cid = str(c.get("id", ""))
         title = c.get("name", "")
-        rt = None
-        if title in raw:
+        rt = id_page.get(cid)
+        if not rt and title in raw:
             rt = title
-        else:
+        if not rt:
             for k in raw:
                 if title and (k.startswith(title) or title in k) and len(k) <= len(title) + 8:
                     rt = k
@@ -736,6 +743,48 @@ def download_sv_avatars(raw, out_dir, copy_dirs=(), width=64):
         except Exception as e:  # noqa: BLE001
             print(f"  头像兜底失败: {e}", file=sys.stderr)
         time.sleep(0.2)
+    # ---- 确定性候选名兜底: _status_1 / svt{序号}头像1 / {名}头像(1阶段) ----
+    still_miss = [t for t, f in picks.items() if norm(f) not in file_to_url] + [t for t in raw if t not in picks]
+    cands = {}
+    for t in still_miss:
+        wt = raw.get(t, "")
+        no = (re.search(r"^\|序号=(\d+)", wt, re.M) or [None])[0]
+        no = re.search(r"^\|序号=(\d+)", wt, re.M).group(1) if re.search(r"^\|序号=(\d+)", wt, re.M) else ""
+        zh = re.search(r"^\|中文名=([^\n|]+)", wt, re.M)
+        zh = zh.group(1).strip() if zh else t
+        jp = re.search(r"^\|日文名=([^\n|]+)", wt, re.M)
+        jp = jp.group(1).strip() if jp else ""
+        bases = list(dict.fromkeys([t, zh, jp]))
+        files = []
+        for b in bases:
+            if b:
+                files += [f"文件:{b}_status_1.png", f"文件:{b}头像1阶段.png", f"文件:{b}头像.png"]
+        if no:
+            files += [f"文件:svt{no}头像1.png", f"文件:Servant{int(no):03d}头像1阶段.png"]
+        cands[t] = files
+    allc = sorted({f for fs in cands.values() for f in fs})
+    hit = {}
+    for i in range(0, len(allc), 40):
+        chunk = allc[i : i + 40]
+        try:
+            d = _api_batch({"action": "query", "titles": "|".join(chunk), "prop": "imageinfo",
+                            "iiprop": "url|size", "iiurlwidth": width,
+                            "format": "json", "formatversion": "2"})
+            for pg in d["query"]["pages"]:
+                if "missing" not in pg and pg.get("imageinfo"):
+                    hit[norm(pg["title"].replace("文件:", "", 1))] = (
+                        pg["imageinfo"][0].get("thumburl") or pg["imageinfo"][0]["url"]
+                    )
+        except Exception as e:  # noqa: BLE001
+            print(f"  候选名查询失败: {e}", file=sys.stderr)
+        time.sleep(0.2)
+    for t in still_miss:
+        for f in cands[t]:
+            k = norm(f.replace("文件:", "", 1))
+            if k in hit:
+                picks[t] = f.replace("文件:", "", 1)
+                file_to_url[k] = hit[k]
+                break
     os.makedirs(out_dir, exist_ok=True)
     # 清理旧文件 (来源策略变化可能遗留)
     for old in os.listdir(out_dir):
