@@ -703,9 +703,16 @@ def download_sv_avatars(raw, out_dir, copy_dirs=(), width=64):
         time.sleep(0.2)
     print(f"  发现头像 {len(picks)}/{len(raw)}", file=sys.stderr)
     # 批量 imageinfo(64px 缩略); MediaWiki 规范化会把 _ 显示为空格, key 统一归一
-    norm = lambda x: x.replace("_", " ")
+    norm = lambda x: x.lower().replace("_", " ")  # _→空格 + 大小写不敏感 (svt156 vs Svt156)
     file_to_url = {}
-    pending = sorted(set(norm(f) for f in picks.values()))
+    # 查询用原文件名(内部大小写需精确) + 首字母大写变体 (svt→Svt); 比较键统一小写归一
+    qset = set()
+    for f in picks.values():
+        qset.add(f)
+        cap = f[:1].upper() + f[1:]
+        if cap != f:
+            qset.add(cap)
+    pending = sorted(qset)
     for i in range(0, len(pending), 40):
         chunk = pending[i : i + 40]
         try:
