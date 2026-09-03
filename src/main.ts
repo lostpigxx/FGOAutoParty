@@ -697,17 +697,20 @@ function recalcNow() {
 
   const ceItems = toCeItems(ownedCes);
   const supportOptions = supportCeOptions(catalog);
+  // 自动选最优时只考虑自己持有的礼装 (借得到才算数); 手动指定某张时保持全部可选
+  const ownedCeIdSet = new Set(state.ownedCes.keys());
+  const autoSupported = supportOptions.filter((o) => ownedCeIdSet.has(o.id));
   const supportSel =
     state.supportMode === "none"
       ? []
       : state.supportMode === "auto"
-        ? supportOptions
+        ? autoSupported
         : supportOptions.filter((o) => o.key === state.supportMode);
   const supportSel2 =
     state.supportMode2 === "none"
       ? []
       : state.supportMode2 === "auto"
-        ? supportOptions
+        ? autoSupported
         : supportOptions.filter((o) => o.key === state.supportMode2);
 
   const input = {
