@@ -293,13 +293,18 @@ async function loadDataStatus() {
     const s = (await res.json()) as {
       ces: { size: number; mtime: string } | null;
       servants: { size: number; mtime: string } | null;
+      ceImg: { size: number; count: number } | null;
+      svAvatar: { size: number; count: number } | null;
     };
     const fmt = (iso: string) => {
       const d = new Date(iso);
       return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
     };
+    const mb = (n: number) => (n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1)}MB` : `${(n / 1024).toFixed(0)}KB`);
+    const imgPart = (t: { size: number; count: number } | null, label: string) =>
+      t ? ` · ${label}图 ${t.count}张 ${mb(t.size)}` : "";
     $<HTMLSpanElement>("dataStatus").textContent = s.ces && s.servants
-      ? `数据已本地保存 · 礼装 ${(s.ces.size / 1024).toFixed(0)}KB · 从者 ${(s.servants.size / 1024).toFixed(0)}KB · 最后更新 ${fmt(s.ces.mtime)}`
+      ? `数据已本地保存 · 礼装 ${mb(s.ces.size)}${imgPart(s.ceImg, "卡面")} · 从者 ${mb(s.servants.size)}${imgPart(s.svAvatar, "头像")} · 最后更新 ${fmt(s.ces.mtime)}`
       : "数据文件缺失，请点击「一键更新数据」";
   } catch {
     $<HTMLSpanElement>("dataStatus").textContent = "数据状态查询不可用（开发服务器需通过 npm run dev 或 node server.mjs 启动）";

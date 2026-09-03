@@ -1,6 +1,6 @@
 // 数据刷新与状态查询 (Node 零依赖, 供 vite 插件与独立 server.mjs 共用)
 import { execFile, spawn, spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
@@ -133,8 +133,35 @@ export async function dataStatus(projectRoot) {
     }
     return null;
   };
-  return {
-    ces: await read("ces.json"),
-    servants: await read("servants.json"),
+  // 图片目录总大小/张数 (礼装卡面 ce-img / 从者头像 sv-avatar)
+  const imgDir = async (sub) => {
+    for (const dir of ["data", path.join("dist", "data")]) {
+      try {
+        const p = path.join(projectRoot, dir, sub);
+        if (!existsSync(p)) continue;
+        let size = 0;
+        let count = 0;
+        for (const f of readdirSync(p)) {
+          if (!/\.(png|jpe?g|webp)$/i.test(f)) continue; // 排除 .DS_Store 等
+          try {
+            size += statSync(path.join(p, f)).size;
+            count += 1;
+          } catch {
+            /* 跳过 */
+          }
+        }
+        return { size, count };
+      } catch {
+        /* 尝试下一个目录 */
+      }
+    }
+    return null;
   };
+  const [ces, servants, ceImg, svAvatar] = await Promise.all([
+    read("ces.json"),
+    read("servants.json"),
+    imgDir("ce-img"),
+    imgDir("sv-avatar"),
+  ]);
+  return { ces, servants, ceImg, svAvatar };
 }
