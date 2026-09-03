@@ -403,8 +403,8 @@ select.form-sel {
 /* 礼装来源: 前缀文字着色区分 (自己=绿 / 助战=蓝), 无圆点 */
 .bd { display: flex; align-items: baseline; gap: 8px; }
 .src-txt { min-width: 32px; flex: none; font-weight: 600; }
-.src-txt-own { color: var(--good); }
-.src-txt-sup { color: var(--accent2); }
+.src-txt-own { color: #47cfc5; } /* 自己: 青 */
+.src-txt-sup { color: #ffa94d; } /* 助战: 橙 */
 .slot .locked-tag { color: var(--accent); font-size: 11px; }
 
 .error-box {
