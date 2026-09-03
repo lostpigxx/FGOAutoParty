@@ -1,13 +1,11 @@
 // 方案列表: cost最佳 已移除; 新增 锁定加成最佳
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildBondCatalog, toCeItems, toServantInfo, type ServantInfo } from "./data";
+import { toServantInfo, type ServantInfo } from "./data";
 import { optimizePlans, type CeItem, type OptimizeInput } from "./optimizer";
-import type { Ce, Servant } from "./types";
+import type { Servant } from "./types";
 
-const ces: Ce[] = JSON.parse(readFileSync("public/data/ces.json", "utf-8"));
 const servants: Servant[] = JSON.parse(readFileSync("public/data/servants.json", "utf-8"));
-const catalog = buildBondCatalog(ces);
 const byTitle = new Map(servants.map((s) => [s.title, s]));
 
 function sv(title: string): ServantInfo {
