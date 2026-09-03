@@ -646,7 +646,7 @@ def download_ce_art(ces, raw, out_dir, copy_dirs=()):
 
 
 # ---------------------------------------------------------------------------
-# 从者头像图下载 (64px 缩略, 命名 {页面标题}.png)
+# 从者头像图下载 (64px 缩略, 命名 {序号}.png — 纯 ASCII 防 Windows 中文乱码)
 #   来源: 页面「再临阶段图标」模板的 status 图标 (456/481), 兜底 prop=images 头像。
 # ---------------------------------------------------------------------------
 
@@ -802,7 +802,10 @@ def download_sv_avatars(raw, out_dir, copy_dirs=(), width=64):
         if not url:
             missing.append(t)
             continue
-        dest = os.path.join(out_dir, f"{t}.png")
+        # 文件名用 序号(纯 ASCII, 防 Windows 中文乱码); 无序号时退回标题
+        mno = re.search(r"^\|序号=(\d+)", raw.get(t, ""), re.M)
+        fname = (mno.group(1) if mno else t) + ".png"
+        dest = os.path.join(out_dir, fname)
         try:
             req = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=60) as r:

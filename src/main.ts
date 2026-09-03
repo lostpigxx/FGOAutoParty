@@ -69,6 +69,12 @@ const $ = <T extends HTMLElement>(id: string): T => {
   return el as T;
 };
 
+/** 头像资源路径: 用 序号.png (纯 ASCII, 防 Windows 中文乱码); 缺序号回退标题 */
+function svAvatarSrc(title: string): string {
+  const no = servantsByTitle.get(title)?.collectionNo;
+  return `data/sv-avatar/${no ? no : encodeURIComponent(title)}.png`;
+}
+
 function svInfoWithExtra(title: string): ServantInfo {
   const s = servantsByTitle.get(title);
   if (!s) throw new Error(`servant not found: ${title}`);
@@ -192,7 +198,7 @@ function renderServantList() {
         : "";
       html += `<div class="sv-row ${isLocked ? "locked" : ""}">
         <input type="checkbox" class="sv-owned" data-title="${esc(s.title)}" ${state.ownedSv.has(s.title) ? "checked" : ""} />
-        <img class="sv-avatar" src="data/sv-avatar/${encodeURIComponent(s.title)}.png" alt="" loading="lazy" onerror="this.style.display='none'" />
+        <img class="sv-avatar" src="${svAvatarSrc(s.title)}" alt="" loading="lazy" onerror="this.style.display='none'" />
         <div class="sv-line1">
           <span class="sv-title">${esc(s.title)}</span>
           <span class="sv-class">${esc(s.className)}</span>
@@ -825,7 +831,7 @@ function renderTeam(r: OptimizeResult): string {
         : "";
     return `<div class="slot">
       <div class="pos">${pos}${slot.locked ? ` <span class="locked-tag">· 锁定</span> <button class="unlock-slot" data-title="${esc(sv.name)}" title="快速取消锁定（该从者将不再强制上阵）">取消锁定</button>` : ""}</div>
-      <div class="sv"><img class="slot-avatar" src="data/sv-avatar/${encodeURIComponent(sv.name)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${esc(sv.name)}</span> <span class="sv-cost">★cost ${sv.cost}</span>${slot.locked ? "" : ` <button class="sv-kick" data-title="${esc(sv.name)}" title="快速反选：把该从者移出『持有』，下次组队不再选他（可在从者面板重新勾选）">反选</button>`}</div>
+      <div class="sv"><img class="slot-avatar" src="${svAvatarSrc(sv.name)}" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${esc(sv.name)}</span> <span class="sv-cost">★cost ${sv.cost}</span>${slot.locked ? "" : ` <button class="sv-kick" data-title="${esc(sv.name)}" title="快速反选：把该从者移出『持有』，下次组队不再选他（可在从者面板重新勾选）">反选</button>`}</div>
       <div class="sv-traits">${badges.length ? badges.map(esc).join(" / ") : "—"}</div>
       <div class="bonus">该从者全队加成 +${round(slot.partyBonus)}%</div>
       ${formTip}
