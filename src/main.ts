@@ -852,7 +852,7 @@ function renderTeam(r: OptimizeResult): string {
   const ownCes = r.chosenCe
     .map(
       (c, i) =>
-        `<span class="eq-item"><img class="eq-thumb" src="data/ce-img/${encodeURIComponent(c.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost === 0 ? "0（免费）" : c.cost}</span></span>`,
+        `<span class="eq-item"><img class="eq-thumb" src="data/ce-img/${encodeURIComponent(c.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>${i + 1}. ${esc(c.name)} ${esc(c.label)} · cost ${c.cost === 0 ? "0（冠位从者）" : c.cost}</span></span>`,
     )
     .join("");
   const equippedHtml = ownCes
