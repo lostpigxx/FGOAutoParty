@@ -478,15 +478,30 @@
  },
  {
   "id": "2701",
-  "name": "ガン・ディーラー",
+  "name": "军火经销商",
   "jpName": "ガン・ディーラー",
   "rarity": 5,
   "cost": 12,
   "icon": "牵绊获得量提升",
   "category": "",
-  "skill": "クエストクリア時に得られる〔アサシン〕クラスの絆を4%増やす\nクエストクリア時に得られる〔アサシン〕クラスの絆を20%増やす[最大解放]",
-  "traits": [],
-  "bond": []
+  "skill": "关卡通关时{{特攻|Assassin|link=Assassin|类型=奖励|礼装=1}}职阶获得的牵绊值增加4%\n关卡通关时{{特攻|Assassin|link=Assassin|类型=奖励|礼装=1}}职阶获得的牵绊值增加20%[最大解放]",
+  "traits": [
+   "Assassin"
+  ],
+  "bond": [
+   {
+    "bonus": 4.0,
+    "scope": "party",
+    "mlb": false,
+    "supportBonus": null
+   },
+   {
+    "bonus": 20.0,
+    "scope": "party",
+    "mlb": true,
+    "supportBonus": null
+   }
+  ]
  },
  {
   "id": "91",
