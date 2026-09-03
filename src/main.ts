@@ -763,7 +763,7 @@ function renderTeam(r: OptimizeResult): string {
   const taggedCes: { ce: CeItem; tag: string }[] = [
     ...r.chosenCe.filter((c) => c.scope === "party").map((ce) => ({ ce, tag: "自己" })),
     ...(r.supportCe ? [{ ce: r.supportCe, tag: "助战" }] : []),
-    ...(r.supportCe2 ? [{ ce: r.supportCe2, tag: "冠位" }] : []),
+    ...(r.supportCe2 ? [{ ce: r.supportCe2, tag: "助战" }] : []),
   ];
   const appliesTo = (ce: CeItem, sv: ServantInfo) =>
     ce.traits.length === 0 || ce.traits.some((t) => servantMatchesTrait(sv, t));
@@ -828,7 +828,7 @@ function renderTeam(r: OptimizeResult): string {
 
   return `
     ${equippedHtml}
-    <div class="ce-legend"><span class="lg lg-own"><span class="dot"></span>自己</span><span class="lg lg-sup"><span class="dot"></span>助战</span><span class="lg lg-crown"><span class="dot"></span>冠位</span></div>
+    <div class="ce-legend"><span class="lg lg-own"><span class="dot"></span>自己</span><span class="lg lg-sup"><span class="dot"></span>助战</span></div>
     <div class="team">${teamHtml}</div>`;
 }
 
