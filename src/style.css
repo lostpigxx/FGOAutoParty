@@ -101,7 +101,6 @@ button {
 button:hover { border-color: var(--accent2); }
 button.mini { padding: 2px 8px; font-size: 12px; }
 .preset-row button { padding: 4px 12px; font-weight: 600; }
-#presetCrown { border-color: var(--accent2); }
 
 /* 计算队伍 (醒目) */
 .calc-row { margin-top: 4px; }
