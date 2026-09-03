@@ -762,7 +762,7 @@ function renderTeam(r: OptimizeResult): string {
   // 全队共享礼装 (带来源标签): 自己装备 + 助战 + 冠位
   const taggedCes: { ce: CeItem; tag: string }[] = [
     ...r.chosenCe.filter((c) => c.scope === "party").map((ce) => ({ ce, tag: "自己" })),
-    ...(r.supportCe ? [{ ce: r.supportCe, tag: "助战" }] : []),
+    ...(r.supportCe ? [{ ce: r.supportCe, tag: "常规助战" }] : []),
     ...(r.supportCe2 ? [{ ce: r.supportCe2, tag: "冠位" }] : []),
   ];
   const appliesTo = (ce: CeItem, sv: ServantInfo) =>
@@ -801,7 +801,7 @@ function renderTeam(r: OptimizeResult): string {
     const ce = r.support.ce;
     const ce2 = r.support2?.ce ?? null;
     teamHtml += `<div class="slot support-slot">
-      <div class="pos">助战位（好友${ce2 ? " ×2" : ""}，cost 不计入）</div>
+      <div class="pos">常规助战位（好友${ce2 ? " ×2" : ""}，cost 不计入）</div>
       <div class="ce">${ce ? `<img class="eq-thumb" src="data/ce-img/${encodeURIComponent(ce.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>① <span class="ce-name2">${esc(ce.name)}</span> ${esc(ce.label)} · cost ${ce.cost}<span class="sv-cost">（不计入）</span></span>` : "① 无礼装"}</div>
       ${ce2 ? `<div class="ce"><img class="eq-thumb" src="data/ce-img/${encodeURIComponent(ce2.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'" /> <span>② <span class="ce-name2">${esc(ce2.name)}</span> ${esc(ce2.label)} · cost ${ce2.cost}<span class="sv-cost">（不计入）</span></span></div>` : ""}
       <div class="bonus">效果已计入下方各从者加成</div>
@@ -880,9 +880,9 @@ function renderResult(results: OptimizeResult[], warnings: string[] = []) {
       <div class="summary-item"><div class="k">最优方案 · 全队总羁绊加成</div><div class="v good">+${r0.totalPct}%</div></div>
       <div class="summary-item"><div class="k">平均每人加成</div><div class="v">+${round(avg)}%</div></div>
     </div>
-    ${r0.support ? `<div class="notes">助战位（好友）的从者与礼装 Cost <strong>不计入</strong>你的 Cost 上限。</div>` : ""}
+    ${r0.support ? `<div class="notes">常规助战位（好友）的从者与礼装 Cost <strong>不计入</strong>你的 Cost 上限。</div>` : ""}
     ${results.length > 1 ? `<table class="compare-table">
-      <thead><tr><th>方案</th><th>全队加成</th><th>自己 Cost</th><th>助战礼装</th></tr></thead>
+      <thead><tr><th>方案</th><th>全队加成</th><th>自己 Cost</th><th>常规助战礼装</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>` : ""}
     ${details}`;
