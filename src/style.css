@@ -400,18 +400,11 @@ select.form-sel {
   color: var(--dim);
   line-height: 1.6;
 }
-/* 礼装来源: 颜色点 + 等宽短前缀 自/助/冠 */
-.bd { display: flex; align-items: center; gap: 6px; }
-.src-tag { display: inline-flex; align-items: center; gap: 5px; width: 46px; flex: none; }
-.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
-.bd-own .dot, .lg-own .dot { background: var(--good); }
-.bd-sup .dot, .lg-sup .dot { background: var(--accent2); }
-.ce-legend {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  font-size: 11px; color: var(--dim);
-  margin: 8px 0 2px;
-}
-.ce-legend .lg { display: inline-flex; align-items: center; gap: 5px; }
+/* 礼装来源: 前缀文字着色区分 (自己=绿 / 助战=蓝), 无圆点 */
+.bd { display: flex; align-items: baseline; gap: 8px; }
+.src-txt { min-width: 32px; flex: none; font-weight: 600; }
+.src-txt-own { color: var(--good); }
+.src-txt-sup { color: var(--accent2); }
 .slot .locked-tag { color: var(--accent); font-size: 11px; }
 
 .error-box {

@@ -783,7 +783,7 @@ function renderTeam(r: OptimizeResult): string {
       .filter(({ ce: c }) => appliesTo(c, displaySv))
       .map(
         ({ ce: c, tag }) =>
-          `<div class="bd bd-${srcCls[tag] ?? "own"}"><span class="src-tag"><span class="dot"></span>${tag}</span><span>${esc(c.name)} +${round(c.bonus)}%</span></div>`,
+          `<div class="bd"><span class="src-txt src-txt-${srcCls[tag] ?? "own"}">${tag}</span>${esc(c.name)} +${round(c.bonus)}%</div>`,
       )
       .join("");
     const formTip =
@@ -828,7 +828,6 @@ function renderTeam(r: OptimizeResult): string {
 
   return `
     ${equippedHtml}
-    <div class="ce-legend"><span class="lg lg-own"><span class="dot"></span>自己</span><span class="lg lg-sup"><span class="dot"></span>助战</span></div>
     <div class="team">${teamHtml}</div>`;
 }
 
