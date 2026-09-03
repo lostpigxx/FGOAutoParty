@@ -400,6 +400,18 @@ select.form-sel {
   color: var(--dim);
   line-height: 1.6;
 }
+/* 礼装来源颜色点: 自己(绿) / 助战(蓝) / 冠位(紫) */
+.bd { display: flex; align-items: center; gap: 6px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
+.bd-own .dot, .lg-own .dot { background: var(--good); }
+.bd-sup .dot, .lg-sup .dot { background: var(--accent2); }
+.bd-crown .dot, .lg-crown .dot { background: var(--rare4); }
+.ce-legend {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  font-size: 11px; color: var(--dim);
+  margin: 8px 0 2px;
+}
+.ce-legend .lg { display: inline-flex; align-items: center; gap: 5px; }
 .slot .locked-tag { color: var(--accent); font-size: 11px; }
 
 .error-box {
