@@ -253,8 +253,11 @@ function renderSupportOptions() {
 // 渲染: 职阶 / 特性筛选
 // ---------------------------------------------------------------------------
 
+// 职阶显示顺序 (游戏内顺序)
 const CLASS_ORDER = [
   "Saber", "Archer", "Lancer", "Rider", "Caster", "Assassin", "Berserker",
+  "Shielder", "Ruler", "Avenger", "MoonCancer", "Alterego", "Foreigner",
+  "Pretender", "Beast", "UnBeast",
 ];
 
 function renderClassChips() {
