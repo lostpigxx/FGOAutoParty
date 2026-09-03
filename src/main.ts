@@ -777,13 +777,14 @@ function renderTeam(r: OptimizeResult): string {
       if (i >= 0) displaySv = svSnapshots(sv)[i];
     }
     const badges = traitBadges(displaySv);
-    // 对该从者生效的礼装构成: 用颜色点区分来源 (自己绿/助战蓝/冠位紫), 不用文字前缀避免不对齐
+    // 对该从者生效的礼装构成: 颜色点 + 等宽短前缀 (自/助/冠) 区分来源, 行首对齐
     const srcCls: Record<string, string> = { 自己: "own", 助战: "sup", 冠位: "crown" };
+    const srcShort: Record<string, string> = { 自己: "自", 助战: "助", 冠位: "冠" };
     const parts = taggedCes
       .filter(({ ce: c }) => appliesTo(c, displaySv))
       .map(
         ({ ce: c, tag }) =>
-          `<div class="bd bd-${srcCls[tag] ?? "own"}"><span class="dot"></span>${esc(c.name)} +${round(c.bonus)}%</div>`,
+          `<div class="bd bd-${srcCls[tag] ?? "own"}"><span class="src-tag"><span class="dot"></span>${srcShort[tag] ?? "自"}</span><span>${esc(c.name)} +${round(c.bonus)}%</span></div>`,
       )
       .join("");
     const formTip =

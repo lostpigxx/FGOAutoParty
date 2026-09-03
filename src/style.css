@@ -400,8 +400,9 @@ select.form-sel {
   color: var(--dim);
   line-height: 1.6;
 }
-/* 礼装来源颜色点: 自己(绿) / 助战(蓝) / 冠位(紫) */
+/* 礼装来源: 颜色点 + 等宽短前缀 自/助/冠 */
 .bd { display: flex; align-items: center; gap: 6px; }
+.src-tag { display: inline-flex; align-items: center; gap: 4px; width: 30px; flex: none; }
 .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
 .bd-own .dot, .lg-own .dot { background: var(--good); }
 .bd-sup .dot, .lg-sup .dot { background: var(--accent2); }
